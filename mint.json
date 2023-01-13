@@ -1,0 +1,59 @@
+{
+  "name": "Monterey AI",
+  "favicon": "/images/favicon.svg",
+  "colors": {
+    "primary": "#434343",
+    "light": "#F8F8F8",
+    "dark": "#0F1116"
+  },
+  "topbarLinks": [
+    {
+      "name": "Home",
+      "url": "https://www.monterey.ai/"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Join Beta",
+    "url": "https://24el3iymjkr.typeform.com/to/iQVeIZ32"
+  },
+  "anchors": [
+    {
+      "name": "API Reference",
+      "icon": "rectangle-terminal",
+      "url": "api-reference"
+    },
+    {
+      "name": "Community",
+      "icon": "slack",
+      "url": "https://join.slack.com/t/monterey-ai/shared_invite/zt-1dj7m0gxf-aRxu23vqJ3PgbUuUK28u6A"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Home",
+      "pages": ["introduction", "development"]
+    },
+    {
+      "group": "Learn More",
+      "pages": ["features", "resources"]
+    },
+    {
+      "group": "API Documentation",
+      "pages": ["api-reference/authentication"]
+    },
+    {
+      "group": "Endpoint Examples",
+      "pages": [
+        "api-reference/endpoint/get",
+        "api-reference/endpoint/create",
+        "api-reference/endpoint/update",
+        "api-reference/endpoint/delete"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "twitter": "https://twitter.com/mintlify",
+    "github": "https://github.com/mintlify",
+    "linkedin": "https://www.linkedin.com/company/mintsearch"
+  }
+}
