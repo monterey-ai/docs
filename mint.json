@@ -26,16 +26,25 @@
       "name": "Community",
       "icon": "slack",
       "url": "https://join.slack.com/t/monterey-ai/shared_invite/zt-1dj7m0gxf-aRxu23vqJ3PgbUuUK28u6A"
+    },
+    {
+      "name": "Changelog",
+      "icon": "list",
+      "url": "api-reference"
     }
   ],
   "navigation": [
     {
       "group": "Home",
-      "pages": ["introduction", "development"]
+      "pages": ["introduction", "faq"]
     },
     {
-      "group": "Learn More",
-      "pages": ["features", "resources"]
+      "group": "Get Started",
+      "pages": ["workspace", "create-feedback"]
+    },
+        {
+      "group": "Integration",
+      "pages": ["asana", "intercom", "jira","linear","twitter"]
     },
     {
       "group": "API Documentation",
