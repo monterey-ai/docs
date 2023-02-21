@@ -1,5 +1,9 @@
 {
   "name": "Monterey AI",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
   "favicon": "/images/favicon.svg",
   "colors": {
     "primary": "#434343",
@@ -29,14 +33,14 @@
     },
     {
       "name": "Changelog",
-      "icon": "list",
-      "url": "api-reference"
+      "icon": "tower-broadcast",
+      "url": "changelog"
     }
   ],
   "navigation": [
     {
       "group": "Home",
-      "pages": ["introduction", "faq"]
+      "pages": ["introduction","get-started","methodology"]
     },
     {
       "group": "Get Started",
@@ -58,6 +62,10 @@
         "api-reference/endpoint/update",
         "api-reference/endpoint/delete"
       ]
+    },
+    {
+      "group": "changelog",
+      "pages": ["changelog/changelog"]
     }
   ],
   "footerSocials": {
