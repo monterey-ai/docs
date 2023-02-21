@@ -1,5 +1,9 @@
 {
   "name": "Monterey AI",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
   "favicon": "/images/favicon.svg",
   "colors": {
     "primary": "#434343",
@@ -26,16 +30,25 @@
       "name": "Community",
       "icon": "slack",
       "url": "https://join.slack.com/t/monterey-ai/shared_invite/zt-1dj7m0gxf-aRxu23vqJ3PgbUuUK28u6A"
+    },
+    {
+      "name": "Changelog",
+      "icon": "tower-broadcast",
+      "url": "changelog"
     }
   ],
   "navigation": [
     {
       "group": "Home",
-      "pages": ["introduction", "development"]
+      "pages": ["introduction","get-started","methodology"]
     },
     {
-      "group": "Learn More",
-      "pages": ["features", "resources"]
+      "group": "Get Started",
+      "pages": ["workspace", "create-feedback"]
+    },
+        {
+      "group": "Integration",
+      "pages": ["asana", "intercom", "jira","linear","twitter"]
     },
     {
       "group": "API Documentation",
@@ -49,6 +62,10 @@
         "api-reference/endpoint/update",
         "api-reference/endpoint/delete"
       ]
+    },
+    {
+      "group": "changelog",
+      "pages": ["changelog/changelog"]
     }
   ],
   "footerSocials": {
