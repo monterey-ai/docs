@@ -40,15 +40,27 @@
   "navigation": [
     {
       "group": "Home",
-      "pages": ["introduction","get-started","methodology"]
+      "pages": ["welcome","get-started","philosophy"]
     },
     {
-      "group": "Get Started",
-      "pages": ["workspace", "create-feedback"]
+      "group": "Create and collect",
+      "pages": ["local-upload", "chrome-extension", "create-from-slack", "ingest-from-discord", "create-from-intercom", "ingest-from-apple", "ingest-from-google", "ingest-from-twitter"]
     },
-        {
-      "group": "Integration",
-      "pages": ["asana", "intercom", "jira","linear","twitter"]
+    {
+      "group": "External facing",
+      "pages": ["welcome","get-started","philosophy"]
+    },
+    {
+      "group": "Feedback properties",
+      "pages": ["welcome","get-started","philosophy"]
+    },
+    {
+      "group": "Integrations",
+      "pages": ["welcome","get-started","philosophy"]
+    },
+    {
+      "group": "Smart insights",
+      "pages": ["welcome","get-started","philosophy"]
     },
     {
       "group": "API Documentation",
