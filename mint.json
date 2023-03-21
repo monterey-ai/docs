@@ -44,23 +44,15 @@
     },
     {
       "group": "Create and collect",
-      "pages": ["local-upload", "chrome-extension", "create-from-slack", "ingest-from-discord", "create-from-intercom", "ingest-from-apple", "ingest-from-google", "ingest-from-twitter"]
-    },
-    {
-      "group": "External facing",
-      "pages": ["welcome","get-started","philosophy"]
+      "pages": ["overview","local-upload", "chrome-extension", "create-from-slack", "ingest-from-discord", "create-from-intercom", "ingest-from-apple", "ingest-from-google", "ingest-from-twitter"]
     },
     {
       "group": "Feedback properties",
-      "pages": ["welcome","get-started","philosophy"]
-    },
-    {
-      "group": "Integrations",
-      "pages": ["welcome","get-started","philosophy"]
+      "pages": ["properties","triage","linear","asana","jira"]
     },
     {
       "group": "Smart insights",
-      "pages": ["welcome","get-started","philosophy"]
+      "pages": ["distribution","themes"]
     },
     {
       "group": "API Documentation",
@@ -81,8 +73,7 @@
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "twitter": "https://twitter.com/montereyai",
+    "linkedin": "https://www.linkedin.com/company/monterey-ai"
   }
 }
