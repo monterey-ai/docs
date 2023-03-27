@@ -50,25 +50,16 @@
       "group": "Feedback properties",
       "pages": ["properties","triage","linear","asana","jira"]
     },
-    {
-      "group": "Smart insights",
-      "pages": ["distribution","themes"]
-    },
+    // {
+    //   "group": "Smart insights",
+    //   "pages": ["distribution","themes"]
+    // },
     {
       "group": "API Documentation",
       "pages": ["api-reference/authentication"]
     },
     {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/update",
-        "api-reference/endpoint/delete"
-      ]
-    },
-    {
-      "group": "changelog",
+      "group": "Changelog",
       "pages": ["changelog/changelog"]
     }
   ],
