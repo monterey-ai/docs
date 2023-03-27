@@ -50,10 +50,6 @@
       "group": "Feedback properties",
       "pages": ["properties","triage","linear","asana","jira"]
     },
-    // {
-    //   "group": "Smart insights",
-    //   "pages": ["distribution","themes"]
-    // },
     {
       "group": "API Documentation",
       "pages": ["api-reference/authentication"]
