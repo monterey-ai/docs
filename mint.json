@@ -44,7 +44,11 @@
     },
     {
       "group": "Create and collect",
-      "pages": ["overview","local-upload","public-portal", "chrome-extension", "create-from-slack", "ingest-from-discord", "create-from-intercom", "ingest-from-apple", "ingest-from-google", "ingest-from-twitter"]
+      "pages": ["overview","local-upload","public-portal", "chrome-extension", "create-from-slack", "ingest-from-discord", "create-from-intercom", "ingest-from-apple", "ingest-from-google", "ingest-from-twitter","ingest-from-zapier"]
+    },
+    {
+      "group": "Feedback insights",
+      "pages": ["structured-reports","chat","reports"]
     },
     {
       "group": "Feedback properties",
