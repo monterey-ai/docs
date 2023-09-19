@@ -108,6 +108,8 @@ paths:
           application/json:
             schema:
               type: object
+              required:
+                - description
               properties:
                 title:
                   type: string
