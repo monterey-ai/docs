@@ -123,5 +123,5 @@
     "twitter": "https://twitter.com/montereyai",
     "linkedin": "https://www.linkedin.com/company/monterey-ai"
   },
-  "openapi": "./openapi.yaml"
+  "openapi": "openapi.yaml"
 }
