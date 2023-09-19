@@ -40,31 +40,88 @@
   "navigation": [
     {
       "group": "Home",
-      "pages": ["welcome","get-started","philosophy"]
+      "pages": [
+        "welcome",
+        "get-started",
+        "philosophy"
+      ]
     },
     {
       "group": "Create and collect",
-      "pages": ["overview","local-upload","public-portal", "chrome-extension", "create-from-slack", "ingest-from-discord", "create-from-intercom", "ingest-from-apple", "ingest-from-google", "ingest-from-twitter","ingest-from-zapier"]
+      "pages": [
+        "overview",
+        "local-upload",
+        "public-portal",
+        "chrome-extension",
+        "create-from-slack",
+        "ingest-from-discord",
+        "create-from-intercom",
+        "ingest-from-apple",
+        "ingest-from-google",
+        "ingest-from-twitter",
+        "ingest-from-zapier"
+      ]
     },
     {
       "group": "Feedback insights",
-      "pages": ["structured-reports","chat","reports"]
+      "pages": [
+        "structured-reports",
+        "chat",
+        "reports"
+      ]
     },
     {
       "group": "Feedback properties",
-      "pages": ["properties","triage","linear","asana","jira"]
+      "pages": [
+        "properties",
+        "triage",
+        "linear",
+        "asana",
+        "jira"
+      ]
     },
     {
-      "group": "API Documentation",
-      "pages": ["api-reference/authentication"]
+      "group": "API Reference",
+      "pages": [
+        {
+          "group": "Categories",
+          "pages": [
+            "api-reference/categories/get-a-list-of-feedback-categories"
+          ]
+        },
+        {
+          "group": "Customers",
+          "pages": [
+            "api-reference/customers/get-a-list-of-customers",
+            "api-reference/customers/create-a-new-customer"
+          ]
+        },
+        {
+          "group": "Feedback",
+          "pages": [
+            "api-reference/feedback/create-a-feedback-record"
+          ]
+        },
+        {
+          "group": "Projects",
+          "pages": [
+            "api-reference/projects/get-a-list-of-projects",
+            "api-reference/projects/create-a-new-project",
+            "api-reference/projects/update-a-project"
+          ]
+        }
+      ]
     },
     {
       "group": "Changelog",
-      "pages": ["changelog/changelog"]
+      "pages": [
+        "changelog/changelog"
+      ]
     }
   ],
   "footerSocials": {
     "twitter": "https://twitter.com/montereyai",
     "linkedin": "https://www.linkedin.com/company/monterey-ai"
-  }
+  },
+  "openapi": "./openapi.yaml"
 }

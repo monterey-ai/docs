@@ -1,0 +1,315 @@
+openapi: 3.0.1
+info:
+  title: Monterey AI API
+  version: 1.0.5
+servers:
+  - url: https://app.monterey.ai/api/v1
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    Feedback:
+      type: object
+      properties:
+        id:
+          type: string
+        description:
+          type: string
+        customerId:
+          type: string
+        projectId:
+          type: string
+        rating:
+          type: number
+        sourceId:
+          type: string
+        sourceData:
+          type: object
+    Customer:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+    Customers:
+      type: array
+      items:
+        $ref: "#/components/schemas/Customer"
+    FeedbackCategory:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+    FeedbackCategories:
+      type: array
+      items:
+        $ref: "#/components/schemas/FeedbackCategory"
+    AssociateExistingCustomer:
+      description: Used when associating to an existing, known customer
+      type: object
+      nullable: true
+      properties:
+        id:
+          type: string
+    FindOrCreateCustomer:
+      description: Used when associating to a new customer, or when not knowing the ID, for which it will be de-duplicated by the email field.
+      type: object
+      nullable: true
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+    Project:
+      description: A project response object
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+    Projects:
+      type: array
+      items:
+        $ref: "#/components/schemas/Project"
+    AssociateExistingProject:
+      description: Used when associating to an existing, known project
+      type: object
+      nullable: true
+      properties:
+        id:
+          type: string
+    FindOrCreateProject:
+      description: Used when associating to a new project, or when not knowing the ID, for which it will be de-duplicated by the name.
+      type: object
+      nullable: true
+      properties:
+        name:
+          type: string
+
+paths:
+  /feedbacks:
+    post:
+      summary: Create a new Feedback Record
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: The feedback title, when provided
+                  nullable: true
+                description:
+                  type: string
+                  description: The feedback content. Can be plain text or include basic HTML elements.
+                tags:
+                  description: A list of string tags to apply to the feedback. If excluded or null value provided, tags will be auto-generated based on description content.
+                  type: array
+                  items:
+                    type: string
+                  nullable: true
+                customer:
+                  description: The customer who provided the feedback
+                  oneOf:
+                    - $ref: "#/components/schemas/AssociateExistingCustomer"
+                    - $ref: "#/components/schemas/FindOrCreateCustomer"
+                project:
+                  description: The customer who provided the feedback
+                  oneOf:
+                    - $ref: "#/components/schemas/AssociateExistingProject"
+                    - $ref: "#/components/schemas/FindOrCreateProject"
+                  nullable: true
+                categoryId:
+                  type: string
+                  description: ID of FeedbackCategory to associate to
+                  nullable: true
+                source:
+                  type: string
+                  description: "Default: API (when excluded or provided as null"
+                  enum:
+                    [
+                      WEB
+                      CSV
+                      API
+                      SLACK
+                      TWITTER
+                      CHROME_EXTENSION
+                      INTERCOM
+                      GITHUB
+                      WIDGET
+                      PORTAL
+                      APP_STORE
+                      GOOGLE_PLAY
+                      DISCORD
+                      ZENDESK
+                      FRONT
+                      SALESFORCE
+                      ZAPIER
+                      HUBSPOT
+                      FANBOOK
+                      SALESFORCE_SERVICE_CLOUD
+                      ASANA
+                      API
+                    ]
+                  nullable: true
+                sourceId:
+                  type: string
+                  description: ID from source data for later consolidation or aggregation
+                  nullable: true
+                sourceData:
+                  type: object
+                  description: Dictionary to provide other key-value pairs such as the url, view identifier, or other information
+                  nullable: true
+                rating:
+                  type: number
+                  description: The numeric rating (1-5)
+                  nullable: true
+                priority:
+                  type: number
+                  description: The numeric priority (0-2), 0 being the highest, 2 being the lowest priority
+
+      responses:
+        201:
+          description: The feedback was created successfully
+          content:
+            application/json:
+              schema:
+                properties:
+                  feedback:
+                    $ref: "#/components/schemas/Feedback"
+
+  /customers:
+    get:
+      summary: Get a list of customers
+      security:
+        - BearerAuth: []
+      responses:
+        200:
+          description: An array of customer
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Customers"
+    post:
+      summary: Create a new customer
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - email
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                segments:
+                  description: A list of segment labels to apply to the customer
+                  type: array
+                  items:
+                    type: string
+      responses:
+        201:
+          description: The customer was created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Customer"
+
+  /projects:
+    get:
+      summary: Get a list of projects
+      security:
+        - BearerAuth: []
+      responses:
+        200:
+          description: An array of project objects
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Projects"
+    post:
+      summary: Create a new project
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+      responses:
+        201:
+          description: The project was created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Project"
+
+    put:
+      summary: Update a project
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - id
+              properties:
+                id:
+                  type: string
+                name:
+                  type: string
+                description:
+                  type: string
+      responses:
+        201:
+          description: The project was updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Project"
+
+  /feedbackCategories:
+    get:
+      summary: Get a list of feedback categories
+      security:
+        - BearerAuth: []
+      responses:
+        200:
+          description: An array of category objects
+          content:
+            application/json:
+              schema:
+                properties:
+                  feedbackCategories:
+                    $ref: "#/components/schemas/FeedbackCategories"
