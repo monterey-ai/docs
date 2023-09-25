@@ -51,6 +51,7 @@
       "pages": [
         "overview",
         "local-upload",
+        "widget",
         "public-portal",
         "chrome-extension",
         "create-from-slack",
