@@ -63,13 +63,13 @@
       "group": "Feedback",
       "pages": [
         "schema",
-        "search"
+        "feedback-search"
       ]
     },
     {
       "group": "Customers",
       "pages": [
-        "overview"      ]
+        "customer-overview"      ]
     },
     {
       "group": "Data Integrations",
@@ -89,7 +89,7 @@
         "themes",
         "ask-monty",
         "reports",
-        "alerts"
+        "alert"
       ]
     },
     {
@@ -105,7 +105,7 @@
     {
       "group": "Share",
       "pages": [
-        "Email"
+        "weekly-report"
       ]
     },
     {
