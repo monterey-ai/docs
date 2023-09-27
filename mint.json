@@ -69,7 +69,8 @@
     {
       "group": "Customers",
       "pages": [
-        "customer-overview"      ]
+        "customer-overview"
+      ]
     },
     {
       "group": "Data Integrations",
