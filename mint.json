@@ -42,18 +42,38 @@
       "group": "Home",
       "pages": [
         "welcome",
-        "get-started",
-        "philosophy"
+        "quickstart",
+        "philosophy",
+        "feedback"
       ]
     },
     {
       "group": "Create and collect",
       "pages": [
         "overview",
-        "local-upload",
+        "csv-upload",
         "widget",
         "public-portal",
         "chrome-extension",
+        "export",
+        "review-spam"
+      ]
+    },
+    {
+      "group": "Feedback",
+      "pages": [
+        "schema",
+        "search"
+      ]
+    },
+    {
+      "group": "Customers",
+      "pages": [
+        "overview"      ]
+    },
+    {
+      "group": "Data Integrations",
+      "pages": [
         "create-from-slack",
         "ingest-from-discord",
         "create-from-intercom",
@@ -66,9 +86,10 @@
     {
       "group": "Feedback insights",
       "pages": [
-        "structured-reports",
-        "chat",
-        "reports"
+        "themes",
+        "ask-monty",
+        "reports",
+        "alerts"
       ]
     },
     {
@@ -79,6 +100,12 @@
         "linear",
         "asana",
         "jira"
+      ]
+    },
+    {
+      "group": "Share",
+      "pages": [
+        "Email"
       ]
     },
     {
