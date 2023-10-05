@@ -81,7 +81,8 @@
         "ingest-from-apple",
         "ingest-from-google",
         "ingest-from-twitter",
-        "ingest-from-zapier"
+        "ingest-from-zapier",
+        "ingest-from-gong"
       ]
     },
     {
