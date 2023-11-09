@@ -52,14 +52,14 @@ components:
       items:
         $ref: "#/components/schemas/FeedbackCategory"
     AssociateExistingCustomer:
-      description: Used when associating to an existing, known customer
+      description: Used when associating to an existing, known customer, the `id` is the customer ID from Monterey. If the a customer with the provided ID does not exist, the feedback will not be associated to a customer.
       type: object
       nullable: true
       properties:
         id:
           type: string
     FindOrCreateCustomer:
-      description: Used when associating to a new customer, or when not knowing the ID, for which it will be de-duplicated by the email field.
+      description: Used when associating to a new customer, or when not knowing the ID, for which it will be de-duplicated by the email field. The `email` field can be any string, such as a valid email OR a unique identifier from your own system.
       type: object
       nullable: true
       properties:
@@ -142,8 +142,7 @@ paths:
                 source:
                   type: string
                   description: "Default: API (when excluded or provided as null"
-                  enum:
-                    [
+                  enum: [
                       WEB
                       CSV
                       API
@@ -165,7 +164,7 @@ paths:
                       FANBOOK
                       SALESFORCE_SERVICE_CLOUD
                       ASANA
-                      API
+                      API,
                     ]
                   nullable: true
                 sourceId:
