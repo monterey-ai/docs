@@ -63,18 +63,17 @@
       "pages": ["customer-overview"]
     },
     {
-      "group": "Data Sources",
+      "group": "Integrations",
       "pages": [
         "integrations/overview",
         {
-          "group": "Integrations",
+          "group": "Supported Platforms",
           "pages": [
             "integrations/slack",
             "integrations/discord",
             "integrations/intercom",
             "integrations/apple",
             "integrations/google",
-            "integrations/twitter",
             "integrations/zapier",
             "integrations/email",
             "integrations/gong",
