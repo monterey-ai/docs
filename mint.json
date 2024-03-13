@@ -14,25 +14,21 @@
     {
       "name": "Home",
       "url": "https://www.monterey.ai/"
+    },
+    {
+      "name": "Community",
+      "url": "https://join.slack.com/t/monterey-ai/shared_invite/zt-1dj7m0gxf-aRxu23vqJ3PgbUuUK28u6A"
     }
   ],
   "topbarCtaButton": {
     "name": "Join Beta",
     "url": "https://24el3iymjkr.typeform.com/to/iQVeIZ32"
   },
-  "anchors": [
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://join.slack.com/t/monterey-ai/shared_invite/zt-1dj7m0gxf-aRxu23vqJ3PgbUuUK28u6A"
-    },
-    {
-      "name": "Changelog",
-      "icon": "tower-broadcast",
-      "url": "changelog"
-    }
-  ],
   "tabs": [
+    {
+      "name": "Integrations",
+      "url": "integrations"
+    },
     {
       "name": "API Reference",
       "url": "api-reference"
@@ -64,24 +60,24 @@
       "pages": ["customer-overview"]
     },
     {
-      "group": "Integrations",
+      "group": "Support Integrations",
       "pages": [
-        "integrations/overview",
-        {
-          "group": "Supported Platforms",
-          "pages": [
-            "integrations/slack",
-            "integrations/discord",
-            "integrations/intercom",
-            "integrations/apple",
-            "integrations/google",
-            "integrations/zapier",
-            "integrations/email",
-            "integrations/gong",
-            "integrations/front"
-          ]
-        }
+        "integrations/intercom",
+        "integrations/gong",
+        "integrations/front"
       ]
+    },
+    {
+      "group": "Community Integrations",
+      "pages": ["integrations/slack", "integrations/discord"]
+    },
+    {
+      "group": "App Review Integrations",
+      "pages": ["integrations/apple", "integrations/google"]
+    },
+    {
+      "group": "Other Integrations",
+      "pages": ["integrations/email", "integrations/zapier"]
     },
     {
       "group": "Feedback insights",
