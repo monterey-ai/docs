@@ -40,12 +40,7 @@
   "navigation": [
     {
       "group": "Home",
-      "pages": [
-        "welcome",
-        "quickstart",
-        "philosophy",
-        "feedback"
-      ]
+      "pages": ["welcome", "quickstart", "philosophy", "feedback"]
     },
     {
       "group": "Create and collect",
@@ -61,21 +56,16 @@
     },
     {
       "group": "Feedback",
-      "pages": [
-        "schema",
-        "feedback-search"
-      ]
+      "pages": ["schema", "feedback-search"]
     },
     {
       "group": "Customers",
-      "pages": [
-        "customer-overview"
-      ]
+      "pages": ["customer-overview"]
     },
     {
       "group": "Data Integrations",
       "pages": [
-        "create-from-slack",
+        "slack",
         "ingest-from-discord",
         "create-from-intercom",
         "ingest-from-apple",
@@ -89,28 +79,15 @@
     },
     {
       "group": "Feedback insights",
-      "pages": [
-        "themes",
-        "ask-monty",
-        "reports",
-        "alert"
-      ]
+      "pages": ["themes", "ask-monty", "reports", "alert"]
     },
     {
       "group": "Feedback properties",
-      "pages": [
-        "properties",
-        "triage",
-        "linear",
-        "asana",
-        "jira"
-      ]
+      "pages": ["properties", "triage", "linear", "asana", "jira"]
     },
     {
       "group": "Share",
-      "pages": [
-        "weekly-report"
-      ]
+      "pages": ["weekly-report"]
     },
     {
       "group": "API Reference",
@@ -130,9 +107,7 @@
         },
         {
           "group": "Feedback",
-          "pages": [
-            "api-reference/feedback/create-a-feedback-record"
-          ]
+          "pages": ["api-reference/feedback/create-a-feedback-record"]
         },
         {
           "group": "Projects",
@@ -146,20 +121,22 @@
     },
     {
       "group": "Security",
-      "pages": [
-        "security/security-overview"
-      ]
+      "pages": ["security/security-overview"]
     },
     {
       "group": "Changelog",
-      "pages": [
-        "changelog/changelog"
-      ]
+      "pages": ["changelog/changelog"]
     }
   ],
   "footerSocials": {
     "twitter": "https://twitter.com/montereyai",
     "linkedin": "https://www.linkedin.com/company/monterey-ai"
   },
-  "openapi": "openapi.yaml"
+  "openapi": "openapi.yaml",
+  "redirects": [
+    {
+      "source": "/create-from-slack",
+      "destination": "/slack"
+    }
+  ]
 }
