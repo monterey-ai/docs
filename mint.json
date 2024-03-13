@@ -22,11 +22,6 @@
   },
   "anchors": [
     {
-      "name": "API Reference",
-      "icon": "rectangle-terminal",
-      "url": "api-reference"
-    },
-    {
       "name": "Community",
       "icon": "slack",
       "url": "https://join.slack.com/t/monterey-ai/shared_invite/zt-1dj7m0gxf-aRxu23vqJ3PgbUuUK28u6A"
@@ -35,6 +30,12 @@
       "name": "Changelog",
       "icon": "tower-broadcast",
       "url": "changelog"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "API Reference",
+      "url": "api-reference"
     }
   ],
   "navigation": [
