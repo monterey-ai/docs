@@ -60,20 +60,29 @@
       "pages": ["customer-overview"]
     },
     {
-      "group": "Support Integrations",
+      "group": "Support",
       "pages": [
+        "integrations/support",
         "integrations/intercom",
         "integrations/gong",
         "integrations/front"
       ]
     },
     {
-      "group": "Community Integrations",
-      "pages": ["integrations/slack", "integrations/discord"]
+      "group": "Community",
+      "pages": [
+        "integrations/community",
+        "integrations/slack",
+        "integrations/discord"
+      ]
     },
     {
-      "group": "App Review Integrations",
-      "pages": ["integrations/apple", "integrations/google"]
+      "group": "Apps",
+      "pages": [
+        "integrations/apps",
+        "integrations/apple",
+        "integrations/google"
+      ]
     },
     {
       "group": "Other Integrations",
