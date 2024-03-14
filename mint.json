@@ -14,38 +14,30 @@
     {
       "name": "Home",
       "url": "https://www.monterey.ai/"
-    }
-  ],
-  "topbarCtaButton": {
-    "name": "Join Beta",
-    "url": "https://24el3iymjkr.typeform.com/to/iQVeIZ32"
-  },
-  "anchors": [
-    {
-      "name": "API Reference",
-      "icon": "rectangle-terminal",
-      "url": "api-reference"
     },
     {
       "name": "Community",
-      "icon": "slack",
       "url": "https://join.slack.com/t/monterey-ai/shared_invite/zt-1dj7m0gxf-aRxu23vqJ3PgbUuUK28u6A"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Demo",
+    "url": "https://cal.com/chunonline/monterey-ai-book-demo"
+  },
+  "tabs": [
+    {
+      "name": "Integrations",
+      "url": "integrations"
     },
     {
-      "name": "Changelog",
-      "icon": "tower-broadcast",
-      "url": "changelog"
+      "name": "API Reference",
+      "url": "api-reference"
     }
   ],
   "navigation": [
     {
       "group": "Home",
-      "pages": [
-        "welcome",
-        "quickstart",
-        "philosophy",
-        "feedback"
-      ]
+      "pages": ["welcome", "quickstart", "philosophy", "feedback"]
     },
     {
       "group": "Create and collect",
@@ -61,56 +53,52 @@
     },
     {
       "group": "Feedback",
-      "pages": [
-        "schema",
-        "feedback-search"
-      ]
+      "pages": ["schema", "feedback-search"]
     },
     {
       "group": "Customers",
+      "pages": ["customer-overview"]
+    },
+    {
+      "group": "Support",
       "pages": [
-        "customer-overview"
+        "integrations/support",
+        "integrations/intercom",
+        "integrations/gong",
+        "integrations/front"
       ]
     },
     {
-      "group": "Data Integrations",
+      "group": "Community",
       "pages": [
-        "create-from-slack",
-        "ingest-from-discord",
-        "create-from-intercom",
-        "ingest-from-apple",
-        "ingest-from-google",
-        "ingest-from-twitter",
-        "ingest-from-zapier",
-        "ingest-email",
-        "ingest-from-gong",
-        "ingest-from-front"
+        "integrations/community",
+        "integrations/slack",
+        "integrations/discord"
       ]
+    },
+    {
+      "group": "Apps",
+      "pages": [
+        "integrations/apps",
+        "integrations/apple",
+        "integrations/google"
+      ]
+    },
+    {
+      "group": "Other Integrations",
+      "pages": ["integrations/email", "integrations/zapier"]
     },
     {
       "group": "Feedback insights",
-      "pages": [
-        "themes",
-        "ask-monty",
-        "reports",
-        "alert"
-      ]
+      "pages": ["themes", "ask-monty", "reports", "alert"]
     },
     {
       "group": "Feedback properties",
-      "pages": [
-        "properties",
-        "triage",
-        "linear",
-        "asana",
-        "jira"
-      ]
+      "pages": ["properties", "triage", "linear", "asana", "jira"]
     },
     {
       "group": "Share",
-      "pages": [
-        "weekly-report"
-      ]
+      "pages": ["weekly-report"]
     },
     {
       "group": "API Reference",
@@ -130,9 +118,7 @@
         },
         {
           "group": "Feedback",
-          "pages": [
-            "api-reference/feedback/create-a-feedback-record"
-          ]
+          "pages": ["api-reference/feedback/create-a-feedback-record"]
         },
         {
           "group": "Projects",
@@ -146,20 +132,58 @@
     },
     {
       "group": "Security",
-      "pages": [
-        "security/security-overview"
-      ]
+      "pages": ["security/security-overview"]
     },
     {
       "group": "Changelog",
-      "pages": [
-        "changelog/changelog"
-      ]
+      "pages": ["changelog/changelog"]
     }
   ],
   "footerSocials": {
     "twitter": "https://twitter.com/montereyai",
     "linkedin": "https://www.linkedin.com/company/monterey-ai"
   },
-  "openapi": "openapi.yaml"
+  "openapi": "openapi.yaml",
+  "redirects": [
+    {
+      "source": "/create-from-slack",
+      "destination": "/integrations/slack"
+    },
+    {
+      "source": "/ingest-from-discord",
+      "destination": "/integrations/discord"
+    },
+    {
+      "source": "/create-from-intercom",
+      "destination": "/integrations/intercom"
+    },
+    {
+      "source": "/ingest-from-apple",
+      "destination": "/integrations/apple"
+    },
+    {
+      "source": "/ingest-from-google",
+      "destination": "/integrations/google"
+    },
+    {
+      "source": "/ingest-from-twitter",
+      "destination": "/integrations"
+    },
+    {
+      "source": "/ingest-from-zapier",
+      "destination": "/integrations/zapier"
+    },
+    {
+      "source": "/ingest-email",
+      "destination": "/integrations/email"
+    },
+    {
+      "source": "/ingest-from-gong",
+      "destination": "/integrations/gong"
+    },
+    {
+      "source": "/ingest-from-front",
+      "destination": "/integrations/front"
+    }
+  ]
 }
