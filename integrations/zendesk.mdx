@@ -1,0 +1,45 @@
+---
+title: "Zendesk"
+description: "Ingest Zendesk Tickets"
+---
+
+### Overview
+
+Zendesk empowers businesses to build better customer relationships through its service platform. By connecting Monterey AI with Zendesk, you can go deeper, getting the insights your teams need to provide better service, support, and product.
+
+### Get Started
+
+You can find the Zendesk integration on your **[integration settings page](https://app.monterey.ai/w/default/settings/integrations/zendesk)**.
+
+A user with access to both Monterey AI as well as Zendesk will need to authorize the connection.
+
+1. Go to "Settings"
+2. Click "Integrations" in the navigation menu
+3. Click "Zendesk"
+4. Click "Connect"
+5. If necessary, log in to Zendesk using the appropriate account
+6. Review and approve the permissions requested
+7. Once confirmed, you will be returned to Monterey AI, where you can toggle on ticket ingestion
+8. [Optional] You can also enable each comment on the zendesk tickets to be ingested
+
+
+### Data Collected
+
+Once Monterey AI and Zendesk are connected successfully, data will be pulled from periodically. The first time Monterey AI loads data, it will look back 1 week. After that, it will ingest all new data up to your plan's feedback volume limit.
+
+Each ticket that is accessible will be ingested, such that the ticket and, if enabled, associated comments are analyzed and visible in Monterey AI.
+
+The following data attributes are loaded from Zendesk and utilized in Monterey AI for analysis:
+- Tickets
+  - Metadata (ID, created time, updated time, type, channel, other association IDs)
+  - Subject (text)
+  - Description (text)
+- Organizations (related to ingested tickets)
+  - Metadata (ID, created time, updated time)
+  - Domain
+  - Name
+  - Details (text)
+- Users (related to ingested tickets)
+  - Metadata (ID, created time, updated time)
+  - Name
+  - Email

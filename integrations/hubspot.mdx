@@ -1,0 +1,42 @@
+---
+title: "HubSpot"
+description: "Ingest HubSpot Closed-Won Opportunity Notes"
+---
+
+### Overview
+
+HubSpot unifies sales, marketing, and customer data on a single platform. Connect this data with Monterey AI to find more insights, and link feedback back to real customer value.
+
+### Get Started
+
+You can find the HubSpot integration on your **[integration settings page](https://app.monterey.ai/w/default/settings/integrations/hubspot)**.
+
+A user with access to both Monterey AI as well as HubSpot will need to authorize the connection.
+
+1. Go to "Settings"
+2. Click "Integrations" in the navigation menu
+3. Click "HubSpot"
+4. Click "Connect"
+5. If necessary, log in to HubSpot using the appropriate account
+6. Review and approve the permissions requested
+7. Once confirmed, you will be returned to Monterey AI, where you can toggle on ingestion of sales notes
+
+
+### Data Collected
+
+Once Monterey AI and HubSpot are connected successfully, data will be pulled from periodically. The first time Monterey AI loads data, it will look back 1 week. After that, it will ingest all new data up to your plan's feedback volume limit.
+
+Only notes from opportunities in the "Closed-Won" status will be ingested. This is to ensure that the feedback you receive is based on successful sales outcomes.
+
+The following data attributes are loaded from HubSpot and utilized in Monterey AI for analysis:
+- Notes
+  - Metadata (ID, created time, updated time)
+  - Body (text content)
+- Accounts
+  - Metadata (ID, created time, updated time)
+  - Name
+  - Description
+  - About Us
+  - Founded Year
+  - External Source
+  - Closed-won opportunity ARR

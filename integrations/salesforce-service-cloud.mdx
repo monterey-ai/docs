@@ -1,0 +1,52 @@
+---
+title: "Salesforce Service Cloud"
+description: "Ingest Salesforce Service Cloud Cases"
+---
+
+### Overview
+
+Salesforce Service Cloud empowers businesses to build better customer relationships through its service platform. By connecting Monterey AI with Salesforce Service Cloud, you can go deeper, getting the insights your teams need to provide better service, support, and product.
+
+### Get Started
+
+You can find the Salesforce Service Cloud integration on your **[integration settings page](https://app.monterey.ai/w/default/settings/integrations/salesforce)**.
+
+A user with access to both Monterey AI as well as Salesforce Service Cloud will need to authorize the connection.
+
+1. Go to "Settings"
+2. Click "Integrations" in the navigation menu
+3. Click "Salesforce"
+4. Click "Connect"
+5. If necessary, log in to Salesforce using the appropriate account
+6. Review and approve the permissions requested
+7. Once confirmed, you will be returned to Monterey AI, where you can toggle on case ingestion
+8. [Optional] You can also enable each comment on the salesforce cases to be ingested
+
+
+### Data Collected
+
+Once Monterey AI and Salesforce Service Cloud are connected successfully, data will be pulled from periodically. The first time Monterey AI loads data, it will look back 1 week. After that, it will ingest all new data up to your plan's feedback volume limit.
+
+Each case that is accessible will be ingested, such that the case and, if enabled, associated comments are analyzed and visible in Monterey AI.
+
+The following data attributes are loaded from Salesforce Service Cloud and utilized in Monterey AI for analysis:
+- Cases
+  - Metadata (ID, created time, updated time)
+  - Subject
+  - Description
+- Accounts (related to ingested cases)
+  - Metadata (ID, created time, updated time)
+  - Name
+  - Description
+  - Website
+  - Revenue
+  - Number of Employees
+  - Postal Code
+  - Country
+- Users (related to ingested cases)
+  - Metadata (ID, created time, updated time)
+  - Name
+  - Email
+  - Phone
+  - Mobile Phone
+  - Title

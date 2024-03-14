@@ -14,9 +14,12 @@ With the Monterey AI integration with Front, you can
 - Understand what are the commercial risks and opportunities
 - Summarize customer communications to actionable product insights
 
-### Authorization & Available Data
 
-Enabling the integration can be done in just a few steps, where you will Authorize Monterey AI to load data from Front, and then configure any additional controls on what will be loaded.
+### Get Started
+
+You can find the Front integration on your **[integration settings page](https://app.monterey.ai/w/default/settings/integrations/front)**.
+
+A user with access to both Monterey AI as well as Front will need to authorize the connection.
 
 1. Go to "Settings"
 2. Click "Integrations" in the navigation menu
@@ -24,6 +27,15 @@ Enabling the integration can be done in just a few steps, where you will Authori
 4. Click "Connect"
 5. If necessary, log in to Front using the appropriate account
 6. Review and approve the permissions requested
-7. Once confirmed, you will be returned to Monterey AI, and the integration will be enabled
+7. Once confirmed, you will be returned to Monterey AI, where you can toggle on conversation ingestion
 
-Data will be pulled from Front several times per day. Given this, you might not immediately see your latest conversations, however, rest assured that they will arrive soon.
+
+### Data Collected
+
+Once Monterey AI and Front are connected successfully, data will be pulled from Front periodically. The first time Monterey AI loads data, it will look back 1 week. After that, it will ingest all new data up to your plan's feedback volume limit.
+
+Each email thread that is accessible will be ingested, such that each message in the thread is viewable in Monterey. Only inbound messages will be analyzed for insights and other outputs in Monterey AI.
+
+When ingesting email threads, we collect the following data and attributes from the Front API:
+- Sender name and handle (e.g. email)
+- Message subject and body (text content)

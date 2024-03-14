@@ -65,7 +65,17 @@
         "integrations/support",
         "integrations/intercom",
         "integrations/gong",
-        "integrations/front"
+        "integrations/front",
+        "integrations/zendesk",
+        "integrations/salesforce-service-cloud"
+      ]
+    },
+    {
+      "group": "CRM",
+      "pages": [
+        "integrations/crm",
+        "integrations/salesforce",
+        "integrations/hubspot"
       ]
     },
     {
