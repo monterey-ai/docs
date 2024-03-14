@@ -143,5 +143,47 @@
     "twitter": "https://twitter.com/montereyai",
     "linkedin": "https://www.linkedin.com/company/monterey-ai"
   },
-  "openapi": "openapi.yaml"
+  "openapi": "openapi.yaml",
+  "redirects": [
+    {
+      "source": "/create-from-slack",
+      "destination": "/integrations/slack"
+    },
+    {
+      "source": "/ingest-from-discord",
+      "destination": "/integrations/discord"
+    },
+    {
+      "source": "/create-from-intercom",
+      "destination": "/integrations/intercom"
+    },
+    {
+      "source": "/ingest-from-apple",
+      "destination": "/integrations/apple"
+    },
+    {
+      "source": "/ingest-from-google",
+      "destination": "/integrations/google"
+    },
+    {
+      "source": "/ingest-from-twitter",
+      "destination": "/integrations"
+    },
+    {
+      "source": "/ingest-from-zapier",
+      "destination": "/integrations/zapier"
+    },
+    {
+      "source": "/ingest-email",
+      "destination": "/integrations/email"
+    },
+    {
+      "source": "/ingest-from-gong",
+      "destination": "/integrations/gong"
+    },
+    {
+      "source": "/ingest-from-front",
+      "destination": "/integrations/front"
+    }
+  ]
 }
