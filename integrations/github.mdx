@@ -1,0 +1,38 @@
+---
+title: "GitHub"
+description: "Ingest GitHub Issues"
+---
+
+### Overview
+
+GitHub empowers open source projects to share and improve projects and stay up to date on all the issues and requests users submit. Connect GitHub to Monterey AI to ingest your issues for analysis and insights.
+
+### Get Started
+
+You can find the GitHub integration on your **[integration settings page](https://app.monterey.ai/w/default/settings/integrations/github)**.
+
+A user with access to both Monterey AI as well as GitHub will need to authorize the connection.
+
+1. Go to "Settings"
+2. Click "Integrations" in the navigation menu
+3. Click "GitHub"
+4. Click "Connect"
+5. If necessary, log in to GitHub using the appropriate account
+6. Review and approve the permissions requested
+7. Once confirmed, you will be returned to Monterey AI, where you can toggle on ticket ingestion
+
+
+### Data Collected
+
+Once Monterey AI and GitHub are connected successfully, data will be pulled from periodically. The first time Monterey AI loads data, it will look back 1 week. After that, it will ingest all new data up to your plan's feedback volume limit.
+
+The following data attributes are loaded from GitHub and utilized in Monterey AI for analysis:
+- Issues
+  - Metadata (ID, created time, updated time, url)
+  - Title
+  - Body
+  - State
+  - Labels
+- Users (related to ingested tickets)
+  - Metadata (ID, created time, updated time, url)
+  - Login Username
