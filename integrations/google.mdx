@@ -7,8 +7,24 @@ description: "Ingest app reviews for analysis"
 
 ### Set up
 
-You can find the option to integrate Google Play Reviews in the **[integration setting page](https://app.monterey.ai/w/default/settings/integrations/)**. Open Google Play Reviews, then search for any app whose reviews you want to monitor. Select the app to add it. you can add multiple apps. Anyone who has access to your Monterey workspace can set up Google Play Reviews integration.
+You can navigate directly to **[integration setting page](https://app.monterey.ai/w/default/settings/integrations/google-play-reviews)** for Google Play reviews, or follow the instructions below.
 
-### Auto ingest feedback from App store
+1. Go to "Settings"
+2. Click "Integrations" in the navigation menu
+3. Click "Google Play Reviews"
+4. Select the country where the app is published
+5. Type the app name and select the appropriate one
 
-All reviews of the app will be auto-ingested into Monterey. The feedback will be auto-categorized. New reviews are fetched daily. You can also go to **[Google play reviews setting page](https://app.monterey.ai/w/default/settings/integrations/google-play-reviews)** to trigger the fetch manually.
+You can click "+ Add more" and select more apps to monitor, for cases when you publish to multiple countries or have multiple separate apps.
+
+### Data Collected
+
+After connecting an app, we will start by ingesting the most recent 500 reviews. After that, we will fetch all new reviews on an ongoing basis. This happens nightly.
+
+The attributes we collect from reviews are the following:
+- Metadata (ID, app ID, dates)
+- Title
+- Description
+- Rating
+- Username
+
