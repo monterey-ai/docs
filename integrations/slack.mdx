@@ -78,18 +78,31 @@ We route our notifications through filter criteria set up in [Views](https://app
 
 ### Create feedback from DM, channel, and thread
 
-![slack](https://monterey-documentation-gifs.s3.us-east-2.amazonaws.com/slack.gif)
-
 Create feedback directly in Slack by clicking on the three dots menu from a message. You will see a pop up window with pre-populated description field that is pulled from the message.
 
-**[Send feedback notifications from Monterey to Slack](/slack#send-feedback-notifications-from-monterey-to-slack)**
-
-In order to keep your team updated about new feedback, you can connect Monterey.ai to a specific Slack channel to get notifications when new feedback is received. If your workspace has high feedback volume, use caution when enabling notifications.
-
-**[Send weekly feedback reports from Monterey to Slack](/slack#send-weekly-feedback-reports-from-monterey-to-slack)**
-
-You can connect Monterey.ai to a specific Slack channel to get weekly feedback reports. These reports contain an interactive insight summary of all feedback you receive each week.
-
-**[User Access](/slack#user-access)**
+![slack](https://monterey-documentation-gifs.s3.us-east-2.amazonaws.com/slack.gif)
 
 Anyone who has the have the access to the specified Slack channel can create feedback from slack to Monterey AI even when they do not have Monterey access. Only Monterey teammates will be able to view feedback in Monterey.
+
+### Ask Monty
+
+Send a message mentioning `@Monterey` in any channel or direct message to start a conversation with Monty. Monty will gather data, provide insights, and generate charts, all within a conversation thread.
+
+### Ingest Conversations
+
+Once Monterey AI and Slack are connected successfully and you have [selected channels for ingestion](/integrations/slack#feedback-ingestion), data will be pulled from periodically. The first time Monterey AI loads data, it will look back 1 week. After that, it run every multiple times a day, up to hourly, depending on your subscription plan.
+
+#### Data Collected
+
+The following data attributes are loaded from Slack and utilized in Monterey AI for analysis:
+
+- Users
+  - Metadata (ID, created time, updated time)
+  - Email
+  - Name
+- Messages
+  - Metadata (ID, created time, updated time)
+  - Content
+- Channels
+  - Metadata (ID, created time, updated time)
+  - Name
