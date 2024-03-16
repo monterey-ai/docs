@@ -3,25 +3,52 @@ title: "Discord"
 description: "Integrate Monterey.ai with your Discord server."
 ---
 
-![intercom](/images/discord.png)
+![discord](/images/discord.png)
+
+### Overview
+
+Connect Monterey AI and Discord to extract signal from the noise in your community's conversations, finding feature requests, issues, and more.
 
 ### Set up
 
-You can find Discord integration on the [integration settings page](https://app.monterey.ai/w/default/settings/integrations/). Follow the instructions to connect your Discord account. You can connect multiple channels from one Discord account to Monterey.
+You can find Discord integration on the [integration settings page](https://app.monterey.ai/w/default/settings/integrations/discord). Follow the instructions to connect your Discord account. You can connect multiple channels from one Discord account to Monterey.
 Only admins of your Monterey workspace can set up Discord integration.
 
+<Steps>
+  <Step title='Go to the [Discord settings page](https://app.monterey.ai/w/default/settings/integrations/discord).' />
+  <Step title='Click the "Connect" button to connect your Discord account.' />
+  <Step title='Select the server from which you want to ingest message data.' />
+  <Step title='Select the channel(s) you want to ingest data from.' />
+  <Step title='Ensure "Read Messages" and "Read Message History" are checked' />
+  <Step title='Click "Authorize"' />
+  <Step title='Toggle on the channels from which you want to ingest message data' />
+</Steps>
+
+
+### Channel Access
 If you are not able to find the channel(s) you wish to ingest from, or the channel(s) are disabled in the Monterey settings page, follow the instructions below to ensure the bot has appropriate access to the channel(s).
 
-1. Invite "MontereyAI" to the channel you want to ingest data from (necessary if it is a private channel).
-2. Right-click on the channel and select "Edit Channel".
-3. Select the "Permissions" tab.
-4. Click the "+" button to add a new role.
-5. Name the role "MontereyAI" or another that is easy to identify and click "Create".
-6. Under "General Channel Permissions", enable "View Channel"
-7. Under "Text Channel Permissions", enable "Read Message History"
-8. Click "Save Changes"
+<Steps>
+  <Step title='Invite "MontereyAI" to the channel you want to ingest data from (necessary if it is a private channel).' />
+  <Step title='Right-click on the channel and select "Edit Channel".' />
+  <Step title='Select the "Permissions" tab.' />
+  <Step title='Click the "+" button to add a new role.' />
+  <Step title='Name the role "MontereyAI" or another that is easy to identify and click "Create".' />
+  <Step title='Under "General Channel Permissions", enable "View Channel"' />
+  <Step title='Under "Text Channel Permissions", enable "Read Message History"' />
+  <Step title='Click "Save Changes"' />
+</Steps>
 
-### Auto-ingested messages to feedbacks
+### Ingesting Messages
 
-Monterey will automatically retrieve messages from Discord channels on a daily basis, or you can manually fetch them anytime in the [Discord settings page](https://app.monterey.ai/w/default/settings/integrations/discord).
-If there is too much noise in your Discord channels, don't worry; our built-in auto-ingest feature will filter out spam messages from the message history for you.
+Monterey will periodically pull in the latest messages from Discord. You can also manually refresh to load in the latest data at the [Discord settings page](https://app.monterey.ai/w/default/settings/integrations/discord).
+
+The system will automatically run messages or groups of messages through spam filtering to try and sift out the signal from the noise among conversations. If you find the filtering is too aggressive, or not aggressive enough, reach out to us and [let us know](mailto:support@monterey.ai?subject=Monterey+Spam+Filtering+Sensitivity+Request). We can adjust the sensitivity for you.
+
+### Data Collected
+
+When ingesting messages, we collect the following data:
+- Metadata (Basic details such as the message ID, creation date, etc.)
+- Content (The text of the message)
+- Author (The ID and username of the message author)
+- Channel ID that the message was posted to
