@@ -57,6 +57,7 @@ components:
       nullable: true
       properties:
         id:
+          description: The Monterey AI ID of the customer
           type: string
     FindOrCreateCustomer:
       description: Used when associating to a new customer, or when not knowing the ID, for which it will be de-duplicated by the email field. The `email` field can be any string, such as a valid email OR a unique identifier from your own system.
@@ -67,6 +68,10 @@ components:
           type: string
         email:
           type: string
+        sourceData:
+          type: object
+          description: Dictionary to provide other key-value pairs such as the url, identifier, or other information
+          nullable: true
     Project:
       description: A project response object
       type: object
@@ -127,13 +132,13 @@ paths:
                 customer:
                   description: The customer who provided the feedback
                   oneOf:
-                    - $ref: "#/components/schemas/AssociateExistingCustomer"
                     - $ref: "#/components/schemas/FindOrCreateCustomer"
+                    - $ref: "#/components/schemas/AssociateExistingCustomer"
                 project:
                   description: The customer who provided the feedback
                   oneOf:
-                    - $ref: "#/components/schemas/AssociateExistingProject"
                     - $ref: "#/components/schemas/FindOrCreateProject"
+                    - $ref: "#/components/schemas/AssociateExistingProject"
                   nullable: true
                 categoryId:
                   type: string
