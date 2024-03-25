@@ -1,0 +1,51 @@
+---
+title: "Jira Service Management"
+description: "Ingest Jira Service Management Cases"
+---
+
+### Overview
+
+Jira Service Management empowers businesses to better support your customers its service desk platform. By connecting Monterey AI with Jira Service Management, you can go deeper, getting the insights your teams need to provide better service, support, and product.
+
+### Get Started
+
+You can find the Jira Service Management integration on your **[integration settings page](https://app.monterey.ai/w/default/settings/integrations/atlassian)**.
+
+A user with access to both Monterey AI as well as Jira Service Management will need to authorize the connection. The user will need to be a member of any service desks you wish to ingest data from, and will need to have permissions to search for issues in those service desks.
+
+<Steps>
+  <Steps title='Go to "Settings"' />
+  <Steps title='Click "Integrations" in the navigation menu' />
+  <Steps title='Click "Jira"' />
+  <Steps title='Click "Connect to Atlassian"' />
+  <Steps title='If necessary, log in to Atlassian using the appropriate account' />
+  <Steps title='Review and approve the permissions requested' />
+  <Steps title='Once confirmed, you will be returned to Monterey AI, where you can toggle on Service Management ingestion' />
+  <Steps title='AFter toggling on ingestion, select which service desks you would like to pull from' />
+</Steps>
+
+### Data Collected
+
+Once Monterey AI and Jira Service Management are connected successfully, data will be pulled from periodically. The first time Monterey AI loads data, it will look back 1 week. After that, it will ingest all new data up to your plan's feedback volume limit.
+
+Each request that is accessible will be ingested, such that the case and, if enabled, associated comments are analyzed and visible in Monterey AI.
+
+The following data attributes are loaded from Jira Service Management and utilized in Monterey AI for analysis:
+- Cases
+  - Metadata (ID, created time, updated time)
+  - Summary
+  - Description
+  - Tags
+  - Issue Key
+  - Assignee
+  - Status
+- Organizations (related to ingested cases)
+  - Metadata (ID, created time, updated time)
+  - Name
+- Users (related to ingested cases)
+  - Metadata (ID, created time, updated time)
+  - Name
+  - Email
+  - Account Type
+  - Active
+  - Time zone
