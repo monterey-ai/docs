@@ -64,6 +64,7 @@
       "pages": [
         "integrations/support",
         "integrations/intercom",
+        "integrations/github",
         "integrations/gong",
         "integrations/front",
         "integrations/zendesk",
