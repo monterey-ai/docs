@@ -67,7 +67,8 @@
         "integrations/gong",
         "integrations/front",
         "integrations/zendesk",
-        "integrations/salesforce-service-cloud"
+        "integrations/salesforce-service-cloud",
+        "integrations/jira-service-management"
       ]
     },
     {
