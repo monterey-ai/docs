@@ -5,13 +5,22 @@ description: "Welcome to Monterey AI, the copilot for product insights"
 
 We identify potential spam in advance, ensuring you're not wading through irrelevant input
 
-### What You'll See:
+## What You'll See When Reviewing:
 
 - **Source**: Where did the feedback originate?
 - **Customer**: Who provided this feedback?
 - **Description**: A brief summary of the feedback content.
 
-### Take Control with Actions:
+### Review Actions:
 
 - **Mark as Useful**: Found something that isn't spam? Simply single-click the green thumbs-up button. This moves the feedback to your inbox, marking it for further attention.
 - **Confirm as Spam**: If you determine a feedback is indeed spam, a double click on the red thumbs-down button hides it permanently, ensuring your workspace remains clutter-free.
+
+## What Will Happen Behind the Scenes
+
+Monterey's spam ingestion system is designed to optimize around individual workspaces as they grow and human labels are provided.
+For example, two workspaces may view topics around a subject like cryptocurrency very differently in terms of them being labeled as spam or not spam.
+As each of those workspaces ingest their feedback data, only a few human labeled spam designations (either from spam -> not spam or vice-versa) will be needed to allow our system to tune the spam classification's as needed per workspace.
+
+Additionally, over time our system is able to start predicting which feedback snippets are most ambiguous in whether they should be marked as spam.
+This will be reflected in the _Spam Review_ page where the most ambiguous feedback items will be ranked first for review, saving you and your team time by focusing on the feedback that matters most.
