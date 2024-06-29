@@ -1,0 +1,71 @@
+---
+title: "Kustomer"
+description: "Ingest Kustomer Conversations"
+---
+
+### Overview
+
+Kustomer is a customer service platform that helps businesses deliver exceptional customer service. By connecting Monterey AI with Kustomer, you can go deeper, getting the insights your teams need to provide better service, support, and product.
+
+### Requirements
+
+- You will require a Kustomer account on the Professional, Business, Enterprise, or Ultimate plan levels.
+- You will need a user in Kustomer with admin permissions.
+
+### Get Started
+
+First, you will need to generate an API key in Kustomer.com.
+
+<Steps>
+  <Step title='Go to "Settings"' />
+  <Step title='Click "Security" in the navigation menu' />
+  <Step title='Click "API Keys"' />
+  <Step title='Click "Add API Key"' />
+  <Step title='Enter "Monterey AI" for the "Name" attribute' />
+  <Step title="Apply the following roles for the API Key: `org.permission.conversation.read`, `org.permission.message.read`, `org.permission.customer.read`, and `org.permission.tag.read`." />
+  <Step title='Click "Create"' />
+  <Step title='Copy the generated "Token" value and save for later.' />
+</Steps>
+
+Now that you have an API key, you can find the Kustomer integration in Monterey at **[integration settings page](https://app.monterey.ai/w/default/settings/integrations/kustomer)**.
+Note that the link will take you to the first workspace you have access to, so you may need to change it using the Workspace selector at the top left of the screen.
+
+<Steps>
+  <Step title='Go to "Settings"' />
+  <Step title='Click "Integrations" in the navigation menu' />
+  <Step title='Click "Kustomer"' />
+  <Step title="Pase the API Key that you created in Kustomer" />
+  <Step title='Click "Save" and the system will validate the API key and confirm it has necessary roles.' />
+  <Step title="Once confirmed, you will be returned to Monterey AI, where you can toggle on ticket ingestion" />
+  <Step title="[Optional] You can also enable each comment on the Kustomer tickets to be ingested" />
+</Steps>
+
+### Data Collected
+
+Once Monterey AI and Kustomer are connected successfully, new conversations will be pulled in periodically. The first time Monterey AI loads data, it will look back 1 week. After that, it will ingest all new data up to your plan's feedback volume limit.
+
+Each conversation and associated messages that is accessible will be ingested.
+
+The following data attributes are loaded from Kustomer and utilized in Monterey AI for analysis:
+
+- Conversation Messages
+  - ID
+  - Created Time
+  - Updated Time
+  - Description (text, "preview" attribute)
+  - Status
+  - Channel
+  - App
+  - Direction
+- Customers
+  - ID
+  - Created Time
+  - Updated Time
+  - Name (or display name attribute)
+  - Email
+  - External ID
+  - Locale
+  - Gender
+  - Verified
+  - Timezone
+  - Rev
