@@ -174,12 +174,7 @@
     {
       "group": "Security",
       "pages": [
-        "security/security-overview"
-      ]
-    },
-    {
-      "group": "Security",
-      "pages": [
+        "security/security-overview",
         "security/sso"
       ]
     }
