@@ -1,0 +1,44 @@
+---
+title: 'SSO'
+description: 'SSO Setup for Customers'
+---
+
+This document provides a walk-through of how to turn on SSO for authentication for a customer. It is utilizing Okta via OIDC, but may be applicable to other providers that support OIDC as well. May work for others with tools like SAML, but not yet utilized or verified.
+
+All links below are to **production** resources, but there are corresponding Cognito pages for dev and staging, if testing.
+
+First, customer will need to go through steps like the following (Okta example).
+
+After that, they should have provided the necessary values to fill in to create the provider below.
+
+1. Create identity provider in AWS Cognito by navigating:
+    1. AWS Cognito
+    2. User Pools
+    3. prod-monterey-ai
+    4. “Sign-in experience” tab
+    5. "Federated identity provider sign-in” section
+2. Click “Add identity provider”
+3. Choose “OpenID Connect (OIDC)”
+4. Fill in the appropriate information
+    1. Our dev-okta test provider can be used as an example for what these values might look like, see: https://us-west-2.console.aws.amazon.com/cognito/v2/idp/user-pools/us-west-2_EDW3fMJu7/sign-in/identity-providers/details/dev-okta?region=us-west-2
+    2. Example screenshots below
+    ![sso1](/images/sso1.png)
+    ![sso2](/images/sso2.png)
+5. Now, go back to the previous page where you navigated to the “Sign-in experience” tab
+6. Navigate to the “App integration” tab
+7. In the “App clients and analytics” section, click the app client name (prod-web)
+8. In the “Hosted UI” section, click “Edit”
+    1. Add the identity provider created above (my-web-app-test)
+9. After the provider is created, all you should need now is the provider name, e.g. **`my-web-app-test`** from above and the domain of the users you want to push to SSO sign in, e.g. [`monterey.ai`](http://monterey.ai) and the workspace ID(s) to which this should apply
+10. Finally, you can add the `SsoIdentityProvider` records in the DB, running this once for each workspace ID
+```
+INSERT INTO SsoIdentityProvider (workspaceId, domain, identityProvider) VALUES ([workspaceId], [domain], [identityProvider]);
+
+-- e.g.
+INSERT INTO SsoIdentityProvider (workspaceId, domain, identityProvider) VALUES ('caoijdofiajdslkfj', 'monterey.ai', 'my-web-app-test')
+
+-- Force users of said email domain to log back in next time they visit the app
+WITH users_to_force_logout AS (
+  SELECT id FROM User where email like '%[domain]'
+)
+DELETE FROM Session WHERE userId IN (select id from users_to_force_logout)```
