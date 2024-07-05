@@ -178,9 +178,9 @@
       ]
     },
     {
-      "group": "Changelog",
+      "group": "Security",
       "pages": [
-        "changelog/changelog"
+        "security/sso"
       ]
     }
   ],

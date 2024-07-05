@@ -41,4 +41,4 @@ INSERT INTO SsoIdentityProvider (workspaceId, domain, identityProvider) VALUES (
 WITH users_to_force_logout AS (
   SELECT id FROM User where email like '%[domain]'
 )
-DELETE FROM Session WHERE userId IN (select id from users_to_force_logout)```
+DELETE FROM Session WHERE userId IN (select id from users_to_force_logout)
