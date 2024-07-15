@@ -1,0 +1,69 @@
+---
+title: "Freshdesk"
+description: "Ingest Freshdesk Tickets"
+---
+
+### Overview
+
+Freshdesk empowers businesses to build better customer relationships through its service platform. By connecting Monterey AI with Freshdesk, you can go deeper, getting the insights your teams need to provide better service, support, and product.
+
+### Get Started
+
+You can find the Freshdesk integration on your **[integration settings page](https://app.monterey.ai/w/default/settings/integrations/freshdesk)**.
+
+A user with access to both Monterey AI as well as Freshdesk will need to authorize the connection.
+
+<Steps>
+  <Step title='Go to "Settings"' />
+  <Step title='Click "Integrations" in the navigation menu' />
+  <Step title='Click "Freshdesk"' />
+  <Step title='Enter your subdomain, e.g. if your Freshdesk domain is "mycompany.freshdesk.com", enter "mycompany"' />
+  <Step title="Enter your API key, which can be found in your Freshdesk account settings">
+    You can utilize Freshdesk's documentation to help find your API key by visiting this link:
+    [https://support.freshdesk.com/support/solutions/articles/215517-how-to-find-your-api-key](https://support.freshdesk.com/support/solutions/articles/215517-how-to-find-your-api-key).
+  </Step>
+  <Step title="Once confirmed, you are complete.">
+    Monterey AI will begin ingesting your Freshdesk tickets periodically throughout the day. You can trigger a manual
+    refresh from the integration settings page.
+  </Step>
+</Steps>
+
+### Data Collected
+
+Once Monterey AI and Freshdesk are connected successfully, data will be pulled from periodically. The first time Monterey AI loads data, it will look back 1 week. After that, it will ingest all new data up to your plan's feedback volume limit.
+
+Each ticket that is accessible to the user who's API key is provided will be ingested going forward.
+
+The following data attributes are loaded from Freshdesk and utilized in Monterey AI for analysis:
+
+- Tickets
+  - Metadata (ID, created time, updated time, and other association IDs)
+    id: z.number(),
+  - Subject (text)
+  - Description (text)
+  - Tags
+  - Custom Fields
+- Companies (related to ingested tickets)
+  - Metadata (ID, created time, updated time)
+  - Name
+  - Description
+  - Account Tier
+  - Renewal Date
+  - Industry
+  - Domains
+  - Custom Fields
+- Contacts (related to ingested tickets)
+  - Metadata (ID, created time, updated time)
+  - Active
+  - Address
+  - Job Title
+  - Description
+  - Email
+  - Name
+  - Language
+  - Mobile
+  - Phone
+  - Time Zone
+  - Twitter ID
+  - Custom Fields
+  - Tags

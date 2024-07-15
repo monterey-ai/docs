@@ -75,9 +75,11 @@
         "integrations/support",
         "integrations/intercom",
         "integrations/github",
+        "integrations/gladly",
         "integrations/gong",
         "integrations/front",
         "integrations/zendesk",
+        "integrations/freshdesk",
         "integrations/salesforce-service-cloud",
         "integrations/jira-service-management",
         "integrations/kustomer"
