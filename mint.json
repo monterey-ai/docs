@@ -37,12 +37,7 @@
   "navigation": [
     {
       "group": "Home",
-      "pages": [
-        "welcome",
-        "quickstart",
-        "philosophy",
-        "feedback"
-      ]
+      "pages": ["welcome", "quickstart", "philosophy", "feedback"]
     },
     {
       "group": "Create and collect",
@@ -58,16 +53,11 @@
     },
     {
       "group": "Feedback",
-      "pages": [
-        "schema",
-        "feedback-search"
-      ]
+      "pages": ["schema", "feedback-search"]
     },
     {
       "group": "Customers",
-      "pages": [
-        "customer-overview"
-      ]
+      "pages": ["customer-overview"]
     },
     {
       "group": "Support",
@@ -111,35 +101,19 @@
     },
     {
       "group": "Other Integrations",
-      "pages": [
-        "integrations/email",
-        "integrations/zapier"
-      ]
+      "pages": ["integrations/email", "integrations/zapier"]
     },
     {
       "group": "Feedback insights",
-      "pages": [
-        "themes",
-        "ask-monty",
-        "reports",
-        "alert"
-      ]
+      "pages": ["themes", "ask-monty", "reports", "alert"]
     },
     {
       "group": "Feedback properties",
-      "pages": [
-        "properties",
-        "triage",
-        "linear",
-        "asana",
-        "jira"
-      ]
+      "pages": ["properties", "triage", "linear", "asana", "jira"]
     },
     {
       "group": "Share",
-      "pages": [
-        "weekly-report"
-      ]
+      "pages": ["weekly-report"]
     },
     {
       "group": "API Reference",
@@ -159,9 +133,7 @@
         },
         {
           "group": "Feedback",
-          "pages": [
-            "api-reference/feedback/create-a-feedback-record"
-          ]
+          "pages": ["api-reference/feedback/create-a-feedback-record"]
         },
         {
           "group": "Projects",
@@ -177,7 +149,8 @@
       "group": "Security",
       "pages": [
         "security/security-overview",
-        "security/sso"
+        "security/sso",
+        "security/signin-with-token"
       ]
     }
   ],
