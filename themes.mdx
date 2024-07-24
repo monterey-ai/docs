@@ -1,31 +1,71 @@
 ---
 title: "Themes"
-description: "Feedback categorized for easy analysis"
+description: "Feedback grouped by common themes for easy analysis"
 ---
-
-![structured-reports](/images/structured-reports.png)
 
 By systematically structuring feedback into these digestible chunks, Monterey ensures that every voice is heard and every insight is actionable
 
-### Intro
+![themes](/images/themes/list.png)
 
-Monterey’s structured report categorizes and groups feedback into similar types and themes. The report is updated automatically with new data weekly.
+# Intro
 
-### Snapshot of Feedback Categories
+The themes reports in Monterey AI provide a high-level overview of the most common topics and trends in your feedback data. Each theme is produced by grouping together data with some similar element(s) in the raw text content of the feedback. The report is designed to help you understand the most common themes in your feedback, so you can prioritize your product roadmap and make data-driven decisions.
 
-At a glance, view the total count of snippets received and delve deeper into the segmented numbers for feature requests, bug reports, questions, and appreciations. This offers a quick understanding of the kind of feedback coming your way.
+## Themes Reports
 
-### Top Themes Bar Chart
+By default, the system will create an ongoing report based on **all** of the feedback data in your workspace. This will be updated daily, if there is enough new volume since the last time it was updated.
 
-Visualize the pulse of your user feedback with a bar chart highlighting the top 5 prevalent themes. This graphical representation allows you to quickly discern which topics are most resonating with your user base.
+You can also create additional, one-time themes reports based on a specific subset of your feedback data. This can be useful if you want to focus on a specific product, feature, or customer segment. To do so, you can navigate to the Snippets list view, apply any filters you'd like, and then click the action menu and then "Create Report". This report will not automatically update, but can be refreshed as needed, if there is sufficient new data matching the reports' filters.
 
-### Detailed Theme Summaries
+<img height="100" src="/images/themes/list-view-create-report.png" />
 
-- **Theme Overviews**: For each identified theme, see a brief summary, the number of snippets associated with it, and the theme's percentage of the current category's total snippets.
-- **Interactivity**: Expand any theme to view the specific snippets that fall under it. This provides context and depth to each identified trend.
-- **Customizability**: Tailor the data to your needs! Edit the theme titles for pinpoint accuracy, delete irrelevant themes, or save crucial ones for easier future access.
+# Themes List
 
-### Filter
+The Themes List is the default view when you navigate to "Themes" via the navigation menu. This view shows you a list of themes, each with a brief description of the theme, the volume of feedback that matches the theme, the percentage of total feedback that matches the theme, and the average ARR change associated with the theme.
+
+Each theme you see contains feedback with some commonality. For example, if you see a theme called "Users requesting dark mode", it means that the feedback snippets in that theme mention dark mode, or something closely related.
+
+Sometimes themes can catch items that are not directly mentioned in the feedback, but are inferred by the system. For example, if you see a theme called "Users requesting dark mode", it could also contain feedback snippets that mention "night mode" or "light mode".
+
+Additionally, these themes by default are at a system-wide standard level of granularity. If you wish to customize this, you can reach out to the Monterey AI team at support@monterey.ai [support@monterey.ai](mailto:support@monterey.ai) and discuss your needs and work with us to tune this to them.
+
+### Categories
+
+Along the top of the Themes report page, you may see a list of category buttons next to "All snippets". These categories are a way to filter the themes by a specific category. When applying one of these filters, it will only show themes made up primarily of items matching that selected category. For example, you might have a theme like "Issues with logging in" which is likely made up primarily of Bug reports. This theme will show when "All snippets" is selected, or when "Bug reports" is selected, but _not_ when "Feature requests" is selected.
+
+### Other Filters
+
+There are a few other filters available to help you narrow down the themes you're looking at:
 
 - **Source**: Understand feedback trends from specific channels or platforms.
-- **Time**: Narrow down themes based on specific time frames, such as monthly or quarterly trends, to understand the evolving nature of user feedback.
+- **Date Range**: Narrow down themes based on specific time frames, such as monthly or quarterly trends, to understand the evolving nature of user feedback.
+
+When applying either of these filters, you may see the information in the list change, including the volume, % of total, average ARR change.
+
+### Trend Charts
+
+Each theme shown on the page includes a trend chart. This chart helps you see at a glance whether a theme has recent feedback matching it, as well as the direction it is trending in. So if the theme is new and growing, the bars in the chart would be getting larger as it goes towards the right side. However, perhaps you fixed some issue, you then should see a theme related to that issue decrease as time goes on.
+
+You can look back a bit further in time if needed, but clicking "90d" at the top, to see the last 90 days instead of the default, which is the last 30 days.
+
+You can sort the themes by volume or which has the most recent data to help further see what might be more pressing and relevant to your team.
+
+# Theme Details
+
+The Theme Details page is one level deeper, where you can view more information for a specific theme that you are interested in from the list view.
+
+### Summary
+
+The summary is a longer, AI generated description of the theme, which can help you understand the theme in more detail. This is generated by the system utilizing the feedback snippets that make up the theme and are also listed on this page.
+
+### Sentiment
+
+The sentiment chart shows the sentiment of the feedback snippets that make up the theme. This can help you understand if the theme is generally positive, negative, or neutral.
+
+### Snippets
+
+The snippets list shows you the individual feedback snippets that make up the theme. This can help you understand the specific feedback that is driving the theme.
+
+### Cohort
+
+The cohort chart shows you the list of customers who submitted feedback that matches the theme. This can help you understand which customers are most impacted by the theme and even utilize that cohort of users to reach out to for further feedback, surveys, or research.
