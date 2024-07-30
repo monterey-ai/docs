@@ -33,10 +33,6 @@
       "name": "API Reference",
       "url": "api-reference"
     },
-    {
-      "name": "AI Survey",
-      "url": "survey"
-    }
   ],
   "navigation": [
     {
@@ -57,13 +53,17 @@
     },
     {
       "group": "Chapter 2 Records",
-      "pages": ["snippets", "customer-overview"]
+      "pages": ["snippets", "customer-overview","properties"]
     },
     {
-      "group": "Other Functions",
-      "pages": ["feedback-search"]
+      "group": "Chapter 4 Workflows",
+      "pages": ["feedback-search","linear", "asana", "jira","weekly-report"]
     },
     {
+      "group": "Chapter 3 Feedback insights",
+      "pages": ["themes", "ask-monty", "reports", "alert", "triage"]
+    },
+       {
       "group": "Support",
       "pages": [
         "integrations/support",
@@ -106,18 +106,6 @@
     {
       "group": "Other Integrations",
       "pages": ["integrations/email", "integrations/zapier"]
-    },
-    {
-      "group": "Feedback insights",
-      "pages": ["themes", "ask-monty", "reports", "alert"]
-    },
-    {
-      "group": "Feedback properties",
-      "pages": ["properties", "triage", "linear", "asana", "jira"]
-    },
-    {
-      "group": "Share",
-      "pages": ["weekly-report"]
     },
     {
       "group": "API Reference",
