@@ -44,7 +44,7 @@
       "pages": ["welcome", "quickstart", "philosophy", "feedback"]
     },
     {
-      "group": "Create and collect",
+      "group": "Chapter 1 Aggregation",
       "pages": [
         "overview",
         "csv-upload",
