@@ -57,11 +57,11 @@
     },
     {
       "group": "Chapter 2 Records",
-      "pages": ["snippets", "feedback-search"]
+      "pages": ["snippets", "customer-overview"]
     },
     {
-      "group": "Customers",
-      "pages": ["customer-overview"]
+      "group": "Other Functions",
+      "pages": ["feedback-search"]
     },
     {
       "group": "Support",
