@@ -56,8 +56,8 @@
       ]
     },
     {
-      "group": "Feedback",
-      "pages": ["schema", "feedback-search"]
+      "group": "Chapter 2 Records",
+      "pages": ["snippets", "feedback-search"]
     },
     {
       "group": "Customers",
