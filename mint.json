@@ -63,7 +63,7 @@
       "group": "Chapter 3 Feedback insights",
       "pages": ["themes", "ask-monty", "reports", "alert", "triage"]
     },
-       {
+    {
       "group": "Support",
       "pages": [
         "integrations/support",
