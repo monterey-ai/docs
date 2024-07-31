@@ -3,7 +3,7 @@ title: "Snippets"
 description: "Welcome to Monterey AI, the copilot for product insights"
 ---
 
-
+![snippets](/images/snippets.png)
 ## Snippets and Feedbacks
 
 Turn feedback into actionable insights
@@ -12,32 +12,56 @@ Snippets are the distilled essence of the feedback we receive. These concise, ca
 
 With the power of our advanced AI model, each snippet displayed here has undergone a rigorous analysis to ensure relevance and clarity. But, for those moments when you wish to delve deeper, the original feedback text remains accessible, ensuring a comprehensive view.
 
-Discover the transformation of raw feedback into invaluable insights right here on the Snippets page.
-
-
-
-Dive deep into feedback with an array of features that offer both a bird’s-eye view and a microscopic look into every piece of data
-
 ### General Properties and Metadata
 
 - **General Properties**: Source, Content, Customer ID, and Created Time of the feedback
 - **Metadata**: URL, userUrl, product version, and userName of the feedback.
 
-### Feedback Categorization
+### Auto Category
 
-Feedbacks are auto-categorized by our AI into appreciation, bug, feature, and question. You can easily filter by selecting the desired category or change categories in the feedback detail window.
+Monterey automatically sorts feedback into bug, feature, question, and appreciation categories. If you think a different category is more appropriate for a particular piece of feedback, you can change it by clicking "Category" in the Feedback detail view. 
 
-If you are looking for custom categories, [contact us](mailto:support@monterey.ai)
+If you need additional custom categories, please contact us at support@monterey.ai to upgrade.
 
-### Project Management
+## Feedback
+Feedback is the unit in our app. Each feedback has an unique ID that we track internally and used to join data later.
+For each feedback, we provide the following fields:
 
-- **Feedback Properties**: Within the feedback details window, manage various project-related properties: Update status, set priorities, assign ownership, and add specific tags (e.g., user interface, data, API).
 
-  Go to **Settings → Feedbacks → Tags** to add custom tags**.** If you want to add tags for Monterey to automatically apply, [contact us](mailto:support@monterey.ai)
+### Description
 
-- **Actions**:
-  - **Documentation**: Link feedback to existing docs.
-  - **Email Generation**: Our AI assists in crafting a response, letting you directly open a draft in your email client.
-  - **Create engineering ticket**: Integrate with tools like Jira, Asana, or Linear.
-  - **Idea Generation**: Transform feedback into actionable ideas. (not online yet)
-  - **Maintenance**: Delete feedback or mark it as spam.
+Description holds the context of each feedback. This is where we will dive in with our models to identify the intent and context.
+You can easily fill in and edit the description in our UI.
+
+
+### Title (Optional)
+
+Title is only shown if the feedback comes from the public voting portal.
+
+
+### Customer
+
+Each feedback is tied to one customer, which could be your user, customer, or simply any person entity that raises feedback.
+Customer is also an important entity here - we will enhance each customer unit with the metadata that pulled from analytics / data tools to polish the profile of customer, so you know who the customer is, and what feedback they have raised.
+
+
+### Project areas
+
+Organize feedback into project areas based on larger initiatives or teams. You can customize these project areas in the [project areas page](https://app.monterey.ai/w/default/settings/project-areas). When you create a ticket from Intercom and others, you will be asked to select product areas. You can also edit this information at anytime in the Feedback detail view.
+
+
+### Tags
+
+Tags give you an extra level of categorization. Be careful when creating new tags. Feedback columns such as categories, priority, status, source, and project area should cover most of the attributes you care about in feedback. Tags should only be used if you need extra granularity. You can add and edit tags in the settings/tags page.
+
+
+### Priority
+
+You can assign a priority to a particular piece of feedback. There are three levels of priority you can choose from, high, medium and low. You can set the priority in the feedback detail View or configure it directly in the list of all feedback.
+
+
+### Progress
+
+Progress can help you keep track of feedback states. You can set up progress manually in feedback detail view or all feedback list. If feedback is submitted from a public feedback portal, the progress of the feedback will also be publicly visible on the Feedback Portal Roadmap view.
+
+

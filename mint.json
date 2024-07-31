@@ -37,31 +37,29 @@
   "navigation": [
     {
       "group": "Home",
-      "pages": ["welcome", "quickstart", "philosophy", "feedback"]
+      "pages": ["welcome", "quickstart", "philosophy"]
     },
     {
-      "group": "Chapter 1 Aggregation",
+      "group": "Chapter 1 Aggregation and Collect",
       "pages": [
         "overview",
         "csv-upload",
         "widget",
         "public-portal",
-        "chrome-extension",
-        "export",
-        "review-spam"
+        "chrome-extension"
       ]
     },
     {
       "group": "Chapter 2 Records",
-      "pages": ["snippets", "customer-overview","properties"]
-    },
-    {
-      "group": "Chapter 4 Workflows",
-      "pages": ["feedback-search","linear", "asana", "jira","weekly-report"]
+      "pages": ["snippets", "contacts","review-spam"]
     },
     {
       "group": "Chapter 3 Feedback insights",
-      "pages": ["themes", "ask-monty", "reports", "alert", "triage"]
+      "pages": ["themes", "ask-monty", "alert", "triage"]
+    },
+    {
+      "group": "Chapter 4 Workflows",
+      "pages": ["feedback-search","linear", "asana", "jira","weekly-report","export","project-management"]
     },
     {
       "group": "Support",
