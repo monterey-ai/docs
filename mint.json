@@ -51,7 +51,7 @@
     },
     {
       "group": "Chapter 2 Records",
-      "pages": ["snippets", "contacts","review-spam"]
+      "pages": ["snippets", "contacts", "review-spam"]
     },
     {
       "group": "Chapter 3 Feedback insights",
@@ -59,7 +59,15 @@
     },
     {
       "group": "Chapter 4 Workflows",
-      "pages": ["feedback-search","linear", "asana", "jira","weekly-report","export","project-management"]
+      "pages": [
+        "feedback-search",
+        "linear",
+        "asana",
+        "jira",
+        "weekly-report",
+        "export",
+        "project-management"
+      ]
     },
     {
       "group": "Support",
@@ -140,7 +148,8 @@
       "pages": [
         "security/security-overview",
         "security/sso",
-        "security/signin-with-token"
+        "security/signin-with-token",
+        "security/team-roles"
       ]
     }
   ],
