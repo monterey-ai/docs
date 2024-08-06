@@ -10,18 +10,17 @@ Delve deep into your feedback with "Ask Monty", an advanced GPT-4 enabled analys
 ### **Key Features**
 
 - **Ask Monty:** Directly ask Monty any query related to the feedback in your workspace.
-- **Save & Revisit**: Save crucial questions for easy future reference.
+- **Save & Revisit**: Save crucial questions for easy future reference. You can find them in your "History".
 - **Share Insights**: Generate a public link to share the question and its answer with others.
-- **Set Parameters**: Customize the data Monty considers by adjusting parameters like date range, contract value, sources, category, and metadata.
-- **Stay Updated**: Use the refresh action to ensure you're always working with the most recent feedback data.
-- **Citations**: Quickly access the feedback supplying insights.
+- **Set Parameters**: Customize the data Monty considers by adjusting parameters in the datasets such as date range, contract value, sources, category, and metadata.
+- **Citations**: Quickly access the feedback used by Monty in generating the response.
 - **Request Visuals**: Ask Monty to plot or visualize your requests to produce shareable visualizations and charts about your query. You can also chat with that visual later in your conversation!
 
 ### **Usage Guide**
 
 Ask Monty is Monterey AI's LLM enabled chat tool designed to extract deep insights from your feedback data.
 
-The conversation is started entering by enetering an initial query. This query will be used to generate the dataset(s) that will supply the entire message chain.
+The conversation is started entering by inputting an initial query. This query will be used to generate the dataset(s) that will supply the entire message chain.
 The datasets will be constructed via filters extracted from your query, and may include filters on the feedback creation date, category/project labels and metadata values.
 If you're query is applicable to multiple filter sets, you will turn recieve multiple datasets in response.
 
@@ -38,6 +37,10 @@ Once your datasets are confirmed, the Ask Monty engine determines the type of re
 
 - Text: the query is best answered via a text response (summarizations, qualitative comparisons, example finding, etc.)
 - Chart: the query is best answered via a chart visualization
+- Themes: the query is bested answered via clustering the data into a few key topics
+- Examples: the query is best answered via listing example feedback
+- User Story: the query is best answered via a generated user story
+- PRD: the query is best answered via a generated a draft product requirement document
 
 Monty will then return a response using the most applicable intent to answer the user query.
 
@@ -77,6 +80,6 @@ The values that can supply those charts include:
 
 ### Conversation Navigation
 
-- **Top Questions**: Get inspired or quickly access frequently asked questions.
-- **Recent Questions**: View your question history, ensuring you never lose track of previously sought insights.
+- **Example Questions**: Get inspired by example questions generated based on recent feedback. These are shown below the chat input on the main Ask Monty page.
+- **History**: View your question history, where you will see the recent conversations you had with Ask Monty.
 - **Saved Questions**: Keep important queries handy by saving them, so you can revisit or re-analyze them whenever you need.
