@@ -1,13 +1,106 @@
 ---
-title: "Public voting board"
-description: "Feedback board is a public page where users can create feedback posts and vote on feedback."
+title: "Portal"
+description: "The portal supports a public feedback collection mechanism, and a view to share your roadmap and progress"
 ---
 
 ![publicVoting](https://monterey-documentation-gifs.s3.us-east-2.amazonaws.com/publicVoting.gif)
 
-**Set up Public voting board**
+## Branding
 
-Go to **[Public voting board page](https://app.monterey.ai/w/default/settings/voting-board)** in Settings. Follow the guide to create your customized voting board with your domain name, company name, colors, and logos. Once you click “Create”, a new section called “Enable public voting board” will appear and be enabled. Under this section, there will be a button labeled “Go to voting board”. Clicking on this button will take you to your public voting board. This is a page that you can share with your users.
+Under "Tools" in your navigation menu, you will find the _Portal_ menu.
 
-**[Roadmap](/public-portal#roadmap)**
-Once a public voting board is created, a Roadmap view is automatically generated which allows users to track the progress of the public projects from the voting board. You can choose to enable or disable it at any time according to your needs.
+<Steps>
+  <Step title="Choose a subdomain">
+    Typically, this would be your company name!
+  </Step>
+  <Step title="[optional] Set the primary and secondary branding colors" />
+  <Step title="[optional] Enter a link to your company's logo" />
+  <Step title="Click 'Save'" />
+</Steps>
+
+## Roadmap
+
+To utiliize the roadmap, go back to the navigation menu, and choose "Roadmap" in the _Portal_ section.
+
+The roadmap allows you to share projects and their status with your customers.
+
+<Steps>
+  <Step title="Enable the toggle at the top of the page" />
+  <Step title="Add your first Roadmap item - Click '+ New Item'">
+    This can be as granular as you'd like. We often see customers use it at a
+    "project" or "feature" level, such that the items are meaningful to users,
+    and there aren't so many that it becomes overwhelming.
+  </Step>
+  <Step title="Enter the item details">
+    You can configure the title, description, status, labels, and author, as
+    well as a cover image!
+  </Step>
+  <Step title="Publish or save a Draft">
+    By default, the save button at the bottom right will save as a 'draft',
+    meaning it is only visibile internally and not to your users on the public
+    portal Roadmap view. If you are ready to publish it to the public, then you
+    can click the arrow on the button and switch to 'publish' mode. Don't worry,
+    you can delete the item, or convert it back to a draft later!
+  </Step>
+</Steps>
+
+**Commenting**
+When portal users comment on a roadmap item, that comment will become a Feedback record inside of Monterey AI, and become visible on the public portal feedback list.
+
+## Feedback Board
+
+To utilize the feedback board to provide your users with a way to provide feedback to you, go back to the navigation menu, and choose "Feedback board" in the _Portal_ section.
+
+Simply toggle "Enable Public Voting Board" and then you can utilize your portal link to share with customers, or link to from your own sites and apps.
+
+<img
+  width="100%"
+  src="./images/portal-feedback-list.png"
+  alt="Portal 'Public Feedback' List View"
+/>
+
+### Feedback Tracking
+
+There is an additional option here - "Feedback Tracking" that can be enabled. This will allow users to view feedback submitted to your Monterey AI workspace from **any** source by them, or users in the same organization.
+
+This can be useful if you wish to allow users from a given company to understand what has already been asked or requested by them and their teammates. Only users who have signed in with a work email will be able to access the additional views here. For example, users with "@gmail.com" will not have access, but users with "@company-name.com" will!
+
+Note that these views will show the feedback content (title & description), who posted the feedback, and when. They will also be able to comment on this feedback.
+
+The following screenshot shows how the list of feedback submitted by the logged in users team will appear.
+
+<img
+  width="100%"
+  src="./images/portal-team-feedback-list.png"
+  alt="Portal 'Team Feedback' List View"
+/>
+
+This next screenshot shows how one of those individual items from the list view above will appear.
+
+<img
+  width="100%"
+  src="./images/portal-team-feedback-item.png"
+  alt="Portal 'Team Feedback' Individual Item View"
+/>
+
+## Comments on Portal Feedback
+
+After users have submitted feedback to the Feedback board or on a Roadmap item, comments may be made on that feedback, both by public users, as well as users internal to your team.
+
+Comments made to the Monterey AI internal app view will be private by default, and not displayed publicly. They can be optionally made public, if desired to reply to the external users.
+
+When viewed in the internal view of Monterey, that your team has access to, you can see both public and private comments.
+
+<img
+  width="100%"
+  src="./images/portal-feedback-internal-comment-view.png"
+  alt="Internal view of comment on portal feedback"
+/>
+
+When viewing on the portal, only public comments will be displayed.
+
+<img
+  width="100%"
+  src="./images/portal-feedback-public-comment-view.png"
+  alt="External / Portal view of comment on portal feedback"
+/>
