@@ -149,7 +149,8 @@
         "security/security-overview",
         "security/sso",
         "security/signin-with-token",
-        "security/team-roles"
+        "security/team-roles",
+        "security/pii"
       ]
     }
   ],
