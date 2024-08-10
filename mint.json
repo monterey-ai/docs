@@ -44,6 +44,7 @@
       "pages": [
         "overview",
         "csv-upload",
+        "survey",
         "widget",
         "public-portal",
         "chrome-extension"
@@ -108,6 +109,10 @@
         "integrations/apple",
         "integrations/google"
       ]
+    },
+    {
+      "group": "Survey",
+      "pages": ["integrations/typeform"]
     },
     {
       "group": "Other Integrations",

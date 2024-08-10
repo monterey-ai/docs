@@ -1,0 +1,37 @@
+---
+title: "Survey"
+description: "Add data from any supported Survey Provider, upload a Survey CSV, or Create a Monterey Survey!"
+---
+
+## Third Party Integrations
+
+Monterey currently only supports **Typeform**, but is looking to add additional integrations in the near future. If you have a specific one you really want, please request access through the portal or email **[tejas@monterey.ai](mailto:tejas@monterey.ai)**.
+
+**How is Feedback created from Surveys?**
+
+1. **Pick your surveys-** We query your provider for all available surveys and you pick which to import.
+2. **Data vs Metadata -** We categorize responses based on question type and segment it into feedback vs metadata.
+3. **Synthesize -** By combining the question with the answer, our AI contextualizes insights for each response.
+4. **Group -** We link feedback responses by a single user together for easy navigation.
+5. **Schedule -** Finally, we set up a recurring job to get new data every day from all enabled surveys.
+
+![typeform-select](/images/typeform-select.png)
+
+## Arbitrary CSVs / Lists
+
+If you need to import from another providor now, we also accept uploading data through FlatFile.
+
+**Steps to Import From CSV:**
+
+- **Select Your File**: Upload your .CSV, .XLSX, or other compatible file types.
+- **Optional Data Points**: Enhance your feedback records with optional columns such as 'Created At', 'Customer Name', and 'Customer Email'. If you're including 'Customer Name', make sure to pair it with 'Customer Email'. Use semicolons (;) to separate multiple tags in the 'Tags' column.
+- **Column Reassignment**: If your column headers don’t exactly match our requirements, fret not! You'll have the opportunity to reassign and map them in the subsequent step.
+- **Ensure Correct Shape**: Each survey question/answer column should be mapped to "Question X" and "Answer X". This is essential for our system to process your feedback.
+
+If you have extra columns that you want to bring to Monterey, contact us at  **[tejas@monterey.ai](mailto:tejas@monterey.ai)**.
+
+## Monterey Surveys
+
+One feature we're proud to support is the creation of guided AI surveys directly through Monterey. Simply write a prompt describing the kind of problem you're looking to solve and Monty will lay out a survey template with questions pre-populated and the best contacts to send to picked out for you.
+
+![monterey-survey-example](/images/monty-survey.png)
