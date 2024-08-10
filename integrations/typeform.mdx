@@ -1,0 +1,44 @@
+---
+title: "Typeform"
+description: "Ingest Typeform survey results to Monterey for consolidation and analysis"
+---
+
+![typeform-select](/images/typeform-select.png)
+
+### Overview
+
+The integration with Typeform is a great way to get product insights with and from your survey results. With the integration, your team can:
+
+- Finally make sense of non-categorical survey results
+- Surface correlations between ratings and open-ended responses
+- Understand trends of user sentiment across survey results
+
+### Get Started
+
+You can find the Typeform integration on your **[integration settings page](https://app.monterey.ai/w/default/settings/integrations/Typeform)**.
+
+A user with access to both Monterey AI as well as Typeform will need to authorize the connection.
+
+<Steps>
+  <Step title='Go to "Settings"' />
+  <Step title='Click "Integrations" in the navigation menu' />
+  <Step title='Click "Typeform"' />
+  <Step title='Click "Connect"' />
+  <Step title="If necessary, log in to Typeform using the appropriate account" />
+  <Step title="Review and approve the permissions requested" />
+  <Step title="Once confirmed, you will be returned to Monterey AI, where you can toggle on survey ingestion" />
+</Steps>
+
+### Ingest Responses
+
+Once Monterey AI is authorized to access Typeform on your behalf, you can enable a setting on the **[integration settings page](https://app.monterey.ai/w/default/settings/integrations/Typeform)** to have Monterey ingest new results data regularly. This process will run daily.
+
+Initially, we will pull conversations ALL existing survey responses and then load new ones on an ongoing basis. Each response will be loaded into Monterey AI, however, only text / multiple choice responses will generate feedback. The remaining data will be appended as metadata and still filterable on
+
+#### Data Collected
+
+When ingesting surveys, we collect the following data and attributes from the Typeform API:
+
+- Survey Metadata (Basic details such as the Survey id, name, type, creation time, etc.)
+- Question information (Question id, name, ref, etc.)
+- Response content (Response id, type, values, etc.)
