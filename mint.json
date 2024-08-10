@@ -111,6 +111,10 @@
       ]
     },
     {
+      "group": "Survey",
+      "pages": ["integrations/typeform"]
+    },
+    {
       "group": "Other Integrations",
       "pages": ["integrations/email", "integrations/zapier"]
     },
