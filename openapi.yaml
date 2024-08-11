@@ -135,7 +135,7 @@ paths:
                     - $ref: "#/components/schemas/FindOrCreateCustomer"
                     - $ref: "#/components/schemas/AssociateExistingCustomer"
                 project:
-                  description: The customer who provided the feedback
+                  description: The project to which the feedback should be associated
                   oneOf:
                     - $ref: "#/components/schemas/FindOrCreateProject"
                     - $ref: "#/components/schemas/AssociateExistingProject"
