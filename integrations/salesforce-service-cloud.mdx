@@ -18,10 +18,10 @@ A user with access to both Monterey AI as well as Salesforce Service Cloud will 
   <Steps title='Click "Integrations" in the navigation menu' />
   <Steps title='Click "Salesforce"' />
   <Steps title='Click "Connect"' />
-  <Steps title='If necessary, log in to Salesforce using the appropriate account' />
-  <Steps title='Review and approve the permissions requested' />
-  <Steps title='Once confirmed, you will be returned to Monterey AI, where you can toggle on case ingestion' />
-  <Steps title='[Optional] You can also enable each comment on the salesforce cases to be ingested' />
+  <Steps title="If necessary, log in to Salesforce using the appropriate account" />
+  <Steps title="Review and approve the permissions requested" />
+  <Steps title="Once confirmed, you will be returned to Monterey AI, where you can toggle on case ingestion" />
+  <Steps title="[Optional] You can also enable each comment on the salesforce cases to be ingested" />
 </Steps>
 
 ### Data Collected
@@ -30,24 +30,40 @@ Once Monterey AI and Salesforce Service Cloud are connected successfully, data w
 
 Each case that is accessible will be ingested, such that the case and, if enabled, associated comments are analyzed and visible in Monterey AI.
 
-The following data attributes are loaded from Salesforce Service Cloud and utilized in Monterey AI for analysis:
-- Cases
-  - Metadata (ID, created time, updated time)
-  - Subject
-  - Description
-- Accounts (related to ingested cases)
-  - Metadata (ID, created time, updated time)
-  - Name
-  - Description
-  - Website
-  - Revenue
-  - Number of Employees
-  - Postal Code
-  - Country
-- Users (related to ingested cases)
-  - Metadata (ID, created time, updated time)
-  - Name
-  - Email
-  - Phone
-  - Mobile Phone
-  - Title
+The following table describes how data is mapped from Salesforce into Monterey AI.
+
+| Salesforce Object | Salesforce Field              | Monterey AI Object | Monterey AI Field | Note                                                                                                  |
+| ----------------- | ----------------------------- | ------------------ | ----------------- | ----------------------------------------------------------------------------------------------------- |
+| Case              | Subject                       | Feedback           | Title             |
+| Case              | Description                   | Feedback           | Description       |
+| Case              | CaseNumber                    | Feedback           | Source ID         |
+| Case              | CreatedDate                   | Feedback           | Created At        |
+| Case              | LastModifiedDate              | Feedback           | Updated At        |
+| Case              | ClosedDate                    | Feedback           | metadata          |
+| Case              | IsClosed                      | Feedback           | metadata          |
+| Case              | IsDeleted                     | Feedback           | metadata          |
+| Case              | Origin                        | Feedback           | metadata          |
+| Case              | OwnerId                       | Feedback           | metadata          |
+| Case              | ParentId                      | Feedback           | metadata          |
+| Case              | Priority                      | Feedback           | metadata          |
+| Case              | Reason                        | Feedback           | metadata          |
+| Case              | Status Revenue                | Feedback           | metadata          |
+| Case              | Type                          | Feedback           | metadata          |
+| Contact           | ID                            | Customer           | externalId        |
+| Contact           | Email                         | Customer           | email             |
+| Contact           | Name                          | Customer           | name              |
+| Contact           | Phone                         | Customer           | metadata          |
+| Contact           | MobilePhone                   | Customer           | metadata          |
+| Contact           | Title                         | Customer           | metadata          |
+| Contact           | CreatedDate                   | Customer           | Created At        |
+| Contact           | LastModifiedDate              | Customer           | Updated At        |
+| Account           | Name                          | Account            | Name              |
+| Account           | Description                   | Account            | Description       |
+| Account           | CreatedDate                   | Account            | Created At        |
+| Account           | LastModifiedDate              | Account            | Updated At        |
+| Account           | Website                       | Account            | domain            |
+| Account           | Annual Revenue                | Account            | metadata          |
+| Account           | Number of Employees           | Account            | metadata          |
+| Account           | Billing Postal Code Employees | Account            | metadata          |
+| Account           | Billing Country               | Account            | metadata          |
+| Opportunity       | SUM of Amount                 | Account            | contractValue     | Sum of the Amount field from all "Closed Won" opportunities associated with the corresponding Account |
