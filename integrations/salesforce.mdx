@@ -18,29 +18,32 @@ A user with access to both Monterey AI as well as Salesforce will need to author
   <Step title='Click "Integrations" in the navigation menu' />
   <Step title='Click "Salesforce"' />
   <Step title='Click "Connect"' />
-  <Step title='If necessary, log in to Salesforce using the appropriate account' />
-  <Step title='Review and approve the permissions requested' />
-  <Step title='Once confirmed, you will be returned to Monterey AI, where you can toggle on ingestion of sales notes' />
+  <Step title="If necessary, log in to Salesforce using the appropriate account" />
+  <Step title="Review and approve the permissions requested" />
+  <Step title="Once confirmed, you will be returned to Monterey AI, where you can toggle on ingestion of sales notes" />
 </Steps>
-
 
 ### Data Collected
 
 Once Monterey AI and Salesforce are connected successfully, data will be pulled from periodically. The first time Monterey AI loads data, it will look back 1 week. After that, it will ingest all new data up to your plan's feedback volume limit.
 
-Only notes from opportunities in the "Closed-Won" status will be ingested. This is to ensure that the feedback you receive is based on successful sales outcomes.
+Only notes from opportunities in the "Closed-Won" status will be ingested. This is to ensure that the feedback you receive is based on successful sales outcomes and actual paying customers.
 
-The following data attributes are loaded from Salesforce and utilized in Monterey AI for analysis:
-- Notes
-  - Metadata (ID, created time, updated time)
-  - Title
-  - Content
-- Accounts
-  - Metadata (ID, created time, updated time)
-  - Name
-  - Description
-  - Website
-  - Revenue
-  - Number of Employees
-  - Postal Code
-  - Country
+The following table describes how data is mapped from Salesforce into Monterey AI.
+
+| Salesforce Object | Salesforce Field              | Monterey AI Object | Monterey AI Field | Note                                                                                                  |
+| ----------------- | ----------------------------- | ------------------ | ----------------- | ----------------------------------------------------------------------------------------------------- |
+| Note              | Title                         | Feedback           | Title             |
+| Note              | Body                          | Feedback           | Description       |
+| Note              | CreatedDate                   | Feedback           | Created At        |
+| Note              | LastModifiedDate              | Feedback           | Updated At        |
+| Account           | Name                          | Account            | Name              |
+| Account           | Description                   | Account            | Description       |
+| Account           | CreatedDate                   | Account            | Created At        |
+| Account           | LastModifiedDate              | Account            | Updated At        |
+| Account           | Website                       | Account            | domain            |
+| Account           | Annual Revenue                | Account            | metadata          |
+| Account           | Number of Employees           | Account            | metadata          |
+| Account           | Billing Postal Code Employees | Account            | metadata          |
+| Account           | Billing Country               | Account            | metadata          |
+| Opportunity       | SUM of Amount                 | Account            | contractValue     | Sum of the Amount field from all "Closed Won" opportunities associated with the corresponding Account |
