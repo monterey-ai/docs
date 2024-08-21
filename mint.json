@@ -40,7 +40,7 @@
       "pages": ["welcome", "quickstart", "philosophy"]
     },
     {
-      "group": "Chapter 1 Aggregation and Collect",
+      "group": "Aggregation and Collect",
       "pages": [
         "overview",
         "csv-upload",
@@ -51,15 +51,15 @@
       ]
     },
     {
-      "group": "Chapter 2 Records",
+      "group": "Records",
       "pages": ["snippets", "contacts", "review-spam"]
     },
     {
-      "group": "Chapter 3 Feedback insights",
-      "pages": ["themes", "ask-monty", "alert", "triage"]
+      "group": "Feedback insights",
+      "pages": ["themes", "ask-monty", "alert", "triage", "custom-reports"]
     },
     {
-      "group": "Chapter 4 Workflows",
+      "group": "Workflows",
       "pages": [
         "feedback-search",
         "linear",
