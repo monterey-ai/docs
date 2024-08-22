@@ -66,6 +66,7 @@
         "asana",
         "jira",
         "weekly-report",
+        "email-notifications",
         "export",
         "project-management"
       ]
