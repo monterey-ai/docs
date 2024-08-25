@@ -158,6 +158,10 @@
         "security/team-roles",
         "security/pii"
       ]
+    },
+    {
+      "group": "Open Source",
+      "pages": ["open-source/attribution"]
     }
   ],
   "footerSocials": {
