@@ -44,16 +44,25 @@
       "pages": ["overview", "csv-upload", "survey", "widget", "public-portal", "chrome-extension"]
     },
     {
-      "group": "Feedback Records",
+      "group": "Records",
       "pages": ["snippets", "contacts", "review-spam"]
     },
     {
-      "group": "Feedback Insights",
-      "pages": ["themes", "ask-monty", "alert", "triage"]
+      "group": "Feedback insights",
+      "pages": ["themes", "ask-monty", "alert", "triage", "custom-reports"]
     },
     {
       "group": "Workflows",
-      "pages": ["feedback-search", "linear", "asana", "jira", "weekly-report", "export", "project-management"]
+      "pages": [
+        "feedback-search",
+        "linear",
+        "asana",
+        "jira",
+        "weekly-report",
+        "email-notifications",
+        "export",
+        "project-management"
+      ]
     },
     {
       "group": "Support",
@@ -125,6 +134,10 @@
         "security/team-roles",
         "security/pii"
       ]
+    },
+    {
+      "group": "Open Source",
+      "pages": ["open-source/attribution"]
     }
   ],
   "footerSocials": {
