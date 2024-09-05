@@ -12,20 +12,24 @@ Connect Monterey AI and Discord to extract signal from the noise in your communi
 ### Set up
 
 You can find Discord integration on the [integration settings page](https://app.monterey.ai/w/default/settings/integrations/discord). Follow the instructions to connect your Discord account. You can connect multiple channels from one Discord account to Monterey.
-Only admins of your Monterey workspace can set up Discord integration.
+
+**Requirements:**
+
+- The user connecting Discord must be an admin of the Monterey AI workspace
+- The user must have an account in the target Discord server that has "Manage Server" permission
 
 <Steps>
-  <Step title='Go to the [Discord settings page](https://app.monterey.ai/w/default/settings/integrations/discord).' />
+  <Step title="Go to the [Discord settings page](https://app.monterey.ai/w/default/settings/integrations/discord)." />
   <Step title='Click the "Connect" button to connect your Discord account.' />
-  <Step title='Select the server from which you want to ingest message data.' />
-  <Step title='Select the channel(s) you want to ingest data from.' />
+  <Step title="Select the server from which you want to ingest message data." />
+  <Step title="Select the channel(s) you want to ingest data from." />
   <Step title='Ensure "Read Messages" and "Read Message History" are checked' />
   <Step title='Click "Authorize"' />
-  <Step title='Toggle on the channels from which you want to ingest message data' />
+  <Step title="Toggle on the channels from which you want to ingest message data" />
 </Steps>
 
-
 ### Channel Access
+
 If you are not able to find the channel(s) you wish to ingest from, or the channel(s) are disabled in the Monterey settings page, follow the instructions below to ensure the bot has appropriate access to the channel(s).
 
 <Steps>
@@ -48,6 +52,7 @@ The system will automatically run messages or groups of messages through spam fi
 ### Data Collected
 
 When ingesting messages, we collect the following data:
+
 - Metadata (Basic details such as the message ID, creation date, etc.)
 - Content (The text of the message)
 - Author (The ID and username of the message author)
