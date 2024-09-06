@@ -91,6 +91,7 @@ components:
           type: string
         contractValue:
           type: number
+          nullable: true
         sourceData:
           type: object
           description: Dictionary to provide other key-value pairs such as the url, identifier, or other information
