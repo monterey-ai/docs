@@ -72,6 +72,30 @@ components:
           type: object
           description: Dictionary to provide other key-value pairs such as the url, identifier, or other information
           nullable: true
+    AssociateExistingCustomerAccount:
+      description: Used when associating to an existing, known customer account, the `id` is the customer account ID from Monterey. If the a customer account with the provided ID does not exist, the feedback will not be associated to a customer account.
+      type: object
+      nullable: true
+      properties:
+        id:
+          description: The Monterey AI ID of the customer account
+          type: string
+    FindOrCreateCustomerAccount:
+      description: Used when associating to a new customer account, or when not knowing the ID, for which it will be de-duplicated by the name or domain field. The `name` and 'domain' fields can be any string, such as a valid name/domain OR a unique identifier from your own system.
+      type: object
+      nullable: true
+      properties:
+        name:
+          type: string
+        domain:
+          type: string
+        contractValue:
+          type: number
+          nullable: true
+        sourceData:
+          type: object
+          description: Dictionary to provide other key-value pairs such as the url, identifier, or other information
+          nullable: true
     Project:
       description: A project response object
       type: object
@@ -134,6 +158,12 @@ paths:
                   oneOf:
                     - $ref: "#/components/schemas/FindOrCreateCustomer"
                     - $ref: "#/components/schemas/AssociateExistingCustomer"
+                account:
+                  description: The customer account to which the feedback should be associated
+                  oneOf:
+                    - $ref: "#/components/schemas/FindOrCreateCustomerAccount"
+                    - $ref: "#/components/schemas/AssociateExistingCustomerAccount"
+                  nullable: true
                 project:
                   description: The project to which the feedback should be associated
                   oneOf:
