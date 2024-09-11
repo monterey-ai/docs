@@ -1,0 +1,101 @@
+---
+title: "Metadata"
+description: "Configure and use metadata across the platform"
+---
+
+Metadata are a key data source for understanding and analyzing a workspace's customer feedback.
+
+There are 3 types of metadata we store and utilize in Monterey:
+
+- Feedback-Level Metadata: metadata that is tied to a specific feedback item, such as the version of the app of an iOS review
+- Customer-Level Metadata: metadata that tied to the customer providing feedback, such as a job title, username, or tracked user-event
+- Account-Level Metadata: metadata that is tied to the overarching account of a group of customers, such as an account contract value
+
+All 3 types of metadata are configurable and usable throughout the app.
+
+# Configuration
+
+Metadata is configurable in the metadata configuration page in Workspace Settings -> Metadata.
+
+The first thing you will see is a list of all available metadata keys, split into separate tables by metadata type.
+Each will have the following properties:
+
+- Key: the provided metadata key (non-editable)
+- Name (optional): a user provided plain-language name for the metadata key
+- Description (optional): a user provided plain-language description for the metadata key
+- Type: the data type of the metadata key values (string, boolean, integer, float, long)
+- Enabled: whether the key is enabled for use throughout the workspace
+
+![snippets](/images/metadata/configFull.png)
+
+The name and description are optional fields that let users describe in plain-language what the metadata key values describe.
+These fields are particularly helpful when the keys are containing company-specific terms or formatted oddly from the source.
+By providing plain-language descriptors, we will better be able to use these metadata keys in AI-enabled features like chat filter extraction.
+
+For metadata key value types, users have the ability to select any possible type based on the values for that key.
+
+For example, if the a key has values `2, 2.1, 2.1.0`, there are a couple of type options we can choose:
+
+- String: will include all 3 values and treat each as a string categorical value
+- Float: will include the 2 values that can be cast as float (2 and 2.1)
+- Integer or Long: will include 1 value that can be cast as an integer or float (2)
+
+By default we will set the type for each key to string since all metadata key values can be cast as a string.
+
+To edit any key's configuration, simply expand that keys row where you can then edit the name, description, type and enabled fields.
+On the right pane, you will also be provided a data preview of the metadata key values based on the selected type, which should help the user understand the effect of any changes.
+
+![snippets](/images/metadata/configEdit.gif)
+
+# Platform Use
+
+## Feedback and Snippet Views
+
+The most clear view you will have to observe these metadata values is in a feedback and snippet expanded view.
+
+On the sidebar, you will see each of the 3 metadata types available as configured in the sidebar under "Account", "Customer metadata" and "Feedback metadata":
+
+![snippets](/images/metadata/feedback.png)
+
+## Home Dashboard
+
+Metadata will also be immediately available for use in the homepage dashboard.
+Simply select the volume dropdown on the main dashboard chart, and you will see all string-typed and enabled metadata keys available to be plotted.
+
+![snippets](/images/metadata/dash.png)
+
+## Custom Reports
+
+Like on the homepage dashboard, metadata is also available for use in any custom reports, either as a filter or for charting.
+
+To add a chart using enabled metadata, simply add a new chart to the report (or edit a new one), and the enabled metadata keys will be available for all charting purposes.
+
+![snippets](/images/metadata/customReport.png)
+
+## Chat
+
+Metadata is generally available in AI-enabled chat features under the following conditions:
+
+- the metadata key is enabled in the metadata settings configuration
+- the metadata key type is "string" (non-string types can be used in manual chat dataset filters)
+
+The first area in chat you will be able to use metadata in is for dataset extraction (see general docs for chat here).
+
+Depending on the metadata keys that are enabled, you will be able to describe filters using those metadata keys that are part of your query to help build your queries dataset(s).
+Providing names and descriptions for the metadata keys in the configuration settings will help improve the precision of metadata filter extractions.
+
+You also can manually add metadata filters like any other feedback filter, either by creating an additional dataset, or editing an existing one.
+
+![snippets](/images/metadata/chatFilter.png)
+
+Beyond chat dataset filters, metadata is also able to be used in the chat produced charts.
+The metadata keys to plot will either be extracted from the user query if they are described their, or the user can edit the initial chart and plot the feedback data by metadata keys on the x or y-axis.
+
+![snippets](/images/metadata/chatFull.png)
+
+## Cohorts
+
+A great way to utilize customer and account-level metadata is when creating and viewing customer cohorts.
+Since enabled-metadata is available alongside any other possible filters, we can easily create cohorts tied to those customer and account metadata keys.
+
+![snippets](/images/metadata/cohort.png)
