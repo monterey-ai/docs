@@ -5,19 +5,19 @@ description: "Configure and use metadata across the platform"
 
 Metadata are a key data source for understanding and analyzing a workspace's customer feedback.
 
-There are 3 types of metadata we store and utilize in Monterey:
+There are 3 classes of metadata we store and utilize in Monterey:
 
-- Feedback-Level Metadata: metadata that is tied to a specific feedback item, such as the version of the app of an iOS review
-- Customer-Level Metadata: metadata that tied to the customer providing feedback, such as a job title, username, or tracked user-event
-- Account-Level Metadata: metadata that is tied to the overarching account of a group of customers, such as an account contract value
+- Feedback Metadata: metadata that is tied to a specific feedback item, such as the version of the app of an iOS review
+- Customer Metadata: metadata that tied to the customer providing feedback, such as a job title, username, or tracked user-event
+- Account Metadata: metadata that is tied to the overarching account of a group of customers, such as an account contract value
 
-All 3 types of metadata are configurable and usable throughout the app.
+All 3 classes of metadata are configurable and usable throughout the app.
 
 # Configuration
 
 Metadata is configurable in the metadata configuration page in Workspace Settings -> Metadata.
 
-The first thing you will see is a list of all available metadata keys, split into separate tables by metadata type.
+The first thing you will see is a list of all available metadata keys, split into separate tables by the class of metadata.
 Each will have the following properties:
 
 - Key: the provided metadata key (non-editable)
@@ -32,7 +32,7 @@ The name and description are optional fields that let users describe in plain-la
 These fields are particularly helpful when the keys are containing company-specific terms or formatted oddly from the source.
 By providing plain-language descriptors, we will better be able to use these metadata keys in AI-enabled features like chat filter extraction.
 
-For metadata key value types, users have the ability to select any possible type based on the values for that key.
+For metadata key-value types, users have the ability to select any possible type based on the values for that key.
 
 For example, if the a key has values `2, 2.1, 2.1.0`, there are a couple of type options we can choose:
 
@@ -42,7 +42,7 @@ For example, if the a key has values `2, 2.1, 2.1.0`, there are a couple of type
 
 By default we will set the type for each key to string since all metadata key values can be cast as a string.
 
-To edit any key's configuration, simply expand that keys row where you can then edit the name, description, type and enabled fields.
+To edit any key's configuration, simply expand that key's row where you can then edit the name, description, type and enabled fields.
 On the right pane, you will also be provided a data preview of the metadata key values based on the selected type, which should help the user understand the effect of any changes.
 
 ![snippets](/images/metadata/configEdit.gif)
@@ -53,7 +53,7 @@ On the right pane, you will also be provided a data preview of the metadata key 
 
 The most clear view you will have to observe these metadata values is in a feedback and snippet expanded view.
 
-On the sidebar, you will see each of the 3 metadata types available as configured in the sidebar under "Account", "Customer metadata" and "Feedback metadata":
+On the sidebar, you will see each of the 3 metadata classes available as configured in the sidebar under "Account", "Customer metadata" and "Feedback metadata":
 
 ![snippets](/images/metadata/feedback.png)
 
@@ -95,7 +95,7 @@ The metadata keys to plot will either be extracted from the user query if they a
 
 ## Cohorts
 
-A great way to utilize customer and account-level metadata is when creating and viewing customer cohorts.
+A great way to utilize customer and account metadata is when creating and viewing customer cohorts.
 Since enabled-metadata is available alongside any other possible filters, we can easily create cohorts tied to those customer and account metadata keys.
 
 ![snippets](/images/metadata/cohort.png)
