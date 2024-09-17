@@ -45,7 +45,7 @@
     },
     {
       "group": "Records",
-      "pages": ["snippets", "contacts", "review-spam"]
+      "pages": ["snippets", "contacts", "metadata", "review-spam"]
     },
     {
       "group": "Feedback insights",
