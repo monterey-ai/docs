@@ -12,8 +12,8 @@ While project area labels and tag labels work functionally similar in downstream
 
 For a particular snippet when auto-triage is enabled:
 
-- 1 or 0 project areas can be auto-assigned
-- Many or 0 tag areas can be auto-assigned
+- 0 or 1 project areas can be auto-assigned
+- 0 or many tag areas can be auto-assigned
 
 Thus, it is often the case that there are many more tags applied since one snippet may have multiple.
 We suggest keeping this distinction in mind when building out labels for each of these.
@@ -24,6 +24,7 @@ Additionally, you can also always manually add more than one project area label.
 --
 
 Auto-triage performance will be influenced by a combination of clear label names, detailed label descriptions, and human-labeled examples that are captured throughout the workspace.
+A detailed description that will help create a successful auto-triaged label could include keywords associated with the label, plain english descriptions of the situations where a label should be assigned, and a minimization of company/workspace jargon that may be difficult for a language model to understand.
 
 Human-labeled examples can be very helpful in tuning a set of labels to a specific workspace.
 For example, we might expect multiple workspaces to have a label for "Design", but the exact definition/criteria for what feedback get's that label may differ in separate workspaces.
