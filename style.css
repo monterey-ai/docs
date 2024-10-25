@@ -6,4 +6,5 @@
 table {
   width: 100%;
   display: table !important;
+  margin-top: 24px !important;
 }
