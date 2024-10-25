@@ -41,7 +41,14 @@
     },
     {
       "group": "Aggregation and Collection",
-      "pages": ["overview", "csv-upload", "survey", "widget", "public-portal", "chrome-extension"]
+      "pages": [
+        "overview",
+        "csv-upload",
+        "survey",
+        "widget",
+        "public-portal",
+        "chrome-extension"
+      ]
     },
     {
       "group": "Records",
@@ -53,7 +60,11 @@
     },
     {
       "group": "Knowledge Hub",
-      "pages": ["knowledge-hub/labels", "knowledge-hub/goals", "knowledge-hub/templates"]
+      "pages": [
+        "knowledge-hub/labels",
+        "knowledge-hub/goals",
+        "knowledge-hub/templates"
+      ]
     },
     {
       "group": "Workflows",
@@ -86,15 +97,27 @@
     },
     {
       "group": "CRM",
-      "pages": ["integrations/crm", "integrations/salesforce", "integrations/hubspot"]
+      "pages": [
+        "integrations/crm",
+        "integrations/salesforce",
+        "integrations/hubspot"
+      ]
     },
     {
       "group": "Community",
-      "pages": ["integrations/community", "integrations/slack", "integrations/discord"]
+      "pages": [
+        "integrations/community",
+        "integrations/slack",
+        "integrations/discord"
+      ]
     },
     {
       "group": "Apps",
-      "pages": ["integrations/apps", "integrations/apple", "integrations/google"]
+      "pages": [
+        "integrations/apps",
+        "integrations/apple",
+        "integrations/google"
+      ]
     },
     {
       "group": "Survey",
@@ -109,11 +132,16 @@
       "pages": [
         {
           "group": "Categories",
-          "pages": ["api-reference/categories/get-a-list-of-feedback-categories"]
+          "pages": [
+            "api-reference/categories/get-a-list-of-feedback-categories"
+          ]
         },
         {
           "group": "Customers",
-          "pages": ["api-reference/customers/get-a-list-of-customers", "api-reference/customers/create-a-new-customer"]
+          "pages": [
+            "api-reference/customers/get-a-list-of-customers",
+            "api-reference/customers/create-a-new-customer"
+          ]
         },
         {
           "group": "Feedback",
@@ -138,6 +166,10 @@
         "security/team-roles",
         "security/pii"
       ]
+    },
+    {
+      "group": "Pricing",
+      "pages": ["pricing/volume-calculation"]
     },
     {
       "group": "Open Source",

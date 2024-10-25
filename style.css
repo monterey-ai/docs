@@ -1,4 +1,9 @@
 .ask-monty-image {
-    box-shadow: 0px 2px 4px #DFE6E9;
-    border-radius: 4px;
+  box-shadow: 0px 2px 4px #dfe6e9;
+  border-radius: 4px;
+}
+
+table {
+  width: 100%;
+  display: table !important;
 }
