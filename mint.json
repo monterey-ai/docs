@@ -121,7 +121,7 @@
     },
     {
       "group": "Survey",
-      "pages": ["integrations/typeform"]
+      "pages": ["integrations/typeform", "integrations/survey-monkey"]
     },
     {
       "group": "Other Integrations",
