@@ -21,12 +21,12 @@ A user with access to both Monterey AI as well as GitHub will need to authorize 
 6. Review and approve the permissions requested
 7. Once confirmed, you will be returned to Monterey AI, where you can toggle on ticket ingestion
 
-
 ### Data Collected
 
 Once Monterey AI and GitHub are connected successfully, data will be pulled from periodically. The first time Monterey AI loads data, it will look back 1 week. After that, it will ingest all new data up to your plan's feedback volume limit.
 
 The following data attributes are loaded from GitHub and utilized in Monterey AI for analysis:
+
 - Issues
   - Metadata (ID, created time, updated time, url)
   - Title
@@ -36,3 +36,14 @@ The following data attributes are loaded from GitHub and utilized in Monterey AI
 - Users (related to ingested tickets)
   - Metadata (ID, created time, updated time, url)
   - Login Username
+
+### Pricing Volume Impact
+
+| Entity Type | Volume Impact |
+| :---------- | :-----------: |
+| Issue       |    **1x**     |
+
+<Info>
+  View the [pricing page](/pricing/volume-calculation) for more information on
+  how we calculate volume usage.
+</Info>
