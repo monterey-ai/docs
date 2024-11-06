@@ -29,15 +29,16 @@ Your CSV file should contain the following columns:
 - `contactAccountDomain` - Associated company's domain (e.g., "example.com")
 - `contactSourceId` - External identifier for the contact
 - `contractValue` - Associated contract value (numeric)
+- **`account_` prefix** - Columns with `account_` prefix will be stored as metadata on the associated account
 - **Additional columns** - Any other columns will be stored as metadata
 
 ### Example CSV
 
 ```csv
-contactSourceId,contactName,contactEmail,contactAccountName,contactAccountDomain,contractValue,title,department
-CONTACT-001,John Smith,john.smith@acme.com,Acme Corporation,acme.com,100000,VP Sales,Sales
-CONTACT-002,Sarah Jones,sarah.j@acme.com,Acme Corporation,acme.com,100000,Director,Sales
-CONTACT-003,Mike Johnson,mike@techstart.io,TechStart,techstart.io,25000,Engineer,Engineering
+contactSourceId,contactName,contactEmail,contactAccountName,contactAccountDomain,contractValue,title,department,account_industry,account_employees
+CONTACT-001,John Smith,john.smith@acme.com,Acme Corporation,acme.com,100000,VP Sales,Sales,Manufacturing,1000
+CONTACT-002,Sarah Jones,sarah.j@acme.com,Acme Corporation,acme.com,100000,Director,Sales,Manufacturing,1000
+CONTACT-003,Mike Johnson,mike@techstart.io,TechStart,techstart.io,25000,Engineer,Engineering,Technology,50
 ```
 
 ## How Contacts Are Matched
