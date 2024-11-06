@@ -10,11 +10,11 @@ Access at: https://app.monterey.ai/w/default/feedback/contacts/accounts
 Or follow these steps:
 
 1. Log into the Monterey.ai dashboard
-2. Navigate to Contacts -> Accounts tab
+2. Navigate to **Contacts** -> **Accounts tab**
 3. Click the "+ Account" button in the top right corner
 
 <Note>
-  You must have the appropriate permissions to access the account import
+  You must have the appropriate permissions to access the accounts import
   feature. Contact your workspace administrator if you cannot access this
   section.
 </Note>
@@ -27,6 +27,14 @@ Your CSV file should contain the following columns:
 - `domain` - The company's domain (e.g., "example.com")
 - `contractValue` - The account's contract value (numeric)
 - **Additional columns** - Any other columns will be stored as metadata on the account
+
+### Example CSV
+
+```csv
+name,domain,contractValue,industry,employees
+Acme Corp,acme.com,50000,Manufacturing,1000
+TechStart,techstart.io,25000,Technology,50
+```
 
 ## How Accounts Are Matched
 

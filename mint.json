@@ -48,6 +48,7 @@
         "widget",
         "public-portal",
         "chrome-extension",
+        "contacts-csv-upload",
         "accounts-csv-upload"
       ]
     },
