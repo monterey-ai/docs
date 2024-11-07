@@ -1,0 +1,85 @@
+---
+title: "Accounts CSV Upload"
+description: "How to import and update contact accounts via CSV upload"
+---
+
+### Navigation
+
+Access at: https://app.monterey.ai/w/default/feedback/contacts/accounts
+
+Or follow these steps:
+
+1. Log into the Monterey.ai dashboard
+2. Navigate to **Contacts** -> **Accounts tab**
+3. Click the "+ Account" button in the top right corner
+
+<Note>
+  You must have the appropriate permissions to access the accounts import
+  feature. Contact your workspace administrator if you cannot access this
+  section.
+</Note>
+
+## CSV Format
+
+Your CSV file should contain the following columns:
+
+- `name` - The account/company name
+- `domain` - The company's domain (e.g., "example.com")
+- `contractValue` - The account's contract value (numeric)
+- **Additional columns** - Any other columns will be stored as metadata on the account
+
+### Example CSV
+
+```csv
+name,domain,contractValue,industry,employees
+Acme Corp,acme.com,50000,Manufacturing,1000
+TechStart,techstart.io,25000,Technology,50
+```
+
+## How Accounts Are Matched
+
+When importing accounts, the system attempts to match each row with existing accounts using the following logic:
+
+1. **First**, looks for an existing account with matching `domain` in your workspace.
+2. If no match by domain, looks for an existing account with matching `name` in your workspace.
+3. If a match is found:
+   - Updates the account with new data while preserving existing data.
+   - Merges any new metadata fields with existing metadata.
+4. If no match is found and either `name` or `domain` is provided:
+   - Creates a new account with the provided data.
+
+## Required Fields
+
+You must provide at least one of:
+
+- `name`
+- `domain`
+
+<Warning>
+  Rows missing both fields are invalid and will be skipped during import.
+</Warning>
+
+## Data Validation
+
+- `name` and `domain` are validated as strings.
+- `contractValue` is converted to a number if valid, otherwise ignored.
+- All other columns are stored as metadata on the account.
+
+## Best Practices
+
+1. **Include domain when possible** - this provides the most reliable account matching.
+2. **Use consistent naming** - accounts are matched exactly on name.
+3. **Include any additional fields you want to track as metadata columns.**
+4. **Review your CSV data before upload to ensure accuracy.**
+
+## What Happens During Import
+
+1. **System validates all rows in your CSV.**
+2. For each valid row:
+   - Attempts to match existing accounts.
+   - Updates matched accounts or creates new ones.
+   - Preserves existing data while adding new data.
+
+## Supported File Types
+
+The account import accepts the `.csv` and `.xlsx` files

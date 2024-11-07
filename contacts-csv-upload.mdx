@@ -1,0 +1,93 @@
+---
+title: "Contacts CSV Upload"
+description: "How to import and update contacts via CSV upload"
+---
+
+### Navigation
+
+Access at: https://app.monterey.ai/w/default/feedback/contacts
+
+Or follow these steps:
+
+1. Log into the Monterey.ai dashboard
+2. Navigate to **Contacts**
+3. Click the "+ Contact" button in the top right corner
+
+<Note>
+  You must have the appropriate permissions to access the contacts import
+  feature. Contact your workspace administrator if you cannot access this
+  section.
+</Note>
+
+## CSV Format
+
+Your CSV file should contain the following columns:
+
+- `contactName` - The contact's full name
+- `contactEmail` - The contact's email address
+- `contactAccountName` - The associated account/company name
+- `contactAccountDomain` - Associated company's domain (e.g., "example.com")
+- `contactSourceId` - External identifier for the contact
+- `contractValue` - Associated contract value (numeric)
+- **`Account {X}`/`account_{X}` prefix** - Columns with `Account {X}` or `account_{X}` prefix will be stored as metadata on the associated account
+- **Additional columns** - Any other columns will be stored as metadata
+
+### Example CSV
+
+```csv
+contactSourceId,contactName,contactEmail,contactAccountName,contactAccountDomain,contractValue,title,department,account_industry,account_employees
+CONTACT-001,John Smith,john.smith@acme.com,Acme Corporation,acme.com,100000,VP Sales,Sales,Manufacturing,1000
+CONTACT-002,Sarah Jones,sarah.j@acme.com,Acme Corporation,acme.com,100000,Director,Sales,Manufacturing,1000
+CONTACT-003,Mike Johnson,mike@techstart.io,TechStart,techstart.io,25000,Engineer,Engineering,Technology,50
+```
+
+## How Contacts Are Matched
+
+### Contact Matching Logic
+
+- **If `contactSourceId` is provided**:
+  - Matches against existing contact with the same source ID
+- **Otherwise**, attempts to match on:
+  - Contact email address
+  - Contact name
+
+### Account Association
+
+For each contact:
+
+- Attempts to match existing account by domain
+- If no domain match, tries matching by account name
+- Creates new account if no matches found and account info provided
+
+## Required Fields
+
+You must provide at least one of:
+
+- `contactEmail`
+- `contactSourceId`
+
+<Warning>
+  Rows missing both fields are invalid and will be skipped during import.
+</Warning>
+
+## Best Practices
+
+1. **Include source IDs if available for precise matching.**
+2. **Provide account domains for accurate account association.**
+3. **Use consistent naming for accounts**
+4. **Include any additional fields you want to track as metadata columns.**
+5. **Review your CSV data before upload to ensure accuracy.**
+
+## What Happens During Import
+
+1. **System validates all rows in your CSV.**
+2. For each valid row:
+   - Checks for valid contact name or email
+   - Attempts to match existing contacts by source ID or email
+   - Links or creates associated account by domain/name
+   - Updates matched records or creates new ones
+   - Preserves existing data while adding new data
+
+## Supported File Types
+
+The account import accepts the `.csv` and `.xlsx` files
