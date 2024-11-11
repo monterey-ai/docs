@@ -127,7 +127,7 @@
     },
     {
       "group": "Other Integrations",
-      "pages": ["integrations/email", "integrations/zapier"]
+      "pages": ["integrations/email", "integrations/zapier", "integrations/data-warehouse"]
     },
     {
       "group": "API Reference",
