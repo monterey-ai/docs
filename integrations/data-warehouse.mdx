@@ -1,0 +1,77 @@
+---
+title: "Data Warehouse"
+description: "Ingest targeted data from Snowflake and other data warehouses to Monterey for consolidation and analysis"
+---
+
+### Overview
+
+Monterey AI can connect to and pull data from your data warehouse of choice. Currently, we support Snowflake, but are always looking to expand our integrations.
+
+### Snowflake
+
+To connect with Snowflake, you can request our account details and use [Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro).
+Secure data sharing allows you to give us the targeted access to just the data you want to share.
+
+### Schemas
+
+We support several schemas and relationships between tables.
+
+**Regular Feedback**
+
+Regular feedback are singular items of feedback, such as a review or a single response to a question.
+
+| Field Name  | Required |  Type  | Description                               |
+| :---------- | :------: | :----: | :---------------------------------------- |
+| id          |   Yes    | STRING | Unique identifier for the feedback record |
+| description |   Yes    | STRING | The main feedback content                 |
+| created_at  |   Yes    | STRING | When the feedback was created             |
+| updated at  |   Yes    | STRING | When the feedback was last updated        |
+| title       |    No    | STRING | Optional title for the feedback           |
+| contact_id  |    No    | STRING | Optional identifier linking to a contact  |
+
+**Conversation**
+
+A conversation is a collection of conversational feedback messages. For example, a chat log between a support agent and a user.
+
+| Field Name | Required |  Type  | Description                            |
+| :--------- | :------: | :----: | :------------------------------------- |
+| id         |   Yes    | STRING | Unique identifier for the conversation |
+| title      |    No    | STRING | Optional title for the conversation    |
+| created_at |   Yes    | STRING | When the conversation was created      |
+| updated_at |    No    | STRING | When the conversation was last updated |
+
+**Conversation Message**
+
+These are the individual messages within a conversation, and should be linked to a conversation by the `conversation_id` field.
+
+| Field Name      | Required |  Type   | Description                                      |
+| :-------------- | :------: | :-----: | :----------------------------------------------- |
+| id              |   Yes    | STRING  | Unique identifier for the message                |
+| created_at      |   Yes    | STRING  | When the message was sent                        |
+| updated_at      |    No    | STRING  | When the message was last updated                |
+| conversation_id |   Yes    | STRING  | ID of the conversation this message belongs to   |
+| content         |   Yes    | STRING  | The message content                              |
+| incoming        |   Yes    | BOOLEAN | Whether the message was sent by an external user |
+| contact_id      |    No    | STRING  | Optional identifier linking to a contact         |
+
+**Contacts**
+
+Contacts are the users of your product.
+
+| Field Name | Required |  Type  | Description                        |
+| :--------- | :------: | :----: | :--------------------------------- |
+| id         |   Yes    | STRING | Unique identifier for the contact  |
+| name       |   Yes    | STRING | The contact's full name            |
+| email      |   Yes    | STRING | The contact's email address        |
+| account_id |   Yes    | STRING | The account the contact belongs to |
+
+**Accounts**
+
+Accounts are the companies that your contacts belong to.
+
+| Field Name     | Required |  Type  | Description                       |
+| :------------- | :------: | :----: | :-------------------------------- |
+| id             |   Yes    | STRING | Unique identifier for the account |
+| name           |   Yes    | STRING | The account's name                |
+| domain         |   Yes    | STRING | The account's domain              |
+| contract_value |    No    | NUMBER | The account's contract value      |
