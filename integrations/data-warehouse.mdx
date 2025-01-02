@@ -25,7 +25,7 @@ Regular feedback are singular items of feedback, such as a review or a single re
 | id          |   Yes    | STRING | Unique identifier for the feedback record |
 | description |   Yes    | STRING | The main feedback content                 |
 | created_at  |   Yes    | STRING | When the feedback was created             |
-| updated at  |   Yes    | STRING | When the feedback was last updated        |
+| updated_at  |   Yes    |  DATE  | When the feedback was last updated        |
 | title       |    No    | STRING | Optional title for the feedback           |
 | contact_id  |    No    | STRING | Optional identifier linking to a contact  |
 
@@ -38,7 +38,7 @@ A conversation is a collection of conversational feedback messages. For example,
 | id         |   Yes    | STRING | Unique identifier for the conversation |
 | title      |    No    | STRING | Optional title for the conversation    |
 | created_at |   Yes    | STRING | When the conversation was created      |
-| updated_at |    No    | STRING | When the conversation was last updated |
+| updated_at |    No    |  DATE  | When the conversation was last updated |
 
 **Conversation Message**
 
@@ -47,8 +47,8 @@ These are the individual messages within a conversation, and should be linked to
 | Field Name      | Required |  Type   | Description                                      |
 | :-------------- | :------: | :-----: | :----------------------------------------------- |
 | id              |   Yes    | STRING  | Unique identifier for the message                |
-| created_at      |   Yes    | STRING  | When the message was sent                        |
-| updated_at      |    No    | STRING  | When the message was last updated                |
+| created_at      |   Yes    |  DATE   | When the message was sent                        |
+| updated_at      |    No    |  DATE   | When the message was last updated                |
 | conversation_id |   Yes    | STRING  | ID of the conversation this message belongs to   |
 | content         |   Yes    | STRING  | The message content                              |
 | incoming        |   Yes    | BOOLEAN | Whether the message was sent by an external user |
@@ -64,6 +64,7 @@ Contacts are the users of your product.
 | name       |   Yes    | STRING | The contact's full name            |
 | email      |   Yes    | STRING | The contact's email address        |
 | account_id |   Yes    | STRING | The account the contact belongs to |
+| updated_at |   Yes    |  DATE  | When the contact was last updated  |
 
 **Accounts**
 
