@@ -5,19 +5,19 @@ description: "SSO Setup with Okta"
 
 Thank you for your interest in setting up SSO with Monterey AI via Okta. This guide will walk you through the setup process and help you collect the information needed to provide back to us. If you have any questions along the way, please reach out to your primary point of contact with our team, or to [support@monterey.ai](mailto:support@monterey.ai).
 
-1. Open the left-nav bar and navigate to “Applications” (inside “Applications” section)
+1. Open the left-nav bar and navigate to "Applications" (inside "Applications" section)
 
    ![navigation](/images/sso-nav-apps.png)
 
-2. Click “Create App Integration”
+2. Click "Create App Integration"
 
-   1. For _Sign-in method_, choose “OIDC - OpenID Connect”
-   2. For _Application type_, choose “Web Application”
+   1. For _Sign-in method_, choose "OIDC - OpenID Connect"
+   2. For _Application type_, choose "Web Application"
 
       ![Create app](/images/sso-create-app.png)
 
 3. Configure _General Settings_
-   1. You can name the app as you’d like, we suggest “Monterey AI”
+   1. You can name the app as you'd like, we suggest "Monterey AI"
    2. You can download a logo to provide here: [link to logo]
    3. Other settings can be left empty or default values
 4. Configure _Sign-in redirect URIs_
@@ -27,7 +27,7 @@ Thank you for your interest in setting up SSO with Monterey AI via Okta. This gu
    1. Enter the following URI: `https://app.monterey.ai/auth/signout`
 6. Assignments
    1. This can be configured to your preferences based on who should have access to Monterey AI.
-7. Finally, click “Save” at the bottom of the page.
+7. Finally, click "Save" at the bottom of the page.
 8. On the resulting page, collect the following details:
 
    1. **Client ID**
@@ -45,4 +45,7 @@ Thank you for your interest in setting up SSO with Monterey AI via Okta. This gu
       1. Client ID
       2. Client Secret
       3. Okta domain
-      4. Email domain(s) users in your organization have that will access Monterey AI e.g. `@monterey.ai` or `@company.com`
+      4. Email domain(s) users in your organization have that will access Monterey AI (e.g., `@monterey.ai` or `@company.com`). If you need to set up multiple email domains:
+         - List all domains that should have access (e.g., `@company.com`, `@subsidiary.com`)
+         - Make sure to separate multiple domains with commas
+         - Include any subdomains if needed (e.g., `@us.company.com`, `@eu.company.com`)

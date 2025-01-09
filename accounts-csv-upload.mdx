@@ -24,7 +24,7 @@ Or follow these steps:
 Your CSV file should contain the following columns:
 
 - `name` - The account/company name
-- `domain` - The company's domain (e.g., "example.com")
+- `domain` - The company's domain (e.g., "example.com"). For multiple domains, separate them with a semicolon (e.g., "example.com;example.net")
 - `contractValue` - The account's contract value (numeric)
 - **Additional columns** - Any other columns will be stored as metadata on the account
 
@@ -32,7 +32,7 @@ Your CSV file should contain the following columns:
 
 ```csv
 name,domain,contractValue,industry,employees
-Acme Corp,acme.com,50000,Manufacturing,1000
+Acme Corp,acme.com;acmecorp.com,50000,Manufacturing,1000
 TechStart,techstart.io,25000,Technology,50
 ```
 
@@ -40,7 +40,7 @@ TechStart,techstart.io,25000,Technology,50
 
 When importing accounts, the system attempts to match each row with existing accounts using the following logic:
 
-1. **First**, looks for an existing account with matching `domain` in your workspace.
+1. **First**, looks for an existing account with matching `domain` in your workspace (matches against any of the domains if multiple are provided).
 2. If no match by domain, looks for an existing account with matching `name` in your workspace.
 3. If a match is found:
    - Updates the account with new data while preserving existing data.
@@ -62,6 +62,7 @@ You must provide at least one of:
 ## Data Validation
 
 - `name` and `domain` are validated as strings.
+- Multiple domains should be separated by semicolons (e.g., "example.com;example.net").
 - `contractValue` is converted to a number if valid, otherwise ignored.
 - All other columns are stored as metadata on the account.
 
@@ -69,8 +70,12 @@ You must provide at least one of:
 
 1. **Include domain when possible** - this provides the most reliable account matching.
 2. **Use consistent naming** - accounts are matched exactly on name.
-3. **Include any additional fields you want to track as metadata columns.**
-4. **Review your CSV data before upload to ensure accuracy.**
+3. **When using multiple domains:**
+   - Separate them with semicolons
+   - List the primary domain first
+   - Ensure each domain is correctly formatted
+4. **Include any additional fields you want to track as metadata columns.**
+5. **Review your CSV data before upload to ensure accuracy.**
 
 ## What Happens During Import
 
