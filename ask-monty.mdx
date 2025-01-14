@@ -5,9 +5,9 @@ description: "Answer any questions about your feedback like magic"
 
 ![Monty Chat](/images/chat_updated.png)
 
-Delve deep into your feedback with "Ask Monty", an advanced GPT-4 enabled analysis tool. Pose questions regarding your feedback data, and let Monty analyze, visualize and provide insightful answers.
+Delve deep into your feedback with "Ask Monty", an advanced GPT-enabled analysis tool. Pose questions regarding your feedback data, and let Monty analyze, visualize and provide insightful answers.
 
-### **Key Features**
+# **Key Features**
 
 - **Ask Monty:** Directly ask Monty any query related to the feedback in your workspace.
 - **Save & Revisit**: Save crucial questions for easy future reference. You can find them in your "History".
@@ -16,45 +16,76 @@ Delve deep into your feedback with "Ask Monty", an advanced GPT-4 enabled analys
 - **Citations**: Quickly access the feedback used by Monty in generating the response.
 - **Request Visuals**: Ask Monty to plot or visualize your requests to produce shareable visualizations and charts about your query. You can also chat with that visual later in your conversation!
 
-### **Usage Guide**
 
-Ask Monty is Monterey AI's LLM enabled chat tool designed to extract deep insights from your feedback data.
+# Conversation Navigation
 
-The conversation is started entering by inputting an initial query. This query will be used to generate the dataset(s) that will supply the entire message chain.
+- **Example Questions**: Get inspired by example questions generated based on recent feedback. These are shown below the chat input on the main Ask Monty page.
+- **History**: View your question history, where you will see the recent conversations you had with Ask Monty.
+- **Saved Questions**: Keep important queries handy by saving them, so you can revisit or re-analyze them whenever you need.
+
+
+# **Usage Guide**
+
+Ask Monty is Monterey AI's LLM-enabled chat tool designed to extract deep insights from your feedback data.
+
+The conversation is started by entering by inputting an initial query. This query will be used to generate the dataset(s) that will supply the entire message chain.
 The datasets will be constructed via filters extracted from your query, and may include filters on the feedback creation date, category/project labels and metadata values.
-If you're query is applicable to multiple filter sets, you will turn recieve multiple datasets in response.
-
-For example, the initial query: "compare the bug reports of the spelling bee game to crossword games over the past 6 months" could return the datasets:
-
-```text
-- Category: bug | Project: spelling bee game | Date: 07-01-2023 - present
-- Category: bug | Project: crossword game    | Date: 07-01-2023 - present
-```
 
 You will have the opportunity to edit, add and remove datasets as needed at this step as well.
 
 Once your datasets are confirmed, the Ask Monty engine determines the type of response most applicable to your query. At the time the support intent routes include:
 
-- Text: a query that is best answered via a text response (summarizations, qualitative comparisons, example finding, etc.).
-- Charts: a query that is best answered via a chart visualization.
-- Themes: a query that is bested answered via clustering the data into a few key topics.
-- Examples: a query that is best answered via listing example feedback.
-- User Stories: a query that is best answered via a generated user story.
-- PRDs: the a query that is best answered via a generated a draft product requirement document.
-- Cohorts: a query that is best answered by created a cohort of customers all discussing the particular user query.
-- Snippet Examples: a query that is best answer by creating and returning a list of relevant snippets to the user query.
+- **Text**: a query that is best answered via a text response (summarizations, qualitative comparisons, example finding, etc.).
+- **Charts**: a query that is best answered via a chart visualization.
+- **User Stories**: a query that is best answered via a generated user story.
+- **PRDs**: a query that is best answered via a generated draft product requirement document.
+- **Cohorts**: a query that is best answered by creating a cohort of customers all discussing the particular user query.
+- **Snippet Examples**: a query that is best answered by creating and returning a list of relevant snippets to the user query.
 
 Monty will then return a response using the most applicable intent to answer the user query.
 
 After the initial response, the user may ask any number of follow ups or explanations to previous responses (including asking follow ups to chat based responses).
 
-### **Chart Support**
+## Query Best Practices
+
+- **Be Specific**: The more specific your query, the more accurate the response will be. Avoid vague and short queries like "users mad" or "bugs". While Monty will do its best to interpret these queries and extract the relevant filters/snippets, the response will be more focused with a more specific query.
+- **Use Response Type Keywords**: Use keywords like "compare", "show", "plot", "visualize", etc. to guide Monty to the best response type.
+- **Take Advantage of Filter Extraction**: Use text filters like "over the past 6 months", "from feedback tagged 'xyz'", "in app store data", etc. to specify the data Monty should consider.
+
+<img width="100%" src="./images/ask_monty_thread.png" class="ask-monty-image" />
+
+## Filter Extraction
+
+When a user query is provided, Monty will first extract filters from the query to determine the dataset(s) to use in the response. The filters extracted can include:
+- **Date Ranges**: "over the past 6 months", "from 2023", etc.
+- **Feedback Sources**: "from app store reviews", "from emails", etc.
+- **Categories**: "bugs about", "common user questions", etc.
+- **Project Labels**: "from the spelling bee game project", etc.
+- **Tag Labels**: "from feedback tagged 'xyz'", "from feedback tagged 'abc'", etc.
+- **Metadata**: "key themes from feedback with version '1.2.3'", etc.
+
+The extracted filters let us generate the baseline dataset(s) to use in the response. We then apply any secondary text filters to further refine the dataset(s) as needed.
+
+For example the query: "compare the bug reports of the spelling bee game to crossword games over the past 6 months" would extract the filters:
+```text
+- Category: bug | Project: spelling bee game | Date: 07-01-2023 - present
+- Category: bug | Project: crossword game    | Date: 07-01-2023 - present
+```
+
+Another example, the query: "show me the sentiment of feedback about dark mode from ios reviews", where dark mode isn't a category, tag, or project label, would extract the filter:
+```text
+Source: App Store
+```
+with a secondary text filter of `dark mode` to further refine the dataset.
+
+
+## **Chart Support**
 
 Ask Monty supports chart based responses when it is determined a figure would be the best way to answer a user query.
 
 While the system is designed to determine the appropriate response type with any user query input, you can ensure a chart based response with keywords similar to "plot", "show", "visualize", etc..
 
-<img width="100%" src="./images/ask_monty_grouped_bar.png" class="ask-monty-image" />
+<img width="100%" src="./images/ask_monty_chart.png" class="ask-monty-image" />
 
 The values that can supply those charts include:
 
@@ -64,14 +95,21 @@ The values that can supply those charts include:
 - Categories
 - Project Labels (if enabled)
 - Dataset groups from current conversation
-- Metadata\*
+- Metadata (for enabled categorical type metadata keys)
 
-<img width="100%" src="./images/ask_monty_line.png" class="ask-monty-image" />
+## Dataset Actions
 
-\*\_Metadata support is enabled for string-typed feedbcack, customer and account level metadata that is enabled in the metadata configuration settings.
+### Datset Edits
+Dataset filters can be edited, added, or removed at any time following the initial query extraction. 
 
-### Conversation Navigation
+<img width="100%" src="./images/ask_monty_dataset_edit.png" class="ask-monty-image" />
 
-- **Example Questions**: Get inspired by example questions generated based on recent feedback. These are shown below the chat input on the main Ask Monty page.
-- **History**: View your question history, where you will see the recent conversations you had with Ask Monty.
-- **Saved Questions**: Keep important queries handy by saving them, so you can revisit or re-analyze them whenever you need.
+### Dataset Exports
+Datasets can be exported at any time to a CSV file for further analysis or sharing.
+The contacts of the dataset can also be exported to a saved Cohort.
+
+<img width="100%" src="./images/ask_monty_dataset_actions.gif" class="ask-monty-image" />
+
+### Creating Reports
+In chat sessions using one dataset, you can create a report by selecting the "Turn into report" button in top right of the navigation bar. 
+This will generate and save a report using the extracted filters and secondary text filters to create a custom report.
