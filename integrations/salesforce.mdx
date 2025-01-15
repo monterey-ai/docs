@@ -5,13 +5,13 @@ description: "Ingest Salesforce Closed-Won Opportunity Notes"
 
 ### Overview
 
-Salesforce unifies sales, marketing, and customer data on a single platform. Connect this data with Monterey AI to find more insights, and link feedback back to real customer value.
+Salesforce unifies sales, marketing, and customer data on a single platform. Connect this data with Reforge Insight Analytics to find more insights, and link feedback back to real customer value.
 
 ### Get Started
 
-You can find the Salesforce integration on your **[integration settings page](https://app.monterey.ai/w/default/settings/integrations/salesforce)**.
+You can find the Salesforce integration on your **[integration settings page](https://insights.reforge.com/w/default/settings/integrations/salesforce)**.
 
-A user with access to both Monterey AI as well as Salesforce will need to authorize the connection.
+A user with access to both Reforge Insight Analytics as well as Salesforce will need to authorize the connection.
 
 <Steps>
   <Step title='Go to "Settings"' />
@@ -20,18 +20,18 @@ A user with access to both Monterey AI as well as Salesforce will need to author
   <Step title='Click "Connect"' />
   <Step title="If necessary, log in to Salesforce using the appropriate account" />
   <Step title="Review and approve the permissions requested" />
-  <Step title="Once confirmed, you will be returned to Monterey AI, where you can toggle on ingestion of sales notes" />
+  <Step title="Once confirmed, you will be returned to Reforge Insight Analytics, where you can toggle on ingestion of sales notes" />
 </Steps>
 
 ### Data Collected
 
-Once Monterey AI and Salesforce are connected successfully, data will be pulled from periodically. The first time Monterey AI loads data, it will look back 1 week. After that, it will ingest all new data up to your plan's feedback volume limit.
+Once Reforge Insight Analytics and Salesforce are connected successfully, data will be pulled from periodically. The first time Reforge Insight Analytics loads data, it will look back 1 week. After that, it will ingest all new data up to your plan's feedback volume limit.
 
 Only notes from opportunities in the "Closed-Won" status will be ingested. This is to ensure that the feedback you receive is based on successful sales outcomes and actual paying customers.
 
-The following table describes how data is mapped from Salesforce into Monterey AI.
+The following table describes how data is mapped from Salesforce into Reforge Insight Analytics.
 
-| Salesforce Object | Salesforce Field              | Monterey AI Object | Monterey AI Field | Note                                                                                                  |
+| Salesforce Object | Salesforce Field              | Reforge Insight Analytics Object | Reforge Insight Analytics Field | Note                                                                                                  |
 | ----------------- | ----------------------------- | ------------------ | ----------------- | ----------------------------------------------------------------------------------------------------- |
 | Note              | Title                         | Feedback           | Title             |
 | Note              | Body                          | Feedback           | Description       |
