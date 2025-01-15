@@ -3,7 +3,7 @@ title: "SSO"
 description: "SSO Setup with Okta"
 ---
 
-Thank you for your interest in setting up SSO with Monterey AI via Okta. This guide will walk you through the setup process and help you collect the information needed to provide back to us. If you have any questions along the way, please reach out to your primary point of contact with our team, or to [support@monterey.ai](mailto:support@monterey.ai).
+Thank you for your interest in setting up SSO with Reforge Insight Analytics via Okta. This guide will walk you through the setup process and help you collect the information needed to provide back to us. If you have any questions along the way, please reach out to your primary point of contact with our team, or to [support@monterey.ai](mailto:support@monterey.ai).
 
 1. Open the left-nav bar and navigate to “Applications” (inside “Applications” section)
 
@@ -17,16 +17,16 @@ Thank you for your interest in setting up SSO with Monterey AI via Okta. This gu
       ![Create app](/images/sso-create-app.png)
 
 3. Configure _General Settings_
-   1. You can name the app as you’d like, we suggest “Monterey AI”
+   1. You can name the app as you’d like, we suggest “Reforge Insight Analytics”
    2. You can download a logo to provide here: [link to logo]
    3. Other settings can be left empty or default values
 4. Configure _Sign-in redirect URIs_
    1. Enter the following URI: `https://monterey-ai.auth.us-west-2.amazoncognito.com/oauth2/idpresponse`
    2. **Do not** check the box for _Allow wildcard _ in sign-in URI redirect.\*
 5. Configure _Sign-out redirect URIs_
-   1. Enter the following URI: `https://app.monterey.ai/auth/signout`
+   1. Enter the following URI: `https://insights.reforge.com/auth/signout`
 6. Assignments
-   1. This can be configured to your preferences based on who should have access to Monterey AI.
+   1. This can be configured to your preferences based on who should have access to Reforge Insight Analytics.
 7. Finally, click “Save” at the bottom of the page.
 8. On the resulting page, collect the following details:
 
@@ -39,10 +39,10 @@ Thank you for your interest in setting up SSO with Monterey AI via Okta. This gu
 
       ![Domain](/images/sso-domain.png)
 
-9. Share details with your point of contact at Monterey AI
+9. Share details with your point of contact at Reforge Insight Analytics
    1. We suggest using secure methods, like temporary credentials through 1password, or other secure document sharing means in place with your organization.
    2. **The final set of details that need shared:**
       1. Client ID
       2. Client Secret
       3. Okta domain
-      4. Email domain(s) users in your organization have that will access Monterey AI e.g. `@monterey.ai` or `@company.com`
+      4. Email domain(s) users in your organization have that will access Reforge Insight Analytics e.g. `@monterey.ai` or `@company.com`

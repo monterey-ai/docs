@@ -1,6 +1,6 @@
 ---
 title: "Slack"
-description: "Integrate Monterey.ai with your Slack workspace"
+description: "Integrate with your Slack workspace"
 ---
 
 ![slack integration cover](/images/slack-integration-cover.png)
@@ -16,12 +16,12 @@ The Slack integration makes it effortless to stay on top of customer feedback an
 
 ## Setup
 
-To get started, navigate to the **[integration setting page](https://app.monterey.ai/w/default/settings/integrations/)** and select **Slack**.
+To get started, navigate to the **[integration setting page](https://insights.reforge.com/w/default/settings/integrations/)** and select **Slack**.
 
 ### Connect Workspace
 
 <Steps>
-  <Step title='Click "Connect Monterey.ai to Slack"'></Step>
+  <Step title='Click "Connect Monterey to Slack"'></Step>
   <Step title="Choose Features">
     We only ask for the permissions that are necessary for the features you plan
     to use.
@@ -43,7 +43,7 @@ If you want to remove the integration, you can find the instructions
 
 ### Feedback Ingestion
 
-To begin pulling conversations into Monterey for analysis, you will need to select the channels you want to ingest.
+To begin pulling conversations into Reforge Insight Analytics for analysis, you will need to select the channels you want to ingest.
 
 <Steps>
   <Step title='Click "Add Channel"'>
@@ -63,7 +63,7 @@ To begin pulling conversations into Monterey for analysis, you will need to sele
 
 ### Configuring Notifications
 
-We route our notifications through filter criteria set up in [Views](https://app.monterey.ai/w/default/views). From the [Views creation page,](https://app.monterey.ai/w/default/views/create) you can choose channels for:
+We route our notifications through filter criteria set up in [Views](https://insights.reforge.com/w/default/views). From the [Views creation page,](https://insights.reforge.com/w/default/views/create) you can choose channels for:
 
 - Individual Feedback
 - Weekly Summary
@@ -82,7 +82,7 @@ Create feedback directly in Slack by clicking on the three dots menu from a mess
 
 ![slack](https://monterey-documentation-gifs.s3.us-east-2.amazonaws.com/slack.gif)
 
-Anyone who has the have the access to the specified Slack channel can create feedback from slack to Monterey AI even when they do not have Monterey access. Only Monterey teammates will be able to view feedback in Monterey.
+Anyone who has the have the access to the specified Slack channel can create feedback from slack to Reforge Insight Analytics even when they do not have access. Only Reforge Insight Analytics teammates will be able to view feedback in Reforge Insight Analytics.
 
 ### Ask Monty
 
@@ -90,11 +90,11 @@ Send a message mentioning `@Monterey` in any channel or direct message to start 
 
 ### Ingest Conversations
 
-Once Monterey AI and Slack are connected successfully and you have [selected channels for ingestion](/integrations/slack#feedback-ingestion), data will be pulled from periodically. The first time Monterey AI loads data, it will look back 1 week. After that, it run every multiple times a day, up to hourly, depending on your subscription plan.
+Once Reforge Insight Analytics and Slack are connected successfully and you have [selected channels for ingestion](/integrations/slack#feedback-ingestion), data will be pulled from periodically. The first time Reforge Insight Analytics loads data, it will look back 1 week. After that, it run every multiple times a day, up to hourly, depending on your subscription plan.
 
 #### Data Collected
 
-The following data attributes are loaded from Slack and utilized in Monterey AI for analysis:
+The following data attributes are loaded from Slack and utilized in Reforge Insight Analytics for analysis:
 
 - Users
   - Metadata (ID, created time, updated time)
