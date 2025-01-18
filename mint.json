@@ -123,7 +123,11 @@
     },
     {
       "group": "Other Integrations",
-      "pages": ["integrations/email", "integrations/zapier", "integrations/data-warehouse"]
+      "pages": [
+        "integrations/email",
+        "integrations/zapier",
+        "integrations/data-warehouse"
+      ]
     },
     {
       "group": "API Reference",
@@ -175,8 +179,8 @@
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/montereyai",
-    "linkedin": "https://www.linkedin.com/company/monterey-ai"
+    "twitter": "https://twitter.com/reforge",
+    "linkedin": "https://www.linkedin.com/company/reforge"
   },
   "openapi": "openapi.yaml",
   "redirects": [
