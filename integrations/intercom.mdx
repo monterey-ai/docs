@@ -9,23 +9,31 @@ description: "Ingest customer conversations and support tickets to Reforge Insig
 
 The integration with Intercom is a great way to get product insights with and from your support team. With the integration, your team can:
 
-- Surface trends from customer conversations
-- Extract common feature requests, bug reports, and questions
-- Understand what prospective customers are asking about
+* Surface trends from customer conversations
+
+* Extract common feature requests, bug reports, and questions
+
+* Understand what prospective customers are asking about
 
 ### Get Started
 
-You can find the Intercom integration on your **[integration settings page](https://insights.reforge.com/w/default/settings/integrations/intercom)**.
+You can find the Intercom integration on your [integration settings page](https://insights.reforge.com/w/default/settings/integrations/intercom).
 
 A user with access to both Reforge Insight Analytics as well as Intercom will need to authorize the connection.
 
 <Steps>
-  <Step title='Go to "Settings"' />
-  <Step title='Click "Integrations" in the navigation menu' />
-  <Step title='Click "Intercom"' />
-  <Step title='Click "Connect"' />
+  <Step title="Go to &#x22;Settings&#x22;" />
+
+  <Step title="Click &#x22;Integrations&#x22; in the navigation menu" />
+
+  <Step title="Click &#x22;Intercom&#x22;" />
+
+  <Step title="Click &#x22;Connect&#x22;" />
+
   <Step title="If necessary, log in to Gong using the appropriate account" />
+
   <Step title="Review and approve the permissions requested" />
+
   <Step title="Once confirmed, you will be returned to Reforge Insight Analytics, where you can toggle on conversation ingestion" />
 </Steps>
 
@@ -37,7 +45,7 @@ Anybody with access to your Intercom inbox will be able to send feedback to Refo
 
 ### Ingest Conversations
 
-Once Reforge Insight Analytics is authorized to access Intercom on your behalf, you can enable a setting on the **[integration settings page](https://insights.reforge.com/w/default/settings/integrations/intercom)** to have Reforge Insight Analytics ingest new conversation data regularly. This process will run every multiple times a day, up to hourly, depending on your subscription plan.
+Once Reforge Insight Analytics is authorized to access Intercom on your behalf, you can enable a setting on the [integration settings page](https://insights.reforge.com/w/default/settings/integrations/intercom) to have Reforge Insight Analytics ingest new conversation data regularly. This process will run every multiple times a day, up to hourly, depending on your subscription plan.
 
 Initially, we will pull conversations up to 1 week old, and then load new ones on an ongoing basis. Each message in a conversation will be loaded into Reforge Insight Analytics, however, only messages coming from the external customer will be analyzed.
 
@@ -45,15 +53,21 @@ Initially, we will pull conversations up to 1 week old, and then load new ones o
 
 When ingesting conversations, we collect the following data and attributes from the Intercom API:
 
-- Metadata (Basic details such as the conversation ID, URL, creation date, etc.)
-- Message text content (only those of type `Comment` that are **not redacted**)
-- Message Authors (Name, Email, Type)
+* Metadata (Basic details such as the conversation ID, URL, creation date, etc.)
+
+* Message text content (only those of type `Comment` that are **not redacted**)
+
+* Message Authors (Name, Email, Type)
+
+#### User Properties
+
+When ingesting Authors, we also allow users to collect the following data and attributes from Intercom, including user properties such as plan tier, geographic data, and any segment data that helps with feedback analysis.
 
 ### Pricing Volume Impact
 
 | Entity Type  | Volume Impact |
 | :----------- | :-----------: |
-| Conversation |    **1x**     |
+| Conversation |     **1x**    |
 
 <Info>
   View the [pricing page](/pricing/volume-calculation) for more information on

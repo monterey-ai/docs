@@ -5,14 +5,18 @@ description: "Add data from any supported Survey Provider, upload a Survey CSV, 
 
 ## Third Party Integrations
 
-Reforge Insight Analytics currently only supports **Typeform**, but is looking to add additional integrations in the near future. If you have a specific one you really want, please request access through the portal or email **[ben.kramer@reforge.com](mailto:ben.kramer@reforge.com)**.
+Reforge Insight Analytics currently only supports **Typeform**, but is looking to add additional integrations in the near future. If you have a specific one you really want, please request access through the portal or email [ben.kramer@reforge.com](mailto:ben.kramer@reforge.com).
 
 **How is Feedback created from Surveys?**
 
 1. **Pick your surveys-** We query your provider for all available surveys and you pick which to import.
+
 2. **Data vs Metadata -** We categorize responses based on question type and segment it into feedback vs metadata.
+
 3. **Synthesize -** By combining the question with the answer, our AI contextualizes insights for each response.
+
 4. **Group -** We link feedback responses by a single user together for easy navigation.
+
 5. **Schedule -** Finally, we set up a recurring job to get new data every day from all enabled surveys.
 
 ![typeform-select](/images/typeform-select.png)
@@ -23,12 +27,19 @@ If you need to import from another providor now, we also accept uploading data t
 
 **Steps to Import From CSV:**
 
-- **Select Your File**: Upload your .CSV, .XLSX, or other compatible file types.
-- **Optional Data Points**: Enhance your feedback records with optional columns such as 'Created At', 'Customer Name', and 'Customer Email'. If you're including 'Customer Name', make sure to pair it with 'Customer Email'. Use semicolons (;) to separate multiple tags in the 'Tags' column.
-- **Column Reassignment**: If your column headers don’t exactly match our requirements, fret not! You'll have the opportunity to reassign and map them in the subsequent step.
-- **Ensure Correct Shape**: Each survey question/answer column should be mapped to "Question X" and "Answer X". This is essential for our system to process your feedback.
+* **Select Your File**: Upload your .CSV, .XLSX, or other compatible file types.
 
-If you have extra columns that you want to bring to Reforge Insight Analytics, contact us at  **[ben.kramer@reforge.com](mailto:ben.kramer@reforge.com)**.
+* **Optional Data Points**: Enhance your feedback records with optional columns such as 'Created At', 'Customer Name', and 'Customer Email'. If you're including 'Customer Name', make sure to pair it with 'Customer Email'. Use semicolons (;) to separate multiple tags in the 'Tags' column.
+
+* **Column Reassignment**: If your column headers don’t exactly match our requirements, fret not! You'll have the opportunity to reassign and map them in the subsequent step.
+
+* **Ensure Correct Shape**: Each survey question/answer column should be mapped to "Question X" and "Answer X". This is essential for our system to process your feedback.
+
+If you have extra columns that you want to bring to Reforge Insight Analytics, contact us at  [ben.kramer@reforge.com](mailto:ben.kramer@reforge.com).
+
+## Analysis of Surveys
+
+The open-text responses from surveys are piped into a feedback pipeline. Along with metadata, you can create reports, ask questions, create cohorts, and more. All the metadata from survey responses is available for queries as well. You can analyze a single survey, compare across surveys, or merge survey data with other feedback.
 
 ## Reforge Insight Analytics Surveys
 
