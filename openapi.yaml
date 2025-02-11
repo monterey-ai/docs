@@ -228,88 +228,9 @@ paths:
                   feedback:
                     $ref: "#/components/schemas/Feedback"
 
-  /customers:
-    get:
-      summary: Get a list of customers
-      security:
-        - BearerAuth: []
-      responses:
-        200:
-          description: An array of customer
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Customers"
+  /contacts/identify:
     post:
-      summary: Create a new customer
-      security:
-        - BearerAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - name
-                - email
-              properties:
-                name:
-                  type: string
-                email:
-                  type: string
-                segments:
-                  description: A list of segment labels to apply to the customer
-                  type: array
-                  items:
-                    type: string
-      responses:
-        201:
-          description: The customer was created successfully
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Customer"
-
-  /projects:
-    get:
-      summary: Get a list of projects
-      security:
-        - BearerAuth: []
-      responses:
-        200:
-          description: An array of project objects
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Projects"
-    post:
-      summary: Create a new project
-      security:
-        - BearerAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - name
-              properties:
-                name:
-                  type: string
-                description:
-                  type: string
-      responses:
-        201:
-          description: The project was created successfully
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Project"
-
-    put:
-      summary: Update a project
+      summary: Identify a customer
       security:
         - BearerAuth: []
       requestBody:
@@ -323,29 +244,26 @@ paths:
               properties:
                 id:
                   type: string
-                name:
-                  type: string
-                description:
-                  type: string
+                properties:
+                  description: Properties prefixed with $ are handled specially. Otherwise, additional key-value pairs will be metadata once ingested into the system
+                  type: object
+                  nullable: true
+                  properties:
+                    $email:
+                      type: string
+                      nullable: true
+                    $name:
+                      type: string
+                      nullable: true
+                  additionalProperties: true
+
       responses:
         201:
-          description: The project was updated successfully
+          description: The customer was identified successfully
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Project"
-
-  /feedbackCategories:
-    get:
-      summary: Get a list of feedback categories
-      security:
-        - BearerAuth: []
-      responses:
-        200:
-          description: An array of category objects
-          content:
-            application/json:
-              schema:
+                type: object
                 properties:
-                  feedbackCategories:
-                    $ref: "#/components/schemas/FeedbackCategories"
+                  success:
+                    type: boolean
