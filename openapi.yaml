@@ -255,6 +255,14 @@ paths:
                     $name:
                       type: string
                       nullable: true
+                    $createdAt:
+                      type: string
+                      format: date-time
+                      nullable: true
+                    $updatedAt:
+                      type: string
+                      format: date-time
+                      nullable: true
                   additionalProperties: true
 
       responses:
