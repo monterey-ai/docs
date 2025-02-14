@@ -33,11 +33,7 @@
   "navigation": [
     {
       "group": "Home",
-      "pages": [
-        "welcome",
-        "quickstart",
-        "philosophy"
-      ]
+      "pages": ["welcome", "quickstart", "philosophy"]
     },
     {
       "group": "Aggregation and Collection",
@@ -54,21 +50,11 @@
     },
     {
       "group": "Records",
-      "pages": [
-        "snippets",
-        "contacts",
-        "metadata",
-        "review-spam"
-      ]
+      "pages": ["snippets", "contacts", "metadata", "review-spam"]
     },
     {
       "group": "Feedback insights",
-      "pages": [
-        "themes",
-        "ask-monty",
-        "alert",
-        "custom-reports"
-      ]
+      "pages": ["themes", "ask-monty", "alert", "custom-reports"]
     },
     {
       "group": "Knowledge Hub",
@@ -120,7 +106,8 @@
       "pages": [
         "integrations/community",
         "integrations/slack",
-        "integrations/discord"
+        "integrations/discord",
+        "integrations/reddit"
       ]
     },
     {
@@ -133,10 +120,7 @@
     },
     {
       "group": "Survey",
-      "pages": [
-        "integrations/typeform",
-        "integrations/survey-monkey"
-      ]
+      "pages": ["integrations/typeform", "integrations/survey-monkey"]
     },
     {
       "group": "Other Integrations",
@@ -151,15 +135,11 @@
       "pages": [
         {
           "group": "Contacts",
-          "pages": [
-            "api-reference/contacts/identify-contacts"
-          ]
+          "pages": ["api-reference/contacts/identify-contacts"]
         },
         {
           "group": "Feedback",
-          "pages": [
-            "api-reference/feedback/create-a-feedback-record"
-          ]
+          "pages": ["api-reference/feedback/create-a-feedback-record"]
         }
       ]
     },
@@ -175,15 +155,11 @@
     },
     {
       "group": "Pricing",
-      "pages": [
-        "pricing/volume-calculation"
-      ]
+      "pages": ["pricing/volume-calculation"]
     },
     {
       "group": "Open Source",
-      "pages": [
-        "open-source/attribution"
-      ]
+      "pages": ["open-source/attribution"]
     }
   ],
   "footerSocials": {
