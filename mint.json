@@ -120,7 +120,8 @@
       "pages": [
         "integrations/community",
         "integrations/slack",
-        "integrations/discord"
+        "integrations/discord",
+        "integrations/reddit"
       ]
     },
     {
