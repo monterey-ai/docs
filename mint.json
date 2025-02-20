@@ -161,6 +161,12 @@
           "pages": [
             "api-reference/feedback/create-a-feedback-record"
           ]
+        },
+        {
+          "group": "Conversations",
+          "pages": [
+            "api-reference/conversations/create-a-conversation"
+          ]
         }
       ]
     },
