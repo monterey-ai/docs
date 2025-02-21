@@ -206,6 +206,11 @@ paths:
                   type: string
                   description: ID from source data for later consolidation or aggregation
                   nullable: true
+                shouldUnflattenSourceData:
+                  type: boolean
+                  description:
+                    'Whether to unflatten sourceData that are meant to be nested objects for example `{ "plan.type": "Pro" }` will be unflattened to `{ "plan": { "type": "Pro" } }`'
+                  nullable: true
                 sourceData:
                   type: object
                   description: Dictionary to provide other key-value pairs such as the url, view identifier, or other information
@@ -244,8 +249,15 @@ paths:
               properties:
                 id:
                   type: string
+                  description: The unique identifier for the contact.
+                  nullable: false
+                shouldUnflattenProperties:
+                  type: boolean
+                  description:
+                    'Whether to unflatten properties that are meant to be nested objects for example `{ "plan.type": "Pro" }` will be unflattened to `{ "plan": { "type": "Pro" } }`'
+                  nullable: true
                 properties:
-                  description: Properties prefixed with $ are handled specially. Otherwise, additional key-value pairs will be metadata once ingested into the system
+                  description: Properties prefixed with `$` are handled specially. Otherwise, additional key-value pairs will be metadata once ingested into the system
                   type: object
                   nullable: true
                   properties:
@@ -311,6 +323,11 @@ paths:
                         type: string
                         description: The unique identifier for the contact.
                         example: user-456
+                      shouldUnflattenProperties:
+                        type: boolean
+                        description:
+                          'Whether to unflatten properties that are meant to be nested objects for example `{ "plan.type": "Pro" }` will be unflattened to `{ "plan": { "type": "Pro" } }`'
+                        nullable: true
                       properties:
                         type: object
                         description: Contact properties.
@@ -358,10 +375,20 @@ paths:
                         format: date-time
                         description: The date and time the message was created.
                         example: 2024-01-01T00:00:00.000Z
+                      shouldUnflattenProperties:
+                        type: boolean
+                        description:
+                          'Whether to unflatten properties that are meant to be nested objects for example `{ "plan.type": "Pro" }` will be unflattened to `{ "plan": { "type": "Pro" } }`'
+                        nullable: true
                       properties:
                         type: object
                         description: Additional metadata properties (key-value pairs)
                         additionalProperties: true
+                shouldUnflattenProperties:
+                  type: boolean
+                  description:
+                    'Whether to unflatten properties that are meant to be nested objects for example `{ "plan.type": "Pro" }` will be unflattened to `{ "plan": { "type": "Pro" } }`'
+                  nullable: true
                 properties:
                   type: object
                   description: Additional metadata properties (key-value pairs)
