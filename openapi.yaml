@@ -246,3 +246,130 @@ paths:
                 properties:
                   success:
                     type: boolean
+
+  /conversations:
+    post:
+      summary: Submit a conversation
+      description: Submits conversation data to the system for processing. This can be content like a call transcript, email thread, or chat conversation.
+      security:
+       - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: The unique identifier for the conversation.
+                  example: conversation-123
+                source:
+                  type: string
+                  description: The source of the conversation.
+                  example: intercom
+                createdAt:
+                  type: string
+                  format: date-time
+                  description: The date and time the conversation was created.
+                  example: 2024-01-01T00:00:00.000Z
+                contacts:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: The unique identifier for the contact.
+                        example: user-456
+                      properties:
+                        type: object
+                        description: Contact properties.
+                        properties:
+                          $email:
+                            type: string
+                            description: The email address of the contact.
+                            example: user@example.com
+                          $name:
+                            type: string
+                            description: The name of the contact.
+                            example: John Doe
+                          $createdAt:
+                            type: string
+                            format: date-time
+                            nullable: true
+                          $updatedAt:
+                            type: string
+                            format: date-time
+                            nullable: true
+                        additionalProperties: true
+                messages:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: The unique identifier for the message.
+                        example: message-789
+                      incoming:
+                        type: boolean
+                        description: Indicates if the message is incoming (from an external user or customer) or outgoing (e.g. from a support agent or sales person on your team).
+                        example: true
+                      contactId:
+                        type: string
+                        description: The unique identifier for the contact that sent this message.
+                        example: user-456
+                      content:
+                        type: string
+                        description: The content of the message.
+                        example: Hello! I'm having trouble...
+                      createdAt:
+                        type: string
+                        format: date-time
+                        description: The date and time the message was created.
+                        example: 2024-01-01T00:00:00.000Z
+                      properties:
+                        type: object
+                        description: Additional metadata properties (key-value pairs)
+                        additionalProperties: true
+                properties:
+                  type: object
+                  description: Additional metadata properties (key-value pairs)
+                  additionalProperties: true
+      responses:
+        200:
+          description: Conversation submitted successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+        400:
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        message:
+                          type: string
+                          example: "Invalid input"
+        429:
+          description: Rate limit exceeded.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "We are limiting to 10 per minute, please try again later"
