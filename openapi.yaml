@@ -153,58 +153,32 @@ paths:
                   items:
                     type: string
                   nullable: true
-                customer:
-                  description: The customer who provided the feedback
+                contact:
+                  description: The Contact who provided the feedback
                   oneOf:
                     - $ref: "#/components/schemas/FindOrCreateCustomer"
                     - $ref: "#/components/schemas/AssociateExistingCustomer"
+                contactId:
+                  type: string
+                  description: ID of Contact to associate to
+                  nullable: true
                 account:
                   description: The customer account to which the feedback should be associated
                   oneOf:
                     - $ref: "#/components/schemas/FindOrCreateCustomerAccount"
                     - $ref: "#/components/schemas/AssociateExistingCustomerAccount"
                   nullable: true
-                project:
-                  description: The project to which the feedback should be associated
-                  oneOf:
-                    - $ref: "#/components/schemas/FindOrCreateProject"
-                    - $ref: "#/components/schemas/AssociateExistingProject"
-                  nullable: true
-                categoryId:
+                accountId:
                   type: string
-                  description: ID of FeedbackCategory to associate to
+                  description: ID of CustomerAccount to associate to
                   nullable: true
                 source:
                   type: string
-                  description: "Default: API (when excluded or provided as null"
-                  enum: [
-                      WEB
-                      CSV
-                      API
-                      SLACK
-                      TWITTER
-                      CHROME_EXTENSION
-                      INTERCOM
-                      GITHUB
-                      WIDGET
-                      PORTAL
-                      APP_STORE
-                      GOOGLE_PLAY
-                      DISCORD
-                      ZENDESK
-                      FRONT
-                      SALESFORCE
-                      ZAPIER
-                      HUBSPOT
-                      FANBOOK
-                      SALESFORCE_SERVICE_CLOUD
-                      ASANA
-                      API,
-                    ]
+                  description: "The source of the feedback. Default: API (when excluded or provided as null"
                   nullable: true
                 sourceId:
                   type: string
-                  description: ID from source data for later consolidation or aggregation
+                  description: Unique ID from source data for later consolidation or aggregation
                   nullable: true
                 shouldUnflattenSourceData:
                   type: boolean
@@ -217,11 +191,8 @@ paths:
                   nullable: true
                 rating:
                   type: number
-                  description: The numeric rating (1-5)
+                  description: The numeric rating (integer)
                   nullable: true
-                priority:
-                  type: number
-                  description: The numeric priority (0-2), 0 being the highest, 2 being the lowest priority
 
       responses:
         201:
