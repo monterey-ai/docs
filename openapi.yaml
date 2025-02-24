@@ -124,6 +124,86 @@ components:
       properties:
         name:
           type: string
+    Account:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          description: The unique identifier for the account.
+          example: account-789
+        shouldUnflattenProperties:
+          type: boolean
+          description:
+            'Whether to unflatten properties that are meant to be nested objects for example `{ "plan.type": "Pro" }` will be unflattened to `{ "plan": { "type": "Pro" } }`'
+          nullable: true
+        properties:
+          type: object
+          required:
+            - $name
+            - $domain
+          properties:
+            $name:
+              type: string
+              description: The name of the account.
+              example: Acme, Inc.
+            $domain:
+              type: string
+              description: The domain of the account.
+              example: acme.com
+            $createdAt:
+              type: string
+              format: date-time
+              nullable: true
+            $updatedAt:
+              type: string
+              format: date-time
+              nullable: true
+            $contractValue:
+              type: number
+              description: The contract value of the account.
+              example: 100000
+              nullable: true
+
+    Contact:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          description: The unique identifier for the project.
+          nullable: false
+        shouldUnflattenProperties:
+          type: boolean
+          description:
+            'Whether to unflatten properties that are meant to be nested objects for example `{ "plan.type": "Pro" }` will be unflattened to `{ "plan": { "type": "Pro" } }`'
+          nullable: true
+        properties:
+          description: Properties prefixed with `$` are handled specially. Otherwise, additional key-value pairs will be metadata once ingested into the system
+          type: object
+          nullable: true
+          properties:
+            $email:
+              type: string
+              nullable: true
+            $name:
+              type: string
+              nullable: true
+            $createdAt:
+              type: string
+              format: date-time
+              nullable: true
+            $updatedAt:
+              type: string
+              format: date-time
+              nullable: true
+          additionalProperties: true
+        account:
+          $ref: "#/components/schemas/Account"
+          nullable: true
+
 
 paths:
   /feedbacks:
@@ -214,43 +294,32 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              required:
-                - id
-              properties:
-                id:
-                  type: string
-                  description: The unique identifier for the contact.
-                  nullable: false
-                shouldUnflattenProperties:
-                  type: boolean
-                  description:
-                    'Whether to unflatten properties that are meant to be nested objects for example `{ "plan.type": "Pro" }` will be unflattened to `{ "plan": { "type": "Pro" } }`'
-                  nullable: true
-                properties:
-                  description: Properties prefixed with `$` are handled specially. Otherwise, additional key-value pairs will be metadata once ingested into the system
-                  type: object
-                  nullable: true
-                  properties:
-                    $email:
-                      type: string
-                      nullable: true
-                    $name:
-                      type: string
-                      nullable: true
-                    $createdAt:
-                      type: string
-                      format: date-time
-                      nullable: true
-                    $updatedAt:
-                      type: string
-                      format: date-time
-                      nullable: true
-                  additionalProperties: true
-
+              $ref: "#/components/schemas/Contact"
       responses:
         201:
           description: The customer was identified successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+
+  /accounts/identify:
+    post:
+      summary: Identify an account
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Account"
+      responses:
+        201:
+          description: The account was identified successfully
           content:
             application/json:
               schema:
@@ -288,38 +357,7 @@ paths:
                 contacts:
                   type: array
                   items:
-                    type: object
-                    properties:
-                      id:
-                        type: string
-                        description: The unique identifier for the contact.
-                        example: user-456
-                      shouldUnflattenProperties:
-                        type: boolean
-                        description:
-                          'Whether to unflatten properties that are meant to be nested objects for example `{ "plan.type": "Pro" }` will be unflattened to `{ "plan": { "type": "Pro" } }`'
-                        nullable: true
-                      properties:
-                        type: object
-                        description: Contact properties.
-                        properties:
-                          $email:
-                            type: string
-                            description: The email address of the contact.
-                            example: user@example.com
-                          $name:
-                            type: string
-                            description: The name of the contact.
-                            example: John Doe
-                          $createdAt:
-                            type: string
-                            format: date-time
-                            nullable: true
-                          $updatedAt:
-                            type: string
-                            format: date-time
-                            nullable: true
-                        additionalProperties: true
+                    $ref: "#/components/schemas/Contact"
                 messages:
                   type: array
                   items:
