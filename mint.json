@@ -157,6 +157,12 @@
           ]
         },
         {
+          "group": "Accounts",
+          "pages": [
+            "api-reference/accounts/identify-accounts"
+          ]
+        },
+        {
           "group": "Feedback",
           "pages": [
             "api-reference/feedback/create-a-feedback-record"
