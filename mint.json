@@ -43,11 +43,12 @@
       "group": "Aggregation and Collection",
       "pages": [
         "overview",
-        "feedback-csv-upload",
         "survey",
         "widget",
         "public-portal",
         "chrome-extension",
+        "feedback-csv-upload",
+        "survey-csv-upload",
         "contacts-csv-upload",
         "accounts-csv-upload"
       ]
