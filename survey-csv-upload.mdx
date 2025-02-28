@@ -1,0 +1,48 @@
+---
+title: "Survey CSV Upload"
+description: "Upload survey responses from a CSV file"
+---
+
+Reforge Insight Analytics understands the diverse sources from which you may be collecting survey responses. That's why we offer a seamless integration with Flatfile to simplify the process of importing survey responses from spreadsheets directly into Reforge Insight Analytics.
+
+![overview](/images/aggregation02.png)
+
+**To upload survey responses from a CSV file:**
+
+## Example CSV Format
+
+Below is an example of a Survey CSV format that works with our system. Your file doesn't need to match this exactly - you only need a 'Description' column at minimum, and you can map your column names during import.
+
+<a href="files/example-survey-import.csv" download>
+  Download example Survey CSV
+</a>
+
+## Supported Fields
+
+Our CSV import supports a wide range of fields to help you organize and analyze your survey responses effectively:
+
+### Essential Survey Questions Columns
+
+Each question is a column in the CSV file. For example, a column header name may be "Question 1: What did you think of the product?". You can map up to 50 survey questions during the upload process.
+When mapping questions, you can map them to any of the "Question #" columns.
+
+### Contact Information
+
+- **Contact Name**: Name of the person providing feedback
+- **Contact Email**: Email address or unique identifier for the contact
+- **Contact Unique ID**: The ID of the contact in your source system
+- **Contact Account Name**: The company or account the contact belongs to
+- **Contact Account Domain**: The domain (e.g., 'example.com') of the account
+- **Contract Value**: The monetary value associated with the account
+
+### Feedback Data
+
+- **Rating**: Numerical rating of the feedback (0-100)
+- **Created At**: When the feedback was originally collected
+- **Updated At**: When the feedback was last modified
+- **Source URL**: Link to the original feedback source
+- **Tags**: Semicolon-separated list of tags (e.g., 'feature request;bug;pricing')
+
+### Custom Fields
+
+If your CSV contains additional columns not listed above, you can still import them! During the mapping process, select "Add as new field" to create custom metadata fields that will be attached to your feedback entries.
