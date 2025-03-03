@@ -1,5 +1,7 @@
 ---
 title: "Zapier"
+description: "Build custom automations to ingest feedback and transcripts with Zapier"
+title: "Zapier"
 description: "Build custom automations to ingest feedback with Zapier"
 ---
 
@@ -44,6 +46,22 @@ Creates a new feedback record in your Reforge Insight Analytics workspace.
 
 - **Title** (optional): A brief title for the feedback
 - **Description** (required): The main content of the feedback
+- **Tags** (optional): Labels to categorize the feedback
+- **Customer Name** (optional): Name of the customer providing feedback
+- **Customer Email** (optional): Email of the customer (used to identify unique customers)
+- **Project Name** (optional): Associates feedback with a project (creates a new project if it doesn't exist)
+- **Rating** (optional): Numerical rating (typically 0-5)
+- **Source** (optional): Where the feedback came from (defaults to "ZAPIER")
+- **Source ID** (optional): Unique identifier for the feedback in its original system
+
+### Create Transcript
+
+Creates a new transcript record in your Reforge Insight Analytics workspace.
+
+**Fields:**
+
+- **Title** (optional): A brief title for the feedback
+- **Description** (required): The main content of the transcript
 - **Tags** (optional): Labels to categorize the feedback
 - **Customer Name** (optional): Name of the customer providing feedback
 - **Customer Email** (optional): Email of the customer (used to identify unique customers)
@@ -104,11 +122,13 @@ Here are some common ways to use the Reforge Insight Analytics Zapier integratio
 
 1. **Import Customer Support Conversations**: Connect Intercom, Zendesk, or Help Scout to import customer conversations for analysis.
 
-2. **Track Social Media Mentions**: Connect Twitter, Facebook, or Instagram to capture mentions or comments about your product.
+2. **Import text transcripts**: Connect a transcription service to send call transcripts to Reforge Insight Analytics.
 
-3. **Sync CRM Data**: Keep your customer and account data in sync between your CRM (like Salesforce or HubSpot) and Reforge Insight Analytics.
+3. **Track Social Media Mentions**: Connect Twitter, Facebook, or Instagram to capture mentions or comments about your product.
 
-4. **Log Feature Requests**: Automatically capture feature requests from tools like Trello, Asana, or Jira.
+4. **Sync CRM Data**: Keep your customer and account data in sync between your CRM (like Salesforce or HubSpot) and Reforge Insight Analytics.
+
+5. **Log Feature Requests**: Automatically capture feature requests from tools like Trello, Asana, or Jira.
 
 ## Building Your First Zap
 
