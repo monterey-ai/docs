@@ -226,7 +226,11 @@ paths:
                   nullable: true
                 description:
                   type: string
-                  description: The feedback content. Can be plain text or include basic HTML elements.
+                  description: The feedback content. Can be plain text or include basic HTML elements
+                isTranscript:
+                  type: boolean
+                  description: Whether the feedback is a transcript
+                  nullable: true
                 tags:
                   description: A list of string tags to apply to the feedback. If excluded or null value provided, tags will be auto-generated based on description content.
                   type: array
