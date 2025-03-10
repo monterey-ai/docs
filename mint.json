@@ -145,6 +145,7 @@
       "pages": [
         "integrations/email",
         "integrations/zapier",
+        "integrations/fathom",
         "integrations/data-warehouse"
       ]
     },
