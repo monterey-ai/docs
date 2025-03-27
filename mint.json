@@ -105,7 +105,8 @@
         "integrations/freshdesk",
         "integrations/salesforce-service-cloud",
         "integrations/jira-service-management",
-        "integrations/kustomer"
+        "integrations/kustomer",
+        "integrations/zoom"
       ]
     },
     {
@@ -246,6 +247,10 @@
     {
       "source": "/ingest-from-front",
       "destination": "/integrations/front"
+    },
+    {
+      "source": "/ingest-from-zoom",
+      "destination": "/integrations/zoom"
     }
   ]
 }
