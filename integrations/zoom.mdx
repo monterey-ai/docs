@@ -2,6 +2,7 @@
 title: "Zoom"
 description: "Ingest Zoom meeting transcripts"
 ---
+<Warning>This integration is in development</Warning>
 
 ### Overview
 
@@ -17,7 +18,12 @@ The integration with Zoom is a great way to get product insights from your team 
   CSV or Zapier instead of building a continuous pipeline.
 </Note>
 
-### Get Started
+### Prerequisites
+- Admin access to your Zoom account
+- Access to Reforge Insight Analytics
+- Cloud recordings with transcripts enabled in your Zoom account
+
+### Adding the App
 
 You can find the Zoom integration on your **[integration settings page](https://insights.reforge.com/w/default/settings/integrations/zoom)**.
 
@@ -37,13 +43,76 @@ A user with access to both Reforge Insight Analytics as well as Zoom will need t
   <Step title="Once confirmed, you will be returned to Reforge Insight Analytics where you can select users for which to import meeting recording transcripts" />
 </Steps>
 
-<Note>
-  Only cloud recordings with transcripts are supported for import.
-</Note>
+### Usage
+#### Features and Actions
+
+1. **Selecting Users**
+   - After connecting, you'll see a list of users from your Zoom account
+   - Select the users whose meeting recordings you want to import
+   - Only cloud recordings with transcripts will be available for import
+
+2. **Importing Transcripts**
+   - Once users are selected, the system will automatically import their meeting recordings
+   - New recordings will be imported on a regular basis
+   - You can view imported transcripts in your [Snippets](https://docs.monterey.ai/snippets) page
+
+3. **Managing Data**
+   - All imported transcripts are stored securely in Reforge Insight Analytics
+   - You can view, search, and analyze transcripts through the platform
+   - Transcripts are processed to extract feedback insights and trends
+
+#### Removing the App
+
+To remove the Zoom integration:
+
+1. Go to your **[zoom integration settings page](https://insights.reforge.com/w/default/settings/integrations/zoom)**.
+2. Click "Disconnect"
+
+#### Implications of Removal
+- The integration will stop importing new meeting recordings
+- Previously imported transcripts will remain in Reforge Insight Analytics
+- You will need to re-authorize if you want to reconnect in the future
+
+#### Data Handling
+- All previously imported transcripts will be retained in Reforge Insight Analytics
+- No data will be deleted from your Zoom account
+- You can request data deletion from Reforge Insight Analytics if needed
+
+### Troubleshooting
+
+Common issues and solutions:
+
+1. **Authorization Issues**
+   - Ensure you have admin access to your Zoom account
+   - Try logging out and back into both Zoom and Reforge Insight Analytics
+   - Check if your Zoom account has the necessary permissions enabled
+
+2. **Missing Transcripts**
+   - Verify that cloud recordings are enabled in your Zoom account
+   - Ensure transcripts are being generated for your meetings
+   - Check if the selected users have recent recorded meetings with transcripts. On initial import, we look for meetings up to 1 week in the past.
+
+3. **Connection Problems**
+   - Clear your browser cache and cookies
+   - Try using a different browser
+   - Check your internet connection
+
+### FAQ
+
+**Q: What permissions does the integration require?**
+A: The integration requires admin access to your Zoom account to read users, meeting recordings and transcripts, and meeting participants.
+
+**Q: How often are new recordings imported?**
+A: New recordings are imported automatically every 24 hours.
+
+**Q: What happens if I disconnect and reconnect the integration?**
+A: Previously imported transcripts will remain in the system, and new recordings will begin importing again.
+
+### Support
+
+You can email us at hello@reforge.com or use the widget on the bottom right of the Insight Analytics app to submit feedback.
 
 ### Data Collected
-
-Once Zoom is connected to Reforge Insight Analytics, we will load a list of users for you to select from.
 
 For each selected user, we will load recording information including the following from the Zoom API:
 
