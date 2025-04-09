@@ -1,16 +1,25 @@
 ---
 title: "Data Warehouse"
-description: "Ingest targeted data from Snowflake and other data warehouses to Reforge Insight Analytics for consolidation and analysis"
+description: "Ingest targeted data from Snowflake, BigQuery and other data warehouses to Reforge Insight Analytics for consolidation and analysis"
 ---
 
 ### Overview
 
-Reforge Insight Analytics can connect to and pull data from your data warehouse of choice. Currently, we support Snowflake, but are always looking to expand our integrations.
+Reforge Insight Analytics can connect to and pull data from your data warehouse of choice. Currently, we support Snowflake and BigQuery, but are always looking to expand our integrations.
 
 ### Snowflake
 
 To connect with Snowflake, you can request our account details and use [Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro).
 Secure data sharing allows you to give us the targeted access to just the data you want to share.
+
+### BigQuery
+
+To connect with BigQuery:
+
+1. request our Google Cloud service account details
+2. add the service account email address to your Google Cloud IAM policy and grant it the `bigquery.jobUser` _(BigQuery Job User)_ role. This will allow us to run queries on your behalf.
+3. share the dataset with our service account email address and grant it the `bigquery.dataViewer` _(BigQuery Data Viewer)_ role. This will allow us to access only the datasets you want to share.
+4. share with us the dataset id and Google Cloud project id
 
 ### Schemas
 
