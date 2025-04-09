@@ -1,0 +1,98 @@
+---
+title: "Chorus AI"
+description: "Ingest Chorus AI Call Transcripts"
+---
+
+### Overview
+
+Chorus.ai is a conversation intelligence platform that records, transcribes, and analyzes sales and customer success calls. Connecting Reforge Insight Analytics with Chorus allows you to leverage your call transcript data for deeper customer insights and analysis within the Reforge platform.
+
+### Requirements
+
+- You will require a Chorus account with access to API key generation features.
+- You may need admin permissions within your Chorus account to generate an API key.
+
+### Get Started
+
+First, you will need to generate an API key in Chorus.ai.
+
+<Steps>
+  <Step title="Log in to your Chorus account." />
+  <Step title="Navigate to Settings via the Profile dropdown in the top right corner." />
+  <Step title='Click "Generate API Token" and note the token value. You will need it for the next steps.' />
+</Steps>
+
+Now that you have an API key, you can find the Chorus integration in Reforge Insight Analytics at **[integration settings page](https://insights.reforge.com/w/default/settings/integrations/chorus)**.
+Note that the link will take you to the first workspace you have access to, so you may need to change it using the Workspace selector at the top left of the screen.
+
+<Steps>
+  <Step title='Go to "Settings" in Reforge Insight Analytics.' />
+  <Step title='Click "Integrations" in the navigation menu.' />
+  <Step title='Click "Chorus AI".' />
+  <Step title="Paste the API Key that you generated in Chorus.ai. Note that we encrypt and store this key securely." />
+  <Step title='Click "Save". The system will validate the API key.' />
+  <Step title="Once confirmed, you will be returned to Reforge Insight Analytics, where you can toggle on call transcript ingestion." />
+</Steps>
+
+### Data Collected
+
+Once Reforge Insight Analytics and Chorus are connected successfully, new call transcripts will be pulled in periodically. The integration fetches data from the Chorus Engagements API, applying the following filters:
+
+- **Type:** Only includes engagements where `type` is `meeting`.
+- **No-Shows:** Excludes meetings marked as `no_show` is `false`.
+- **Duration:** Only includes meetings with a `duration` greater than 0.
+- **Processing State:** Only includes meetings where the `processing_state` is marked as `done`, ensuring the transcript is available.
+- **Utterances:** Only includes meetings that have associated transcript utterances (`recording.utterances.length > 0`).
+
+The following data attributes are loaded from Chorus and utilized in Reforge Insight Analytics for analysis:
+
+**Meeting (Engagement)**
+
+- Engagement ID (`engagement_id`)
+- Subject (`subject`)
+- Associated Account (`account`) - _Used to link Account data_
+- Associated Participants (`participants`) - _Used to link Contact data_
+- Meeting Date/Time (`date_time`)
+- _Filtered fields (Type, No Show, Duration, Processing State) are used for ingestion logic but not directly stored as distinct attributes._
+
+**Account**
+
+- Account ID (`id`)
+- Name (`name`)
+- Domain (Derived from participant email matching the account name)
+- Raw Data:
+  - External ID (`ext_id`)
+  - ZoomInfo Company ID (`zi_company_id`)
+
+**Contact (Participant)**
+
+- Person ID (`person_id`)
+- Name (`name`)
+- Email (`email`)
+- Associated Account ID (if participant's company matches the meeting's account)
+- Raw Data:
+  - ZoomInfo Person ID (`zi_person_id`)
+  - Title (`title`)
+
+**Transcript Utterance (Snippet)**
+
+- Utterance ID (`id`)
+- Transcript Text (potential `snippet`)
+- Timestamp (`date_time`)
+- Speaker ID (`speaker_id`) - _Used to link to the Contact_
+- Context Only Flag (Set to `true` if `speaker_type` is not `customer`)
+- Raw Data:
+  - Engaging Flag (`engaging`)
+  - Expired Flag (`expired`)
+  - Snippet Length (`snippet_length`)
+  - Snippet Time (`snippet_time`)
+  - Snippet Word Count (`snippet_word_count`)
+  - Speaker Type (`speaker_type`)
+
+### Pricing Volume Impact
+
+| Entity Type     | Volume Impact |
+| :-------------- | :-----------: |
+| Call Transcript |    **10x**    |
+
+<Info>View the [pricing page](/pricing/volume-calculation) for more information on how we calculate volume usage.</Info>
