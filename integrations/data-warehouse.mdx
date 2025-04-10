@@ -3,9 +3,11 @@ title: "Data Warehouse"
 description: "Ingest targeted data from Snowflake, BigQuery and other data warehouses to Reforge Insight Analytics for consolidation and analysis"
 ---
 
-### Overview
+# Overview
 
 Reforge Insight Analytics can connect to and pull data from your data warehouse of choice. Currently, we support Snowflake and BigQuery, but are always looking to expand our integrations.
+
+# Supported Warehouses
 
 ### Snowflake
 
@@ -16,16 +18,25 @@ Secure data sharing allows you to give us the targeted access to just the data y
 
 To connect with BigQuery:
 
-1. request our Google Cloud service account details
-2. add the service account email address to your Google Cloud IAM policy and grant it the `bigquery.jobUser` _(BigQuery Job User)_ role. This will allow us to run queries on your behalf.
-3. share the dataset with our service account email address and grant it the `bigquery.dataViewer` _(BigQuery Data Viewer)_ role. This will allow us to access only the datasets you want to share.
-4. share with us the dataset id and Google Cloud project id
+<Steps>
+  <Step>Request our Google Cloud service account details from your primary contact at Reforge.</Step>
+  <Step>
+    Add the service account email address to your Google Cloud IAM policy and grant it the `bigquery.jobUser` _(BigQuery
+    Job User)_ role. This will allow us to run queries on your behalf.
+  </Step>
+  <Step>
+    Share the dataset containing tables, like those described below, with our service account email address and grant it
+    the `bigquery.dataViewer` _(BigQuery Data Viewer)_ role. This will provide us with read-only access to the datasets
+    you want to share.
+  </Step>
+  <Step>Share with your primary contact at Reforge the respective Google Cloud project ID and dataset ID.</Step>
+</Steps>
 
-### Schemas
+# Data Models
 
 We support several schemas and relationships between tables. With each of the schemas defined below, you can also provide a list of additional column names that you would like to be included on the respective fields as **metadata**. A few examples of common additional fields are for feedback or conversation messages, a "version" number that the feedback refers to, or for Contacts, a "plan" or "subscription tier". When working with the team to connect to your data warehouse, simply share with us fields beyond those defined below that you would like to have included!
 
-**Standalone Feedback**
+### Standalone Feedback
 
 Standalone feedback are singular items of feedback, such as a review or a single response to a question.
 
@@ -39,7 +50,7 @@ Standalone feedback are singular items of feedback, such as a review or a single
 | title       |    No    | STRING | Optional title for the feedback            |
 | contact_id  |    No    | STRING | Optional identifier linking to a contact   |
 
-**Conversation**
+### Conversation
 
 A conversation is a collection of conversational feedback messages. For example, a chat log between a support agent and a user.
 
@@ -51,7 +62,7 @@ A conversation is a collection of conversational feedback messages. For example,
 | created_at |   Yes    | STRING | When the conversation was created          |
 | updated_at |    No    |  DATE  | When the conversation was last updated     |
 
-**Conversation Message**
+### Conversation Message
 
 These are the individual messages within a conversation, and should be linked to a conversation by the `conversation_id` field.
 
@@ -65,7 +76,7 @@ These are the individual messages within a conversation, and should be linked to
 | incoming        |   Yes    | BOOLEAN | Whether the message was sent by an external user |
 | contact_id      |    No    | STRING  | Optional identifier linking to a contact         |
 
-**Contacts**
+### Contacts
 
 Contacts are the users of your product.
 
@@ -78,7 +89,7 @@ Contacts are the users of your product.
 | created_at |   Yes    |  DATE  | When the contact was created       |
 | updated_at |   Yes    |  DATE  | When the contact was last updated  |
 
-**Accounts**
+### Accounts
 
 Accounts are the companies that your contacts belong to.
 
