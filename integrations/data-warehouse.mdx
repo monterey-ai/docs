@@ -101,3 +101,71 @@ Accounts are the companies that your contacts belong to.
 | contract_value |    No    | NUMBER | The account's contract value      |
 | created_at     |   Yes    |  DATE  | When the account was created      |
 | updated_at     |   Yes    |  DATE  | When the account was last updated |
+
+### Custom Tables
+
+Sometimes, you may not be able to map your data to the existing schemas. In this case, you can share your own, existing tables. This will require custom engineering work on our end, so understand that time will be required to support this.
+
+If you are providing custom tables, then what we will need to do is to effectively write custom queries and map the data to schemas above on our end.
+Given that, helping us understand how to do that mapping will expedite the process and lead to better, faster results for getting your data into Insight Analytics.
+
+When sharing custom table information, please provide the following:
+
+**1. Table Information**
+The table names, column names, column types, and a description of the data in each column.
+
+For example:
+
+**Customer Table: client_organizations**
+
+| Column Name    | Column Type | Description                                                         |
+| :------------- | :---------- | :------------------------------------------------------------------ |
+| org_id         | STRING      | The unique identifier for the organization                          |
+| org_name       | STRING      | The name of the organization (maps to account name)                 |
+| org_website    | STRING      | The organization's website domain (maps to account domain)          |
+| annual_revenue | NUMBER      | The organization's annual contract value                            |
+| creation_date  | DATE        | When the organization was created (maps to account created_at)      |
+| last_modified  | DATE        | When the organization was last updated (maps to account updated_at) |
+
+**Customer Table: client_users**
+
+| Column Name     | Column Type | Description                                                         |
+| :-------------- | :---------- | :------------------------------------------------------------------ |
+| user_id         | STRING      | The unique identifier for the user (maps to contact id)             |
+| full_name       | STRING      | The user's full name (maps to contact name)                         |
+| user_email      | STRING      | The user's email address (maps to contact email)                    |
+| org_id          | STRING      | Foreign key to client_organizations (maps to account_id)            |
+| signup_date     | DATE        | When the user was created (maps to contact created_at)              |
+| profile_updated | DATE        | When the user profile was last updated (maps to contact updated_at) |
+
+**Customer Table: support_tickets**
+
+| Column Name | Column Type | Description                                                        |
+| :---------- | :---------- | :----------------------------------------------------------------- |
+| ticket_id   | STRING      | Unique identifier for the support ticket (maps to conversation id) |
+| opened_at   | DATE        | When the ticket was created (maps to conversation created_at)      |
+| closed_at   | DATE        | When the ticket was closed (maps to conversation updated_at)       |
+| user_id     | STRING      | User who opened the ticket (maps to contact_id)                    |
+| org_id      | STRING      | Organization the ticket belongs to                                 |
+| status      | STRING      | Current status of the ticket                                       |
+| priority    | STRING      | Priority level of the ticket                                       |
+
+**Customer Table: ticket_messages**
+
+| Column Name   | Column Type | Description                                                  |
+| :------------ | :---------- | :----------------------------------------------------------- |
+| message_id    | STRING      | Unique identifier for the message (maps to message id)       |
+| ticket_id     | STRING      | Foreign key to support_tickets (maps to conversation_id)     |
+| message_text  | STRING      | The content of the message (maps to message content)         |
+| sent_time     | DATE        | When the message was sent (maps to message created_at)       |
+| edited_time   | DATE        | When the message was edited (maps to message updated_at)     |
+| from_customer | BOOLEAN     | Whether the message was from the customer (maps to incoming) |
+| user_id       | STRING      | User who sent the message (maps to contact_id)               |
+
+**2. Relationship Information**
+If there are any relationships between the tables, please point out how the tables should be joined, as in which column on table A should be joined with which column on table B.
+
+**3. Data Mapping**
+An explanation of how you would expect the data to map to the schemas defined above.
+
+If you are interested in sharing custom tables, please reach out to your primary contact at Reforge.
