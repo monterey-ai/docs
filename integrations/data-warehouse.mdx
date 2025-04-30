@@ -9,28 +9,85 @@ Reforge Insight Analytics can connect to and pull data from your data warehouse 
 
 # Supported Warehouses
 
-### Snowflake
+<AccordionGroup>
+  <Accordion title="Snowflake">
+    To connect with Snowflake, you can request our account details and use [Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro).
+    Secure data sharing allows you to give us the targeted access to just the data you want to share.
+  </Accordion>
 
-To connect with Snowflake, you can request our account details and use [Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro).
-Secure data sharing allows you to give us the targeted access to just the data you want to share.
+  <Accordion title="BigQuery">
+    To connect with BigQuery:
 
-### BigQuery
+    <Steps>
+      <Step>Request our Google Cloud service account details from your primary contact at Reforge.</Step>
+      <Step>
+        Add the service account email address to your Google Cloud IAM policy and grant it the `bigquery.jobUser` _(BigQuery
+        Job User)_ role. This will allow us to run queries on your behalf.
+      </Step>
+      <Step>
+        Share the dataset containing tables, like those described below, with our service account email address and grant it
+        the `bigquery.dataViewer` _(BigQuery Data Viewer)_ role. This will provide us with read-only access to the datasets
+        you want to share.
+      </Step>
+      <Step>Share with your primary contact at Reforge the respective Google Cloud project ID and dataset ID.</Step>
+    </Steps>
 
-To connect with BigQuery:
+  </Accordion>
 
-<Steps>
-  <Step>Request our Google Cloud service account details from your primary contact at Reforge.</Step>
-  <Step>
-    Add the service account email address to your Google Cloud IAM policy and grant it the `bigquery.jobUser` _(BigQuery
-    Job User)_ role. This will allow us to run queries on your behalf.
-  </Step>
-  <Step>
-    Share the dataset containing tables, like those described below, with our service account email address and grant it
-    the `bigquery.dataViewer` _(BigQuery Data Viewer)_ role. This will provide us with read-only access to the datasets
-    you want to share.
-  </Step>
-  <Step>Share with your primary contact at Reforge the respective Google Cloud project ID and dataset ID.</Step>
-</Steps>
+  <Accordion title="Amazon Redshift">
+    To connect with Amazon Redshift using Datashare:
+
+        <Steps>
+          <Step>
+            Create a datashare in your Redshift cluster:
+        ```sql
+        CREATE DATASHARE ingest_share;
+        ```
+      </Step>
+      <Step>
+        Add objects to your datashare. You can add entire schemas or specific tables and views:
+        ```sql
+        -- Whole schema
+        ALTER DATASHARE ingest_share ADD SCHEMA public;
+
+        -- Or pick specific items
+        ALTER DATASHARE ingest_share ADD TABLE public.conversations;
+        ALTER DATASHARE ingest_share ADD VIEW public.latest_tickets_v;
+        ```
+
+      </Step>
+      <Step>
+        Make the datashare visible cross-account:
+        ```sql
+        ALTER DATASHARE ingest_share SET PUBLICACCESSIBLE TRUE;
+        ```
+        Note: This doesn't expose your data publicly. It only allows consumption by authorized accounts.
+      </Step>
+      <Step>
+        Authorize Reforge's AWS account to access your datashare:
+        ```bash
+        aws redshift authorize-data-share \
+          --data-share-arn arn:aws:redshift:us-east-1:111122223333:datashare:ingest_share \
+          --consumer-accounts 44445556677
+        ```
+        Replace the ARN with your datashare ARN and the consumer-accounts value with the AWS account ID provided to you by your Reforge contact.
+
+        You can also do this via the Redshift console under **Datashares → ingest_share → Authorize**.
+      </Step>
+      <Step>
+        Provide the following information to your primary contact at Reforge:
+
+        | **Field** | **Example** |
+        | --- | --- |
+        | **Datashare ARN** | arn:aws:redshift:us-east-1:111122223333:datashare:ingest_share |
+        | **Redshift namespace ARN** (only if you have multiple clusters/workgroups) | arn:aws:redshift:us-east-1:111122223333:namespace:prod-ns-1 |
+        | **List of schemas / tables / views** included | public.conversations, public.latest_tickets_v |
+
+      </Step>
+    </Steps>
+
+  </Accordion>
+</AccordionGroup>
 
 # Data Models
 
