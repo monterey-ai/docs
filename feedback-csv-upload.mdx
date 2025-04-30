@@ -9,13 +9,13 @@ Reforge Insight Analytics understands the diverse sources from which you may be 
 
 **To upload feedback from a CSV file:**
 
-## Example CSV Format
+## Example CSV
 
-Below is an example of a CSV format that works with our system. Your file doesn't need to match this exactly - you only need a 'Description' column at minimum, and you can map your column names during import.
-
-<a href="files/example-feedback-import.csv" download>
-  Download example CSV
-</a>
+```csv
+title,description,createdAt,updatedAt,source,sourceId,sourceUrl,rating,customerName,customerEmail,customerCompanyName,customerCompanyDomain,contractValue,tags,customFieldOne,customFieldTwo,customFieldThree
+"What I would like","I would like to see better reporting tools","2023-01-15","2023-01-15","SURVEY","abc123","https://survey.example.com/response/abc123",85,"John Doe","john@example.com","Acme Inc","acme.com",50000,"feedback;important","customFieldOneValue","customFieldTwoValue","customFieldThreeValue"
+"Dashboard broken","The dashboard is not loading correctly","2023-01-16","2023-01-16","SURVEY","def456","https://survey.example.com/response/def456",70,"Jane Smith","jane@company.org","Company LLC","company.org",75000,"bug;urgent","customFieldOneValue","customFieldTwoValue","customFieldThreeValue"
+```
 
 ## Supported Fields
 
