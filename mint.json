@@ -33,11 +33,7 @@
   "navigation": [
     {
       "group": "Home",
-      "pages": [
-        "welcome",
-        "quickstart",
-        "philosophy"
-      ]
+      "pages": ["welcome", "quickstart", "philosophy"]
     },
     {
       "group": "Aggregation and Collection",
@@ -55,21 +51,11 @@
     },
     {
       "group": "Records",
-      "pages": [
-        "snippets",
-        "contacts",
-        "metadata",
-        "review-spam"
-      ]
+      "pages": ["snippets", "contacts", "metadata", "review-spam"]
     },
     {
       "group": "Feedback insights",
-      "pages": [
-        "themes",
-        "ask-monty",
-        "alert",
-        "custom-reports"
-      ]
+      "pages": ["themes", "ask-monty", "alert", "custom-reports"]
     },
     {
       "group": "Knowledge Hub",
@@ -107,7 +93,8 @@
         "integrations/jira-service-management",
         "integrations/kustomer",
         "integrations/chorus",
-        "integrations/zoom"
+        "integrations/zoom",
+        "integrations/google-meet"
       ]
     },
     {
@@ -137,10 +124,7 @@
     },
     {
       "group": "Survey",
-      "pages": [
-        "integrations/typeform",
-        "integrations/survey-monkey"
-      ]
+      "pages": ["integrations/typeform", "integrations/survey-monkey"]
     },
     {
       "group": "Other Integrations",
@@ -156,27 +140,19 @@
       "pages": [
         {
           "group": "Contacts",
-          "pages": [
-            "api-reference/contacts/identify-contacts"
-          ]
+          "pages": ["api-reference/contacts/identify-contacts"]
         },
         {
           "group": "Accounts",
-          "pages": [
-            "api-reference/accounts/identify-accounts"
-          ]
+          "pages": ["api-reference/accounts/identify-accounts"]
         },
         {
           "group": "Feedback",
-          "pages": [
-            "api-reference/feedback/create-a-feedback-record"
-          ]
+          "pages": ["api-reference/feedback/create-a-feedback-record"]
         },
         {
           "group": "Conversations",
-          "pages": [
-            "api-reference/conversations/create-a-conversation"
-          ]
+          "pages": ["api-reference/conversations/create-a-conversation"]
         }
       ]
     },
@@ -192,15 +168,11 @@
     },
     {
       "group": "Pricing",
-      "pages": [
-        "pricing/volume-calculation"
-      ]
+      "pages": ["pricing/volume-calculation"]
     },
     {
       "group": "Open Source",
-      "pages": [
-        "open-source/attribution"
-      ]
+      "pages": ["open-source/attribution"]
     }
   ],
   "footerSocials": {
@@ -252,6 +224,10 @@
     {
       "source": "/ingest-from-zoom",
       "destination": "/integrations/zoom"
+    },
+    {
+      "source": "/ingest-from-google-meet",
+      "destination": "/integrations/google-meet"
     }
   ]
 }
