@@ -1,0 +1,140 @@
+---
+title: "Google Meet"
+description: "Ingest Google Meet meeting transcripts"
+---
+
+<Warning>This integration is in development</Warning>
+
+### Overview
+
+The integration with Google Meet is a great way to get product insights from your team meetings with customers. With the integration, your team can:
+
+- Surface trends in customer meetings
+- Extract common feature requests, bug reports, and questions
+- Understand customer needs directly from meeting discussions
+- Summarize meeting communications into actionable product insights
+
+<Note>
+  If this is a one time ingestion or low data volume, we recommend you upload
+  via CSV or Zapier instead of building a continuous pipeline.
+</Note>
+
+### Prerequisites
+
+- Access to Reforge Insight Analytics
+- Meeting recordings with transcripts saved
+
+### Adding the App
+
+You can find the Google Meet integration on your **[integration settings page](https://insights.reforge.com/w/default/settings/integrations/google-meet)**.
+
+<Steps>
+  <Step title='Go to "Settings"' />
+  <Step title='Click "Integrations" in the navigation menu' />
+  <Step title='Click "Google Meet"' />
+  <Step title='Click "Connect"' />
+  <Step title="If necessary, log in to Google using the appropriate account" />
+  <Step title="Review and approve the permissions requested" />
+  <Step title="Once confirmed, you will be returned to Reforge Insight Analytics where you can import meeting recording transcripts" />
+  <Step title="If necessary, connect another Google account" />
+</Steps>
+
+<Note>
+  If you need to connect multiple Google accounts, you can do so by adding each
+  user to the Reforge Insight Analytics workspace, then authenticating with each
+  Google account.
+</Note>
+
+### Usage
+
+#### Features and Actions
+
+1. **Connecting Accounts**
+
+   - Conect one or multiple of your Google accounts to Reforge Insight Analytics
+   - On the integration page you will see a list of your Google accounts, an option to connect another account, and an option to disconnect accounts that are already connected
+   - You'll also see a list of other connected Google Accounts from other members of your workspace
+
+2. **Importing Transcripts**
+
+   - Clicking "Load latest data" will import the latest meeting transcripts for your own connected Google accounts
+   - New transcripts will be imported on a regular basis for all connected Google accounts in your workspace
+   - You can view imported transcripts in your [Snippets](https://docs.monterey.ai/snippets) page
+
+3. **Managing Data**
+   - All imported transcripts are stored securely in Reforge Insight Analytics
+   - You can view, search, and analyze transcripts through the platform
+   - Transcripts are processed to extract feedback insights and trends
+
+#### Removing the App
+
+To remove the Google Meet integration:
+
+1. Go to your **[Google Meet integration settings page](https://insights.reforge.com/w/default/settings/integrations/google-meet)**.
+2. Click "Disconnect Integration" next to the account you want to disconnect
+
+#### Implications of Removal
+
+- The integration will stop importing new meeting transcripts
+- Previously imported transcripts will remain in Reforge Insight Analytics
+- You will need to re-authorize if you want to reconnect in the future
+
+#### Data Handling
+
+- All previously imported transcripts will be retained in Reforge Insight Analytics
+- No data will be deleted from your Google account
+- You can request data deletion from Reforge Insight Analytics if needed
+
+### Troubleshooting
+
+Common issues and solutions:
+
+1. **Missing Transcripts**
+
+   - Verify that your meetings were recorded and transcripts active and saved
+   - Check if connected accounts have recent recorded meetings with transcripts. On initial import, we look for meetings up to 1 week in the past
+
+2. **Connection Problems**
+   - Clear your browser cache and cookies
+   - Try using a different browser
+   - Check your internet connection
+
+### FAQ
+
+**Q: What permissions does the integration require?**
+A: The integration requires access to view your Google account information (name, email, profile picture), meeting recordings and transcripts, and meeting participants.
+
+**Q: How often are new transcripts imported?**
+A: New transcripts are imported automatically every 24 hours.
+
+**Q: What happens if I disconnect and reconnect the integration?**
+A: Previously imported transcripts will remain in the system, and new transcripts will begin importing again.
+
+### Support
+
+You can email us at hello@reforge.com or use the widget on the bottom right of the Insight Analytics app to submit feedback.
+
+### Data Collected
+
+For each selected user, we will load recording information including the following from the Google Meet API:
+
+- Metadata (Basic details such as meeting date, name, space id, etc)
+- Participants (A list of the meeting's participants)
+- Media (The media urls of the meeting)
+- Meeting transcripts (The full transcript content of the meeting)
+
+### Pricing Volume Impact
+
+| Entity Type | Volume Impact |
+| :---------- | :-----------: |
+| Transcript  |    **10x**    |
+
+<Info>
+  View the [pricing page](/pricing/volume-calculation) for more information on
+  how we calculate volume usage.
+</Info>
+
+### Alternative Methods
+
+If you do not have access to Google Meet, but have meeting transcripts, you can still upload them directly to Reforge Insight Analytics by navigating to the
+**[feedback page](https://insights.reforge.com/w/default/snippets/feedback)** and then clicking "+ Feedback" and choosing "Import Transcripts".
