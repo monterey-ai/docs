@@ -15,6 +15,7 @@ Run the following command at the root of your documentation (where mint.json is)
 ```
 mintlify dev
 ```
+
 You can provide a `--port` flag to run on a different port.
 
 ### 😎 Publishing Changes
