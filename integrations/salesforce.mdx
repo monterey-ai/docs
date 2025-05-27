@@ -3,24 +3,42 @@ title: "Salesforce"
 description: "Ingest Salesforce Closed-Won Opportunity Notes"
 ---
 
+<Frame>
+  ![](/salesforce.png)
+</Frame>
+
 ### Overview
 
 Salesforce unifies sales, marketing, and customer data on a single platform. Connect this data with Reforge Insight Analytics to find more insights, and link feedback back to real customer value.
 
 ### Get Started
 
-You can find the Salesforce integration on your **[integration settings page](https://insights.reforge.com/w/default/settings/integrations/salesforce)**.
+You can find the Salesforce integration on your [**integration settings page**](https://insights.reforge.com/w/default/settings/integrations/salesforce).
 
 A user with access to both Reforge Insight Analytics as well as Salesforce will need to authorize the connection.
 
 <Steps>
-  <Step title='Go to "Settings"' />
-  <Step title='Click "Integrations" in the navigation menu' />
-  <Step title='Click "Salesforce"' />
-  <Step title='Click "Connect"' />
-  <Step title="If necessary, log in to Salesforce using the appropriate account" />
-  <Step title="Review and approve the permissions requested" />
-  <Step title="Once confirmed, you will be returned to Reforge Insight Analytics, where you can toggle on ingestion of sales notes" />
+  <Step title='Go to "Settings"'>
+    
+  </Step>
+  <Step title='Click "Integrations" in the navigation menu'>
+    
+  </Step>
+  <Step title='Click "Salesforce"'>
+    
+  </Step>
+  <Step title='Click "Connect"'>
+    
+  </Step>
+  <Step title="If necessary, log in to Salesforce using the appropriate account">
+    
+  </Step>
+  <Step title="Review and approve the permissions requested">
+    
+  </Step>
+  <Step title="Once confirmed, you will be returned to Reforge Insight Analytics, where you can toggle on ingestion of sales notes">
+    
+  </Step>
 </Steps>
 
 ### Data Collected
@@ -33,28 +51,30 @@ The following table describes how data is mapped from Salesforce into Reforge In
 
 | Salesforce Object | Salesforce Field              | Reforge Insight Analytics Object | Reforge Insight Analytics Field | Note                                                                                                  |
 | ----------------- | ----------------------------- | -------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| Note              | Title                         | Feedback                         | Title                           |
-| Note              | Body                          | Feedback                         | Description                     |
-| Note              | CreatedDate                   | Feedback                         | Created At                      |
-| Note              | LastModifiedDate              | Feedback                         | Updated At                      |
-| Account           | Name                          | Account                          | Name                            |
-| Account           | Description                   | Account                          | Description                     |
-| Account           | CreatedDate                   | Account                          | Created At                      |
-| Account           | LastModifiedDate              | Account                          | Updated At                      |
-| Account           | Website                       | Account                          | domain                          |
-| Account           | Annual Revenue                | Account                          | metadata                        |
-| Account           | Number of Employees           | Account                          | metadata                        |
-| Account           | Billing Postal Code Employees | Account                          | metadata                        |
-| Account           | Billing Country               | Account                          | metadata                        |
+| Note              | Title                         | Feedback                         | Title                           |                                                                                                       |
+| Note              | Body                          | Feedback                         | Description                     |                                                                                                       |
+| Note              | CreatedDate                   | Feedback                         | Created At                      |                                                                                                       |
+| Note              | LastModifiedDate              | Feedback                         | Updated At                      |                                                                                                       |
+| Account           | Name                          | Account                          | Name                            |                                                                                                       |
+| Account           | Description                   | Account                          | Description                     |                                                                                                       |
+| Account           | CreatedDate                   | Account                          | Created At                      |                                                                                                       |
+| Account           | LastModifiedDate              | Account                          | Updated At                      |                                                                                                       |
+| Account           | Website                       | Account                          | domain                          |                                                                                                       |
+| Account           | Annual Revenue                | Account                          | metadata                        |                                                                                                       |
+| Account           | Number of Employees           | Account                          | metadata                        |                                                                                                       |
+| Account           | Billing Postal Code Employees | Account                          | metadata                        |                                                                                                       |
+| Account           | Billing Country               | Account                          | metadata                        |                                                                                                       |
 | Opportunity       | SUM of Amount                 | Account                          | contractValue                   | Sum of the Amount field from all "Closed Won" opportunities associated with the corresponding Account |
 
 ### Pricing Volume Impact
 
 | Entity Type | Volume Impact |
 | :---------- | :-----------: |
-| Note        |    **1x**     |
+| Note        | **1x**        |
 
-<Info>View the [pricing page](/pricing/volume-calculation) for more information on how we calculate volume usage.</Info>
+<Info>
+  View the [pricing page](/pricing/volume-calculation) for more information on how we calculate volume usage.
+</Info>
 
 ### Common Issues
 
@@ -67,21 +87,37 @@ If you see an error like OAUTH_APP_BLOCKED when trying to install the integratio
   <Step title="Go to Setup → Connected Apps OAuth Usage">
     You can search "Connected Apps OAuth Usage" in the Setup search bar.
   </Step>
-  <Step title='Find "Reforge Insight Analytics" in the list' />
-  <Step title="Click Manage next to the app name" />
-  <Step title="On the next screen, click Edit Policies" />
+  <Step title='Find "Reforge Insight Analytics" in the list'>
+    
+  </Step>
+  <Step title="Click Manage next to the app name">
+    
+  </Step>
+  <Step title="On the next screen, click Edit Policies">
+    
+  </Step>
   <Step title="Under Permitted Users, choose one of the following options">
     <ul>
-      <li>
-        <strong>Self-authorization (easier setup):</strong>
-        Select "All users may self-authorize" → Save. You're done.
-      </li>
-      <li>
-        <strong>Admin-approved access (more control):</strong>
-        Select "Admin approved users are pre-authorized" → Save. → Then scroll down and add the appropriate Profiles or Permission
-        Sets under "Profiles" or "Custom Permissions" so your users can access the app.
-      </li>
+    <li>
+    Self-authorization (easier setup):
+
+    
+    Select "All users may self-authorize" → Save. You're done.
+
+    </li>
+
+    <li>
+    Admin-approved access (more control):
+
+    
+    Select "Admin approved users are pre-authorized" → Save. → Then scroll down and add the appropriate Profiles or Permission
+    Sets under "Profiles" or "Custom Permissions" so your users can access the app.
+
+    </li>
+
     </ul>
   </Step>
-  <Step title="Once updated, users can try the installation/authentication again" />
+  <Step title="Once updated, users can try the installation/authentication again">
+    
+  </Step>
 </Steps>

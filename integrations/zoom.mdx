@@ -2,7 +2,14 @@
 title: "Zoom"
 description: "Ingest Zoom meeting transcripts"
 ---
-<Warning>This integration is in development</Warning>
+
+<Frame>
+  ![](/zoom.png)
+</Frame>
+
+<Warning>
+  This integration is in development
+</Warning>
 
 ### Overview
 
@@ -19,13 +26,14 @@ The integration with Zoom is a great way to get product insights from your team 
 </Note>
 
 ### Prerequisites
+
 - Admin access to your Zoom account
 - Access to Reforge Insight Analytics
 - Cloud recordings with transcripts enabled in your Zoom account
 
 ### Adding the App
 
-You can find the Zoom integration on your **[integration settings page](https://insights.reforge.com/w/default/settings/integrations/zoom)**.
+You can find the Zoom integration on your [**integration settings page**](https://insights.reforge.com/w/default/settings/integrations/zoom).
 
 A user with access to both Reforge Insight Analytics as well as Zoom will need to authorize the connection.
 
@@ -34,28 +42,41 @@ A user with access to both Reforge Insight Analytics as well as Zoom will need t
 </Note>
 
 <Steps>
-  <Step title='Go to "Settings"' />
-  <Step title='Click "Integrations" in the navigation menu' />
-  <Step title='Click "Zoom"' />
-  <Step title='Click "Connect"' />
-  <Step title="If necessary, log in to Zoom using the appropriate account" />
-  <Step title="Review and approve the permissions requested" />
-  <Step title="Once confirmed, you will be returned to Reforge Insight Analytics where you can select users for which to import meeting recording transcripts" />
+  <Step title='Go to "Settings"'>
+    
+  </Step>
+  <Step title='Click "Integrations" in the navigation menu'>
+    
+  </Step>
+  <Step title='Click "Zoom"'>
+    
+  </Step>
+  <Step title='Click "Connect"'>
+    
+  </Step>
+  <Step title="If necessary, log in to Zoom using the appropriate account">
+    
+  </Step>
+  <Step title="Review and approve the permissions requested">
+    
+  </Step>
+  <Step title="Once confirmed, you will be returned to Reforge Insight Analytics where you can select users for which to import meeting recording transcripts">
+    
+  </Step>
 </Steps>
 
 ### Usage
+
 #### Features and Actions
 
 1. **Selecting Users**
    - After connecting, you'll see a list of users from your Zoom account
    - Select the users whose meeting recordings you want to import
    - Only cloud recordings with transcripts will be available for import
-
 2. **Importing Transcripts**
    - Once users are selected, the system will automatically import their meeting recordings
    - New recordings will be imported on a regular basis
    - You can view imported transcripts in your [Snippets](https://docs.monterey.ai/snippets) page
-
 3. **Managing Data**
    - All imported transcripts are stored securely in Reforge Insight Analytics
    - You can view, search, and analyze transcripts through the platform
@@ -65,15 +86,17 @@ A user with access to both Reforge Insight Analytics as well as Zoom will need t
 
 To remove the Zoom integration:
 
-1. Go to your **[zoom integration settings page](https://insights.reforge.com/w/default/settings/integrations/zoom)**.
+1. Go to your [**zoom integration settings page**](https://insights.reforge.com/w/default/settings/integrations/zoom).
 2. Click "Disconnect Integration"
 
 #### Implications of Removal
+
 - The integration will stop importing new meeting recordings
 - Previously imported transcripts will remain in Reforge Insight Analytics
 - You will need to re-authorize if you want to reconnect in the future
 
 #### Data Handling
+
 - All previously imported transcripts will be retained in Reforge Insight Analytics
 - No data will be deleted from your Zoom account
 - You can request data deletion from Reforge Insight Analytics if needed
@@ -86,12 +109,10 @@ Common issues and solutions:
    - Ensure you have admin access to your Zoom account
    - Try logging out and back into both Zoom and Reforge Insight Analytics
    - Check if your Zoom account has the necessary permissions enabled
-
 2. **Missing Transcripts**
    - Verify that cloud recordings are enabled in your Zoom account
    - Ensure transcripts are being generated for your meetings
    - Check if the selected users have recent recorded meetings with transcripts. On initial import, we look for meetings up to 1 week in the past.
-
 3. **Connection Problems**
    - Clear your browser cache and cookies
    - Try using a different browser
@@ -110,7 +131,7 @@ A: Previously imported transcripts will remain in the system, and new recordings
 
 ### Support
 
-You can email us at hello@reforge.com or use the widget on the bottom right of the Insight Analytics app to submit feedback.
+You can email us at [hello@reforge.com](mailto:hello@reforge.com) or use the widget on the bottom right of the Insight Analytics app to submit feedback.
 
 ### Data Collected
 
@@ -125,7 +146,7 @@ For each selected user, we will load recording information including the followi
 
 | Entity Type | Volume Impact |
 | :---------- | :-----------: |
-| Transcript  |    **10x**    |
+| Transcript  | **10x**       |
 
 <Info>
   View the [pricing page](/pricing/volume-calculation) for more information on
@@ -135,4 +156,4 @@ For each selected user, we will load recording information including the followi
 ### Alternative Methods
 
 If you do not have access to Zoom, but have meeting transcripts, you can still upload them directly to Reforge Insight Analytics by navigating to the
-**[feedback page](https://insights.reforge.com/w/default/snippets/feedback)** and then clicking "+ Feedback" and choosing "Import Transcripts".
+[**feedback page**](https://insights.reforge.com/w/default/snippets/feedback) and then clicking "\+ Feedback" and choosing "Import Transcripts".

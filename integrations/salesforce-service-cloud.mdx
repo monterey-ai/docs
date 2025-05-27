@@ -3,25 +3,45 @@ title: "Salesforce Service Cloud"
 description: "Ingest Salesforce Service Cloud Cases"
 ---
 
+<Frame>
+  ![](/salesforce-service-cloud.png)
+</Frame>
+
 ### Overview
 
 Salesforce Service Cloud empowers businesses to build better customer relationships through its service platform. By connecting Reforge Insight Analytics with Salesforce Service Cloud, you can go deeper, getting the insights your teams need to provide better service, support, and product.
 
 ### Get Started
 
-You can find the Salesforce Service Cloud integration on your **[integration settings page](https://insights.reforge.com/w/default/settings/integrations/salesforce)**.
+You can find the Salesforce Service Cloud integration on your [**integration settings page**](https://insights.reforge.com/w/default/settings/integrations/salesforce).
 
 A user with access to both Reforge Insight Analytics as well as Salesforce Service Cloud will need to authorize the connection.
 
 <Steps>
-  <Steps title='Go to "Settings"' />
-  <Steps title='Click "Integrations" in the navigation menu' />
-  <Steps title='Click "Salesforce"' />
-  <Steps title='Click "Connect"' />
-  <Steps title="If necessary, log in to Salesforce using the appropriate account" />
-  <Steps title="Review and approve the permissions requested" />
-  <Steps title="Once confirmed, you will be returned to Reforge Insight Analytics, where you can toggle on case ingestion" />
-  <Steps title="[Optional] You can also enable each comment on the salesforce cases to be ingested" />
+  <Steps>
+    
+  </Steps>
+  <Steps>
+    
+  </Steps>
+  <Steps>
+    
+  </Steps>
+  <Steps>
+    
+  </Steps>
+  <Steps>
+    
+  </Steps>
+  <Steps>
+    
+  </Steps>
+  <Steps>
+    
+  </Steps>
+  <Steps>
+    
+  </Steps>
 </Steps>
 
 ### Data Collected
@@ -32,49 +52,51 @@ Each case that is accessible will be ingested, such that the case and, if enable
 
 The following table describes how data is mapped from Salesforce into Reforge Insight Analytics.
 
-| Salesforce Object | Salesforce Field              | Reforge Insight Analytics Object | Reforge Insight Analytics Field |                                                                                                  Note |
+| Salesforce Object | Salesforce Field              | Reforge Insight Analytics Object | Reforge Insight Analytics Field | Note                                                                                                  |
 | :---------------- | :---------------------------- | :------------------------------- | :------------------------------ | ----------------------------------------------------------------------------------------------------: |
-| Case              | Subject                       | Feedback                         | Title                           |
-| Case              | Description                   | Feedback                         | Description                     |
-| Case              | CaseNumber                    | Feedback                         | Source ID                       |
-| Case              | CreatedDate                   | Feedback                         | Created At                      |
-| Case              | LastModifiedDate              | Feedback                         | Updated At                      |
-| Case              | ClosedDate                    | Feedback                         | metadata                        |
-| Case              | IsClosed                      | Feedback                         | metadata                        |
-| Case              | IsDeleted                     | Feedback                         | metadata                        |
-| Case              | Origin                        | Feedback                         | metadata                        |
-| Case              | OwnerId                       | Feedback                         | metadata                        |
-| Case              | ParentId                      | Feedback                         | metadata                        |
-| Case              | Priority                      | Feedback                         | metadata                        |
-| Case              | Reason                        | Feedback                         | metadata                        |
-| Case              | Status Revenue                | Feedback                         | metadata                        |
-| Case              | Type                          | Feedback                         | metadata                        |
-| Contact           | ID                            | Customer                         | externalId                      |
-| Contact           | Email                         | Customer                         | email                           |
-| Contact           | Name                          | Customer                         | name                            |
-| Contact           | Phone                         | Customer                         | metadata                        |
-| Contact           | MobilePhone                   | Customer                         | metadata                        |
-| Contact           | Title                         | Customer                         | metadata                        |
-| Contact           | CreatedDate                   | Customer                         | Created At                      |
-| Contact           | LastModifiedDate              | Customer                         | Updated At                      |
-| Account           | Name                          | Account                          | Name                            |
-| Account           | Description                   | Account                          | Description                     |
-| Account           | CreatedDate                   | Account                          | Created At                      |
-| Account           | LastModifiedDate              | Account                          | Updated At                      |
-| Account           | Website                       | Account                          | domain                          |
-| Account           | Annual Revenue                | Account                          | metadata                        |
-| Account           | Number of Employees           | Account                          | metadata                        |
-| Account           | Billing Postal Code Employees | Account                          | metadata                        |
-| Account           | Billing Country               | Account                          | metadata                        |
+| Case              | Subject                       | Feedback                         | Title                           |                                                                                                       |
+| Case              | Description                   | Feedback                         | Description                     |                                                                                                       |
+| Case              | CaseNumber                    | Feedback                         | Source ID                       |                                                                                                       |
+| Case              | CreatedDate                   | Feedback                         | Created At                      |                                                                                                       |
+| Case              | LastModifiedDate              | Feedback                         | Updated At                      |                                                                                                       |
+| Case              | ClosedDate                    | Feedback                         | metadata                        |                                                                                                       |
+| Case              | IsClosed                      | Feedback                         | metadata                        |                                                                                                       |
+| Case              | IsDeleted                     | Feedback                         | metadata                        |                                                                                                       |
+| Case              | Origin                        | Feedback                         | metadata                        |                                                                                                       |
+| Case              | OwnerId                       | Feedback                         | metadata                        |                                                                                                       |
+| Case              | ParentId                      | Feedback                         | metadata                        |                                                                                                       |
+| Case              | Priority                      | Feedback                         | metadata                        |                                                                                                       |
+| Case              | Reason                        | Feedback                         | metadata                        |                                                                                                       |
+| Case              | Status Revenue                | Feedback                         | metadata                        |                                                                                                       |
+| Case              | Type                          | Feedback                         | metadata                        |                                                                                                       |
+| Contact           | ID                            | Customer                         | externalId                      |                                                                                                       |
+| Contact           | Email                         | Customer                         | email                           |                                                                                                       |
+| Contact           | Name                          | Customer                         | name                            |                                                                                                       |
+| Contact           | Phone                         | Customer                         | metadata                        |                                                                                                       |
+| Contact           | MobilePhone                   | Customer                         | metadata                        |                                                                                                       |
+| Contact           | Title                         | Customer                         | metadata                        |                                                                                                       |
+| Contact           | CreatedDate                   | Customer                         | Created At                      |                                                                                                       |
+| Contact           | LastModifiedDate              | Customer                         | Updated At                      |                                                                                                       |
+| Account           | Name                          | Account                          | Name                            |                                                                                                       |
+| Account           | Description                   | Account                          | Description                     |                                                                                                       |
+| Account           | CreatedDate                   | Account                          | Created At                      |                                                                                                       |
+| Account           | LastModifiedDate              | Account                          | Updated At                      |                                                                                                       |
+| Account           | Website                       | Account                          | domain                          |                                                                                                       |
+| Account           | Annual Revenue                | Account                          | metadata                        |                                                                                                       |
+| Account           | Number of Employees           | Account                          | metadata                        |                                                                                                       |
+| Account           | Billing Postal Code Employees | Account                          | metadata                        |                                                                                                       |
+| Account           | Billing Country               | Account                          | metadata                        |                                                                                                       |
 | Opportunity       | SUM of Amount                 | Account                          | contractValue                   | Sum of the Amount field from all "Closed Won" opportunities associated with the corresponding Account |
 
 ### Pricing Volume Impact
 
 | Entity Type | Volume Impact |
 | :---------- | :-----------: |
-| Case        |    **1x**     |
+| Case        | **1x**        |
 
-<Info>View the [pricing page](/pricing/volume-calculation) for more information on how we calculate volume usage.</Info>
+<Info>
+  View the [pricing page](/pricing/volume-calculation) for more information on how we calculate volume usage.
+</Info>
 
 ### Common Issues
 
@@ -87,21 +109,37 @@ If you see an error like OAUTH_APP_BLOCKED when trying to install the integratio
   <Step title="Go to Setup → Connected Apps OAuth Usage">
     You can search "Connected Apps OAuth Usage" in the Setup search bar.
   </Step>
-  <Step title='Find "Reforge Insight Analytics" in the list' />
-  <Step title="Click Manage next to the app name" />
-  <Step title="On the next screen, click Edit Policies" />
+  <Step title='Find "Reforge Insight Analytics" in the list'>
+    
+  </Step>
+  <Step title="Click Manage next to the app name">
+    
+  </Step>
+  <Step title="On the next screen, click Edit Policies">
+    
+  </Step>
   <Step title="Under Permitted Users, choose one of the following options">
     <ul>
-      <li>
-        <strong>Self-authorization (easier setup):</strong>
-        Select "All users may self-authorize" → Save. You're done.
-      </li>
-      <li>
-        <strong>Admin-approved access (more control):</strong>
-        Select "Admin approved users are pre-authorized" → Save. → Then scroll down and add the appropriate Profiles or Permission
-        Sets under "Profiles" or "Custom Permissions" so your users can access the app.
-      </li>
+    <li>
+    Self-authorization (easier setup):
+
+    
+    Select "All users may self-authorize" → Save. You're done.
+
+    </li>
+
+    <li>
+    Admin-approved access (more control):
+
+    
+    Select "Admin approved users are pre-authorized" → Save. → Then scroll down and add the appropriate Profiles or Permission
+    Sets under "Profiles" or "Custom Permissions" so your users can access the app.
+
+    </li>
+
     </ul>
   </Step>
-  <Step title="Once updated, users can try the installation/authentication again" />
+  <Step title="Once updated, users can try the installation/authentication again">
+    
+  </Step>
 </Steps>
