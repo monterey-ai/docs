@@ -33,7 +33,11 @@
   "navigation": [
     {
       "group": "Home",
-      "pages": ["welcome", "quickstart", "philosophy"]
+      "pages": [
+        "1-welcome-setup/welcome",
+        "1-welcome-setup/quickstart",
+        "1-welcome-setup/philosophy"
+      ]
     },
     {
       "group": "Aggregation and Collection",
@@ -59,23 +63,77 @@
     },
     {
       "group": "Knowledge Hub",
-      "pages": [
-        "knowledge-hub/labels",
-        "knowledge-hub/goals",
-        "knowledge-hub/templates"
-      ]
+      "pages": ["knowledge-hub/labels"]
     },
     {
       "group": "Workflows",
       "pages": [
         "feedback-search",
-        "linear",
-        "asana",
-        "jira",
-        "weekly-report",
         "email-notifications",
         "export",
         "project-management"
+      ]
+    },
+    {
+      "group": "App Reviews",
+      "pages": [
+        "integrations/apple",
+        "integrations/google",
+        "integrations/reddit",
+        "integrations/g2",
+        "integrations/trustpilot"
+      ]
+    },
+    {
+      "group": "Customer support & CRM",
+      "pages": [
+        "integrations/support",
+        "integrations/crm",
+        "integrations/chorus",
+        "integrations/discord",
+        "integrations/fanbook",
+        "integrations/fathom",
+        "integrations/freshdesk",
+        "integrations/front",
+        "integrations/github",
+        "integrations/gladly",
+        "integrations/gong",
+        "integrations/hubspot",
+        "integrations/intercom",
+        "integrations/jira-service-management",
+        "integrations/kustomer",
+        "integrations/salesforce",
+        "integrations/salesforce-service-cloud",
+        "integrations/slack",
+        "integrations/zendesk",
+        "integrations/google-meet",
+        "integrations/ring-central",
+        "integrations/zoom"
+      ]
+    },
+    {
+      "group": "Survey & feedback collection",
+      "pages": [
+        "integrations/delighted",
+        "integrations/survey-monkey",
+        "integrations/typeform",
+        "integrations/sprig"
+      ]
+    },
+    {
+      "group": "Task & project management",
+      "pages": [
+        "integrations/asana",
+        "integrations/jira",
+        "integrations/linear"
+      ]
+    },
+    {
+      "group": "Custom integrations & file uploads",
+      "pages": [
+        "integrations/email",
+        "integrations/zapier",
+        "integrations/data-warehouse"
       ]
     },
     {
@@ -111,7 +169,11 @@
         "integrations/community",
         "integrations/slack",
         "integrations/discord",
-        "integrations/reddit"
+        "integrations/reddit",
+        "integrations/g2",
+        "integrations/trustpilot",
+        "integrations/fanbook",
+        "integrations/ring-central"
       ]
     },
     {
@@ -124,11 +186,19 @@
     },
     {
       "group": "Survey",
-      "pages": ["integrations/typeform", "integrations/survey-monkey"]
+      "pages": [
+        "integrations/typeform",
+        "integrations/survey-monkey",
+        "integrations/delighted",
+        "integrations/sprig"
+      ]
     },
     {
       "group": "Other Integrations",
       "pages": [
+        "integrations/linear",
+        "integrations/jira",
+        "integrations/asana",
         "integrations/email",
         "integrations/zapier",
         "integrations/fathom",
