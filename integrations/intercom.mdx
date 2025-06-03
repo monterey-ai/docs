@@ -3,17 +3,21 @@ title: "Intercom"
 description: "Ingest customer conversations and support tickets to Reforge Insight Analytics for consolidation and analysis"
 ---
 
-![intercom](/images/inter.png)
+<Frame>
+  <img
+    src="/intercom.png"
+    style={{ width:"100%" }}
+    />
+</Frame>
+
 
 ### Overview
 
 The integration with Intercom is a great way to get product insights with and from your support team. With the integration, your team can:
 
-* Surface trends from customer conversations
-
-* Extract common feature requests, bug reports, and questions
-
-* Understand what prospective customers are asking about
+- Surface trends from customer conversations
+- Extract common feature requests, bug reports, and questions
+- Understand what prospective customers are asking about
 
 ### Get Started
 
@@ -22,19 +26,27 @@ You can find the Intercom integration on your [integration settings page](https
 A user with access to both Reforge Insight Analytics as well as Intercom will need to authorize the connection.
 
 <Steps>
-  <Step title="Go to &#x22;Settings&#x22;" />
-
-  <Step title="Click &#x22;Integrations&#x22; in the navigation menu" />
-
-  <Step title="Click &#x22;Intercom&#x22;" />
-
-  <Step title="Click &#x22;Connect&#x22;" />
-
-  <Step title="If necessary, log in to Intercom using the appropriate account" />
-
-  <Step title="Review and approve the permissions requested" />
-
-  <Step title="Once confirmed, you will be returned to Reforge Insight Analytics, where you can toggle on conversation ingestion" />
+  <Step title='Go to "Settings"'>
+    
+  </Step>
+  <Step title='Click "Integrations" in the navigation menu'>
+    
+  </Step>
+  <Step title='Click "Intercom"'>
+    
+  </Step>
+  <Step title='Click "Connect"'>
+    
+  </Step>
+  <Step title="If necessary, log in to Intercom using the appropriate account">
+    
+  </Step>
+  <Step title="Review and approve the permissions requested">
+    
+  </Step>
+  <Step title="Once confirmed, you will be returned to Reforge Insight Analytics, where you can toggle on conversation ingestion">
+    
+  </Step>
 </Steps>
 
 ### Intercom Inbox App
@@ -53,11 +65,9 @@ Initially, we will pull conversations up to 1 week old, and then load new ones o
 
 When ingesting conversations, we collect the following data and attributes from the Intercom API:
 
-* Metadata (Basic details such as the conversation ID, URL, creation date, etc.)
-
-* Message text content (only those of type `Comment` that are **not redacted**)
-
-* Message Authors (Name, Email, Type)
+- Metadata (Basic details such as the conversation ID, URL, creation date, etc.)
+- Message text content (only those of type `Comment` that are **not redacted**)
+- Message Authors (Name, Email, Type)
 
 #### User Properties
 
@@ -67,7 +77,7 @@ When ingesting Authors, we also allow users to collect the following data and at
 
 | Entity Type  | Volume Impact |
 | :----------- | :-----------: |
-| Conversation |     **1x**    |
+| Conversation | **1x**        |
 
 <Info>
   View the [pricing page](/pricing/volume-calculation) for more information on
