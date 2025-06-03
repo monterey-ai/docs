@@ -75,8 +75,9 @@
       ]
     },
     {
-      "group": "App Reviews",
+      "group": "Social media mentions & reviews",
       "pages": [
+        "integrations/apps",
         "integrations/apple",
         "integrations/google",
         "integrations/reddit",
@@ -129,80 +130,11 @@
       ]
     },
     {
-      "group": "Custom integrations & file uploads",
+      "group": "Custom integrations & other",
       "pages": [
-        "integrations/email",
+        "integrations/data-warehouse",
         "integrations/zapier",
-        "integrations/data-warehouse"
-      ]
-    },
-    {
-      "group": "Support",
-      "pages": [
-        "integrations/support",
-        "integrations/intercom",
-        "integrations/github",
-        "integrations/gladly",
-        "integrations/gong",
-        "integrations/front",
-        "integrations/zendesk",
-        "integrations/freshdesk",
-        "integrations/salesforce-service-cloud",
-        "integrations/jira-service-management",
-        "integrations/kustomer",
-        "integrations/chorus",
-        "integrations/zoom",
-        "integrations/google-meet"
-      ]
-    },
-    {
-      "group": "CRM",
-      "pages": [
-        "integrations/crm",
-        "integrations/salesforce",
-        "integrations/hubspot"
-      ]
-    },
-    {
-      "group": "Community",
-      "pages": [
-        "integrations/community",
-        "integrations/slack",
-        "integrations/discord",
-        "integrations/reddit",
-        "integrations/g2",
-        "integrations/trustpilot",
-        "integrations/fanbook",
-        "integrations/ring-central"
-      ]
-    },
-    {
-      "group": "Apps",
-      "pages": [
-        "integrations/apps",
-        "integrations/apple",
-        "integrations/google"
-      ]
-    },
-    {
-      "group": "Survey",
-      "pages": [
-        "integrations/typeform",
-        "integrations/survey-monkey",
-        "integrations/delighted",
-        "integrations/sprig"
-      ]
-    },
-    {
-      "group": "Other Integrations",
-      "pages": [
-        "integrations/linear",
-        "integrations/jira",
-        "integrations/asana",
-        "integrations/email",
-        "integrations/zapier",
-        "integrations/fathom",
-        "integrations/data-warehouse"
+        "integrations/email"
       ]
     },
     {
