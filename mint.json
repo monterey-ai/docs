@@ -263,6 +263,10 @@
     {
       "source": "/ingest-from-google-meet",
       "destination": "/integrations/google-meet"
+    },
+    {
+      "source": "/security/sso",
+      "destination": "/sso/okta-oidc"
     }
   ]
 }
