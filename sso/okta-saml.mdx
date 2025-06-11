@@ -1,0 +1,90 @@
+---
+title: "SSO - SAML (Okta Example)"
+sidebarTitle: "SAML"
+description: "SSO Setup with Okta (or similar) using SAML"
+---
+
+Thank you for your interest in setting up SSO with Reforge Insight Analytics via Okta using SAML. This guide will walk you through the setup process and help you collect the information needed to provide back to us. If you have any questions along the way, please reach out to your primary point of contact with our team, or to [support@monterey.ai](mailto:support@monterey.ai).
+
+## Prerequisites
+
+Before beginning the setup process, you will need the following information from your Reforge Insight Analytics team:
+
+- **Entity ID** (will be provided by your point of contact)
+- **ACS URL (Assertion Consumer Service URL)** (will be provided by your point of contact)
+
+Please reach out to your primary point of contact with our team to obtain these required values before proceeding with the setup.
+
+## Setup Instructions
+
+1. Open the left-nav bar and navigate to "Applications" (inside "Applications" section)
+
+   ![navigation](/images/sso-nav-apps.png)
+
+2. Click "Create App Integration"
+
+   1. For _Sign-in method_, choose "SAML 2.0"
+   2. Click "Next"
+
+      ![Create SAML app](/images/sso-create-saml-app.png)
+
+3. Configure _General Settings_
+
+   1. You can name the app as you'd like, we suggest "Reforge Insight Analytics"
+   2. You can download a logo to provide here: [link to logo]
+   3. Other settings can be left empty or default values
+   4. Click "Next"
+
+4. Configure _SAML Settings_
+
+   1. **Single sign on URL**: Enter the ACS URL provided by your Reforge Insight Analytics team
+   2. Check "Use this for Recipient URL and Destination URL"
+   3. **Audience URI (SP Entity ID)**: Enter the Entity ID provided by your Reforge Insight Analytics team
+   4. **Default RelayState**: Leave blank
+   5. **Name ID format**: Choose "EmailAddress"
+   6. **Application username**: Choose "Email"
+
+5. Configure _Attribute Statements_ (Optional)
+
+   1. These can be configured based on your organization's needs for user attributes
+   2. Common attributes include:
+      - Name: `email`, Value: `user.email`
+      - Name: `given_name`, Value: `user.firstName`
+      - Name: `family_name`, Value: `user.lastName`
+
+6. Configure _Group Attribute Statements_ (Optional)
+
+   1. This can be configured if you want to pass group membership information
+
+7. Click "Next"
+
+8. Configure _Feedback_
+
+   1. Select "I'm an Okta customer adding an internal app"
+   2. Select "This is an internal app that we have created"
+   3. Click "Finish"
+
+9. Assignments
+
+   1. Navigate to the "Assignments" tab
+   2. Configure assignments based on who should have access to Reforge Insight Analytics
+   3. You can assign individual users or groups
+
+10. Download Metadata
+
+    1. Navigate to the "Sign On" tab
+    2. Click "View Setup Instructions" or look for the "Metadata URL"
+    3. Download the metadata XML file
+
+## Share Details with Reforge Insight Analytics
+
+1. We suggest using secure methods, like temporary credentials through 1password, or other secure document sharing means in place with your organization.
+
+2. **The final set of details that need to be shared:**
+
+   1. **Metadata XML file** (downloaded from step 10) OR the **Metadata URL**
+   2. **Email domain(s)** users in your organization have that will access Reforge Insight Analytics e.g. `@company.net` or `@company.com`
+
+3. Share these details with your point of contact at Reforge Insight Analytics
+
+Once we receive your metadata file and email domains, we will complete the configuration on our end and notify you when SSO is ready for testing.

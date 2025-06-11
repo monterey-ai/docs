@@ -33,7 +33,11 @@
   "navigation": [
     {
       "group": "Home",
-      "pages": ["welcome", "quickstart", "philosophy"]
+      "pages": [
+        "welcome",
+        "quickstart",
+        "philosophy"
+      ]
     },
     {
       "group": "Aggregation and Collection",
@@ -51,11 +55,21 @@
     },
     {
       "group": "Records",
-      "pages": ["snippets", "contacts", "metadata", "review-spam"]
+      "pages": [
+        "snippets",
+        "contacts",
+        "metadata",
+        "review-spam"
+      ]
     },
     {
       "group": "Feedback insights",
-      "pages": ["themes", "ask-monty", "alert", "custom-reports"]
+      "pages": [
+        "themes",
+        "ask-monty",
+        "alert",
+        "custom-reports"
+      ]
     },
     {
       "group": "Knowledge Hub",
@@ -124,7 +138,10 @@
     },
     {
       "group": "Survey",
-      "pages": ["integrations/typeform", "integrations/survey-monkey"]
+      "pages": [
+        "integrations/typeform",
+        "integrations/survey-monkey"
+      ]
     },
     {
       "group": "Other Integrations",
@@ -140,19 +157,27 @@
       "pages": [
         {
           "group": "Contacts",
-          "pages": ["api-reference/contacts/identify-contacts"]
+          "pages": [
+            "api-reference/contacts/identify-contacts"
+          ]
         },
         {
           "group": "Accounts",
-          "pages": ["api-reference/accounts/identify-accounts"]
+          "pages": [
+            "api-reference/accounts/identify-accounts"
+          ]
         },
         {
           "group": "Feedback",
-          "pages": ["api-reference/feedback/create-a-feedback-record"]
+          "pages": [
+            "api-reference/feedback/create-a-feedback-record"
+          ]
         },
         {
           "group": "Conversations",
-          "pages": ["api-reference/conversations/create-a-conversation"]
+          "pages": [
+            "api-reference/conversations/create-a-conversation"
+          ]
         }
       ]
     },
@@ -160,19 +185,29 @@
       "group": "Security",
       "pages": [
         "security/security-overview",
-        "security/sso",
         "security/signin-with-token",
         "security/team-roles",
         "security/pii"
       ]
     },
     {
+      "group": "SSO",
+      "pages": [
+        "sso/okta-oidc",
+        "sso/okta-saml"
+      ]
+    },
+    {
       "group": "Pricing",
-      "pages": ["pricing/volume-calculation"]
+      "pages": [
+        "pricing/volume-calculation"
+      ]
     },
     {
       "group": "Open Source",
-      "pages": ["open-source/attribution"]
+      "pages": [
+        "open-source/attribution"
+      ]
     }
   ],
   "footerSocials": {

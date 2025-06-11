@@ -1,9 +1,21 @@
 ---
-title: "SSO"
-description: "SSO Setup with Okta"
+title: "SSO - OpenID Connect (Okta Example)"
+sidebarTitle: "OpenID Connect"
+description: "SSO Setup with Okta (or similar) using OIDC"
 ---
 
-Thank you for your interest in setting up SSO with Reforge Insight Analytics via Okta. This guide will walk you through the setup process and help you collect the information needed to provide back to us. If you have any questions along the way, please reach out to your primary point of contact with our team, or to [support@monterey.ai](mailto:support@monterey.ai).
+Thank you for your interest in setting up SSO with Reforge Insight Analytics via Okta using OIDC. This guide will walk you through the setup process and help you collect the information needed to provide back to us. If you have any questions along the way, please reach out to your primary point of contact with our team, or to [support@monterey.ai](mailto:support@monterey.ai).
+
+## Prerequisites
+
+Before beginning the setup process, you will need the following information from your Reforge Insight Analytics team:
+
+- **Sign-in redirect URI** (will be provided by your point of contact)
+- **Sign-out redirect URI** (will be provided by your point of contact)
+
+Please reach out to your primary point of contact with our team to obtain these required values before proceeding with the setup.
+
+## Setup Instructions
 
 1. Open the left-nav bar and navigate to “Applications” (inside “Applications” section)
 
@@ -21,10 +33,10 @@ Thank you for your interest in setting up SSO with Reforge Insight Analytics via
    2. You can download a logo to provide here: [link to logo]
    3. Other settings can be left empty or default values
 4. Configure _Sign-in redirect URIs_
-   1. Enter the following URI: `https://monterey-ai.auth.us-west-2.amazoncognito.com/oauth2/idpresponse`
+   1. Enter the sign-in redirect URI provided by your Reforge Insight Analytics team
    2. **Do not** check the box for _Allow wildcard _ in sign-in URI redirect.\*
 5. Configure _Sign-out redirect URIs_
-   1. Enter the following URI: `https://insights.reforge.com/auth/signout`
+   1. Enter the sign-out redirect URI provided by your Reforge Insight Analytics team
 6. Assignments
    1. This can be configured to your preferences based on who should have access to Reforge Insight Analytics.
 7. Finally, click “Save” at the bottom of the page.
