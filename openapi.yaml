@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Reforge Insight Analytics (formerly Monterey AI) API
+  title: Reforge Insights (formerly Monterey AI) API
   version: 1.0.5
 servers:
   - url: https://insights.reforge.com/api/v1
@@ -52,12 +52,12 @@ components:
       items:
         $ref: "#/components/schemas/FeedbackCategory"
     AssociateExistingCustomer:
-      description: Used when associating to an existing, known customer, the `id` is the customer ID from Reforge Insight Analytics. If the a customer with the provided ID does not exist, the feedback will not be associated to a customer.
+      description: Used when associating to an existing, known customer, the `id` is the customer ID from Reforge Insights. If the a customer with the provided ID does not exist, the feedback will not be associated to a customer.
       type: object
       nullable: true
       properties:
         id:
-          description: The Reforge Insight Analytics ID of the customer
+          description: The Reforge Insights ID of the customer
           type: string
     FindOrCreateCustomer:
       description: Used when associating to a new customer, or when not knowing the ID, for which it will be de-duplicated by the email field. The `email` field can be any string, such as a valid email OR a unique identifier from your own system.
@@ -73,12 +73,12 @@ components:
           description: Dictionary to provide other key-value pairs such as the url, identifier, or other information
           nullable: true
     AssociateExistingCustomerAccount:
-      description: Used when associating to an existing, known customer account, the `id` is the customer account ID from Reforge Insight Analytics. If the a customer account with the provided ID does not exist, the feedback will not be associated to a customer account.
+      description: Used when associating to an existing, known customer account, the `id` is the customer account ID from Reforge Insights. If the a customer account with the provided ID does not exist, the feedback will not be associated to a customer account.
       type: object
       nullable: true
       properties:
         id:
-          description: The Reforge Insight Analytics ID of the customer account
+          description: The Reforge Insights ID of the customer account
           type: string
     FindOrCreateCustomerAccount:
       description: Used when associating to a new customer account, or when not knowing the ID, for which it will be de-duplicated by the name or domain field. The `name` and 'domain' fields can be any string, such as a valid name/domain OR a unique identifier from your own system.
