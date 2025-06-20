@@ -137,7 +137,7 @@
       ]
     },
     {
-      "group": "Survey",
+      "group": "AI Survey",
       "pages": [
         "integrations/typeform",
         "integrations/survey-monkey"
