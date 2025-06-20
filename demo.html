@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Dashboard - Short/Long Title Toggle Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .chart-bar {
+            transition: all 0.3s ease-in-out;
+        }
+        .toggle-switch {
+            transition: all 0.2s ease-in-out;
+        }
+        .chart-container {
+            transition: margin-left 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="w-full max-w-6xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+        <!-- Header -->
+        <div class="px-6 py-4 border-b border-gray-200">
+            <div class="flex items-center justify-between">
+                <h2 class="text-xl font-semibold text-gray-900">Top feedback themes</h2>
+                <div class="flex items-center space-x-4">
+                    <!-- Time Filter -->
+                    <div class="flex items-center space-x-2">
+                        <button class="px-3 py-1 text-sm rounded-md text-gray-600 hover:text-gray-800 hover:bg-gray-50">All</button>
+                        <button class="px-3 py-1 text-sm rounded-md bg-blue-100 text-blue-700 font-medium">7d</button>
+                        <button class="px-3 py-1 text-sm rounded-md text-gray-600 hover:text-gray-800 hover:bg-gray-50">14d</button>
+                        <button class="px-3 py-1 text-sm rounded-md text-gray-600 hover:text-gray-800 hover:bg-gray-50">1m</button>
+                        <button class="px-3 py-1 text-sm rounded-md text-gray-600 hover:text-gray-800 hover:bg-gray-50">3m</button>
+                        <button class="px-3 py-1 text-sm rounded-md text-gray-600 hover:text-gray-800 hover:bg-gray-50">12m</button>
+                    </div>
+                    
+                    <!-- Title Length Toggle -->
+                    <div class="flex items-center space-x-2">
+                        <span class="text-sm text-gray-600">Short titles</span>
+                        <button 
+                            id="titleToggle"
+                            class="relative inline-flex h-6 w-11 items-center rounded-full border-2 border-transparent transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 bg-gray-200 toggle-switch"
+                            onclick="toggleTitles()"
+                        >
+                            <span 
+                                id="toggleSlider"
+                                class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform translate-x-1"
+                            ></span>
+                        </button>
+                        <span class="text-sm text-gray-600">Full titles</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="p-6">
+            <div class="w-full" style="height: 600px;">
+                <div id="chartContainer" class="chart-container" style="margin-left: 200px;">
+                    <!-- Chart Bars -->
+                    <div class="space-y-3">
+                        <div class="flex items-center group cursor-pointer" data-short="Cancellation and refund requests" data-long="Users are frequently requesting cancellations and refunds for their Big Cartel plans, often due to issues with unintended charges, difficulties in closing accounts, or switching to other platforms." data-count="1200">
+                            <div class="w-48 text-right pr-4">
+                                <span class="theme-title text-sm text-gray-700">Cancellation and refund requests</span>
+                            </div>
+                            <div class="flex-1 relative">
+                                <div class="bg-blue-500 h-8 rounded-r chart-bar" style="width: 85%;"></div>
+                                <span class="absolute right-2 top-1/2 transform -translate-y-1/2 text-white text-sm font-medium">1,200</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center group cursor-pointer" data-short="Customization limitations in website builder" data-long="Users are seeking more customization options and flexibility in the website builder, including the ability to modify design elements, integrate social media links, and enhance navigation and organizational features." data-count="800">
+                            <div class="w-48 text-right pr-4">
+                                <span class="theme-title text-sm text-gray-700">Customization limitations in website builder</span>
+                            </div>
+                            <div class="flex-1 relative">
+                                <div class="bg-blue-500 h-8 rounded-r chart-bar" style="width: 65%;"></div>
+                                <span class="absolute right-2 top-1/2 transform -translate-y-1/2 text-white text-sm font-medium">800</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center group cursor-pointer" data-short="Product photo upload issues" data-long="Users are experiencing issues with uploading product photos and saving changes, often encountering error messages or technical difficulties." data-count="450">
+                            <div class="w-48 text-right pr-4">
+                                <span class="theme-title text-sm text-gray-700">Product photo upload issues</span>
+                            </div>
+                            <div class="flex-1 relative">
+                                <div class="bg-blue-500 h-8 rounded-r chart-bar" style="width: 35%;"></div>
+                                <span class="absolute right-2 top-1/2 transform -translate-y-1/2 text-white text-sm font-medium">450</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center group cursor-pointer" data-short="URL structure and redirect problems" data-long="Users are experiencing issues with URL structure and redirection, specifically with old URLs not redirecting properly and causing SEO concerns." data-count="380">
+                            <div class="w-48 text-right pr-4">
+                                <span class="theme-title text-sm text-gray-700">URL structure and redirect problems</span>
+                            </div>
+                            <div class="flex-1 relative">
+                                <div class="bg-blue-500 h-8 rounded-r chart-bar" style="width: 32%;"></div>
+                                <span class="absolute right-2 top-1/2 transform -translate-y-1/2 text-white text-sm font-medium">380</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center group cursor-pointer" data-short="Account login difficulties" data-long="Users are experiencing difficulties logging into their accounts, even after attempting password resets and verifying their credentials." data-count="320">
+                            <div class="w-48 text-right pr-4">
+                                <span class="theme-title text-sm text-gray-700">Account login difficulties</span>
+                            </div>
+                            <div class="flex-1 relative">
+                                <div class="bg-blue-500 h-8 rounded-r chart-bar" style="width: 28%;"></div>
+                                <span class="absolute right-2 top-1/2 transform -translate-y-1/2 text-white text-sm font-medium">320</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center group cursor-pointer" data-short="Obstructive chat interfaces and pop-ups" data-long="Users are experiencing issues with obstructive chat interfaces and pop-ups that interfere with their browsing experience." data-count="280">
+                            <div class="w-48 text-right pr-4">
+                                <span class="theme-title text-sm text-gray-700">Obstructive chat interfaces and pop-ups</span>
+                            </div>
+                            <div class="flex-1 relative">
+                                <div class="bg-blue-500 h-8 rounded-r chart-bar" style="width: 25%;"></div>
+                                <span class="absolute right-2 top-1/2 transform -translate-y-1/2 text-white text-sm font-medium">280</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center group cursor-pointer" data-short="Missing order notifications" data-long="Users are experiencing issues with the app not providing notifications for new orders, missed sales opportunities." data-count="210">
+                            <div class="w-48 text-right pr-4">
+                                <span class="theme-title text-sm text-gray-700">Missing order notifications</span>
+                            </div>
+                            <div class="flex-1 relative">
+                                <div class="bg-blue-500 h-8 rounded-r chart-bar" style="width: 22%;"></div>
+                                <span class="absolute right-2 top-1/2 transform -translate-y-1/2 text-white text-sm font-medium">210</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center group cursor-pointer" data-short="App not loading content" data-long="Users are experiencing issues with the app not loading content, such as product images, descriptions, or other essential information." data-count="180">
+                            <div class="w-48 text-right pr-4">
+                                <span class="theme-title text-sm text-gray-700">App not loading content</span>
+                            </div>
+                            <div class="flex-1 relative">
+                                <div class="bg-blue-500 h-8 rounded-r chart-bar" style="width: 18%;"></div>
+                                <span class="absolute right-2 top-1/2 transform -translate-y-1/2 text-white text-sm font-medium">180</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Legend -->
+            <div class="mt-4 text-sm text-gray-600">
+                <p>Feedback responses</p>
+            </div>
+        </div>
+
+        <!-- Usage Tip -->
+        <div class="px-6 pb-4">
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <div class="flex">
+                    <div class="flex-shrink-0">
+                        <svg class="h-5 w-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <p class="text-sm text-blue-700">
+                            <strong>Demo tip:</strong> Use the toggle above to switch between short titles (easier to scan) and full titles (complete context). 
+                            This interactive demo shows how the feature addresses BigCartel's feedback about readability.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tooltip -->
+    <div id="tooltip" class="fixed bg-white p-3 border border-gray-200 rounded-lg shadow-lg max-w-xs pointer-events-none opacity-0 transition-opacity z-50">
+        <p id="tooltipTitle" class="text-sm font-semibold text-gray-800 mb-2"></p>
+        <p id="tooltipCount" class="text-sm text-gray-600"></p>
+    </div>
+
+    <script>
+        let showFullTitles = false;
+
+        function toggleTitles() {
+            showFullTitles = !showFullTitles;
+            
+            const toggle = document.getElementById('titleToggle');
+            const slider = document.getElementById('toggleSlider');
+            const chartContainer = document.getElementById('chartContainer');
+            const themeTitles = document.querySelectorAll('.theme-title');
+            
+            if (showFullTitles) {
+                toggle.classList.remove('bg-gray-200');
+                toggle.classList.add('bg-blue-600');
+                slider.classList.remove('translate-x-1');
+                slider.classList.add('translate-x-5');
+                chartContainer.style.marginLeft = '300px';
+                
+                // Update titles to full versions
+                themeTitles.forEach(title => {
+                    const row = title.closest('[data-long]');
+                    title.textContent = truncateText(row.dataset.long, 50);
+                });
+            } else {
+                toggle.classList.remove('bg-blue-600');
+                toggle.classList.add('bg-gray-200');
+                slider.classList.remove('translate-x-5');
+                slider.classList.add('translate-x-1');
+                chartContainer.style.marginLeft = '200px';
+                
+                // Update titles to short versions
+                themeTitles.forEach(title => {
+                    const row = title.closest('[data-short]');
+                    title.textContent = row.dataset.short;
+                });
+            }
+        }
+
+        function truncateText(text, maxLength) {
+            if (text.length <= maxLength) return text;
+            return text.substring(0, maxLength - 3) + '...';
+        }
+
+        // Tooltip functionality
+        document.querySelectorAll('[data-short]').forEach(row => {
+            row.addEventListener('mouseenter', (e) => {
+                const tooltip = document.getElementById('tooltip');
+                const tooltipTitle = document.getElementById('tooltipTitle');
+                const tooltipCount = document.getElementById('tooltipCount');
+                
+                const alternativeTitle = showFullTitles ? row.dataset.short : row.dataset.long;
+                const count = row.dataset.count;
+                
+                tooltipTitle.textContent = alternativeTitle;
+                tooltipCount.innerHTML = `<span class="font-medium">${count}</span> feedback responses`;
+                
+                tooltip.classList.remove('opacity-0');
+                tooltip.classList.add('opacity-100');
+            });
+            
+            row.addEventListener('mouseleave', () => {
+                const tooltip = document.getElementById('tooltip');
+                tooltip.classList.remove('opacity-100');
+                tooltip.classList.add('opacity-0');
+            });
+            
+            row.addEventListener('mousemove', (e) => {
+                const tooltip = document.getElementById('tooltip');
+                tooltip.style.left = e.pageX + 10 + 'px';
+                tooltip.style.top = e.pageY - 10 + 'px';
+            });
+        });
+    </script>
+</body>
+</html>
