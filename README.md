@@ -1,6 +1,6 @@
-# Reforge Insight Analytics Documentation
+# Reforge Insights Documentation
 
-Reforge Insight Analytics (formerly Monterey AI) is the Copilot for Product Development. The docs are available at [docs.monterey.ai](https://docs.monterey.ai)
+Reforge Insights (formerly Monterey AI) is the Copilot for Product Development. The docs are available at [docs.monterey.ai](https://docs.monterey.ai)
 
 ### 👩‍💻 Development
 
