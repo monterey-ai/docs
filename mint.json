@@ -149,7 +149,8 @@
         "integrations/email",
         "integrations/zapier",
         "integrations/fathom",
-        "integrations/data-warehouse"
+        "integrations/data-warehouse",
+        "integrations/external-cohorts"
       ]
     },
     {

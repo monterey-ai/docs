@@ -1,0 +1,112 @@
+---
+title: "External Cohorts"
+description: "Sync your Amplitude and/or Mixpanel cohorts with Insights Analytics to understand qualitative feedback from specific groups."
+---
+
+# Overview
+
+The cohorts integration with Amplitude and Mixpanel are a great way to get product insights from specific cohorts that you've defined externally. With these integrations, your team can:
+
+- Surface trends from cohorts
+- Extract common feature requests, bug reports, and questions
+- Understand what specific groups of people are asking about
+
+# Supported Sources
+
+<AccordionGroup>
+  <Accordion title="Amplitude">
+    You can find the Amplitude integration on your integration settings page under _External Cohort Sources_. A user with access to both Reforge Insights as well as Amplitude will need to authorize the connection.
+
+    **Insights Analytics Setup**
+
+    <Steps>
+      <Step>
+        Go to "Settings"
+      </Step>
+      <Step>
+        Click "Integrations" in the navigation menu
+      </Step>
+      <Step>
+        Click "Amplitude"
+      </Step>
+      <Step>
+        Click "Connect Amplitude"
+      </Step>
+      <Step>
+        Copy the Insights Analytics API key. Once you navigate away from this page, the API key is no longer viewable.
+      </Step>
+    </Steps>
+    **Amplitude Setup**
+
+    <Steps>
+      <Step>
+        In Amplitude Data, click Catalog and select the Destinations tab.
+      </Step>
+      <Step>
+        In the Cohort section, click Insights Analytics
+      </Step>
+      <Step>
+        Enter a name and the Insights Analytics API key.
+      </Step>
+      <Step>
+        Map an Amplitude field to the Enterpret User ID field. This Amplitude field must be an email address field.
+      </Step>
+      <Step>
+        When finished, save the integration. After you save the integration, you can sync your first cohort.
+      </Step>
+      <Step>
+        Follow these steps to sync any of your Amplitude cohorts to your Insights Analyytics destination:
+
+        1. From the Cohorts page in Amplitude, click the cohort you want to send, or create a cohort
+        2. Click Sync
+        3. Select Insights Analytics, then click Next
+        4. From the Select an API target to sync to list, select your Insights Analytics destination
+        5. Set the sync cadence
+        6. Click Sync to start syncing
+      </Step>
+    </Steps>
+  </Accordion>
+  <Accordion title="Mixpanel">
+    You can find the Mixpanel integration on your integration settings page under _External Cohort Sources_. A user with access to both Reforge Insights as well as Mixpanel will need to authorize the connection.
+
+    **Insights Analytics Setup**
+
+    <Steps>
+      <Step>
+        Go to "Settings"
+      </Step>
+      <Step>
+        Click "Integrations" in the navigation menu
+      </Step>
+      <Step>
+        Click "Mixpanel"
+      </Step>
+      <Step>
+        Cick "Connect Mixpanel"
+      </Step>
+      <Step>
+        You'll see a url, username and password. Once you navigate away from this page, these items are no longer viewable so note them somewhere.
+      </Step>
+    </Steps>
+    **Mixpanel Setup**
+
+    <Steps>
+      <Step>
+        In Mixpanel, click the Setting icon at the bottom-left of the srcreen and then Integrations.
+      </Step>
+      <Step>
+        Click the Custom Webhooks section in the Integrations pane.
+      </Step>
+      <Step>
+        In the setup modal, add a connector name and enter the url, username and password that you noted from step 5 above. Click continue.
+      </Step>
+      <Step>
+        Follow these steps to sync any of your Mixpanel cohorts to Insights Analyytics:
+
+        1. From the Cohorts page in Mixpanel, hover over the _Export to..._ option from the dots menu of the cohort you want to sync and click on the connector name from step 3 above.
+        2. Select the export type - _One-time export_ or _Recurring sync_ and then click _Begin Sync_. Your sync will be queued.
+        3. To view the status of your sync at any time, click on the dots menu of the cohort again. After a sync has completed, if you reload the Insights Analytics Mixpanel integration page, you'll see the synced cohort.
+      </Step>
+    </Steps>
+  </Accordion>
+</AccordionGroup>
