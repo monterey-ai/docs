@@ -11,8 +11,27 @@ Reforge Insights can connect to and pull data from your data warehouse of choice
 
 <AccordionGroup>
   <Accordion title="Snowflake">
+    <h3>Secure Data Sharing (Preferred)</h3>
     To connect with Snowflake, you can request our account details and use [Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro).
     Secure data sharing allows you to give us the targeted access to just the data you want to share.
+
+    <h3>Service User (Alternative)</h3>
+    If setting up secure data sharing is not an option, you can instead create a service user with a password and share the credentials with us.  Create a role for the service user and grant it
+    read access on the tables you wish to connect.  Then share the following with us:
+    - account url
+    - username
+    - password
+    - role
+    - warehouse
+    - database
+
+    We connect to Snowflake using the following IP addresses, which you may need to whitelist in your Snowflake account.
+    ```bash
+    34.212.54.206
+    35.162.156.254
+    44.241.212.223
+    44.240.0.247
+    ```
   </Accordion>
 
   <Accordion title="BigQuery">
