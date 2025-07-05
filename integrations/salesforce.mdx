@@ -14,13 +14,13 @@ description: "Ingest Salesforce Closed-Won Opportunity Notes"
 
 ### Overview
 
-Salesforce unifies sales, marketing, and customer data on a single platform. Connect this data with Reforge Insight Analytics to find more insights, and link feedback back to real customer value.
+Salesforce unifies sales, marketing, and customer data on a single platform. Connect this data with Reforge Insights to find more insights, and link feedback back to real customer value.
 
 ### Get Started
 
 You can find the Salesforce integration on your [**integration settings page**](https://insights.reforge.com/w/default/settings/integrations/salesforce).
 
-A user with access to both Reforge Insight Analytics as well as Salesforce will need to authorize the connection.
+A user with access to both Reforge Insights as well as Salesforce will need to authorize the connection.
 
 <Steps>
   <Step title='Go to "Settings"'>
@@ -41,20 +41,20 @@ A user with access to both Reforge Insight Analytics as well as Salesforce will 
   <Step title="Review and approve the permissions requested">
     
   </Step>
-  <Step title="Once confirmed, you will be returned to Reforge Insight Analytics, where you can toggle on ingestion of sales notes">
+  <Step title="Once confirmed, you will be returned to Reforge Insights, where you can toggle on ingestion of sales notes">
     
   </Step>
 </Steps>
 
 ### Data Collected
 
-Once Reforge Insight Analytics and Salesforce are connected successfully, data will be pulled from periodically. The first time Reforge Insight Analytics loads data, it will look back 1 week. After that, it will ingest all new data up to your plan's feedback volume limit.
+Once Reforge Insights and Salesforce are connected successfully, data will be pulled from periodically. The first time Reforge Insights loads data, it will look back 1 week. After that, it will ingest all new data up to your plan's feedback volume limit.
 
 Only notes from opportunities in the "Closed-Won" status will be ingested. This is to ensure that the feedback you receive is based on successful sales outcomes and actual paying customers.
 
-The following table describes how data is mapped from Salesforce into Reforge Insight Analytics.
+The following table describes how data is mapped from Salesforce into Reforge Insights.
 
-| Salesforce Object | Salesforce Field              | Reforge Insight Analytics Object | Reforge Insight Analytics Field | Note                                                                                                  |
+| Salesforce Object | Salesforce Field              | Reforge Insights Object | Reforge Insights Field | Note                                                                                                  |
 | ----------------- | ----------------------------- | -------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | Note              | Title                         | Feedback                         | Title                           |                                                                                                       |
 | Note              | Body                          | Feedback                         | Description                     |                                                                                                       |
@@ -92,7 +92,7 @@ If you see an error like OAUTH_APP_BLOCKED when trying to install the integratio
   <Step title="Go to Setup → Connected Apps OAuth Usage">
     You can search "Connected Apps OAuth Usage" in the Setup search bar.
   </Step>
-  <Step title='Find "Reforge Insight Analytics" in the list'>
+  <Step title='Find "Reforge Insights" in the list'>
     
   </Step>
   <Step title="Click Manage next to the app name">

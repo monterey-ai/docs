@@ -9,13 +9,13 @@ description: "Ingest Salesforce Service Cloud Cases"
 
 ### Overview
 
-Salesforce Service Cloud empowers businesses to build better customer relationships through its service platform. By connecting Reforge Insight Analytics with Salesforce Service Cloud, you can go deeper, getting the insights your teams need to provide better service, support, and product.
+Salesforce Service Cloud empowers businesses to build better customer relationships through its service platform. By connecting Reforge Insights with Salesforce Service Cloud, you can go deeper, getting the insights your teams need to provide better service, support, and product.
 
 ### Get Started
 
 You can find the Salesforce Service Cloud integration on your [**integration settings page**](https://insights.reforge.com/w/default/settings/integrations/salesforce).
 
-A user with access to both Reforge Insight Analytics as well as Salesforce Service Cloud will need to authorize the connection.
+A user with access to both Reforge Insights as well as Salesforce Service Cloud will need to authorize the connection.
 
 <Steps>
   <Steps title='Go to "Settings"' />
@@ -24,19 +24,19 @@ A user with access to both Reforge Insight Analytics as well as Salesforce Servi
   <Steps title='Click "Connect"' />
   <Steps title="If necessary, log in to Salesforce using the appropriate account" />
   <Steps title="Review and approve the permissions requested" />
-  <Steps title="Once confirmed, you will be returned to Reforge Insight Analytics, where you can toggle on case ingestion" />
+  <Steps title="Once confirmed, you will be returned to Reforge Insights, where you can toggle on case ingestion" />
   <Steps title="[Optional] You can also enable each comment on the salesforce cases to be ingested" />
 </Steps>
 
 ### Data Collected
 
-Once Reforge Insight Analytics and Salesforce Service Cloud are connected successfully, data will be pulled from periodically. The first time Reforge Insight Analytics loads data, it will look back 1 week. After that, it will ingest all new data up to your plan's feedback volume limit.
+Once Reforge Insights and Salesforce Service Cloud are connected successfully, data will be pulled from periodically. The first time Reforge Insights loads data, it will look back 1 week. After that, it will ingest all new data up to your plan's feedback volume limit.
 
-Each case that is accessible will be ingested, such that the case and, if enabled, associated comments are analyzed and visible in Reforge Insight Analytics.
+Each case that is accessible will be ingested, such that the case and, if enabled, associated comments are analyzed and visible in Reforge Insights.
 
-The following table describes how data is mapped from Salesforce into Reforge Insight Analytics.
+The following table describes how data is mapped from Salesforce into Reforge Insights.
 
-| Salesforce Object | Salesforce Field              | Reforge Insight Analytics Object | Reforge Insight Analytics Field |                                                                                                  Note |
+| Salesforce Object | Salesforce Field              | Reforge Insights Object | Reforge Insights Field |                                                                                                  Note |
 | :---------------- | :---------------------------- | :------------------------------- | :------------------------------ | ----------------------------------------------------------------------------------------------------: |
 | Case              | Subject                       | Feedback                         | Title                           |                                                                                                       |
 | Case              | Description                   | Feedback                         | Description                     |                                                                                                       |
@@ -94,7 +94,7 @@ If you see an error like OAUTH_APP_BLOCKED when trying to install the integratio
   <Step title="Go to Setup → Connected Apps OAuth Usage">
     You can search "Connected Apps OAuth Usage" in the Setup search bar.
   </Step>
-  <Step title='Find "Reforge Insight Analytics" in the list'>
+  <Step title='Find "Reforge Insights" in the list'>
     
   </Step>
   <Step title="Click Manage next to the app name">

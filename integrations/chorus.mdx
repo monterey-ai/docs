@@ -12,7 +12,7 @@ description: "Ingest Chorus AI Call Transcripts"
 
 ### Overview
 
-Chorus.ai is a conversation intelligence platform that records, transcribes, and analyzes sales and customer success calls. Connecting Reforge Insight Analytics with Chorus allows you to leverage your call transcript data for deeper customer insights and analysis within the Reforge platform.
+Chorus.ai is a conversation intelligence platform that records, transcribes, and analyzes sales and customer success calls. Connecting Reforge Insights with Chorus allows you to leverage your call transcript data for deeper customer insights and analysis within the Reforge platform.
 
 ### Requirements
 
@@ -35,11 +35,11 @@ First, you will need to generate an API key in Chorus.ai.
   </Step>
 </Steps>
 
-Now that you have an API key, you can find the Chorus integration in Reforge Insight Analytics at [**integration settings page**](https://insights.reforge.com/w/default/settings/integrations/chorus).
+Now that you have an API key, you can find the Chorus integration in Reforge Insights at [**integration settings page**](https://insights.reforge.com/w/default/settings/integrations/chorus).
 Note that the link will take you to the first workspace you have access to, so you may need to change it using the Workspace selector at the top left of the screen.
 
 <Steps>
-  <Step title='Go to "Settings" in Reforge Insight Analytics.'>
+  <Step title='Go to "Settings" in Reforge Insights.'>
     
   </Step>
   <Step title='Click "Integrations" in the navigation menu.'>
@@ -54,14 +54,14 @@ Note that the link will take you to the first workspace you have access to, so y
   <Step title='Click "Save". The system will validate the API key.'>
     
   </Step>
-  <Step title="Once confirmed, you will be returned to Reforge Insight Analytics, where you can toggle on call transcript ingestion.">
+  <Step title="Once confirmed, you will be returned to Reforge Insights, where you can toggle on call transcript ingestion.">
     
   </Step>
 </Steps>
 
 ### Data Collected
 
-Once Reforge Insight Analytics and Chorus are connected successfully, new call transcripts will be pulled in periodically. The integration fetches data from the Chorus Engagements API, applying the following filters:
+Once Reforge Insights and Chorus are connected successfully, new call transcripts will be pulled in periodically. The integration fetches data from the Chorus Engagements API, applying the following filters:
 
 - **Type:** Only includes engagements where `type` is `meeting`.
 - **No-Shows:** Excludes meetings marked as `no_show` is `false`.
@@ -69,7 +69,7 @@ Once Reforge Insight Analytics and Chorus are connected successfully, new call t
 - **Processing State:** Only includes meetings where the `processing_state` is marked as `done`, ensuring the transcript is available.
 - **Utterances:** Only includes meetings that have associated transcript utterances (`recording.utterances.length > 0`).
 
-The following data attributes are loaded from Chorus and utilized in Reforge Insight Analytics for analysis:
+The following data attributes are loaded from Chorus and utilized in Reforge Insights for analysis:
 
 **Meeting (Engagement)**
 
