@@ -181,14 +181,19 @@ Select which conversation, contact, and company fields to import. The data is or
 <Tab title="Required Fields">
 Fields marked as **Required** are essential for the integration to function properly and cannot be deselected. These fields include:
 
-- **Tickets**: `id`, `subject`, `created_at`, `updated_at`, `description`
-- **Users**: `id`, `name`, `email`, `created_at`, `updated_at`
-- **Organizations**: `id`, `name`, `created_at`, `updated_at`
-- **Comments**: `id`, `body`, `created_at`, `author_id`
+- **Tickets**: `id`, `created_at`, `updated_at`, `organization_id`, `requester_id`, `submitter_id`, `subject`, `description`
+- **Users**: `id`, `created_at`, `updated_at`, `name`, `email`
+- **Organizations**: `id`, `domain_names`, `name`, `details`, `created_at`, `updated_at`
+- **Comments**: `id`, `author_id`, `body`, `created_at`, `type`
 
 <Warning>
-Required fields are automatically included in the ingestion process regardless of selection status.
+  Required fields are automatically included in the ingestion process regardless
+  of selection status.
 </Warning>
+
+<Info>
+  **Preselected Fields**: Beyond the required fields, we automatically preselect additional commonly used fields to help you get started quickly with meaningful data. These preselected fields include useful metadata like ticket types, assignee information, status details, and satisfaction ratings that are frequently needed for analysis. You can deselect any of these preselected fields if they're not relevant to your specific use case.
+</Info>
 </Tab>
 
 <Tab title="Standard Fields">
