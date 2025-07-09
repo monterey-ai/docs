@@ -135,8 +135,7 @@ components:
           example: account-789
         shouldUnflattenProperties:
           type: boolean
-          description:
-            'Whether to unflatten properties that are meant to be nested objects for example `{ "plan.type": "Pro" }` will be unflattened to `{ "plan": { "type": "Pro" } }`'
+          description: 'Whether to unflatten properties that are meant to be nested objects for example `{ "plan.type": "Pro" }` will be unflattened to `{ "plan": { "type": "Pro" } }`'
           nullable: true
         properties:
           type: object
@@ -177,8 +176,7 @@ components:
           nullable: false
         shouldUnflattenProperties:
           type: boolean
-          description:
-            'Whether to unflatten properties that are meant to be nested objects for example `{ "plan.type": "Pro" }` will be unflattened to `{ "plan": { "type": "Pro" } }`'
+          description: 'Whether to unflatten properties that are meant to be nested objects for example `{ "plan.type": "Pro" }` will be unflattened to `{ "plan": { "type": "Pro" } }`'
           nullable: true
         properties:
           description: Properties prefixed with `$` are handled specially. Otherwise, additional key-value pairs will be metadata once ingested into the system
@@ -203,7 +201,6 @@ components:
         account:
           $ref: "#/components/schemas/Account"
           nullable: true
-
 
 paths:
   /feedbacks:
@@ -266,8 +263,7 @@ paths:
                   nullable: true
                 shouldUnflattenSourceData:
                   type: boolean
-                  description:
-                    'Whether to unflatten sourceData that are meant to be nested objects for example `{ "plan.type": "Pro" }` will be unflattened to `{ "plan": { "type": "Pro" } }`'
+                  description: 'Whether to unflatten sourceData that are meant to be nested objects for example `{ "plan.type": "Pro" }` will be unflattened to `{ "plan": { "type": "Pro" } }`'
                   nullable: true
                 sourceData:
                   type: object
@@ -337,7 +333,7 @@ paths:
       summary: Submit a conversation
       description: Submits conversation data to the system for processing. This can be content like a call transcript, email thread, or chat conversation.
       security:
-       - BearerAuth: []
+        - BearerAuth: []
       requestBody:
         required: true
         content:
@@ -349,6 +345,11 @@ paths:
                   type: string
                   description: The unique identifier for the conversation.
                   example: conversation-123
+                title:
+                  type: string
+                  description: The title of the conversation.
+                  example: Customer Support Request
+                  nullable: true
                 source:
                   type: string
                   description: The source of the conversation.
@@ -358,6 +359,12 @@ paths:
                   format: date-time
                   description: The date and time the conversation was created.
                   example: 2024-01-01T00:00:00.000Z
+                updatedAt:
+                  type: string
+                  format: date-time
+                  description: The date and time the conversation was last updated.
+                  example: 2024-01-01T00:00:00.000Z
+                  nullable: true
                 contacts:
                   type: array
                   items:
@@ -390,22 +397,25 @@ paths:
                         example: 2024-01-01T00:00:00.000Z
                       shouldUnflattenProperties:
                         type: boolean
-                        description:
-                          'Whether to unflatten properties that are meant to be nested objects for example `{ "plan.type": "Pro" }` will be unflattened to `{ "plan": { "type": "Pro" } }`'
+                        description: 'Whether to unflatten properties that are meant to be nested objects for example `{ "plan.type": "Pro" }` will be unflattened to `{ "plan": { "type": "Pro" } }`'
                         nullable: true
                       properties:
                         type: object
                         description: Additional metadata properties (key-value pairs)
                         additionalProperties: true
+                rating:
+                  type: number
+                  description: The numeric rating (integer)
+                  nullable: true
                 shouldUnflattenProperties:
                   type: boolean
-                  description:
-                    'Whether to unflatten properties that are meant to be nested objects for example `{ "plan.type": "Pro" }` will be unflattened to `{ "plan": { "type": "Pro" } }`'
+                  description: 'Whether to unflatten properties that are meant to be nested objects for example `{ "plan.type": "Pro" }` will be unflattened to `{ "plan": { "type": "Pro" } }`'
                   nullable: true
                 properties:
                   type: object
                   description: Additional metadata properties (key-value pairs)
                   additionalProperties: true
+
       responses:
         200:
           description: Conversation submitted successfully.
