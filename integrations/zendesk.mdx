@@ -4,14 +4,8 @@ description: "Ingest Zendesk Tickets"
 ---
 
 <Frame>
-  <img
-    src="/zendesk.png"
-    style={{ width:"100%" }}
-    alt=""
-    title=""
-  />
+  <img src="/zendesk.png" style={{ width: "100%" }} alt="" title="" />
 </Frame>
-
 
 ### Overview
 
@@ -19,36 +13,252 @@ Zendesk empowers businesses to build better customer relationships through its s
 
 ### Get Started
 
-You can find the Zendesk integration on your [**integration settings page**](https://insights.reforge.com/w/default/settings/integrations/zendesk).
+You can find the Zendesk integration on your **[integration settings page](https://insights.reforge.com/w/default/settings/integrations/zendesk)**.
 
 A user with access to both Reforge Insights as well as Zendesk will need to authorize the connection.
 
 <Steps>
-  <Step title='Go to "Settings"'>
-    
-  </Step>
-  <Step title='Click "Integrations" in the navigation menu'>
-    
-  </Step>
-  <Step title='Click "Zendesk"'>
-    
-  </Step>
-  <Step title='Click "Connect"'>
-    
-  </Step>
-  <Step title="If necessary, log in to Zendesk using the appropriate account">
-    
-  </Step>
-  <Step title="Review and approve the permissions requested">
-    
-  </Step>
-  <Step title="Once confirmed, you will be returned to Reforge Insights, where you can toggle on ticket ingestion">
-    
-  </Step>
-  <Step title="[Optional] You can also enable each comment on the zendesk tickets to be ingested">
-    
-  </Step>
+  <Step title='Go to "Settings"'></Step>
+  <Step title='Click "Integrations" in the navigation menu'></Step>
+  <Step title='Click "Zendesk"'></Step>
+  <Step title='Click "Connect"'></Step>
+  <Step title="If necessary, log in to Zendesk using the appropriate account"></Step>
+  <Step title="Review and approve the permissions requested"></Step>
+  <Step title="Once confirmed, you will be returned to Reforge Insights, where you can toggle on ticket ingestion"></Step>
+  <Step title="[Optional] You can also enable each comment on the zendesk tickets to be ingested"></Step>
 </Steps>
+
+## Advanced Configuration
+
+<Frame>
+  <img
+    src="/images/zendesk/zendesk-configuration-overview.png"
+    alt="Zendesk integration configuration interface showing the three main sections: Choose what to include, Narrow down your tickets, and Choose the data to include"
+  />
+</Frame>
+
+After connecting your Zendesk account, you can customize exactly what data gets imported and how it's filtered. The Zendesk integration allows you to import tickets, comments, users, and organizations from your Zendesk instance with precise control over field selection and filtering criteria.
+
+### Configuration Sections
+
+#### 1. Choose What to Include
+
+##### Include Ticket Comments
+
+Enable this option to import comments associated with tickets in addition to the ticket content itself.
+
+<Warning>
+  Including ticket comments will increase the amount of data imported and may
+  affect ingestion performance for large Zendesk instances.
+</Warning>
+
+#### 2. Narrow Down Your Tickets
+
+Use filters to focus on specific types of tickets you want to analyze. This helps you import only the data that's relevant to your use case.
+
+<Note>
+  All filtering is based on ticket data. While you can filter using related
+  user, organization, or comment fields, the filtering always applies to which
+  tickets get imported.
+</Note>
+
+##### Filter Types and Operators
+
+Different field types support different filtering operators:
+
+<AccordionGroup>
+  <Accordion title="String Fields">
+    **Available Operators:**
+    - `contains` - Field contains the specified text
+    - `does not contain` - Field does not contain the specified text
+
+    **Examples:**
+
+    - Subject contains "billing"
+    - Description does not contain "resolved"
+
+  </Accordion>
+
+  <Accordion title="Number Fields">
+    **Available Operators:**
+    - `is` - Field equals the specified number
+    - `is not` - Field does not equal the specified number
+    - `is greater than` - Field is greater than the specified number
+    - `is less than` - Field is less than the specified number
+    - `is less than or equal to` - Field is less than or equal to the specified number
+    - `is greater than or equal to` - Field is greater than or equal to the specified number
+    - `is empty` - Field is empty
+    - `is not empty` - Field is not empty
+    - `between` - Field falls within the specified range
+
+    **Examples:**
+
+    - Priority equals 3
+    - Satisfaction score is greater than 4
+
+  </Accordion>
+
+  <Accordion title="Date Fields">
+    **Available Operators:**
+    - `between` - Field falls within the specified date range
+    - `is empty` - Field is empty
+    - `is not empty` - Field is not empty
+
+    **Examples:**
+
+    - Updated date range between 2024-01-01 and 2024-02-01
+    - Created date is empty
+
+  </Accordion>
+
+  <Accordion title="List Fields">
+    **Available Operators:**
+    - `is` - Field is any of the specified values
+    - `is not` - Field is not any of the specified values
+    - `is empty` - Field is empty
+    - `is not empty` - Field is not empty
+
+    **Examples:**
+
+    - Tags is "urgent" or "billing"
+    - Status is not "closed" or "solved"
+
+  </Accordion>
+
+  <Accordion title="Boolean Fields">
+    **Available Operators:**
+    - `is` - Field matches the specified boolean value (true/false)
+    - `is not` - Field does not match the specified boolean value
+    - `is empty` - Field is empty
+    - `is not empty` - Field is not empty
+
+    **Examples:**
+
+    - Is public is true
+    - Has incidents is false
+
+  </Accordion>
+</AccordionGroup>
+
+##### Multiple Filters
+
+When you add multiple filters, they are combined using an **AND** operator. This means tickets must match ALL filter criteria to be imported.
+
+<Tip>
+  Start with broader filters and gradually add more specific ones to fine-tune
+  your data selection.
+</Tip>
+
+#### 3. Choose the Data to Include
+
+Select which conversation, contact, and company fields to import. The data is organized into tabs representing different data types that can be ingested.
+
+##### Data Type Tabs
+
+<CardGroup cols={2}>
+<Card title="Tickets" icon="ticket">
+  Core ticket information including subject, description, status, priority, and custom ticket fields.
+</Card>
+
+<Card title="Users" icon="user">
+  Information about ticket requesters, assignees, and other users including
+  contact details and custom user fields.
+</Card>
+
+<Card title="Organizations" icon="building">
+  Company information associated with users and tickets, including custom
+  organization fields.
+</Card>
+
+<Card title="Comments" icon="comment">
+  Ticket comments and their associated metadata (only visible when "Include Ticket Comments" is enabled).
+</Card>
+</CardGroup>
+
+##### Field Selection
+
+<Tabs>
+<Tab title="Required Fields">
+Fields marked as **Required** are essential for the integration to function properly and cannot be deselected. These fields include:
+
+- **Tickets**: `id`, `created_at`, `updated_at`, `organization_id`, `requester_id`, `submitter_id`, `subject`, `description`
+- **Users**: `id`, `created_at`, `updated_at`, `name`, `email`
+- **Organizations**: `id`, `domain_names`, `name`, `details`, `created_at`, `updated_at`
+- **Comments**: `id`, `author_id`, `body`, `created_at`, `type`
+
+<Warning>
+  Required fields are automatically included in the ingestion process regardless
+  of selection status.
+</Warning>
+
+<Info>
+  **Preselected Fields**: Beyond the required fields, we automatically preselect additional commonly used fields to help you get started quickly with meaningful data. These preselected fields include useful metadata like ticket types, assignee information, status details, and satisfaction ratings that are frequently needed for analysis. You can deselect any of these preselected fields if they're not relevant to your specific use case.
+</Info>
+</Tab>
+
+<Tab title="Standard Fields">
+Standard Zendesk fields that are available across all instances. These include common fields like:
+
+- Priority levels
+- Status values
+- Assignee information
+- Satisfaction ratings
+- Tags
+
+Select the fields that are relevant to your analysis and reporting needs.
+
+</Tab>
+
+<Tab title="Custom Fields">
+Custom fields created in your Zendesk instance are automatically detected and available for selection. These fields:
+
+- Are fetched directly from your Zendesk configuration
+- Include the custom field name and description
+- Support all standard filtering and selection options
+- Are stored with their original field names in the metadata
+
+<Info>
+Custom fields are dynamically loaded from your Zendesk instance, so any changes to custom fields in Zendesk will be reflected in the integration.
+</Info>
+</Tab>
+</Tabs>
+
+### Best Practices
+
+<Card title="Field Selection Strategy" icon="lightbulb">
+  - Start with required fields and commonly used standard fields - Add custom
+  fields that are consistently populated and relevant to your analysis -
+  Consider the impact on data volume when selecting many fields - Review and
+  update field selections as your Zendesk usage evolves
+</Card>
+
+<Card title="Filtering Strategy" icon="filter">
+  - Use filters to focus on active or recent tickets - Filter by status to
+  exclude closed tickets if analyzing ongoing issues - Use organization or user
+  filters to focus on specific customer segments - Combine multiple filters to
+  create precise data subsets
+</Card>
+
+<Card title="Performance Considerations" icon="gauge">
+  - More fields and fewer filters = larger data volume - Including comments
+  significantly increases data volume - Consider the frequency of your data sync
+  when selecting options - Monitor ingestion performance and adjust as needed
+</Card>
+
+### Next Steps
+
+After configuring your Zendesk integration:
+
+1. **Test the configuration** by triggering a manual sync
+2. **Monitor the ingestion** to ensure data is being imported correctly
+3. **Review the imported data** in your analytics dashboard
+4. **Adjust filters and fields** based on your initial results
+5. **Set up automated workflows** using the imported Zendesk data
+
+<Note>
+  Changes to field selection and filters will apply to future data ingestion.
+  Existing imported data will not be retroactively updated.
+</Note>
 
 ### Data Collected
 
@@ -56,28 +266,11 @@ Once Reforge Insights and Zendesk are connected successfully, data will be pulle
 
 Each ticket that is accessible will be ingested, such that the ticket and, if enabled, associated comments are analyzed and visible in Reforge Insights.
 
-The following data attributes are loaded from Zendesk and utilized in Reforge Insights for analysis:
-
-- Tickets
-  - Metadata (ID, created time, updated time, type, channel, other association IDs)
-  - Subject (text)
-  - Description (text)
-  - Tags
-- Organizations (related to ingested tickets)
-  - Metadata (ID, created time, updated time)
-  - Domain
-  - Name
-  - Details (text)
-- Users (related to ingested tickets)
-  - Metadata (ID, created time, updated time)
-  - Name
-  - Email
-
 ### Pricing Volume Impact
 
 | Entity Type | Volume Impact |
 | :---------- | :-----------: |
-| Ticket      | **1x**        |
+| Ticket      |    **1x**     |
 
 <Info>
   View the [pricing page](/pricing/volume-calculation) for more information on
