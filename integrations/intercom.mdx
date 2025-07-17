@@ -3,13 +3,13 @@ title: "Intercom"
 description: "Ingest customer conversations and support tickets to Reforge Insights for consolidation and analysis"
 ---
 
-<Frame>
-  <img
-    src="/intercom.png"
-    style={{ width:"100%" }}
-    />
-</Frame>
+import FieldTypesAndOperatorsSnippet from "/snippets/field-types-and-operators-snippet.mdx";
+import BestPracticesSnippet from "/snippets/best-practices-snippet.mdx";
+import NextStepsSnippet from "/snippets/next-steps-snippet.mdx";
 
+<Frame>
+  <img src="/intercom.png" style={{ width: "100%" }} />
+</Frame>
 
 ### Overview
 
@@ -26,28 +26,124 @@ You can find the Intercom integration on your [integration settings page](https
 A user with access to both Reforge Insights as well as Intercom will need to authorize the connection.
 
 <Steps>
-  <Step title='Go to "Settings"'>
-    
-  </Step>
-  <Step title='Click "Integrations" in the navigation menu'>
-    
-  </Step>
-  <Step title='Click "Intercom"'>
-    
-  </Step>
-  <Step title='Click "Connect"'>
-    
-  </Step>
-  <Step title="If necessary, log in to Intercom using the appropriate account">
-    
-  </Step>
-  <Step title="Review and approve the permissions requested">
-    
-  </Step>
-  <Step title="Once confirmed, you will be returned to Reforge Insights, where you can toggle on conversation ingestion">
-    
-  </Step>
+  <Step title='Go to "Settings"'></Step>
+  <Step title='Click "Integrations" in the navigation menu'></Step>
+  <Step title='Click "Intercom"'></Step>
+  <Step title='Click "Connect"'></Step>
+  <Step title="If necessary, log in to Intercom using the appropriate account"></Step>
+  <Step title="Review and approve the permissions requested"></Step>
+  <Step title="Once confirmed, you will be returned to Reforge Insights, where you can toggle on conversation ingestion"></Step>
 </Steps>
+
+## Advanced Configuration
+
+<Frame>
+  <img
+    src="/images/intercom-configuration-overview.png"
+    alt="Intercom integration configuration interface showing the three main sections: Choose which conversations to include, Narrow down your conversations, and Choose the data to include"
+  />
+</Frame>
+
+After connecting your Intercom account, you can customize exactly what data gets imported and how it's filtered. The Intercom integration allows you to import conversations, contacts, and companies from your Intercom instance with precise control over field selection and filtering criteria.
+
+### Configuration Sections
+
+#### 1. Choose Which Conversations to Include
+
+##### **Include Bot-Only Conversations**
+
+Enable this option to include conversations where a human agent was never involved. This allows you to analyze automated interactions and bot performance.
+
+##### **Include Admin or Bot Initiated Conversations**
+
+Enable this option to include conversations where an admin or bot initiated the first message. This helps capture proactive outreach and automated messaging campaigns.
+
+#### 2. Narrow Down Your Conversations
+
+Use filters to focus on specific types of conversations you want to analyze. This helps you import only the data that's relevant to your use case.
+
+<Note>
+  All filtering is based on conversation data. While you can filter using
+  related contact or company fields, the filtering always applies to which
+  conversations get imported.
+</Note>
+
+<FieldTypesAndOperatorsSnippet />
+
+#### 3. Choose the Data to Include
+
+Select which conversation, contact, and company fields to import. The data is organized into tabs representing different data types that can be ingested.
+
+##### Data Type Tabs
+
+<CardGroup cols={2}>
+<Card title="Conversations" icon="message">
+  Core conversation information including subject, content, source details, and metadata about the conversation flow.
+</Card>
+
+<Card title="Contacts" icon="user">
+  Information about conversation participants including contact details,
+  activity data, and custom contact fields.
+</Card>
+
+<Card title="Companies" icon="building">
+  Company information associated with contacts and conversations, including custom company fields.
+</Card>
+</CardGroup>
+
+##### Field Selection
+
+<Tabs>
+<Tab title="Required Fields">
+Fields marked as **Required** are essential for the integration to function properly and cannot be deselected. These fields include:
+
+- **Conversations**: `id`, `created_at`, `updated_at`, `source.author.id`, `source.author.type`, `source.author.name`, `source.author.email`, `source.id`, `source.type`, `source.delivered_as`, `source.url`, `source.subject`, `source.body`
+- **Contacts**: `id`, `created_at`, `updated_at`, `name`, `email`
+- **Companies**: `id`, `created_at`, `updated_at`, `website`, `name`
+
+<Warning>
+  Required fields are automatically included in the ingestion process regardless
+  of selection status.
+</Warning>
+
+<Info>
+  **Preselected Fields**: Beyond the required fields, we automatically preselect additional commonly used fields to help you get started quickly with meaningful data. These preselected fields include useful metadata like contact activity, location information, device details, and company characteristics that are frequently needed for analysis. You can deselect any of these preselected fields if they're not relevant to your specific use case.
+</Info>
+</Tab>
+
+<Tab title="Standard Fields">
+Standard Intercom fields that are available across all instances. These include common fields like:
+
+- Contact activity data
+- Location information
+- Device and browser details
+- Language preferences
+- Company size and industry
+
+Select the fields that are relevant to your analysis and reporting needs.
+
+</Tab>
+
+<Tab title="Custom Fields">
+Custom fields created in your Intercom instance are automatically detected and available for selection. These fields:
+
+- Are fetched directly from your Intercom configuration
+- Include the custom field name and description
+- Support all standard filtering and selection options
+- Are stored with their original field names in the metadata
+
+<Info>
+Custom fields are dynamically loaded from your Intercom instance, so any changes to custom fields in Intercom will be reflected in the integration.
+</Info>
+</Tab>
+</Tabs>
+
+<BestPracticesSnippet
+  provider="Intercom"
+  customFilteringStrategy="Use filters to focus on customer-initiated conversations - Filter by conversation type to analyze specific interaction patterns - Use contact or company filters to focus on specific customer segments - Combine multiple filters to create precise data subsets for analysis"
+/>
+
+<NextStepsSnippet provider="Intercom" />
 
 ### Intercom Inbox App
 
@@ -55,29 +151,17 @@ Once the setup is done, you will see a Reforge Insights section in the Intercom 
 
 Anybody with access to your Intercom inbox will be able to send feedback to Reforge Insights, via the app in the sidebar, even if they do not have access to Reforge Insights. Only teammates added to Reforge Insights directly will be able to view feedback and insights.
 
-### Ingest Conversations
+### Data Collected
 
-Once Reforge Insights is authorized to access Intercom on your behalf, you can enable a setting on the [integration settings page](https://insights.reforge.com/w/default/settings/integrations/intercom) to have Reforge Insights ingest new conversation data regularly. This process will run every multiple times a day, up to hourly, depending on your subscription plan.
+Once Reforge Insights and Intercom are connected successfully, data will be pulled from periodically. The first time Reforge Insights loads data, it will look back 1 week. After that, it will ingest all new data up to your plan's feedback volume limit.
 
-Initially, we will pull conversations up to 1 week old, and then load new ones on an ongoing basis. Each message in a conversation will be loaded into Reforge Insights, however, only messages coming from the external customer will be analyzed.
-
-#### Data Collected
-
-When ingesting conversations, we collect the following data and attributes from the Intercom API:
-
-- Metadata (Basic details such as the conversation ID, URL, creation date, etc.)
-- Message text content (only those of type `Comment` that are **not redacted**)
-- Message Authors (Name, Email, Type)
-
-#### User Properties
-
-When ingesting Authors, we also allow users to collect the following data and attributes from Intercom, including user properties such as plan tier, geographic data, and any segment data that helps with feedback analysis.
+Each conversation that is accessible will be ingested, such that the conversation content is analyzed and visible in Reforge Insights.
 
 ### Pricing Volume Impact
 
 | Entity Type  | Volume Impact |
 | :----------- | :-----------: |
-| Conversation | **1x**        |
+| Conversation |    **1x**     |
 
 <Info>
   View the [pricing page](/pricing/volume-calculation) for more information on

@@ -1,0 +1,86 @@
+##### Filter Types and Operators
+
+Different field types support different filtering operators:
+
+<AccordionGroup>
+  <Accordion title="String Fields">
+    **Available Operators:**
+    - `contains` - Field contains the specified text
+    - `does not contain` - Field does not contain the specified text
+
+    **Examples:**
+
+    - Subject contains "billing"
+    - Description does not contain "resolved"
+
+  </Accordion>
+
+  <Accordion title="Number Fields">
+    **Available Operators:**
+    - `is` - Field equals the specified number
+    - `is not` - Field does not equal the specified number
+    - `is greater than` - Field is greater than the specified number
+    - `is less than` - Field is less than the specified number
+    - `is less than or equal to` - Field is less than or equal to the specified number
+    - `is greater than or equal to` - Field is greater than or equal to the specified number
+    - `is empty` - Field is empty
+    - `is not empty` - Field is not empty
+    - `between` - Field falls within the specified range
+
+    **Examples:**
+
+    - Priority equals 3
+    - Satisfaction score is greater than 4
+
+  </Accordion>
+
+  <Accordion title="Date Fields">
+    **Available Operators:**
+    - `between` - Field falls within the specified date range
+    - `is empty` - Field is empty
+    - `is not empty` - Field is not empty
+
+    **Examples:**
+
+    - Updated date range between 2024-01-01 and 2024-02-01
+    - Created date is empty
+
+  </Accordion>
+
+  <Accordion title="List Fields">
+    **Available Operators:**
+    - `is` - Field is any of the specified values
+    - `is not` - Field is not any of the specified values
+    - `is empty` - Field is empty
+    - `is not empty` - Field is not empty
+
+    **Examples:**
+
+    - Tags is "urgent" or "billing"
+    - Status is not "closed" or "solved"
+
+  </Accordion>
+
+  <Accordion title="Boolean Fields">
+    **Available Operators:**
+    - `is` - Field matches the specified boolean value (true/false)
+    - `is not` - Field does not match the specified boolean value
+    - `is empty` - Field is empty
+    - `is not empty` - Field is not empty
+
+    **Examples:**
+
+    - Is public is true
+    - Has incidents is false
+
+  </Accordion>
+</AccordionGroup>
+
+##### Multiple Filters
+
+When you add multiple filters, they are combined using an **AND** operator. This means tickets must match ALL filter criteria to be imported.
+
+<Tip>
+  Start with broader filters and gradually add more specific ones to fine-tune
+  your data selection.
+</Tip>

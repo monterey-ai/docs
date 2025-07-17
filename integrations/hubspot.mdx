@@ -1,13 +1,14 @@
 ---
 title: "HubSpot"
-description: "Ingest HubSpot Closed-Won Opportunity Notes"
+description: "Ingest HubSpot Deals and Service Hub Tickets"
 ---
 
+import FieldTypesAndOperatorsSnippet from "/snippets/field-types-and-operators-snippet.mdx";
+import BestPracticesSnippet from "/snippets/best-practices-snippet.mdx";
+import NextStepsSnippet from "/snippets/next-steps-snippet.mdx";
+
 <Frame>
-  <img
-    src="/hubspot.png"
-    style={{ width:"100%" }}
-  />
+  <img src="/hubspot.png" style={{ width: "100%" }} />
 </Frame>
 
 ### Overview
@@ -16,59 +17,141 @@ HubSpot unifies sales, marketing, and customer data on a single platform. Connec
 
 ### Get Started
 
-You can find the HubSpot integration on your settings/integrations page.
+You can find the HubSpot integration on your **[integration settings page](https://insights.reforge.com/w/default/settings/integrations/hubspot)**.
 
 A user with access to both Reforge Insights as well as HubSpot will need to authorize the connection.
 
 <Steps>
-  <Step title='Go to "Settings"'>
-    
-  </Step>
-  <Step title='Click "Integrations" in the navigation menu'>
-    
-  </Step>
-  <Step title='Click "HubSpot"'>
-    
-  </Step>
-  <Step title='Click "Connect"'>
-    
-  </Step>
-  <Step title="If necessary, log in to HubSpot using the appropriate account">
-    
-  </Step>
-  <Step title="Review and approve the permissions requested">
-    
-  </Step>
-  <Step title="Once confirmed, you will be returned to Reforge Insights, where you can toggle on ingestion of sales notes">
-    
-  </Step>
+  <Step title='Go to "Settings"'></Step>
+  <Step title='Click "Integrations" in the navigation menu'></Step>
+  <Step title='Click "HubSpot"'></Step>
+  <Step title='Click "Connect"'></Step>
+  <Step title="If necessary, log in to HubSpot using the appropriate account"></Step>
+  <Step title="Review and approve the permissions requested"></Step>
+  <Step title="Once confirmed, you will be returned to Reforge Insights, where you can configure data ingestion"></Step>
 </Steps>
+
+## Advanced Configuration
+
+<Frame>
+  <img
+    src="/images/hubspot-configuration-overview.png"
+    alt="HubSpot integration configuration interface showing the three main sections: Choose what to include, Narrow down your data, and Choose the data to include"
+  />
+</Frame>
+
+After connecting your HubSpot account, you can customize exactly what data gets imported and how it's filtered. The HubSpot integration allows you to import deals, service hub tickets, companies, and contacts from your HubSpot instance with precise control over field selection and filtering criteria.
+
+### Configuration Sections
+
+#### 1. Choose What to Include
+
+The HubSpot integration supports importing multiple data types independently:
+
+##### **Include Deal Notes**
+
+Enable this option to import notes associated with deals in addition to the deal information itself.
+
+##### **Select Deal Stages and Pipelines**
+
+Select the deal stages and pipelines you want to import from. This will help you narrow down the data to only the deals that are relevant to your use case.
+
+##### **Include Service Hub Tickets**
+
+Enable this option to import Service Hub tickets and their associated data.
+
+#### 2. Narrow Down Your Data
+
+Use filters to focus on specific types of deals and tickets you want to analyze. This helps you import only the data that's relevant to your use case.
+
+<Note>All filtering is based on the primary data type (deals or tickets).</Note>
+
+<Warning>
+  **Important**: The filtering preview shows how many items match your filters
+  in the past month, but the actual ingestion will be lower. Deals without any
+  notes and Service Hub Tickets without content will not be ingested, even if
+  they match your filter criteria.
+</Warning>
+
+<FieldTypesAndOperatorsSnippet />
+
+#### 3. Choose the Data to Include
+
+Select which deal and ticket fields to import. The data is organized into tabs representing different data types that can be ingested.
+
+##### Data Type Tabs
+
+<CardGroup cols={2}>
+<Card title="Deals" icon="handshake">
+  Deal information including name, amount, stage, close date, and custom deal fields.
+</Card>
+
+<Card title="Service Hub Tickets" icon="ticket">
+  Service ticket information including subject, content, status, priority, and
+  custom ticket fields.
+</Card>
+</CardGroup>
+
+##### Field Selection
+
+<Tabs>
+<Tab title="Required Fields">
+Fields marked as **Required** are essential for the integration to function properly and cannot be deselected. These fields include:
+
+- **Deals**: `hs_object_id`, `createdate`, `hs_lastmodifieddate`, `hs_arr`, `dealname`, `dealstage`
+- **Service Hub Tickets**: `subject`, `content`, `createdate`, `hs_lastmodifieddate`
+
+<Warning>
+  Required fields are automatically included in the ingestion process regardless
+  of selection status.
+</Warning>
+
+<Info>
+  **Preselected Fields**: Beyond the required fields, we automatically preselect additional commonly used fields to help you get started quickly with meaningful data. These preselected fields include useful metadata that are frequently needed for analysis. You can deselect any of these preselected fields if they're not relevant to your specific use case.
+</Info>
+</Tab>
+
+<Tab title="Standard Fields">
+Standard HubSpot fields that are available across all instances. These include common fields like:
+
+- Deal stages and pipelines
+- Ticket priorities and categories
+- Revenue and deal amounts
+
+Select the fields that are relevant to your analysis and reporting needs.
+
+</Tab>
+
+<Tab title="Custom Fields">
+Custom fields created in your HubSpot instance are automatically detected and available for selection. These fields:
+
+- Are fetched directly from your HubSpot configuration
+- Include the custom field name and description
+- Support all standard filtering and selection options
+- Are stored with their original field names in the metadata
+
+<Info>
+Custom fields are dynamically loaded from your HubSpot instance, so any changes to custom fields in HubSpot will be reflected in the integration.
+</Info>
+</Tab>
+</Tabs>
+
+<BestPracticesSnippet provider="HubSpot" />
+
+<NextStepsSnippet provider="HubSpot" />
 
 ### Data Collected
 
 Once Reforge Insights and HubSpot are connected successfully, data will be pulled from periodically. The first time Reforge Insights loads data, it will look back 1 week. After that, it will ingest all new data up to your plan's feedback volume limit.
 
-Only notes from opportunities in the "Closed-Won" status will be ingested. This is to ensure that the feedback you receive is based on successful sales outcomes.
-
-The following data attributes are loaded from HubSpot and utilized in Reforge Insights for analysis:
-
-- Notes
-  - Metadata (ID, created time, updated time)
-  - Body (text content)
-- Accounts
-  - Metadata (ID, created time, updated time)
-  - Name
-  - Description
-  - About Us
-  - Founded Year
-  - External Source
-  - Closed-won opportunity ARR
+**Important**: Only deals with associated notes and Service Hub tickets with content will be ingested. Empty records will be filtered out during the ingestion process, even if they match your filter criteria.
 
 ### Pricing Volume Impact
 
-| Entity Type | Volume Impact |
-| :---------- | :-----------: |
-| Note        | **1x**        |
+| Entity Type        | Volume Impact |
+| :----------------- | :-----------: |
+| Deal Note          |    **1x**     |
+| Service Hub Ticket |    **1x**     |
 
 <Info>
   View the [pricing page](/pricing/volume-calculation) for more information on

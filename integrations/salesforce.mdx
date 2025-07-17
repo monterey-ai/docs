@@ -3,13 +3,12 @@ title: "Salesforce"
 description: "Ingest Salesforce Closed-Won Opportunity Notes"
 ---
 
+import FieldTypesAndOperatorsSnippet from "/snippets/field-types-and-operators-snippet.mdx";
+import BestPracticesSnippet from "/snippets/best-practices-snippet.mdx";
+import NextStepsSnippet from "/snippets/next-steps-snippet.mdx";
+
 <Frame>
-  <img
-    src="/salesforce.png"
-    style={{ width:"100%" }}
-    alt=""
-    title=""
-  />
+  <img src="/salesforce.png" style={{ width: "100%" }} alt="" title="" />
 </Frame>
 
 ### Overview
@@ -23,62 +22,208 @@ You can find the Salesforce integration on your [**integration settings page**]
 A user with access to both Reforge Insights as well as Salesforce will need to authorize the connection.
 
 <Steps>
-  <Step title='Go to "Settings"'>
-    
-  </Step>
-  <Step title='Click "Integrations" in the navigation menu'>
-    
-  </Step>
-  <Step title='Click "Salesforce"'>
-    
-  </Step>
-  <Step title='Click "Connect"'>
-    
-  </Step>
-  <Step title="If necessary, log in to Salesforce using the appropriate account">
-    
-  </Step>
-  <Step title="Review and approve the permissions requested">
-    
-  </Step>
-  <Step title="Once confirmed, you will be returned to Reforge Insights, where you can toggle on ingestion of sales notes">
-    
-  </Step>
+  <Step title='Go to "Settings"'></Step>
+  <Step title='Click "Integrations" in the navigation menu'></Step>
+  <Step title='Click "Salesforce"'></Step>
+  <Step title='Click "Connect"'></Step>
+  <Step title="If necessary, log in to Salesforce using the appropriate account"></Step>
+  <Step title="Review and approve the permissions requested"></Step>
+  <Step title="Once confirmed, you will be returned to Reforge Insights, where you can toggle on ingestion of sales notes"></Step>
 </Steps>
+
+## Advanced Configuration
+
+<Frame>
+  <img
+    src="/images/salesforce-configuration-overview.png"
+    alt="Salesforce integration configuration interface showing options for Service Cloud Cases, Opportunities, and Accounts"
+  />
+</Frame>
+
+After connecting your Salesforce account, you can customize exactly what data gets imported and how it's filtered. The Salesforce integration allows you to import Service Cloud Cases, Opportunities, and Accounts from your Salesforce instance with precise control over field selection and filtering criteria.
+
+### Configuration Sections
+
+#### 1. Choose What to Include
+
+The Salesforce integration supports importing multiple data types independently:
+
+##### **Service Cloud Cases**
+
+Enable loading cases from Service Cloud. This includes support case information and related contact details.
+
+##### **Include Case Comments**
+
+Enable this option to import comments associated with cases in addition to the case content itself.
+
+<Warning>
+  Including case comments will increase the amount of data imported and may
+  affect ingestion performance for large Salesforce instances.
+</Warning>
+
+##### **Opportunities**
+
+Enable loading opportunities from Salesforce. This imports opportunity data and associated notes. You can use filters to specify which opportunities to include based on stage, amount, or other criteria.
+
+##### **Accounts**
+
+Enable loading accounts from Service Cloud. This includes company information and account details.
+
+#### 2. Choose the Data to Include
+
+Select which fields to import for each data type. The data is organized into tabs representing the different Salesforce objects that can be ingested. Each data type can be configured independently.
+
+##### Data Type Tabs
+
+<CardGroup cols={3}>
+<Card title="Service Cloud Cases" icon="ticket">
+  Support case information including subject, description, status, priority, and related contact details.
+</Card>
+
+<Card title="Opportunities" icon="chart-line">
+  Sales opportunity data including deal information, stage, and associated
+  notes. Use filters to specify which opportunities to include.
+</Card>
+
+<Card title="Accounts" icon="building">
+  Company and account information including contact details, revenue data, and custom account fields.
+</Card>
+</CardGroup>
+
+#### 3. Narrow Down Your Data
+
+Use filters to focus on specific records you want to analyze. Each data type can be filtered independently based on its own fields.
+
+<Note>
+  Filtering is applied separately to each data type. You cannot filter cases
+  based on account fields, or opportunities based on case fields. Each object
+  type is filtered using only its own field values.
+</Note>
+
+<FieldTypesAndOperatorsSnippet />
+
+#### 4. Field Selection and Reference Drilling
+
+<Tabs>
+<Tab title="Required Fields">
+Fields marked as **Required** are essential for the integration to function properly and cannot be deselected. These fields include:
+
+- **Service Cloud Cases**: `Id`, `Subject`, `Description`, `AccountId`, `LastModifiedDate`, `CreatedDate`, `Contact.Id`, `Contact.Phone`, `Contact.MobilePhone`, `Contact.Title`, `Contact.CreatedDate`, `Contact.LastModifiedDate`, `Contact.Name`, `Contact.Email`
+- **Opportunities**: `Id`, `AccountId`, `StageName`, `CreatedDate`, `LastModifiedDate`, `Description`
+- **Accounts**: `Id`, `Name`, `Description`, `LastModifiedDate`, `CreatedDate`
+
+<Warning>
+  Required fields are automatically included in the ingestion process regardless
+  of selection status.
+</Warning>
+
+<Info>
+  **Preselected Fields**: Beyond the required fields, we automatically preselect additional commonly used fields to help you get started quickly with meaningful data. These preselected fields include useful metadata like case status, account revenue information, and contact details that are frequently needed for analysis. You can deselect any of these preselected fields if they're not relevant to your specific use case.
+</Info>
+</Tab>
+
+<Tab title="Reference Field Drilling">
+Salesforce field selection supports drilling down into reference fields to access related object data. You can navigate up to 3 levels deep from the root object.
+
+**How Reference Drilling Works:**
+
+- **Root Level**: Base object fields (e.g., Case.Subject, Account.Name)
+- **Level 2**: Referenced object fields (e.g., Case.Contact.Name, Case.Account.Website)
+- **Level 3**: Fields from objects referenced by Level 2 objects
+
+**Visual Indicators:**
+
+- Reference fields show the related object type in parentheses (e.g., "AssetProvidedBy (Account)")
+- Dropdown indicators show the number of selected sub-items for each reference field
+- You can expand and collapse reference field sections to manage complex field selections
+
+**Example Structure:**
+
+```
+Case
+├── Subject (string)
+├── Contact ▼ (3 selected)
+│   ├── Name (string)
+│   ├── Email (string)
+│   └── Account ▼ (2 selected)
+│       ├── Name (string)
+│       └── Website (string)
+└── Account ▼ (1 selected)
+    └── AnnualRevenue (number)
+```
+
+<Info>
+Reference field drilling allows you to access related data without separate API calls, making your data more comprehensive and analysis-ready.
+</Info>
+</Tab>
+
+<Tab title="Custom Fields">
+Custom fields created in your Salesforce instance are automatically detected and available for selection. These fields:
+
+- Are fetched directly from your Salesforce configuration
+- Include the custom field name and description
+- Support reference drilling if they are lookup/master-detail fields
+- Are stored with their original field names in the metadata
+
+<Info>
+Custom fields are dynamically loaded from your Salesforce instance, so any changes to custom fields in Salesforce will be reflected in the integration.
+</Info>
+</Tab>
+</Tabs>
+
+#### 5. Custom Field Mapping
+
+<Tabs>
+<Tab title="Account Contract Value">
+For accounts, you can map a custom number field to represent the Contract Value. This allows you to:
+
+- Select from your existing custom number fields in Salesforce
+- Map the selected field to the standardized "Contract Value" field in Reforge Insights
+- Use this mapped value for account-based analysis and reporting
+
+**How to Set Up Custom Field Mapping:**
+
+1. Navigate to the Accounts tab in the data selection interface
+2. Locate the "Custom field mapping" section
+3. Select your desired custom number field from the dropdown
+4. The selected field will be mapped to "Contract Value" in Reforge Insights
+
+<Frame>
+  <img
+    src="/images/salesforce-accounts-custom-field-mapping.png"
+    alt="Custom field mapping interface showing Contract Value mapped to Custom Customer Value field"
+  />
+</Frame>
+
+<Info>
+Only custom fields of number type are available for Contract Value mapping to ensure proper numerical analysis.
+</Info>
+</Tab>
+</Tabs>
+
+<BestPracticesSnippet
+  provider="Salesforce"
+  customFilteringStrategy="Filter cases by status or priority to focus on active issues - Use opportunity stage filters to analyze specific sales phases or focus on closed-won deals - Filter accounts by type or size to focus on target customer segments - Apply date filters to analyze recent activity patterns"
+/>
+
+<NextStepsSnippet provider="Salesforce" />
 
 ### Data Collected
 
 Once Reforge Insights and Salesforce are connected successfully, data will be pulled from periodically. The first time Reforge Insights loads data, it will look back 1 week. After that, it will ingest all new data up to your plan's feedback volume limit.
 
-Only notes from opportunities in the "Closed-Won" status will be ingested. This is to ensure that the feedback you receive is based on successful sales outcomes and actual paying customers.
-
-The following table describes how data is mapped from Salesforce into Reforge Insights.
-
-| Salesforce Object | Salesforce Field              | Reforge Insights Object | Reforge Insights Field | Note                                                                                                  |
-| ----------------- | ----------------------------- | -------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| Note              | Title                         | Feedback                         | Title                           |                                                                                                       |
-| Note              | Body                          | Feedback                         | Description                     |                                                                                                       |
-| Note              | CreatedDate                   | Feedback                         | Created At                      |                                                                                                       |
-| Note              | LastModifiedDate              | Feedback                         | Updated At                      |                                                                                                       |
-| Account           | Name                          | Account                          | Name                            |                                                                                                       |
-| Account           | Description                   | Account                          | Description                     |                                                                                                       |
-| Account           | CreatedDate                   | Account                          | Created At                      |                                                                                                       |
-| Account           | LastModifiedDate              | Account                          | Updated At                      |                                                                                                       |
-| Account           | Website                       | Account                          | domain                          |                                                                                                       |
-| Account           | Annual Revenue                | Account                          | metadata                        |                                                                                                       |
-| Account           | Number of Employees           | Account                          | metadata                        |                                                                                                       |
-| Account           | Billing Postal Code Employees | Account                          | metadata                        |                                                                                                       |
-| Account           | Billing Country               | Account                          | metadata                        |                                                                                                       |
-| Opportunity       | SUM of Amount                 | Account                          | contractValue                   | Sum of the Amount field from all "Closed Won" opportunities associated with the corresponding Account |
+Each enabled data type (Service Cloud Cases, Opportunities, Accounts) will be ingested according to your configuration. You can use filters to specify which opportunities to include based on your specific needs and analysis requirements.
 
 ### Pricing Volume Impact
 
 | Entity Type | Volume Impact |
 | :---------- | :-----------: |
-| Note        | **1x**        |
+| Case        |    **1x**     |
+| Opportunity |    **1x**     |
 
 <Info>
-  View the [pricing page](/pricing/volume-calculation) for more information on how we calculate volume usage.
+  View the [pricing page](/pricing/volume-calculation) for more information on
+  how we calculate volume usage.
 </Info>
 
 ### Common Issues
@@ -106,7 +251,6 @@ If you see an error like OAUTH_APP_BLOCKED when trying to install the integratio
     <li>
     Self-authorization (easier setup):
 
-    
     Select "All users may self-authorize" → Save. You're done.
 
     </li>
@@ -114,13 +258,14 @@ If you see an error like OAUTH_APP_BLOCKED when trying to install the integratio
     <li>
     Admin-approved access (more control):
 
-    
+
     Select "Admin approved users are pre-authorized" → Save. → Then scroll down and add the appropriate Profiles or Permission
     Sets under "Profiles" or "Custom Permissions" so your users can access the app.
 
     </li>
 
     </ul>
+
   </Step>
   <Step title="Once updated, users can try the installation/authentication again">
     
