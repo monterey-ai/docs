@@ -3,6 +3,10 @@ title: "Zendesk"
 description: "Ingest Zendesk Tickets"
 ---
 
+import FieldTypesAndOperatorsSnippet from "/snippets/field-types-and-operators-snippet.mdx";
+import BestPracticesSnippet from "/snippets/best-practices-snippet.mdx";
+import NextStepsSnippet from "/snippets/next-steps-snippet.mdx";
+
 <Frame>
   <img src="/zendesk.png" style={{ width: "100%" }} alt="" title="" />
 </Frame>
@@ -32,7 +36,7 @@ A user with access to both Reforge Insights as well as Zendesk will need to auth
 
 <Frame>
   <img
-    src="/images/zendesk/zendesk-configuration-overview.png"
+    src="/images/zendesk-configuration-overview.png"
     alt="Zendesk integration configuration interface showing the three main sections: Choose what to include, Narrow down your tickets, and Choose the data to include"
   />
 </Frame>
@@ -43,7 +47,7 @@ After connecting your Zendesk account, you can customize exactly what data gets 
 
 #### 1. Choose What to Include
 
-##### Include Ticket Comments
+##### **Include Ticket Comments**
 
 Enable this option to import comments associated with tickets in addition to the ticket content itself.
 
@@ -62,92 +66,7 @@ Use filters to focus on specific types of tickets you want to analyze. This help
   tickets get imported.
 </Note>
 
-##### Filter Types and Operators
-
-Different field types support different filtering operators:
-
-<AccordionGroup>
-  <Accordion title="String Fields">
-    **Available Operators:**
-    - `contains` - Field contains the specified text
-    - `does not contain` - Field does not contain the specified text
-
-    **Examples:**
-
-    - Subject contains "billing"
-    - Description does not contain "resolved"
-
-  </Accordion>
-
-  <Accordion title="Number Fields">
-    **Available Operators:**
-    - `is` - Field equals the specified number
-    - `is not` - Field does not equal the specified number
-    - `is greater than` - Field is greater than the specified number
-    - `is less than` - Field is less than the specified number
-    - `is less than or equal to` - Field is less than or equal to the specified number
-    - `is greater than or equal to` - Field is greater than or equal to the specified number
-    - `is empty` - Field is empty
-    - `is not empty` - Field is not empty
-    - `between` - Field falls within the specified range
-
-    **Examples:**
-
-    - Priority equals 3
-    - Satisfaction score is greater than 4
-
-  </Accordion>
-
-  <Accordion title="Date Fields">
-    **Available Operators:**
-    - `between` - Field falls within the specified date range
-    - `is empty` - Field is empty
-    - `is not empty` - Field is not empty
-
-    **Examples:**
-
-    - Updated date range between 2024-01-01 and 2024-02-01
-    - Created date is empty
-
-  </Accordion>
-
-  <Accordion title="List Fields">
-    **Available Operators:**
-    - `is` - Field is any of the specified values
-    - `is not` - Field is not any of the specified values
-    - `is empty` - Field is empty
-    - `is not empty` - Field is not empty
-
-    **Examples:**
-
-    - Tags is "urgent" or "billing"
-    - Status is not "closed" or "solved"
-
-  </Accordion>
-
-  <Accordion title="Boolean Fields">
-    **Available Operators:**
-    - `is` - Field matches the specified boolean value (true/false)
-    - `is not` - Field does not match the specified boolean value
-    - `is empty` - Field is empty
-    - `is not empty` - Field is not empty
-
-    **Examples:**
-
-    - Is public is true
-    - Has incidents is false
-
-  </Accordion>
-</AccordionGroup>
-
-##### Multiple Filters
-
-When you add multiple filters, they are combined using an **AND** operator. This means tickets must match ALL filter criteria to be imported.
-
-<Tip>
-  Start with broader filters and gradually add more specific ones to fine-tune
-  your data selection.
-</Tip>
+<FieldTypesAndOperatorsSnippet />
 
 #### 3. Choose the Data to Include
 
@@ -223,42 +142,12 @@ Custom fields are dynamically loaded from your Zendesk instance, so any changes 
 </Tab>
 </Tabs>
 
-### Best Practices
+<BestPracticesSnippet
+  provider="Zendesk"
+  customFilteringStrategy="Use filters to focus on active or recent tickets - Filter by status to exclude closed tickets if analyzing ongoing issues - Use organization or user filters to focus on specific customer segments - Combine multiple filters to create precise data subsets"
+/>
 
-<Card title="Field Selection Strategy" icon="lightbulb">
-  - Start with required fields and commonly used standard fields - Add custom
-  fields that are consistently populated and relevant to your analysis -
-  Consider the impact on data volume when selecting many fields - Review and
-  update field selections as your Zendesk usage evolves
-</Card>
-
-<Card title="Filtering Strategy" icon="filter">
-  - Use filters to focus on active or recent tickets - Filter by status to
-  exclude closed tickets if analyzing ongoing issues - Use organization or user
-  filters to focus on specific customer segments - Combine multiple filters to
-  create precise data subsets
-</Card>
-
-<Card title="Performance Considerations" icon="gauge">
-  - More fields and fewer filters = larger data volume - Including comments
-  significantly increases data volume - Consider the frequency of your data sync
-  when selecting options - Monitor ingestion performance and adjust as needed
-</Card>
-
-### Next Steps
-
-After configuring your Zendesk integration:
-
-1. **Test the configuration** by triggering a manual sync
-2. **Monitor the ingestion** to ensure data is being imported correctly
-3. **Review the imported data** in your analytics dashboard
-4. **Adjust filters and fields** based on your initial results
-5. **Set up automated workflows** using the imported Zendesk data
-
-<Note>
-  Changes to field selection and filters will apply to future data ingestion.
-  Existing imported data will not be retroactively updated.
-</Note>
+<NextStepsSnippet provider="Zendesk" />
 
 ### Data Collected
 
