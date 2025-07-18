@@ -142,6 +142,7 @@
     {
       "group": "Survey",
       "pages": [
+        "integrations/qualtrics",
         "integrations/typeform",
         "integrations/survey-monkey"
       ]

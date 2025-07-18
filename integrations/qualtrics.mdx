@@ -1,0 +1,87 @@
+---
+title: "Qualtrics"
+description: "Ingest Qualtrics survey responses to Reforge Insights for consolidation and analysis"
+---
+
+### Overview
+
+The integration with Qualtrics is a great way to get product insights from your survey responses. With the integration, your team can:
+
+- Analyze open-ended survey responses at scale
+- Surface correlations between ratings and qualitative feedback
+- Understand trends of user sentiment across survey results
+- Consolidate survey data with other feedback sources for comprehensive insights
+
+### Get Started
+
+You can find the Qualtrics integration on your [integration settings page](https://insights.reforge.com/w/default/settings/integrations/qualtrics).
+
+A user with access to both Reforge Insights as well as Qualtrics will need to authorize the connection using their Qualtrics API token.
+
+<Steps>
+  <Step title='Go to "Settings"' />
+  <Step title='Click "Integrations" in the navigation menu' />
+  <Step title='Click "Qualtrics"' />
+  <Step title='Click "Connect"' />
+  <Step title="Enter your Qualtrics API token">
+    You can find your API token in your [Qualtrics Account
+    Settings](https://www.qualtrics.com/support/integrations/api-integration/overview/#GeneratingAnAPIToken)
+  </Step>
+  <Step title="Select your data center">
+    Choose the data center that matches your Qualtrics account region (e.g. pdx1)
+  </Step>
+  <Step title="Enter your Qualtrics account email">
+    This should be the email address associated with your Qualtrics account that has appropriate access to the surveys
+    you want to sync
+  </Step>
+  <Step title="Click 'Connect' to establish the integration" />
+</Steps>
+
+### Configure Survey Ingestion
+
+Once Reforge Insights is authorized to access Qualtrics on your behalf, you can configure which surveys to ingest and how to map survey questions to feedback data.
+
+#### Select Surveys
+
+On the integration settings page, you can:
+
+- **Load Latest Data**: Sync the most recent survey responses
+- **Refresh Surveys List**: Update the available surveys from your Qualtrics account
+- Toggle individual surveys on or off for ingestion
+
+#### Configure Question Mappings
+
+For each enabled survey, you can map questions to different data types:
+
+- **Feedback Content**: Open-ended responses that will be analyzed for themes and insights
+- **Feedback Metadata**: Additional context that will be attached to feedback records
+- **Customer ID**: Unique identifier for the survey respondent (_choose ONE per survey_)
+- **Customer Name**: Name of the survey respondent (_choose ONE per survey_)
+- **Customer Email**: Email address of the survey respondent (_choose ONE per survey_)
+- **Customer Metadata**: Additional customer attributes for segmentation and filtering
+
+This flexible mapping allows you to customize how survey data flows into Reforge Insights based on your survey structure and analysis needs.
+
+### Ingest Responses
+
+Once configured, Reforge Insights will regularly ingest new survey response data. This process runs multiple times per day, up to hourly, depending on your subscription plan.
+
+Initially, we will pull existing survey responses for selected surveys, and then load new ones on an ongoing basis. Each response will be processed according to your question mappings, with text responses generating analyzable feedback and other data types providing context and metadata.
+
+#### Data Collected
+
+When ingesting surveys, we collect the following data and attributes from the Qualtrics API:
+
+- Survey Metadata (Survey ID, name, creation date, status, etc.)
+  - Any Qualtrics "embedded" fields will be added as metadata to the feedback record
+- Question information (Question ID, type, text, response options, etc.)
+- Response content (Response ID, values, completion status, timestamps, etc.)
+- Respondent information (as configured in your question mappings)
+
+### Pricing Volume Impact
+
+| Entity Type | Volume Impact |
+| :---------- | :-----------: |
+| Response    |    **1x**     |
+
+<Info>View the [pricing page](/pricing/volume-calculation) for more information on how we calculate volume usage.</Info>
