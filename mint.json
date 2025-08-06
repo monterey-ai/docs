@@ -73,7 +73,10 @@
     },
     {
       "group": "Knowledge Hub",
-      "pages": ["knowledge-hub/labels"]
+      "pages": [
+        "knowledge-hub/labels",
+        "knowledge-hub/tags"
+    ]
     },
     {
       "group": "Workflows",
