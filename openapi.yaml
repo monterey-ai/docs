@@ -234,24 +234,32 @@ paths:
                   items:
                     type: string
                   nullable: true
+                isExternalContactId:
+                  type: boolean
+                  description: True if the contactId/contact.id is an external ID, false if it is a Reforge Insights contact ID.
+                  default: false
                 contact:
-                  description: The Contact who provided the feedback
+                  description: The Contact who provided the feedback. If providing an external ID, set isExternalContactId to true.
                   oneOf:
                     - $ref: "#/components/schemas/FindOrCreateCustomer"
                     - $ref: "#/components/schemas/AssociateExistingCustomer"
                 contactId:
                   type: string
-                  description: ID of Contact to associate to
+                  description: ID of Contact to associate to.  If providing an external ID, set isExternalContactId to true.
                   nullable: true
+                isExternalAccountId:
+                  type: boolean
+                  description: True if the accountId/account.id is an external ID, false if it is a Reforge Insights account ID.
+                  default: false
                 account:
-                  description: The customer account to which the feedback should be associated
+                  description: The customer account to which the feedback should be associated. If providing an external ID, set isExternalAccountId to true.
                   oneOf:
                     - $ref: "#/components/schemas/FindOrCreateCustomerAccount"
                     - $ref: "#/components/schemas/AssociateExistingCustomerAccount"
                   nullable: true
                 accountId:
                   type: string
-                  description: ID of CustomerAccount to associate to
+                  description: ID of CustomerAccount to associate to.  If providing an external ID, set isExternalAccountId to true.
                   nullable: true
                 source:
                   type: string
