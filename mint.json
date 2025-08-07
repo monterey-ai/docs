@@ -156,7 +156,6 @@
         "integrations/data-warehouse",
         "integrations/zapier",
         "integrations/fathom",
-        "integrations/data-warehouse",
         "integrations/external-cohorts"
       ]
     },
