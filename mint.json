@@ -75,8 +75,9 @@
       "group": "Knowledge Hub",
       "pages": [
         "knowledge-hub/labels",
-        "knowledge-hub/tags"
-    ]
+        "knowledge-hub/tags",
+        "knowledge-hub/mcp-server"
+      ]
     },
     {
       "group": "Workflows",
