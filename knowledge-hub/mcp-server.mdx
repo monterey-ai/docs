@@ -1,0 +1,198 @@
+---
+title: "Connect to MCP Server"
+description: "How to connect to the Reforge Insights MCP server from various AI clients."
+---
+
+## Overview
+
+The Reforge Insights MCP (Model Context Protocol) server provides direct access to your feedback data through AI clients like Claude Desktop, Claude Code, ChatGPT, and others. This integration allows you to query your insights data naturally using AI assistants.
+
+## Claude Desktop
+
+To connect Claude Desktop to the Reforge Insights MCP server:
+
+1. Open Claude Desktop
+2. Go to **Settings** → **Developer**
+3. Click **Edit Config**
+4. Add the following configuration to your `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "reforge-insights": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://insights.reforge.com/api/v1/mcp"
+      ]
+    }
+  }
+}
+```
+
+If you already have other MCP servers configured, simply add the `"reforge-insights"` section to your existing `"mcpServers"` object.
+
+## Claude Code
+
+To connect Claude Code to the Reforge Insights MCP server:
+
+1. In your terminal, run: `claude-code config edit`
+2. Add the MCP server configuration to your config file:
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "reforge-insights": {
+        "command": "npx",
+        "args": [
+          "mcp-remote",
+          "https://insights.reforge.com/api/v1/mcp"
+        ]
+      }
+    }
+  }
+}
+```
+
+3. Restart Claude Code for the changes to take effect
+
+## ChatGPT (OpenAI)
+
+For ChatGPT with MCP support:
+
+1. Install the MCP client: `npm install -g @modelcontextprotocol/client`
+2. Create a configuration file `mcp-config.json`:
+
+```json
+{
+  "servers": {
+    "reforge-insights": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://insights.reforge.com/api/v1/mcp"
+      ]
+    }
+  }
+}
+```
+
+3. Start ChatGPT with MCP support using your preferred OpenAI client
+
+## Cursor
+
+To add the MCP server to Cursor:
+
+1. Open Cursor settings
+2. Navigate to the MCP configuration section
+3. Add the server configuration:
+
+```json
+{
+  "mcpServers": {
+    "reforge-insights": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://insights.reforge.com/api/v1/mcp"
+      ]
+    }
+  }
+}
+```
+
+## Windsurf
+
+For Windsurf IDE:
+
+1. Access the MCP settings in Windsurf
+2. Add the Reforge Insights server:
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "reforge-insights": {
+        "command": "npx",
+        "args": [
+          "mcp-remote",
+          "https://insights.reforge.com/api/v1/mcp"
+        ]
+      }
+    }
+  }
+}
+```
+
+## Continue
+
+For Continue in VS Code:
+
+1. Open the Continue extension settings
+2. Edit the MCP configuration:
+
+```json
+{
+  "mcpServers": {
+    "reforge-insights": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://insights.reforge.com/api/v1/mcp"
+      ]
+    }
+  }
+}
+```
+
+## Cline (formerly Claude Dev)
+
+For Cline VS Code extension:
+
+1. Open Cline settings in VS Code
+2. Configure the MCP server:
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "reforge-insights": {
+        "command": "npx",
+        "args": [
+          "mcp-remote",
+          "https://insights.reforge.com/api/v1/mcp"
+        ]
+      }
+    }
+  }
+}
+```
+
+## Authentication
+
+The MCP server uses your existing Reforge Insights authentication. Make sure you're logged in to your Reforge Insights account in your browser, as the server will use your session cookies for API access.
+
+## Available Features
+
+Once connected, you can:
+
+- Query feedback data using natural language
+- Analyze themes and trends in your feedback
+- Generate reports and insights
+- Search and filter feedback records
+- Access account and contact information
+
+## Troubleshooting
+
+**Connection Issues:**
+- Ensure you have `npx` installed (`npm install -g npx`)
+- Verify your Reforge Insights account has API access
+- Check that you're logged in to Reforge Insights in your browser
+
+**Configuration Issues:**
+- Validate your JSON configuration syntax
+- Restart your AI client after making configuration changes
+- Check the client's documentation for MCP-specific setup requirements
+
+For additional support, contact our team through your Reforge Insights dashboard.
