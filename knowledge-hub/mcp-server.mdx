@@ -7,6 +7,10 @@ description: "How to connect to the Reforge Insights MCP server from various AI 
 
 The Reforge Insights MCP (Model Context Protocol) server provides direct access to your feedback data through AI clients like Claude Desktop, Claude Code, ChatGPT, and others. This integration allows you to query your insights data naturally using AI assistants.
 
+## Installation
+
+To install, follow the directions for the client of your choice below. After you connect your client, you will need to restart the client in order to load the tools and authenticate. If you normally sign in to Reforge Insights from a specific browser or browser profile, ensure that it was the last browser active. The authentication process will ask you to sign in, or if you are already signed in, it will quickly open and close your browser.
+
 ## Claude Desktop
 
 To connect Claude Desktop to the Reforge Insights MCP server:
@@ -21,10 +25,7 @@ To connect Claude Desktop to the Reforge Insights MCP server:
   "mcpServers": {
     "reforge-insights": {
       "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://insights.reforge.com/api/v1/mcp"
-      ]
+      "args": ["mcp-remote", "https://insights.reforge.com/api/v1/mcp"]
     }
   }
 }
@@ -45,10 +46,7 @@ To connect Claude Code to the Reforge Insights MCP server:
     "servers": {
       "reforge-insights": {
         "command": "npx",
-        "args": [
-          "mcp-remote",
-          "https://insights.reforge.com/api/v1/mcp"
-        ]
+        "args": ["mcp-remote", "https://insights.reforge.com/api/v1/mcp"]
       }
     }
   }
@@ -69,10 +67,7 @@ For ChatGPT with MCP support:
   "servers": {
     "reforge-insights": {
       "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://insights.reforge.com/api/v1/mcp"
-      ]
+      "args": ["mcp-remote", "https://insights.reforge.com/api/v1/mcp"]
     }
   }
 }
@@ -93,10 +88,7 @@ To add the MCP server to Cursor:
   "mcpServers": {
     "reforge-insights": {
       "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://insights.reforge.com/api/v1/mcp"
-      ]
+      "args": ["mcp-remote", "https://insights.reforge.com/api/v1/mcp"]
     }
   }
 }
@@ -115,10 +107,7 @@ For Windsurf IDE:
     "servers": {
       "reforge-insights": {
         "command": "npx",
-        "args": [
-          "mcp-remote",
-          "https://insights.reforge.com/api/v1/mcp"
-        ]
+        "args": ["mcp-remote", "https://insights.reforge.com/api/v1/mcp"]
       }
     }
   }
@@ -137,10 +126,7 @@ For Continue in VS Code:
   "mcpServers": {
     "reforge-insights": {
       "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://insights.reforge.com/api/v1/mcp"
-      ]
+      "args": ["mcp-remote", "https://insights.reforge.com/api/v1/mcp"]
     }
   }
 }
@@ -159,10 +145,7 @@ For Cline VS Code extension:
     "servers": {
       "reforge-insights": {
         "command": "npx",
-        "args": [
-          "mcp-remote",
-          "https://insights.reforge.com/api/v1/mcp"
-        ]
+        "args": ["mcp-remote", "https://insights.reforge.com/api/v1/mcp"]
       }
     }
   }
@@ -184,11 +167,13 @@ Once connected, you can:
 ## Troubleshooting
 
 **Connection Issues:**
+
 - Ensure you have `npx` installed (`npm install -g npx`)
 - Verify your Reforge Insights account has API access
 - Check that you're logged in to Reforge Insights in your browser
 
 **Configuration Issues:**
+
 - Validate your JSON configuration syntax
 - Restart your AI client after making configuration changes
 - Check the client's documentation for MCP-specific setup requirements
