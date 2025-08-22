@@ -59,19 +59,15 @@ To connect Claude Code to the Reforge Insights MCP server:
 
 For ChatGPT with MCP support:
 
-1. Install the MCP client: `npm install -g @modelcontextprotocol/client`
-2. Create a configuration file `mcp-config.json`:
+At the time of this writing, Custom MCPs are only available for Pro, Team, Enterprise, and EDU plans. They are also unavailable for users in the EEA, Switzerland, and the UK.
 
-```json
-{
-  "servers": {
-    "reforge-insights": {
-      "command": "npx",
-      "args": ["mcp-remote", "https://insights.reforge.com/api/v1/mcp"]
-    }
-  }
-}
-```
+1. In ChatGPT, navigate to Settings -> Connectors and hit the "Create" button
+2. Create a new connection with the following information:
+
+Name: Reforge Insights
+MCP Server URL: https://insights.reforge.com/api/v1/mcp
+Authentication: OAuth
+Check "I trust this application"
 
 3. Start ChatGPT with MCP support using your preferred OpenAI client
 
