@@ -5,7 +5,7 @@ description: "How to connect to the Reforge Insights MCP server from various AI 
 
 ## Overview
 
-The Reforge Insights MCP (Model Context Protocol) server provides direct access to your feedback data through AI clients like Claude Desktop, Claude Code, ChatGPT, and others. This integration allows you to query your insights data naturally using AI assistants.
+The Reforge Insights MCP (Model Context Protocol) server provides direct access to your feedback data through AI clients like Claude Desktop, Claude Code, and others. This integration allows you to query your insights data naturally using AI assistants.
 
 ## Installation
 
@@ -37,39 +37,12 @@ If you already have other MCP servers configured, simply add the `"reforge-insig
 
 To connect Claude Code to the Reforge Insights MCP server:
 
-1. In your terminal, run: `claude-code config edit`
-2. Add the MCP server configuration to your config file:
-
-```json
-{
-  "mcp": {
-    "servers": {
-      "reforge-insights": {
-        "command": "npx",
-        "args": ["mcp-remote", "https://insights.reforge.com/api/v1/mcp"]
-      }
-    }
-  }
-}
-```
-
-3. Restart Claude Code for the changes to take effect
+1. In your terminal, run: `claude mcp add --transport http reforge-insights https://insights.reforge.com/api/v1/mcp`
+2. Start Claude code and enter `/mcp` to find the reforge-insights server. Click enter on it to authenticate. It will ask to open your browser. Ensure you're in a browser session that has access to your Reforge Insights account.
 
 ## ChatGPT (OpenAI)
 
-For ChatGPT with MCP support:
-
-At the time of this writing, Custom MCPs are only available for Pro, Team, Enterprise, and EDU plans. They are also unavailable for users in the EEA, Switzerland, and the UK.
-
-1. In ChatGPT, navigate to Settings -> Connectors and hit the "Create" button
-2. Create a new connection with the following information:
-
-Name: Reforge Insights
-MCP Server URL: https://insights.reforge.com/api/v1/mcp
-Authentication: OAuth
-Check "I trust this application"
-
-3. Start ChatGPT with MCP support using your preferred OpenAI client
+We do not currently support ChatGPT. ChatGPT MCP Servers are only available with two very narrowly defined tools, `fetch` and `search`, which would limit what we want to allow with our system.
 
 ## Cursor
 
