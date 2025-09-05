@@ -9,6 +9,11 @@ components:
     BearerAuth:
       type: http
       scheme: bearer
+      description: Bearer authentication header of the form Bearer <token>, where <token> is your auth token.
+    AdminBearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer authentication header of the form Bearer <token>, where <token> is your auth token. **Admin-level permissions required**
   schemas:
     Feedback:
       type: object
@@ -202,6 +207,22 @@ components:
           $ref: "#/components/schemas/Account"
           nullable: true
 
+    ContactPurgeRequest:
+      type: object
+      properties:
+        id:
+          type: string
+          description: External contact ID (requires source)
+          nullable: true
+        email:
+          type: string
+          description: Contact email address
+          nullable: true
+        source:
+          type: string
+          description: The source system that the provided ID belongs to (required when using ID)
+          nullable: true
+
 paths:
   /feedbacks:
     post:
@@ -294,7 +315,7 @@ paths:
 
   /contacts/identify:
     post:
-      summary: Identify a customer
+      summary: Identify a contact
       security:
         - BearerAuth: []
       requestBody:
@@ -306,6 +327,29 @@ paths:
       responses:
         201:
           description: The customer was identified successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+
+  /contacts/purge:
+    post:
+      summary: Delete contact data
+      description: Permanently deletes a contact and all associated data.
+      security:
+        - AdminBearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ContactPurgeRequest"
+      responses:
+        200:
+          description: The contact purge was initiated successfully
           content:
             application/json:
               schema:
