@@ -33,11 +33,7 @@
   "navigation": [
     {
       "group": "Home",
-      "pages": [
-        "welcome",
-        "quickstart",
-        "philosophy"
-      ]
+      "pages": ["welcome", "quickstart", "philosophy"]
     },
     {
       "group": "Aggregation and Collection",
@@ -55,21 +51,11 @@
     },
     {
       "group": "Records",
-      "pages": [
-        "snippets",
-        "contacts",
-        "metadata",
-        "review-spam"
-      ]
+      "pages": ["snippets", "contacts", "metadata", "review-spam"]
     },
     {
       "group": "Feedback insights",
-      "pages": [
-        "themes",
-        "ask-monty",
-        "alert",
-        "custom-reports"
-      ]
+      "pages": ["themes", "ask-monty", "alert", "custom-reports"]
     },
     {
       "group": "Knowledge Hub",
@@ -166,26 +152,21 @@
         {
           "group": "Contacts",
           "pages": [
-            "api-reference/contacts/identify-contacts"
+            "api-reference/contacts/identify-contacts",
+            "api-reference/contacts/purge"
           ]
         },
         {
           "group": "Accounts",
-          "pages": [
-            "api-reference/accounts/identify-accounts"
-          ]
+          "pages": ["api-reference/accounts/identify-accounts"]
         },
         {
           "group": "Feedback",
-          "pages": [
-            "api-reference/feedback/create-a-feedback-record"
-          ]
+          "pages": ["api-reference/feedback/create-a-feedback-record"]
         },
         {
           "group": "Conversations",
-          "pages": [
-            "api-reference/conversations/create-a-conversation"
-          ]
+          "pages": ["api-reference/conversations/create-a-conversation"]
         }
       ]
     },
@@ -200,22 +181,15 @@
     },
     {
       "group": "SSO",
-      "pages": [
-        "sso/okta-oidc",
-        "sso/okta-saml"
-      ]
+      "pages": ["sso/okta-oidc", "sso/okta-saml"]
     },
     {
       "group": "Pricing",
-      "pages": [
-        "pricing/volume-calculation"
-      ]
+      "pages": ["pricing/volume-calculation"]
     },
     {
       "group": "Open Source",
-      "pages": [
-        "open-source/attribution"
-      ]
+      "pages": ["open-source/attribution"]
     }
   ],
   "footerSocials": {
