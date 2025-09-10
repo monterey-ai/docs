@@ -5,26 +5,45 @@ description: "Quickly generate a survey, add data from supported providers, or u
 
 ## Reforge Insights Surveys
 
-One feature we're proud to support is the creation of guided AI surveys directly through Reforge Insights. Simply write a prompt describing the kind of problem you're looking to solve and Monty will lay out a survey template with questions pre-populated and the best people to sent it to.
+One feature we're proud to support is the creation of surveys directly in Reforge Insights. Simply and your goal or choose a survey template with questions pre-populated. From there, Reforge generates your survey and recommends the best audience for feedback collection.
+
+<Frame>
+  <img
+    src="/images/reforge-surveys-NPS.png"
+    style={{ width:"100%" }}
+    alt=""
+    title=""
+  />
+</Frame>
 
 - **Choose starting point:** Go to **Surveys**, pick a template, or start from scratch. For workspaces with existing data, you can also start from a recommended AI-generated **Personas**.
+- **Add context: **Through Chat, we'll ask you a few quick questions before generating your survey. 
 - **Review questions:** Keep AI follow-ups on for richer answers; add any must-ask items.
 - **Select audience:** Choose contacts, a saved segment, or a recommended Persona.
 - **Launch:** Send the survey by copying and sharing the custom link.
-- **See results:** Open-text answers become Snippets and are grouped into overall Themes.
+- **See results:** Open-text answers become Snippets and are grouped into overall Themes. Ratings and scores are aggregated to show themes and trends in the data.
 - **Share & track:** Monitor your results and see feedback trends over time.
+
+<Frame>
+  <img
+    src="/images/reforge-surveys-analysis.png"
+    style={{ width:"100%" }}
+    alt=""
+    title=""
+  />
+</Frame>
 
 ## Third Party Integrations
 
-Reforge Insights currently only supports **Typeform**, but is looking to add additional integrations in the near future. If you have a specific one you really want, please request access through the portal or email [ben.kramer@reforge.com](mailto:ben.kramer@reforge.com).
+Reforge Insights currently supports **Typeform**, **Survey Monkey**, **Qualtrics**, and **Delighted**, and we're looking to add additional integrations in the future. If you have a specific tool you'd like to connect, please request the integration or email [hello@reforge.com](mailto:hello@reforge.com).
 
 **How is Feedback created from Surveys?**
 
-1. **Pick your surveys-** We query your provider for all available surveys and you pick which to import.
-2. **Data vs Metadata -** We categorize responses based on question type and segment it into feedback vs metadata.
-3. **Synthesize -** By combining the question with the answer, our AI contextualizes insights for each response.
-4. **Group -** We link feedback responses by a single user together for easy navigation.
-5. **Schedule -** Finally, we set up a recurring job to get new data every day from all enabled surveys.
+1. **Pick your surveys:** We query your provider for all available surveys and you pick which to import.
+2. **Data vs. Metadata:** We categorize responses based on question type and segment it into feedback vs metadata.
+3. **Synthesize:** By combining the question with the answer, our AI contextualizes insights for each response.
+4. **Group:** We link feedback responses by a single user together for easy navigation.
+5. **Schedule:** Finally, we set up a recurring job to get new data every day from all enabled surveys.
 
 ![typeform-select](/images/typeform-select.png)
 
@@ -39,8 +58,8 @@ If you need to import from another providor now, we also accept uploading data t
 - **Column Reassignment**: If your column headers don’t exactly match our requirements, fret not\! You'll have the opportunity to reassign and map them in the subsequent step.
 - **Ensure Correct Shape**: Each survey question/answer column should be mapped to "Question X" and "Answer X". This is essential for our system to process your feedback.
 
-If you have extra columns that you want to bring to Reforge Insights, contact us at  [ben.kramer@reforge.com](mailto:ben.kramer@reforge.com).
+If you have extra columns that you want to bring to Reforge Insights, contact us at  [hello@reforge.com](mailto:ben.kramer@reforge.com).
 
 ## Analysis of Surveys
 
-The open-text responses from surveys are piped into a feedback pipeline. Along with metadata, you can create reports, ask questions, create cohorts, and more. All the metadata from survey responses is available for queries as well. You can analyze a single survey, compare across surveys, or merge survey data with other feedback.
+The open-text responses from surveys are piped into a feedback pipeline. Along with metadata, you can create reports, ask questions, create cohorts, and more. All the metadata from survey responses is available for queries as well. You can analyze a single survey, compare across surveys, or analyze survey data with other feedback.
