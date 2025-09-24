@@ -212,7 +212,7 @@ components:
       properties:
         id:
           type: string
-          description: External contact ID (requires source)
+          description: External contact ID
           nullable: true
         email:
           type: string
@@ -220,8 +220,11 @@ components:
           nullable: true
         source:
           type: string
-          description: The source system that the provided ID belongs to (required when using ID)
+          description: Source system to limit search to
           nullable: true
+      anyOf:
+        - required: ["id"]
+        - required: ["email"]
 
 paths:
   /feedbacks:
@@ -347,6 +350,29 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/ContactPurgeRequest"
+            examples:
+              purge-by-id-with-source:
+                summary: Purge by ID with specific source
+                description: Purge a contact by ID from a specific source system
+                value:
+                  id: "user123"
+                  source: "salesforce"
+              purge-by-id-all-sources:
+                summary: Purge by ID across all sources
+                description: Purge a contact by ID across all source systems
+                value:
+                  id: "user123"
+              purge-by-email-with-source:
+                summary: Purge by email with specific source
+                description: Purge a contact by email from a specific source system
+                value:
+                  email: "john.doe@example.com"
+                  source: "salesforce"
+              purge-by-email-all-sources:
+                summary: Purge by email across all sources
+                description: Purge a contact by email across all source systems
+                value:
+                  email: "john.doe@example.com"
       responses:
         200:
           description: The contact purge was initiated successfully
@@ -357,6 +383,16 @@ paths:
                 properties:
                   success:
                     type: boolean
+        404:
+          description: No contacts found matching the provided criteria
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "No contacts found"
 
   /accounts/identify:
     post:
