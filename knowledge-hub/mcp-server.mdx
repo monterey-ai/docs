@@ -5,13 +5,119 @@ description: "How to connect to the Reforge Insights MCP server from various AI 
 
 ## Overview
 
-The Reforge Insights MCP (Model Context Protocol) server provides direct access to your feedback data through AI clients like Claude Desktop, Claude Code, and others. This integration allows you to query your insights data naturally using AI assistants.
+The Reforge Insights MCP (Model Context Protocol) server provides direct access to your feedback data through AI clients like Cursor, Claude Code, and others. This integration allows you to query your insights data naturally using AI assistants.
+
+**What you can do:**
+
+- **Search your feedback data** using natural language queries with AI-powered filtering
+- **List and access your workspaces** to work with the right dataset
+- **Generate product documents** (PRDs, user stories, roadmaps, and more) based on real customer feedback
+
+## Usage
+
+## Available Tools
+
+### 1. `search_snippets`
+
+**What it does:** Searches through your customer feedback using AI-powered semantic search and intelligent filter extraction. The tool understands context and automatically applies relevant filters (date ranges, sentiment, sources, etc.) based on your natural language query.
+
+**When to use it:**
+
+- Finding feedback about specific features or issues
+- Understanding customer pain points
+- Analyzing sentiment around topics
+- Discovering trends over time
+- Preparing data for document generation
+
+**Example queries:**
+
+- "Help me find feedback about the search feature not working"
+- "What are people struggling most with?"
+- "Main issues from the last 2 weeks"
+- "Summarize user reviews about onboarding flows from the last 3 months"
+- "Show examples of feedback like 'I like the new homepage redesign'"
+- "When did we first see a bug about the settings page?"
+
+**How it works:**
+The tool automatically:
+
+- Extracts relevant filters from your query (dates, sentiment, feature areas, etc.)
+- Performs semantic search to find related feedback
+- Returns ranked, contextualized feedback snippets
+
+**Response format:**
+Returns a JSON object containing relevant feedback snippets with metadata, filters applied, and contextual information.
+
+---
+
+### 2. `generate_document`
+
+**What it does:** Creates professional product management documents based on customer feedback and best practices. The tool searches for relevant feedback based on your query, then generates a structured document following industry-standard templates.
+
+Current supported document types:
+| Document Type | Description |
+|---------------------------------------|----------------------------------------------------------------------|
+| Product Roadmap | Articulate vision and milestones for product |
+| Product Brief | Concise overview of product strategy and goals |
+| Positioning Doc | Articulate how your product should be differentiated and perceived in the market |
+| Use Case Map | Articulate the problem, persona, alternatives, frequency, and why to use a product |
+| Feature Map | Define, prioritize, and evaluate features |
+| Product Requirements Document (PRD) | Align teams, clarify goals and guide product success |
+| GTM Plan | A Go to market document that helps you with product launches |
+| Product Messaging Doc | Create guidelines for how to communicate details about your product |
+| Project Plan | Align on tasks, timelines, and responsibilities |
+| Technical Specification | Align on the technical details that will dictate an implementation |
+| Decision Framework | Help team leads build a standard process for making decisions |
+| PMF Narrative | Get your team aligned on a vision for a new product |
+| Feature Prioritization | Create a plan for prioritizing product features |
+| Custom Document | Generate any custom document type based on your specific needs |
+
+**Example queries:**
+
+- "Create a PRD for improving our search functionality based on recent feedback"
+- "Generate a product roadmap focused on mobile app enhancements from the last quarter's feedback"
+- "Build a feature prioritization document using feedback about our checkout flow"
+- "Write a GTM plan for our new dashboard feature based on user requests"
+- "Create a technical specification for the notification system improvements users have been asking for"
+
+**How it works:**
+The tool automatically:
+
+- Analyzes your query to understand the document type and topic
+- Searches for relevant customer feedback to support the document
+- Generates a well-structured document following best practices and templates
+- Incorporates real customer quotes and insights where appropriate
+
+---
+
+### 3. `list_workspaces`
+
+**What it does:** Lists all workspaces you have access to with their IDs and names. Most often used internally to identify which workspace you want to work with if multiple workspaces are available.
+
+**When to use it:** Use this as your first step to identify which workspace you want to work with. You'll need the workspace ID for other operations.
+
+**Example usage in an AI chat:**
+`"Show me all my workspaces"`
+
+**Response format:**
+
+```json
+{
+  "workspaces": [
+    {
+      "id": "workspace-123",
+      "name": "My Product Team"
+    }
+  ],
+  "message": "Select a workspace by using its ID in other tools"
+}
+```
 
 ## Installation
 
 To install, follow the directions for the client of your choice below. After you connect your client, you will need to restart the client in order to load the tools and authenticate. If you normally sign in to Reforge Insights from a specific browser or browser profile, ensure that it was the last browser active. The authentication process will ask you to sign in, or if you are already signed in, it will quickly open and close your browser.
 
-## Claude Desktop
+### Claude Desktop
 
 To connect Claude Desktop to the Reforge Insights MCP server:
 
@@ -33,18 +139,35 @@ To connect Claude Desktop to the Reforge Insights MCP server:
 
 If you already have other MCP servers configured, simply add the `"reforge-insights"` section to your existing `"mcpServers"` object.
 
-## Claude Code
+### Claude Code
 
 To connect Claude Code to the Reforge Insights MCP server:
 
 1. In your terminal, run: `claude mcp add --transport http reforge-insights https://insights.reforge.com/api/v1/mcp`
 2. Start Claude code and enter `/mcp` to find the reforge-insights server. Click enter on it to authenticate. It will ask to open your browser. Ensure you're in a browser session that has access to your Reforge Insights account.
 
-## ChatGPT (OpenAI)
+### ChatGPT (OpenAI)
 
-We do not currently support ChatGPT. ChatGPT MCP Servers are only available with two very narrowly defined tools, `fetch` and `search`, which would limit what we want to allow with our system.
+To connect ChatGPT with Developer Mode to the Reforge Insights MCP server:
 
-## Cursor
+1. Enable Developer Mode in your ChatGPT settings
+2. Navigate to **Settings** → **Developer Mode** → **MCP Servers**
+3. Add the following configuration:
+
+```json
+{
+  "mcpServers": {
+    "reforge-insights": {
+      "command": "npx",
+      "args": ["mcp-remote", "https://insights.reforge.com/api/v1/mcp"]
+    }
+  }
+}
+```
+
+**Note:** Developer Mode with MCP support is currently available for ChatGPT Plus and Team users. After configuration, restart ChatGPT to load the server.
+
+### Cursor
 
 To add the MCP server to Cursor:
 
@@ -63,7 +186,7 @@ To add the MCP server to Cursor:
 }
 ```
 
-## Windsurf
+### Windsurf
 
 For Windsurf IDE:
 
@@ -83,7 +206,7 @@ For Windsurf IDE:
 }
 ```
 
-## Continue
+### Continue
 
 For Continue in VS Code:
 
@@ -101,7 +224,7 @@ For Continue in VS Code:
 }
 ```
 
-## Cline (formerly Claude Dev)
+### Cline (formerly Claude Dev)
 
 For Cline VS Code extension:
 
@@ -124,14 +247,6 @@ For Cline VS Code extension:
 ## Authentication
 
 The MCP server uses your existing Reforge Insights authentication. Make sure you're logged in to your Reforge Insights account in your browser, as the server will use your session cookies for API access.
-
-## Available Features
-
-Once connected, you can:
-
-- Query feedback data using natural language
-- Analyze themes and trends in your feedback
-- Search and filter feedback records
 
 ## Troubleshooting
 
