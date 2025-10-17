@@ -177,7 +177,7 @@ components:
       properties:
         id:
           type: string
-          description: The unique identifier for the project.
+          description: External contact ID
           nullable: false
         shouldUnflattenProperties:
           type: boolean
@@ -202,9 +202,18 @@ components:
               type: string
               format: date-time
               nullable: true
+            $contractValue:
+              type: number
+              description: The contract value of the contact.
+              example: 100000
+              nullable: true
           additionalProperties: true
         account:
           $ref: "#/components/schemas/Account"
+          nullable: true
+        source:
+          type: string
+          description: Source system to limit search to
           nullable: true
 
     ContactPurgeRequest:
