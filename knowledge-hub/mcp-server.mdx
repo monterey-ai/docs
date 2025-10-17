@@ -113,6 +113,44 @@ The tool automatically:
 }
 ```
 
+## Limitations & What to Expect
+
+### Available Tools
+
+The MCP server provides access to **three specific tools** designed for efficient AI-powered workflows:
+
+1. **`search_snippets`** - Fast semantic search across your feedback
+2. **`generate_document`** - Create product documents from feedback
+3. **`list_workspaces`** - List available workspaces
+
+These tools are optimized for AI assistant interactions and may differ from other Reforge Insights features you're familiar with.
+
+### Search Performance & Scope
+
+**Fast Search Design:** The `search_snippets` tool is designed for **speed and efficiency** in AI workflows. It provides quick, relevant results to keep your AI conversations flowing smoothly.
+
+**How it differs from Ask Monty:**
+
+- **Ask Monty datasets** perform deep, comprehensive analysis across your entire feedback corpus - great for thorough research that will find all relevant feedback, even in the largest workspaces.
+- **MCP snippet search** is optimized for rapid retrieval - perfect for quick queries and iterative AI conversations, but will only return the top ~100 snippet texts (but will include any high level label distribution data)
+
+**When to use each:**
+
+- Use **MCP snippet search** when you need fast results during an AI conversation (e.g., "find recent feedback about login issues")
+- Use **Ask Monty** when you need comprehensive analysis or working with large datasets (e.g., analyzing all feedback patterns over 6 months)
+
+### What's Not Available
+
+The MCP server focuses on search and document generation. For other Reforge Insights capabilities like:
+
+- Creating or editing tags
+- Managing integrations
+- Accessing detailed analytics dashboards
+- Training auto-triage models
+- Creating custom reports
+
+...please use the main Reforge Insights web application at [insights.reforge.com](https://insights.reforge.com).
+
 ## Installation
 
 To install, follow the directions for the client of your choice below. After you connect your client, you will need to restart the client in order to load the tools and authenticate. If you normally sign in to Reforge Insights from a specific browser or browser profile, ensure that it was the last browser active. The authentication process will ask you to sign in, or if you are already signed in, it will quickly open and close your browser.
