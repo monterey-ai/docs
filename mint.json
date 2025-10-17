@@ -55,24 +55,27 @@
     },
     {
       "group": "Feedback insights",
-      "pages": ["themes", "ask-monty", "alert", "custom-reports"]
+      "pages": ["themes", "custom-reports", "alert"]
+    },
+    {
+      "group": "Ask Monty",
+      "pages": [
+        "monty/overview",
+        "monty/asking-questions",
+        "monty/understanding-responses",
+        "monty/datasets",
+        "monty/surveys-interviews",
+        "monty/external-integrations",
+        "monty/advanced-features"
+      ]
     },
     {
       "group": "Knowledge Hub",
-      "pages": [
-        "knowledge-hub/labels",
-        "knowledge-hub/tags",
-        "knowledge-hub/mcp-server"
-      ]
+      "pages": ["knowledge-hub/labels", "knowledge-hub/tags", "knowledge-hub/mcp-server"]
     },
     {
       "group": "Workflows",
-      "pages": [
-        "feedback-search",
-        "email-notifications",
-        "export",
-        "project-management"
-      ]
+      "pages": ["feedback-search", "email-notifications", "export", "project-management"]
     },
     {
       "group": "Social media mentions & reviews",
@@ -114,28 +117,15 @@
     },
     {
       "group": "Survey & feedback collection",
-      "pages": [
-        "integrations/delighted",
-        "integrations/survey-monkey",
-        "integrations/typeform",
-        "integrations/sprig"
-      ]
+      "pages": ["integrations/delighted", "integrations/survey-monkey", "integrations/typeform", "integrations/sprig"]
     },
     {
       "group": "Task & project management",
-      "pages": [
-        "integrations/asana",
-        "integrations/jira",
-        "integrations/linear"
-      ]
+      "pages": ["integrations/asana", "integrations/jira", "integrations/linear"]
     },
     {
       "group": "Survey",
-      "pages": [
-        "integrations/qualtrics",
-        "integrations/typeform",
-        "integrations/survey-monkey"
-      ]
+      "pages": ["integrations/qualtrics", "integrations/typeform", "integrations/survey-monkey"]
     },
     {
       "group": "Other Integrations",
@@ -151,10 +141,7 @@
       "pages": [
         {
           "group": "Contacts",
-          "pages": [
-            "api-reference/contacts/identify-contacts",
-            "api-reference/contacts/purge"
-          ]
+          "pages": ["api-reference/contacts/identify-contacts", "api-reference/contacts/purge"]
         },
         {
           "group": "Accounts",
@@ -172,12 +159,7 @@
     },
     {
       "group": "Security",
-      "pages": [
-        "security/security-overview",
-        "security/signin-with-token",
-        "security/team-roles",
-        "security/pii"
-      ]
+      "pages": ["security/security-overview", "security/signin-with-token", "security/team-roles", "security/pii"]
     },
     {
       "group": "SSO",

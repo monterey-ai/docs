@@ -1,0 +1,115 @@
+---
+title: "Surveys & Interviews"
+description: "Analyzing survey results and interview insights with Ask Monty"
+---
+
+# Surveys & Interviews
+
+Ask Monty can analyze data from surveys and customer interviews, combining quantitative scores with qualitative feedback to give you comprehensive insights.
+
+## Working with Surveys
+
+### What Survey Data Can Monty Analyze?
+
+Ask Monty handles can also help you analyze your Reforge Insights surveys, whether it be a standard NPS and CSAT survey, a custom scale question with numeric or emoji ratings, multiple choice and ranked choice questions, or open-ended text responses. This flexibility means you can analyze both quantitative scores and qualitative feedback from the same survey.
+
+![survey-question-types](/images/monty/survey.png)
+
+### Asking About Surveys
+
+To analyze survey data, simply mention the survey by name in your query, or kick off a chat from the survey analysis page.
+
+When Monty generates text summaries about surveys, it can embed interactive charts for survey questions:
+
+```
+"Based on the NPS survey, 45% of respondents are promoters..."
+
+[Interactive NPS distribution chart appears inline]
+
+"The main reasons for detractors include..."
+```
+
+**Supported chart types:**
+
+- NPS score distributions
+- CSAT rating distributions
+- Scale question breakdowns
+- Multiple choice results
+- Ranked choice preferences
+
+**Text-only questions** (open-ended responses) don't have charts but are analyzed thematically.
+
+### Survey Metadata
+
+Survey datasets include:
+
+- **Response count**: Total number of completions
+- **Survey type**: NPS, CSAT, custom
+- **Survey description**: Context about the survey
+- **Question structure**: How questions were asked
+- **Response dates**: When surveys were completed
+
+### Tips for Effective Survey Analysis
+
+Be as specific as possible when referencing surveys—mention the exact survey name or topic instead of asking generally about "survey results." For example:
+_"Analyze the Q4 customer satisfaction survey"_ leads to a more focused, relevant answer from Monty.
+
+When exploring trends, include clear time ranges and the type of comparison you want. For example:
+_"Plot NPS scores month over month for 2024"_
+This helps Monty display how satisfaction changes over time.
+
+Combine quantitative and qualitative questions to get the full picture. You might ask:
+_"Show me NPS scores and summarize what promoters love"_
+This delivers both the score breakdown and the reasons behind those scores, giving deeper insight into customer attitudes.
+
+Use your findings to drive action—for example, by segmenting detractor responses for targeted follow-up, or by pulling out specific comments linked to key issues. Turning survey insights into concrete steps helps you close the feedback loop and make real improvements.
+
+## Working with Interviews
+
+### What Interview Data Can Monty Analyze?
+
+Monty analyzes structured customer interviews including:
+
+- Interview transcripts
+- Responses to interview goals/questions
+- Key quotes and insights
+- Participant metadata
+
+![interview-dataset](/images/monty/interview.png)
+
+### Asking About Interviews
+
+Reference interviews by name or topic:
+
+```
+"Summarize insights from the enterprise interview series"
+"What did we learn from user research interviews?"
+"Analyze the mobile app usability interview"
+```
+
+Monty will:
+
+1. Match your question to the right interview
+2. Load transcripts and responses
+3. Analyze conversation content
+4. Extract key insights
+
+### Interview Best Practices
+
+Reference specific interviews by name rather than asking vaguely about "interview stuff." Ask about particular research goals—"What did we learn about pricing from the customer interviews?"—to get focused insights rather than general summaries.
+
+Interviews shine when you need supporting quotes for themes you've identified elsewhere. Ask for examples where users mentioned confusion or the features they love most. Compare insights across different interview series to understand how feedback varies by customer segment or product area.
+
+## Combining Different Data Sources
+
+One of Monty's strengths is connecting different types of customer data. Compare NPS survey feedback to customer interview findings to validate whether structured research aligns with quantitative ratings. Ask "Do our interview findings match what we're seeing in CSAT surveys?" to check consistency across methods.
+
+Surveys provide breadth; interviews provide depth. Combine them by asking "What do surveys say about [topic] and can you find supporting quotes from interviews?" This gives you statistical patterns and human stories in one analysis.
+
+[PLACEHOLDER: Screenshot showing combined survey and interview analysis]
+
+You can also integrate survey and interview insights with ongoing feedback from app stores, support channels, and other sources. Comparing bug reports from app store reviews to issues mentioned in user interviews reveals whether your structured research captured the same problems your customers report daily. This helps you validate research findings and track whether issues identified in interviews persist over time in regular feedback channels.
+
+---
+
+**Next:** [External Integrations →](./06-external-integrations.mdx)
