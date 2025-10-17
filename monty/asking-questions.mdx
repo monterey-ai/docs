@@ -1,0 +1,102 @@
+---
+title: "Asking Questions"
+description: "How to ask effective questions and get the insights you need"
+---
+
+# Asking Effective Questions
+
+The key to getting great insights from Ask Monty is asking clear, specific questions. This guide will help you craft queries that get you exactly what you need.
+
+## Question Structure
+
+The best questions include three elements:
+
+1. **What you want to know** (action): Summarize, compare, show, list, find, analyze
+2. **What data to look at** (subject): bugs, feature requests, complaints, praise
+3. **How to filter it** (constraints): time range, source, segment, category
+
+### Examples
+
+✅ **Good Questions:**
+
+```
+"Summarize the top complaints about onboarding in the last 60 days"
+  → Action: Summarize
+  → Subject: Complaints about onboarding
+  → Constraint: Last 60 days
+
+"Compare iOS vs Android app store reviews on performance"
+  → Action: Compare
+  → Subject: Performance feedback
+  → Constraint: iOS vs Android app stores
+
+"Show me trend of checkout errors over the past year by month"
+  → Action: Show trend
+  → Subject: Checkout errors
+  → Constraint: Past year, monthly grouping
+```
+
+❌ **Less Effective Questions:**
+
+```
+"bugs"
+  → Too vague - what about bugs? Which timeframe?
+
+"show me feedback"
+  → Not specific - what kind of feedback? About what?
+
+"compare last quarter to now"
+  → Missing subject - compare what?
+```
+
+## Natural Language Understanding
+
+Monty interprets your questions using natural language processing, so you don't need to memorize commands or syntax. However, understanding how certain words guide the analysis can help you get better results.
+
+When you want a written analysis with themes and insights, use words like "summarize," "explain," or "what are customers saying about." These trigger Monty to provide narrative summaries with citations.
+
+For visual analysis, verbs like "show," "plot," or "chart" signal that you want data visualization. Ask "plot feature requests over time" to see trends, or "show sentiment distribution" for a breakdown.
+
+When you need concrete evidence, phrases like "list examples," "find feedback about," or "give me 10 cases where" will surface actual customer quotes and snippets.
+
+For comparative analysis, naturally phrase questions as "compare X to Y" or "how does our iOS feedback differ from Android." Monty automatically creates multiple datasets and analyzes the differences.
+
+Time expressions work intuitively—"last 30 days," "this quarter," "since March," or "in 2024" all set appropriate date filters. Similarly, mentioning sources ("from app store reviews"), categories ("about bugs"), or customer segments ("enterprise accounts") naturally filters your data without special syntax.
+
+![question-structure](/images/monty/filters.png)
+
+## Common Question Patterns
+
+When exploring unfamiliar territory, start with broad discovery questions like "What are the top themes in feedback from the last month?" These help you understand the landscape before diving into specifics. You might ask what users are struggling with most, or what's new in this week's feedback.
+
+To understand how things change over time, frame questions around trends: "How has sentiment changed since our redesign?" or "Are complaints about checkout increasing?" These temporal questions help you spot patterns and react to emerging issues.
+
+Comparing segments reveals differences between user groups. Ask how iOS feedback differs from Android, or what enterprise customers want versus SMBs. These comparative questions create multiple datasets that Monty analyzes side-by-side.
+
+For deep dives into specific topics, narrow your scope with targeted questions. Find all mentions of a particular feature, or list examples where users mention multiple related issues. These focused queries help you understand nuanced problems in detail.
+
+When you need concrete numbers rather than themes, ask quantitative questions: "How many bugs were reported last month?" or "Which category has the most feedback?" These questions often result in charts showing volumes and distributions.
+
+## Refining Your Questions
+
+The most effective questions include specific timeframes rather than vague references to "recent" feedback. Being explicit about date ranges helps Monty understand exactly what period you're analyzing.
+
+When you know the categories or tags in your system, reference them directly. Instead of asking generally what people complain about, specify that you want complaints tagged as "billing" or "pricing."
+
+The format of your answer matters, too. If you want visualization, say "create a chart." For narrative analysis, say "summarize." This small clarification can save a follow-up question.
+
+Monty maintains conversation context, so use it to your advantage. Start with a broad question, then refine: "Summarize feedback about search" followed by "Show me specific examples of those search issues" and "Now compare that to last quarter." Each question builds on the previous context.
+
+You can combine multiple filters in a single question when you know what you need: "Show me negative feedback about onboarding from enterprise customers in the last 90 days." Monty will apply all constraints simultaneously.
+
+## What to Avoid
+
+Keep questions focused on feedback analysis rather than general knowledge or unrelated topics. Monty is designed to help you understand customer feedback, not answer questions about the weather or how to build websites.
+
+Avoid bundling multiple unrelated requests into one question. "Show me bugs and also create a PRD and compare sentiment" tries to do too much at once. Break complex asks into sequential steps for better results.
+
+Single-word queries like "reviews" or "bugs" lack the context Monty needs. After your initial question establishes a topic, follow-ups can be more concise, but starting conversations requires specificity.
+
+---
+
+**Next:** [Understanding Responses →](./03-understanding-responses.mdx)
