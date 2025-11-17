@@ -1,6 +1,6 @@
 ---
 title: "External Integrations"
-description: "Analyzing data from GitHub, Jira, and web sources"
+description: "Analyzing data from GitHub, Jira, Linear and web sources"
 ---
 
 # External Integrations
@@ -161,6 +161,95 @@ Connect development work to customer needs:
 → Shows gaps and alignments
 ```
 
+## Linear Integration
+
+### What Can Monty Analyze?
+
+- **Linear issues**: Stories, bugs, tasks, projects
+- **Workflow states**: Team-specific states (backlog, in progress, done, custom)
+- **Cycles**: Current and past cycles by team or number
+- **Priority + labels**: Structured filters for urgency and tags
+- **Teams & assignees**: Exact matches on team keys and user names
+
+
+![Github issues response text](/images/monty/linearResponse.png)
+
+### Asking About Linear
+
+```
+"Show Linear issues for the Research team updated this week"
+"Summarize high-priority Linear bugs that are labelled regression"
+"Shoe me low-priority issues from the Research team that are in the Backlog"
+"List Linear tickets labeled onboarding"
+"What did we complete in Linear in cycle 1?"
+```
+
+**Time range options:**
+
+- Maximum lookback: 60 days
+- Date filters can target `createdAt` or `updatedAt` depending on whether you ask for new issues or recently updated work
+
+### Linear Data Fields
+
+For each Linear issue, Monty has access to:
+
+- **Title and description**
+- **Workflow state**: Team-aware state matching (e.g., "In Review", "Blocked")
+- **Priority**: Mapped to your Linear priority scale
+- **Labels**: Single or multiple labels mentioned in your question
+- **Projects and teams**: Exact project name matches or combinations
+- **Cycles**: Cycle name or number, including "current cycle" detection
+- **Assignee information**
+- **Dates**: Created and updated timestamps (60-day rolling window)
+- **URLs and issue identifiers**
+
+Monty translates natural language into Linear filters—matching teams, workflow states, labels, cycles, and priorities only when they exist in your workspace. Ambiguous references remain unfiltered to avoid incorrect assumptions, and “recently updated” questions automatically switch to the `updatedAt` field.
+
+### Use Cases
+
+**Team Health Checks:**
+
+```
+"Summarize Linear tickets for team Platform updated in the last 14 days"
+→ Filters by team key and updatedAt
+→ Perfect for weekly team reviews
+```
+
+**Cycle Reviews:**
+
+```
+"What work is in the current Linear cycle?"
+→ Identifies the active cycle per team
+→ Surfaces in-progress and completed issues
+```
+
+**Bug & Priority Triage:**
+
+```
+"Show high-priority Linear bugs assigned to Alex"
+→ Matches assignee, priority label, and issue label
+→ Ideal for daily standups
+```
+
+**Roadmap Tracking:**
+
+```
+"List Linear issues for Project Mercury that are blocked"
+→ Combines project name with workflow state
+→ Supports cross-functional reporting
+```
+
+### Combining with Feedback
+
+```
+"Compare customer bug reports to Linear issues labeled 'payments'"
+→ Dataset 1: Customer bug feedback
+→ Dataset 2: Linear bugs filtered by label and state
+→ Highlights which customer-reported issues have tickets
+```
+
+Use Linear data alongside feedback to validate whether high-pain themes already have engineering coverage, identify gaps, and ensure Monty’s summaries cover both customer voice and delivery progress.
+
 ## Web Search
 
 ### What Can Monty Search?
@@ -253,6 +342,7 @@ being said online"
 
 - **GitHub**: Maximum 60 days of history
 - **Jira**: Maximum 60 days of history
+- **Linear**: Maximum 60 days of history
 - **Web search**: Recent results prioritized
 - **Feedback**: No time limits
 
