@@ -1,31 +1,46 @@
 ---
 title: "Data Warehouse"
-description: "Ingest targeted data from Snowflake, BigQuery and other data warehouses to Reforge Insights for consolidation and analysis"
+description: "Ingest targeted data from Snowflake, BigQuery and other data warehouses to Reforge Insights for consolidation and analysis."
 ---
-
-# Overview
-
-Reforge Insights can connect to and pull data from your data warehouse of choice. Currently, we support Snowflake and BigQuery, but are always looking to expand our integrations.
 
 # Supported Warehouses
 
 <AccordionGroup>
   <Accordion title="Snowflake">
-    <h3>Secure Data Sharing (Preferred)</h3>
-    To connect with Snowflake, you can request our account details and use [Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro).
-    Secure data sharing allows you to give us the targeted access to just the data you want to share.
+    ## Secure Data Sharing (Preferred)
 
-    <h3>Service User (Alternative)</h3>
-    If setting up secure data sharing is not an option, you can instead create a service user with a password and share the credentials with us.  Create a role for the service user and grant it
-    read access on the tables you wish to connect.  Then share the following with us:
-    - account url
+    You can request our account details (identifier and region) and use one of the below options to give us the targeted access to the data you want to share.
+
+    ### Direct Share
+
+    If we are in the same region, you can configure a data share using Snowflake's instructions [here](https://docs.snowflake.com/en/user-guide/data-sharing-provider).
+
+    **_Note:_** Creating a replication will not work since we are two separate orgs.
+
+    ### Private Listing
+
+    If we are in different regions, you can configure a private listing using Snowflake's instructions [here](https://docs.snowflake.com/en/collaboration/provider-listings-creating-publishing).
+
+    **_Note:_** This route may incur additional egress costs outside the ones you would normally get:
+
+    > Snowflake creates one secure share area for an organization to manage auto-fulfillment to a region and associates billing costs with that area. Because of that, the costs associated with auto-fulfillment are attributed differently when compared to manual database replication costs.
+
+    Full explanation per Snowflake's docs [here](https://docs.snowflake.com/collaboration/provider-understand-cost-auto-fulfillment).
+
+    ## Service User (Alternative)
+
+    You can instead create a service user and grant it `READ` access on the tables you wish to connect. We will need the following information to finish configuring the integration:
+
+    - host
     - username
-    - key pair or password (if using a key pair, you will need to provide the private key)
+    - private key (or password)
     - role
-    - warehouse
     - database
+    - schema
+    - warehouse (optional)
 
     We connect to Snowflake using the following IP addresses, which you may need to whitelist in your Snowflake account:
+
     ```
     34.212.54.206
     35.162.156.254
@@ -33,62 +48,60 @@ Reforge Insights can connect to and pull data from your data warehouse of choice
     44.240.0.247
     ```
   </Accordion>
-
   <Accordion title="BigQuery">
     To connect with BigQuery:
 
     <Steps>
-      <Step>Request our Google Cloud service account details from your primary contact at Reforge.</Step>
       <Step>
         Add the service account email address to your Google Cloud IAM policy and grant it the `bigquery.jobUser` _(BigQuery
         Job User)_ role. This will allow us to run queries on your behalf.
       </Step>
       <Step>
-        Share the dataset containing tables, like those described below, with our service account email address and grant it
-        the `bigquery.dataViewer` _(BigQuery Data Viewer)_ role. This will provide us with read-only access to the datasets
-        you want to share.
+        Share the dataset containing tables, like those described below, with our service account email address and grant it the `bigquery.dataViewer` _(BigQuery Data Viewer)_ role. This will provide us with read-only access to the datasets you want to share.
       </Step>
-      <Step>Share with your primary contact at Reforge the respective Google Cloud project ID and dataset ID.</Step>
     </Steps>
-
   </Accordion>
-
-  <Accordion title="Amazon Redshift">
+  <Accordion title="🚧  (in development) Amazon Redshift">
     To connect with Amazon Redshift using Datashare:
 
-        <Steps>
-          <Step>
-            Create a datashare in your Redshift cluster:
+    <Steps>
+      <Step>
+        Create a datashare in your Redshift cluster:
+
         ```sql
         CREATE DATASHARE ingest_share;
         ```
       </Step>
       <Step>
         Add objects to your datashare. You can add entire schemas or specific tables and views:
+
         ```sql
         -- Whole schema
         ALTER DATASHARE ingest_share ADD SCHEMA public;
-
+        
         -- Or pick specific items
         ALTER DATASHARE ingest_share ADD TABLE public.conversations;
         ALTER DATASHARE ingest_share ADD VIEW public.latest_tickets_v;
         ```
-
       </Step>
       <Step>
         Make the datashare visible cross-account:
+
         ```sql
         ALTER DATASHARE ingest_share SET PUBLICACCESSIBLE TRUE;
         ```
+
         Note: This doesn't expose your data publicly. It only allows consumption by authorized accounts.
       </Step>
       <Step>
         Authorize Reforge's AWS account to access your datashare:
+
         ```bash
         aws redshift authorize-data-share \
           --data-share-arn arn:aws:redshift:us-east-1:111122223333:datashare:ingest_share \
           --consumer-accounts 44445556677
         ```
+
         Replace the ARN with your datashare ARN and the consumer-accounts value with the AWS account ID provided to you by your Reforge contact.
 
         You can also do this via the Redshift console under **Datashares → ingest_share → Authorize**.
@@ -96,15 +109,13 @@ Reforge Insights can connect to and pull data from your data warehouse of choice
       <Step>
         Provide the following information to your primary contact at Reforge:
 
-        | **Field** | **Example** |
-        | --- | --- |
-        | **Datashare ARN** | arn:aws:redshift:us-east-1:111122223333:datashare:ingest_share |
-        | **Redshift namespace ARN** (only if you have multiple clusters/workgroups) | arn:aws:redshift:us-east-1:111122223333:namespace:prod-ns-1 |
-        | **List of schemas / tables / views** included | public.conversations, public.latest_tickets_v |
-
+        | **Field**                                                                  | **Example**                                                    |
+        | -------------------------------------------------------------------------- | -------------------------------------------------------------- |
+        | **Datashare ARN**                                                          | arn:aws:redshift:us-east-1:111122223333:datashare:ingest_share |
+        | **Redshift namespace ARN** (only if you have multiple clusters/workgroups) | arn:aws:redshift:us-east-1:111122223333:namespace:prod-ns-1    |
+        | **List of schemas / tables / views** included                              | public.conversations, public.latest_tickets_v                  |
       </Step>
     </Steps>
-
   </Accordion>
 </AccordionGroup>
 
@@ -116,79 +127,77 @@ We support several schemas and relationships between tables. With each of the sc
 
 Standalone feedback are singular items of feedback, such as a review or a single response to a question.
 
-| Field Name  | Required |  Type  | Description                                |
+| Field Name  | Required | Type   | Description                                |
 | :---------- | :------: | :----: | :----------------------------------------- |
-| id          |   Yes    | STRING | Unique identifier for the feedback record  |
-| description |   Yes    | STRING | The main feedback content                  |
-| created_at  |   Yes    | STRING | When the feedback was created              |
-| updated_at  |   Yes    |  DATE  | When the feedback was last updated         |
-| source      |    No    | STRING | The source of the feedback, e.g. "HUBSPOT" |
-| title       |    No    | STRING | Optional title for the feedback            |
-| contact_id  |    No    | STRING | Optional identifier linking to a contact   |
+| id          | Yes      | STRING | Unique identifier for the feedback record  |
+| description | Yes      | STRING | The main feedback content                  |
+| created_at  | Yes      | STRING | When the feedback was created              |
+| updated_at  | Yes      | DATE   | When the feedback was last updated         |
+| source      | No       | STRING | The source of the feedback, e.g. "HUBSPOT" |
+| title       | No       | STRING | Optional title for the feedback            |
+| contact_id  | No       | STRING | Optional identifier linking to a contact   |
 
 ### Conversation
 
 A conversation is a collection of conversational feedback messages. For example, a chat log between a support agent and a user.
 
-| Field Name | Required |  Type  | Description                                |
+| Field Name | Required | Type   | Description                                |
 | :--------- | :------: | :----: | :----------------------------------------- |
-| id         |   Yes    | STRING | Unique identifier for the conversation     |
-| title      |    No    | STRING | Optional title for the conversation        |
-| source     |    No    | STRING | The source of the feedback, e.g. "HUBSPOT" |
-| created_at |   Yes    | STRING | When the conversation was created          |
-| updated_at |    No    |  DATE  | When the conversation was last updated     |
+| id         | Yes      | STRING | Unique identifier for the conversation     |
+| title      | No       | STRING | Optional title for the conversation        |
+| source     | No       | STRING | The source of the feedback, e.g. "HUBSPOT" |
+| created_at | Yes      | STRING | When the conversation was created          |
+| updated_at | No       | DATE   | When the conversation was last updated     |
 
 ### Conversation Message
 
 These are the individual messages within a conversation, and should be linked to a conversation by the `conversation_id` field.
 
-| Field Name      | Required |  Type   | Description                                      |
+| Field Name      | Required | Type    | Description                                      |
 | :-------------- | :------: | :-----: | :----------------------------------------------- |
-| id              |   Yes    | STRING  | Unique identifier for the message                |
-| created_at      |   Yes    |  DATE   | When the message was sent                        |
-| updated_at      |    No    |  DATE   | When the message was last updated                |
-| conversation_id |   Yes    | STRING  | ID of the conversation this message belongs to   |
-| content         |   Yes    | STRING  | The message content                              |
-| incoming        |   Yes    | BOOLEAN | Whether the message was sent by an external user |
-| contact_id      |    No    | STRING  | Optional identifier linking to a contact         |
+| id              | Yes      | STRING  | Unique identifier for the message                |
+| created_at      | Yes      | DATE    | When the message was sent                        |
+| updated_at      | No       | DATE    | When the message was last updated                |
+| conversation_id | Yes      | STRING  | ID of the conversation this message belongs to   |
+| content         | Yes      | STRING  | The message content                              |
+| incoming        | Yes      | BOOLEAN | Whether the message was sent by an external user |
+| contact_id      | No       | STRING  | Optional identifier linking to a contact         |
 
 ### Contacts
 
 Contacts are the users of your product.
 
-| Field Name | Required |  Type  | Description                        |
+| Field Name | Required | Type   | Description                        |
 | :--------- | :------: | :----: | :--------------------------------- |
-| id         |   Yes    | STRING | Unique identifier for the contact  |
-| name       |   Yes    | STRING | The contact's full name            |
-| email      |   Yes    | STRING | The contact's email address        |
-| account_id |   Yes    | STRING | The account the contact belongs to |
-| created_at |   Yes    |  DATE  | When the contact was created       |
-| updated_at |   Yes    |  DATE  | When the contact was last updated  |
+| id         | Yes      | STRING | Unique identifier for the contact  |
+| name       | Yes      | STRING | The contact's full name            |
+| email      | Yes      | STRING | The contact's email address        |
+| account_id | Yes      | STRING | The account the contact belongs to |
+| created_at | Yes      | DATE   | When the contact was created       |
+| updated_at | Yes      | DATE   | When the contact was last updated  |
 
 ### Accounts
 
 Accounts are the companies that your contacts belong to.
 
-| Field Name     | Required |  Type  | Description                       |
+| Field Name     | Required | Type   | Description                       |
 | :------------- | :------: | :----: | :-------------------------------- |
-| id             |   Yes    | STRING | Unique identifier for the account |
-| name           |   Yes    | STRING | The account's name                |
-| domain         |   Yes    | STRING | The account's domain              |
-| contract_value |    No    | NUMBER | The account's contract value      |
-| created_at     |   Yes    |  DATE  | When the account was created      |
-| updated_at     |   Yes    |  DATE  | When the account was last updated |
+| id             | Yes      | STRING | Unique identifier for the account |
+| name           | Yes      | STRING | The account's name                |
+| domain         | Yes      | STRING | The account's domain              |
+| contract_value | No       | NUMBER | The account's contract value      |
+| created_at     | Yes      | DATE   | When the account was created      |
+| updated_at     | Yes      | DATE   | When the account was last updated |
 
 ### Custom Tables
 
 Sometimes, you may not be able to map your data to the existing schemas. In this case, you can share your own, existing tables. This will require custom engineering work on our end, so understand that time will be required to support this.
 
-If you are providing custom tables, then what we will need to do is to effectively write custom queries and map the data to schemas above on our end.
-Given that, helping us understand how to do that mapping will expedite the process and lead to better, faster results for getting your data into Reforge Insights.
+If you are providing custom tables, then what we will need to do is to effectively write custom queries and map the data to schemas above on our end. Given that, helping us understand how to do that mapping will expedite the process and lead to better, faster results for getting your data into Reforge Insights.
 
 When sharing custom table information, please provide the following:
 
-**1. Table Information**
-The table names, column names, column types, and a description of the data in each column.
+**1. Table Information** The table names, column names, column types, and a description of the data in each column.
 
 For example:
 
@@ -238,10 +247,8 @@ For example:
 | from_customer | BOOLEAN     | Whether the message was from the customer (maps to incoming) |
 | user_id       | STRING      | User who sent the message (maps to contact_id)               |
 
-**2. Relationship Information**
-If there are any relationships between the tables, please point out how the tables should be joined, as in which column on table A should be joined with which column on table B.
+**2. Relationship Information** If there are any relationships between the tables, please point out how the tables should be joined, as in which column on table A should be joined with which column on table B.
 
-**3. Data Mapping**
-An explanation of how you would expect the data to map to the schemas defined above.
+**3. Data Mapping** An explanation of how you would expect the data to map to the schemas defined above.
 
 If you are interested in sharing custom tables, please reach out to your primary contact at Reforge.
