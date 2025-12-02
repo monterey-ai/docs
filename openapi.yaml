@@ -300,7 +300,7 @@ paths:
                   nullable: true
                 sourceId:
                   type: string
-                  description: Unique ID from source data for later consolidation or aggregation
+                  description: A unique identifier for this specific record from the source system (e.g., a Jira ticket key like "ABC-1234", a Zendesk ticket ID, or a Salesforce case number). This is NOT the same as the `source` field—it identifies the individual record, not the integration. Used for deduplication and linking back to the original record.
                   nullable: true
                 shouldUnflattenSourceData:
                   type: boolean
