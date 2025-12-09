@@ -1,0 +1,303 @@
+---
+title: "Connect to MCP Server"
+description: "How to connect to the Reforge Insights MCP server from various AI clients."
+---
+
+## Overview
+
+The Reforge Insights MCP (Model Context Protocol) server provides direct access to your feedback data through AI clients like Cursor, Claude Code, and others. This integration allows you to query your insights data naturally using AI assistants.
+
+**What you can do:**
+
+- **Search your feedback data** using natural language queries with AI-powered filtering
+- **List and access your workspaces** to work with the right dataset
+- **Generate product documents** (PRDs, user stories, roadmaps, and more) based on real customer feedback
+
+## Usage
+
+## Available Tools
+
+### 1. `search_snippets`
+
+**What it does:** Searches through your customer feedback using AI-powered semantic search and intelligent filter extraction. The tool understands context and automatically applies relevant filters (date ranges, sentiment, sources, etc.) based on your natural language query.
+
+**When to use it:**
+
+- Finding feedback about specific features or issues
+- Understanding customer pain points
+- Analyzing sentiment around topics
+- Discovering trends over time
+- Preparing data for document generation
+
+**Example queries:**
+
+- "Help me find feedback about the search feature not working"
+- "What are people struggling most with?"
+- "Main issues from the last 2 weeks"
+- "Summarize user reviews about onboarding flows from the last 3 months"
+- "Show examples of feedback like 'I like the new homepage redesign'"
+- "When did we first see a bug about the settings page?"
+
+**How it works:**
+The tool automatically:
+
+- Extracts relevant filters from your query (dates, sentiment, feature areas, etc.)
+- Performs semantic search to find related feedback
+- Returns ranked, contextualized feedback snippets
+
+**Response format:**
+Returns a JSON object containing relevant feedback snippets with metadata, filters applied, and contextual information.
+
+---
+
+### 2. `generate_document`
+
+**What it does:** Creates professional product management documents based on customer feedback and best practices. The tool searches for relevant feedback based on your query, then generates a structured document following industry-standard templates.
+
+Current supported document types:
+| Document Type | Description |
+|---------------------------------------|----------------------------------------------------------------------|
+| Product Roadmap | Articulate vision and milestones for product |
+| Product Brief | Concise overview of product strategy and goals |
+| Positioning Doc | Articulate how your product should be differentiated and perceived in the market |
+| Use Case Map | Articulate the problem, persona, alternatives, frequency, and why to use a product |
+| Feature Map | Define, prioritize, and evaluate features |
+| Product Requirements Document (PRD) | Align teams, clarify goals and guide product success |
+| GTM Plan | A Go to market document that helps you with product launches |
+| Product Messaging Doc | Create guidelines for how to communicate details about your product |
+| Project Plan | Align on tasks, timelines, and responsibilities |
+| Technical Specification | Align on the technical details that will dictate an implementation |
+| Decision Framework | Help team leads build a standard process for making decisions |
+| PMF Narrative | Get your team aligned on a vision for a new product |
+| Feature Prioritization | Create a plan for prioritizing product features |
+| Custom Document | Generate any custom document type based on your specific needs |
+
+**Example queries:**
+
+- "Create a PRD for improving our search functionality based on recent feedback"
+- "Generate a product roadmap focused on mobile app enhancements from the last quarter's feedback"
+- "Build a feature prioritization document using feedback about our checkout flow"
+- "Write a GTM plan for our new dashboard feature based on user requests"
+- "Create a technical specification for the notification system improvements users have been asking for"
+
+**How it works:**
+The tool automatically:
+
+- Analyzes your query to understand the document type and topic
+- Searches for relevant customer feedback to support the document
+- Generates a well-structured document following best practices and templates
+- Incorporates real customer quotes and insights where appropriate
+
+---
+
+### 3. `list_workspaces`
+
+**What it does:** Lists all workspaces you have access to with their IDs and names. Most often used internally to identify which workspace you want to work with if multiple workspaces are available.
+
+**When to use it:** Use this as your first step to identify which workspace you want to work with. You'll need the workspace ID for other operations.
+
+**Example usage in an AI chat:**
+`"Show me all my workspaces"`
+
+**Response format:**
+
+```json
+{
+  "workspaces": [
+    {
+      "id": "workspace-123",
+      "name": "My Product Team"
+    }
+  ],
+  "message": "Select a workspace by using its ID in other tools"
+}
+```
+
+## Limitations & What to Expect
+
+### Available Tools
+
+The MCP server provides access to **three specific tools** designed for efficient AI-powered workflows:
+
+1. **`search_snippets`** - Fast semantic search across your feedback
+2. **`generate_document`** - Create product documents from feedback
+3. **`list_workspaces`** - List available workspaces
+
+These tools are optimized for AI assistant interactions and may differ from other Reforge Insights features you're familiar with.
+
+### Search Performance & Scope
+
+**Fast Search Design:** The `search_snippets` tool is designed for **speed and efficiency** in AI workflows. It provides quick, relevant results to keep your AI conversations flowing smoothly.
+
+**How it differs from Ask Monty:**
+
+- **Ask Monty datasets** perform deep, comprehensive analysis across your entire feedback corpus - great for thorough research that will find all relevant feedback, even in the largest workspaces.
+- **MCP snippet search** is optimized for rapid retrieval - perfect for quick queries and iterative AI conversations, but will only return the top ~100 snippet texts (but will include any high level label distribution data)
+
+**When to use each:**
+
+- Use **MCP snippet search** when you need fast results during an AI conversation (e.g., "find recent feedback about login issues")
+- Use **Ask Monty** when you need comprehensive analysis or working with large datasets (e.g., analyzing all feedback patterns over 6 months)
+
+### What's Not Available
+
+The MCP server focuses on search and document generation. For other Reforge Insights capabilities like:
+
+- Creating or editing tags
+- Managing integrations
+- Accessing detailed analytics dashboards
+- Training auto-triage models
+- Creating custom reports
+
+...please use the main Reforge Insights web application at [insights.reforge.com](https://insights.reforge.com).
+
+## Installation
+
+To install, follow the directions for the client of your choice below. After you connect your client, you will need to restart the client in order to load the tools and authenticate. If you normally sign in to Reforge Insights from a specific browser or browser profile, ensure that it was the last browser active. The authentication process will ask you to sign in, or if you are already signed in, it will quickly open and close your browser.
+
+### Claude Desktop
+
+To connect Claude Desktop to the Reforge Insights MCP server:
+
+1. Open Claude Desktop
+2. Go to **Settings** → **Developer**
+3. Click **Edit Config**
+4. Add the following configuration to your `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "reforge-insights": {
+      "command": "npx",
+      "args": ["mcp-remote", "https://insights.reforge.com/api/v1/mcp"]
+    }
+  }
+}
+```
+
+If you already have other MCP servers configured, simply add the `"reforge-insights"` section to your existing `"mcpServers"` object.
+
+### Claude Code
+
+To connect Claude Code to the Reforge Insights MCP server:
+
+1. In your terminal, run: `claude mcp add --transport http reforge-insights https://insights.reforge.com/api/v1/mcp`
+2. Start Claude code and enter `/mcp` to find the reforge-insights server. Click enter on it to authenticate. It will ask to open your browser. Ensure you're in a browser session that has access to your Reforge Insights account.
+
+### ChatGPT (OpenAI)
+
+To connect ChatGPT with Developer Mode to the Reforge Insights MCP server:
+
+1. Enable Developer Mode in your ChatGPT settings
+2. Navigate to **Settings** → **Developer Mode** → **MCP Servers**
+3. Add the following configuration:
+
+```json
+{
+  "mcpServers": {
+    "reforge-insights": {
+      "command": "npx",
+      "args": ["mcp-remote", "https://insights.reforge.com/api/v1/mcp"]
+    }
+  }
+}
+```
+
+**Note:** Developer Mode with MCP support is currently available for ChatGPT Plus and Team users. After configuration, restart ChatGPT to load the server.
+
+### Cursor
+
+To add the MCP server to Cursor:
+
+1. Open Cursor settings
+2. Navigate to the MCP configuration section
+3. Add the server configuration:
+
+```json
+{
+  "mcpServers": {
+    "reforge-insights": {
+      "command": "npx",
+      "args": ["mcp-remote", "https://insights.reforge.com/api/v1/mcp"]
+    }
+  }
+}
+```
+
+### Windsurf
+
+For Windsurf IDE:
+
+1. Access the MCP settings in Windsurf
+2. Add the Reforge Insights server:
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "reforge-insights": {
+        "command": "npx",
+        "args": ["mcp-remote", "https://insights.reforge.com/api/v1/mcp"]
+      }
+    }
+  }
+}
+```
+
+### Continue
+
+For Continue in VS Code:
+
+1. Open the Continue extension settings
+2. Edit the MCP configuration:
+
+```json
+{
+  "mcpServers": {
+    "reforge-insights": {
+      "command": "npx",
+      "args": ["mcp-remote", "https://insights.reforge.com/api/v1/mcp"]
+    }
+  }
+}
+```
+
+### Cline (formerly Claude Dev)
+
+For Cline VS Code extension:
+
+1. Open Cline settings in VS Code
+2. Configure the MCP server:
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "reforge-insights": {
+        "command": "npx",
+        "args": ["mcp-remote", "https://insights.reforge.com/api/v1/mcp"]
+      }
+    }
+  }
+}
+```
+
+## Authentication
+
+The MCP server uses your existing Reforge Insights authentication. Make sure you're logged in to your Reforge Insights account in your browser, as the server will use your session cookies for API access.
+
+## Troubleshooting
+
+**Connection Issues:**
+
+- Ensure you have `npx` installed (`npm install -g npx`)
+- Verify your Reforge Insights account has API access
+- Check that you're logged in to Reforge Insights in your browser
+
+**Configuration Issues:**
+
+- Validate your JSON configuration syntax
+- Restart your AI client after making configuration changes
+- Check the client's documentation for MCP-specific setup requirements
+
+For additional support, contact our team through your Reforge Insights dashboard.

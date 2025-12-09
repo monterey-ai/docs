@@ -1,0 +1,23 @@
+### Best Practices
+
+<Card title="Field Selection Strategy" icon="lightbulb">
+  {customFieldSelectionStrategy ||
+    `Start with required fields and commonly used standard fields - Add custom
+  fields that are consistently populated and relevant to your analysis -
+  Consider the impact on data volume when selecting many fields - Review and
+  update field selections as your {provider} usage evolves`}
+</Card>
+
+<Card title="Filtering Strategy" icon="filter">
+  {customFilteringStrategy ||
+    `Use filters to focus on the most relevant data for your use case - Apply
+  filters to narrow down to specific statuses, categories, or priorities -
+  Remember that only records with content will be ingested regardless of filters`}
+</Card>
+
+<Card title="Performance Considerations" icon="gauge">
+  {customPerformanceConsiderations ||
+    `More fields and fewer filters = larger data volume - Consider the frequency
+  of your data sync when selecting options - Monitor ingestion performance and
+  adjust as needed`}
+</Card>

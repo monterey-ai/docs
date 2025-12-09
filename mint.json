@@ -33,11 +33,7 @@
   "navigation": [
     {
       "group": "Home",
-      "pages": [
-        "welcome",
-        "quickstart",
-        "philosophy"
-      ]
+      "pages": ["welcome", "quickstart", "philosophy"]
     },
     {
       "group": "Aggregation and Collection",
@@ -45,6 +41,7 @@
         "overview",
         "survey",
         "widget",
+        "in-app-research",
         "public-portal",
         "chrome-extension",
         "feedback-csv-upload",
@@ -55,34 +52,31 @@
     },
     {
       "group": "Records",
-      "pages": [
-        "snippets",
-        "contacts",
-        "metadata",
-        "review-spam"
-      ]
+      "pages": ["snippets", "contacts", "metadata", "review-spam"]
     },
     {
       "group": "Feedback insights",
+      "pages": ["themes", "custom-reports", "alert"]
+    },
+    {
+      "group": "Ask Monty",
       "pages": [
-        "themes",
-        "ask-monty",
-        "alert",
-        "custom-reports"
+        "monty/overview",
+        "monty/asking-questions",
+        "monty/understanding-responses",
+        "monty/datasets",
+        "monty/surveys-interviews",
+        "monty/external-integrations",
+        "monty/advanced-features"
       ]
     },
     {
       "group": "Knowledge Hub",
-      "pages": ["knowledge-hub/labels"]
+      "pages": ["knowledge-hub/labels", "knowledge-hub/tags", "knowledge-hub/mcp-server"]
     },
     {
       "group": "Workflows",
-      "pages": [
-        "feedback-search",
-        "email-notifications",
-        "export",
-        "project-management"
-      ]
+      "pages": ["feedback-search", "email-notifications", "export", "project-management"]
     },
     {
       "group": "Social media mentions & reviews",
@@ -124,27 +118,15 @@
     },
     {
       "group": "Survey & feedback collection",
-      "pages": [
-        "integrations/delighted",
-        "integrations/survey-monkey",
-        "integrations/typeform",
-        "integrations/sprig"
-      ]
+      "pages": ["integrations/delighted", "integrations/survey-monkey", "integrations/typeform", "integrations/sprig"]
     },
     {
       "group": "Task & project management",
-      "pages": [
-        "integrations/asana",
-        "integrations/jira",
-        "integrations/linear"
-      ]
+      "pages": ["integrations/asana", "integrations/jira", "integrations/linear"]
     },
     {
       "group": "Survey",
-      "pages": [
-        "integrations/typeform",
-        "integrations/survey-monkey"
-      ]
+      "pages": ["integrations/qualtrics", "integrations/typeform", "integrations/survey-monkey"]
     },
     {
       "group": "Other Integrations",
@@ -152,7 +134,6 @@
         "integrations/data-warehouse",
         "integrations/zapier",
         "integrations/fathom",
-        "integrations/data-warehouse",
         "integrations/external-cohorts"
       ]
     },
@@ -161,57 +142,37 @@
       "pages": [
         {
           "group": "Contacts",
-          "pages": [
-            "api-reference/contacts/identify-contacts"
-          ]
+          "pages": ["api-reference/contacts/identify-contacts", "api-reference/contacts/purge"]
         },
         {
           "group": "Accounts",
-          "pages": [
-            "api-reference/accounts/identify-accounts"
-          ]
+          "pages": ["api-reference/accounts/identify-accounts"]
         },
         {
           "group": "Feedback",
-          "pages": [
-            "api-reference/feedback/create-a-feedback-record"
-          ]
+          "pages": ["api-reference/feedback/create-a-feedback-record"]
         },
         {
           "group": "Conversations",
-          "pages": [
-            "api-reference/conversations/create-a-conversation"
-          ]
+          "pages": ["api-reference/conversations/create-a-conversation"]
         }
       ]
     },
     {
       "group": "Security",
-      "pages": [
-        "security/security-overview",
-        "security/signin-with-token",
-        "security/team-roles",
-        "security/pii"
-      ]
+      "pages": ["security/security-overview", "security/signin-with-token", "security/team-roles", "security/pii"]
     },
     {
       "group": "SSO",
-      "pages": [
-        "sso/okta-oidc",
-        "sso/okta-saml"
-      ]
+      "pages": ["sso/okta-oidc", "sso/okta-saml"]
     },
     {
       "group": "Pricing",
-      "pages": [
-        "pricing/volume-calculation"
-      ]
+      "pages": ["pricing/volume-calculation"]
     },
     {
       "group": "Open Source",
-      "pages": [
-        "open-source/attribution"
-      ]
+      "pages": ["open-source/attribution"]
     }
   ],
   "footerSocials": {

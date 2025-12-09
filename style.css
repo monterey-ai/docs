@@ -8,3 +8,17 @@ table {
   display: table !important;
   margin-top: 24px !important;
 }
+
+/* Target only spans within pre tags to avoid affecting other documentation */
+pre span[style*="rgb(156, 220, 254)"] {
+  color: #1e293b !important;
+}
+
+pre span[style*="rgb(206, 145, 120)"] {
+  color: #dc2626 !important;
+}
+
+pre span[style*="rgb(243, 247, 246)"] {
+  color: #334155 !important;
+}
+

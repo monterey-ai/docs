@@ -9,6 +9,11 @@ components:
     BearerAuth:
       type: http
       scheme: bearer
+      description: Bearer authentication header of the form Bearer <token>, where <token> is your auth token.
+    AdminBearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer authentication header of the form Bearer <token>, where <token> is your auth token. **Admin-level permissions required**
   schemas:
     Feedback:
       type: object
@@ -172,7 +177,7 @@ components:
       properties:
         id:
           type: string
-          description: The unique identifier for the project.
+          description: External contact ID
           nullable: false
         shouldUnflattenProperties:
           type: boolean
@@ -197,10 +202,38 @@ components:
               type: string
               format: date-time
               nullable: true
+            $contractValue:
+              type: number
+              description: The contract value of the contact.
+              example: 100000
+              nullable: true
           additionalProperties: true
         account:
           $ref: "#/components/schemas/Account"
           nullable: true
+        source:
+          type: string
+          description: Source system to limit search to
+          nullable: true
+
+    ContactPurgeRequest:
+      type: object
+      properties:
+        id:
+          type: string
+          description: External contact ID
+          nullable: true
+        email:
+          type: string
+          description: Contact email address
+          nullable: true
+        source:
+          type: string
+          description: Source system to limit search to
+          nullable: true
+      anyOf:
+        - required: ["id"]
+        - required: ["email"]
 
 paths:
   /feedbacks:
@@ -234,24 +267,32 @@ paths:
                   items:
                     type: string
                   nullable: true
+                isExternalContactId:
+                  type: boolean
+                  description: True if the contactId/contact.id is an external ID, false if it is a Reforge Insights contact ID.
+                  default: false
                 contact:
-                  description: The Contact who provided the feedback
+                  description: The Contact who provided the feedback. If providing an external ID, set isExternalContactId to true.
                   oneOf:
                     - $ref: "#/components/schemas/FindOrCreateCustomer"
                     - $ref: "#/components/schemas/AssociateExistingCustomer"
                 contactId:
                   type: string
-                  description: ID of Contact to associate to
+                  description: ID of Contact to associate to.  If providing an external ID, set isExternalContactId to true.
                   nullable: true
+                isExternalAccountId:
+                  type: boolean
+                  description: True if the accountId/account.id is an external ID, false if it is a Reforge Insights account ID.
+                  default: false
                 account:
-                  description: The customer account to which the feedback should be associated
+                  description: The customer account to which the feedback should be associated. If providing an external ID, set isExternalAccountId to true.
                   oneOf:
                     - $ref: "#/components/schemas/FindOrCreateCustomerAccount"
                     - $ref: "#/components/schemas/AssociateExistingCustomerAccount"
                   nullable: true
                 accountId:
                   type: string
-                  description: ID of CustomerAccount to associate to
+                  description: ID of CustomerAccount to associate to.  If providing an external ID, set isExternalAccountId to true.
                   nullable: true
                 source:
                   type: string
@@ -259,7 +300,7 @@ paths:
                   nullable: true
                 sourceId:
                   type: string
-                  description: Unique ID from source data for later consolidation or aggregation
+                  description: A unique identifier for this specific record from the source system (e.g., a Jira ticket key like "ABC-1234", a Zendesk ticket ID, or a Salesforce case number). This is NOT the same as the `source` field—it identifies the individual record, not the integration. Used for deduplication and linking back to the original record.
                   nullable: true
                 shouldUnflattenSourceData:
                   type: boolean
@@ -286,7 +327,7 @@ paths:
 
   /contacts/identify:
     post:
-      summary: Identify a customer
+      summary: Identify a contact
       security:
         - BearerAuth: []
       requestBody:
@@ -305,6 +346,62 @@ paths:
                 properties:
                   success:
                     type: boolean
+
+  /contacts/purge:
+    post:
+      summary: Delete contact data
+      description: Permanently deletes a contact and all associated data.
+      security:
+        - AdminBearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ContactPurgeRequest"
+            examples:
+              purge-by-id-with-source:
+                summary: Purge by ID with specific source
+                description: Purge a contact by ID from a specific source system
+                value:
+                  id: "user123"
+                  source: "salesforce"
+              purge-by-id-all-sources:
+                summary: Purge by ID across all sources
+                description: Purge a contact by ID across all source systems
+                value:
+                  id: "user123"
+              purge-by-email-with-source:
+                summary: Purge by email with specific source
+                description: Purge a contact by email from a specific source system
+                value:
+                  email: "john.doe@example.com"
+                  source: "salesforce"
+              purge-by-email-all-sources:
+                summary: Purge by email across all sources
+                description: Purge a contact by email across all source systems
+                value:
+                  email: "john.doe@example.com"
+      responses:
+        200:
+          description: The contact purge was initiated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+        404:
+          description: No contacts found matching the provided criteria
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "No contacts found"
 
   /accounts/identify:
     post:
