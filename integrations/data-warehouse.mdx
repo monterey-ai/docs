@@ -62,25 +62,22 @@ description: "Ingest targeted data from Snowflake, BigQuery and other data wareh
       </Step>
     </Steps>
   </Accordion>
-
   <Accordion title="Amazon Redshift">
     To connect with Amazon Redshift using Datashare:
-    <Warning>
-      You will need to have the appropriate permissions to create a datashare in your Redshift cluster.
-      Contact your Redshift administrator if you cannot create a datashare.
-    </Warning>
 
+    <Warning>
+      You will need to have the appropriate permissions to create a datashare in your Redshift cluster. Contact your Redshift administrator if you cannot create a datashare.
+    </Warning>
     <Note>
       Please refer to the [Amazon Redshift Producer actions](https://docs.aws.amazon.com/redshift/latest/dg/writes-producer-new.html) for more information on creating and sharing datashares.
     </Note>
-
     <Steps>
       <Step>
         Ask your primary contact at Reforge for the `Reforge Namespace ARN` and `AWS account ID`. You will need these to authorize Reforge's AWS account to access your datashare.
       </Step>
-
       <Step>
         Create a datashare in your Redshift cluster:
+
         ```sql
         CREATE DATASHARE reforge_<your company name>_datashare;
         ```
@@ -91,13 +88,12 @@ description: "Ingest targeted data from Snowflake, BigQuery and other data wareh
         ```sql
         -- Add schema
         ALTER DATASHARE <datashare name> ADD SCHEMA <schema name>; -- you may need to create the schema first
-
+        
         -- Pick specific items
         ALTER DATASHARE <datashare name> ADD TABLE <table name>;
         ALTER DATASHARE <datashare name> ADD VIEW <view name>;
         ```
       </Step>
-
       <Step>
         Make the datashare visible cross-account:
 
@@ -107,7 +103,6 @@ description: "Ingest targeted data from Snowflake, BigQuery and other data wareh
 
         Note: This doesn't expose your data publicly. It only allows consumption by authorized accounts.
       </Step>
-
       <Step>
         Grant usage access to the datashare to the Reforge AWS account:
 
@@ -115,7 +110,6 @@ description: "Ingest targeted data from Snowflake, BigQuery and other data wareh
         GRANT USAGE ON DATASHARE <datashare name> TO NAMESPACE <Reforge Namespace ID>; -- The Namespace ID is the last part of the Namespace ARN
         ```
       </Step>
-
       <Step>
         Authorize Reforge's AWS account to access your datashare:
 
@@ -127,17 +121,16 @@ description: "Ingest targeted data from Snowflake, BigQuery and other data wareh
 
         Replace the ARN with your datashare ARN and the consumer-accounts value with the Reforge AWS account ID provided to you by your Reforge contact.
 
-        You can also do this via the Redshift console under **Datashares → `<datashare name>` → Authorize**.
+        You can also do this via the Redshift console under **`Datashares → <datashare name> → Authorize`**.
       </Step>
-
       <Step>
         Provide the following information to your primary contact at Reforge:
 
-        | **Field**                                          | **Example**                                                                  |
-        | ---------------------------------------------------| ---------------------------------------------------------------------------- |
-        | **Datashare ARN**                                  | arn:aws:redshift:us-east-1:111122223333:datashare:reforge_company_datashare  |
-        | **Redshift namespace ARN**                         | arn:aws:redshift:us-east-1:111122223333:namespace:prod-ns-1                  |
-        | **List of schemas / tables / views** included      | public.conversations, public.latest_tickets_v                                |
+        | **Field**                                     | **Example**                                                                 |
+        | --------------------------------------------- | --------------------------------------------------------------------------- |
+        | **Datashare ARN**                             | arn:aws:redshift:us-east-1:111122223333:datashare:reforge_company_datashare |
+        | **Redshift namespace ARN**                    | arn:aws:redshift:us-east-1:111122223333:namespace:prod-ns-1                 |
+        | **List of schemas / tables / views** included | public.conversations, public.latest_tickets_v                               |
       </Step>
     </Steps>
   </Accordion>
@@ -145,11 +138,57 @@ description: "Ingest targeted data from Snowflake, BigQuery and other data wareh
 
 # Data Models
 
-We support several schemas and relationships between tables. With each of the schemas defined below, you can also provide a list of additional column names that you would like to be included on the respective fields as **metadata**. A few examples of common additional fields are for feedback or conversation messages, a "version" number that the feedback refers to, or for Contacts, a "plan" or "subscription tier". When working with the team to connect to your data warehouse, simply share with us fields beyond those defined below that you would like to have included!
+We support several schemas and relationships between tables. With each of the schemas defined below, you can also provide a list of additional column names that you would like to be included on the respective fields as **metadata**. A few examples of common additional fields are for feedback or conversation messages, a "version" number that the feedback refers to, or for Contacts, a "plan" or "subscription tier". When working with the team to connect to your data warehouse, simply share with us fields beyond those defined below that you would like to have included!Account
 
-### Standalone Feedback
+## Standard Objects
 
-Standalone feedback are singular items of feedback, such as a review or a single response to a question.
+### Account
+
+Accounts are the companies associated with your data (that your contacts may belong to).
+
+| Field Name     | Required | Maps To            | Type   | Description                       | Default Frontend Field Name |
+| :------------- | :------: | ------------------ | :----: | :-------------------------------- | --------------------------- |
+| id             | YES      | contact.account_id | STRING | Unique identifier for the account |                             |
+| name           | NO       |                    | STRING | The account's full name           | Account                     |
+| domain         | NO       |                    | STRING | The account's domain              |                             |
+| contract_value | NO       |                    | NUMBER | The account's contract value      | Contract Value              |
+| updated_at     | NO       |                    | DATE   | When the account was last updated |                             |
+
+### Contact
+
+Contacts are the users associated with your data (that may belong to your accounts).
+
+| Field Name | Required | Maps To                         | Type   | Description                                                        | Default Frontend Field Name |
+| :--------- | :------: | ------------------------------- | :----: | :----------------------------------------------------------------- | --------------------------- |
+| id         | YES      | conversation.message_contact_id | STRING | Unique identifier for the contact                                  |                             |
+| name       | NO       |                                 | STRING | The contact's full name                                            | Contact                     |
+| email      | NO       |                                 | STRING | The contact's email address                                        |                             |
+| account_id | NO       | account.id                      | STRING | The unique identifier for the account that this contact belongs to |                             |
+| updated_at | NO       |                                 | DATE   | When the contact was last updated                                  |                             |
+
+### Conversation
+
+Conversations are collections of messages between two or more distinct parties, e.g. support chat logs or transcripts from a call.
+
+Conversation messages are individual messages within a conversation.
+
+| Field Name              | Required | Maps To    | Type    | Description                                                                                                  | Default Frontend Field Name |
+| :---------------------- | :------: | ---------- | :-----: | :----------------------------------------------------------------------------------------------------------- | --------------------------- |
+| conversation_id         | YES      |            | STRING  | Unique identifier for the conversation                                                                       |                             |
+| conversation_source     | YES      |            | STRING  | The source of the conversation, e.g. "GONG"                                                                  |                             |
+| conversation_title      | NO       |            | STRING  | The title of the conversation                                                                                |                             |
+| conversation_created_at | NO       |            | DATE    | When the conversation was created                                                                            |                             |
+| conversation_updated_at | NO       |            | DATE    | When the conversation was last updated                                                                       |                             |
+| message_id              | YES      |            | STRING  | Unique identifier for the message                                                                            |                             |
+| message_content         | YES      |            | STRING  | The content of the message                                                                                   | Content                     |
+| message_incoming        | YES      |            | BOOLEAN | Indicates if the message is incoming or outgoing (TRUE = message is coming from your external user/customer) |                             |
+| message_contact_id      | NO       | contact.id | STRING  | The unique identifier for the contact that sent this message                                                 |                             |
+| message_created_at      | NO       |            | DATE    | When the message was created                                                                                 |                             |
+| message_updated_at      | NO       |            | DATE    | When the message was last updated                                                                            |                             |
+
+### Feedback
+
+Feedback are singular items of feedback, e.g. app store reviews or single responses to a question.
 
 | Field Name  | Required | Type   | Description                                |
 | :---------- | :------: | :----: | :----------------------------------------- |
@@ -161,57 +200,7 @@ Standalone feedback are singular items of feedback, such as a review or a single
 | title       | No       | STRING | Optional title for the feedback            |
 | contact_id  | No       | STRING | Optional identifier linking to a contact   |
 
-### Conversation
-
-A conversation is a collection of conversational feedback messages. For example, a chat log between a support agent and a user.
-
-| Field Name | Required | Type   | Description                                |
-| :--------- | :------: | :----: | :----------------------------------------- |
-| id         | Yes      | STRING | Unique identifier for the conversation     |
-| title      | No       | STRING | Optional title for the conversation        |
-| source     | No       | STRING | The source of the feedback, e.g. "HUBSPOT" |
-| created_at | Yes      | STRING | When the conversation was created          |
-| updated_at | No       | DATE   | When the conversation was last updated     |
-
-### Conversation Message
-
-These are the individual messages within a conversation, and should be linked to a conversation by the `conversation_id` field.
-
-| Field Name      | Required | Type    | Description                                      |
-| :-------------- | :------: | :-----: | :----------------------------------------------- |
-| id              | Yes      | STRING  | Unique identifier for the message                |
-| created_at      | Yes      | DATE    | When the message was sent                        |
-| updated_at      | No       | DATE    | When the message was last updated                |
-| conversation_id | Yes      | STRING  | ID of the conversation this message belongs to   |
-| content         | Yes      | STRING  | The message content                              |
-| incoming        | Yes      | BOOLEAN | Whether the message was sent by an external user |
-| contact_id      | No       | STRING  | Optional identifier linking to a contact         |
-
-### Contacts
-
-Contacts are the users of your product.
-
-| Field Name | Required | Type   | Description                        |
-| :--------- | :------: | :----: | :--------------------------------- |
-| id         | Yes      | STRING | Unique identifier for the contact  |
-| name       | Yes      | STRING | The contact's full name            |
-| email      | Yes      | STRING | The contact's email address        |
-| account_id | Yes      | STRING | The account the contact belongs to |
-| created_at | Yes      | DATE   | When the contact was created       |
-| updated_at | Yes      | DATE   | When the contact was last updated  |
-
-### Accounts
-
-Accounts are the companies that your contacts belong to.
-
-| Field Name     | Required | Type   | Description                       |
-| :------------- | :------: | :----: | :-------------------------------- |
-| id             | Yes      | STRING | Unique identifier for the account |
-| name           | Yes      | STRING | The account's name                |
-| domain         | Yes      | STRING | The account's domain              |
-| contract_value | No       | NUMBER | The account's contract value      |
-| created_at     | Yes      | DATE   | When the account was created      |
-| updated_at     | Yes      | DATE   | When the account was last updated |
+### 
 
 ### Custom Tables
 
