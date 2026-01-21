@@ -508,6 +508,11 @@ paths:
                   type: boolean
                   description: 'Whether to unflatten properties that are meant to be nested objects for example `{ "plan.type": "Pro" }` will be unflattened to `{ "plan": { "type": "Pro" } }`'
                   nullable: true
+                propagatePropertiesToMessages:
+                  type: boolean
+                  description: When true, conversation-level properties are merged into each message's rawData. Message properties take precedence over conversation properties when there are key conflicts.
+                  default: false
+                  nullable: true
                 properties:
                   type: object
                   description: Additional metadata properties (key-value pairs)
