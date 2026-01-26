@@ -48,6 +48,7 @@ description: "Ingest targeted data from Snowflake, BigQuery and other data wareh
     44.241.212.223
     44.240.0.247
     ```
+
   </Accordion>
   <Accordion title="BigQuery">
     To connect with BigQuery:
@@ -61,6 +62,7 @@ description: "Ingest targeted data from Snowflake, BigQuery and other data wareh
         Share the dataset containing tables, like those described below, with our service account email address and grant it the `bigquery.dataViewer` _(BigQuery Data Viewer)_ role. This will provide us with read-only access to the datasets you want to share.
       </Step>
     </Steps>
+
   </Accordion>
 
   <Accordion title="Amazon Redshift">
@@ -140,6 +142,7 @@ description: "Ingest targeted data from Snowflake, BigQuery and other data wareh
         | **List of schemas / tables / views** included      | public.conversations, public.latest_tickets_v                                |
       </Step>
     </Steps>
+
   </Accordion>
 </AccordionGroup>
 
@@ -147,73 +150,85 @@ description: "Ingest targeted data from Snowflake, BigQuery and other data wareh
 
 We support several schemas and relationships between tables. With each of the schemas defined below, you can also provide a list of additional column names that you would like to be included on the respective fields as **metadata**. A few examples of common additional fields are for feedback or conversation messages, a "version" number that the feedback refers to, or for Contacts, a "plan" or "subscription tier". When working with the team to connect to your data warehouse, simply share with us fields beyond those defined below that you would like to have included!
 
+<Note>
+  All fields with type DATE fields should be provided as ISO8601 formatted
+  strings (e.g., `2024-01-15T10:30:00Z`).
+</Note>
+
 ### Standalone Feedback
 
 Standalone feedback are singular items of feedback, such as a review or a single response to a question.
 
-| Field Name  | Required | Type   | Description                                |
+| Field Name  | Required |  Type  | Description                                |
 | :---------- | :------: | :----: | :----------------------------------------- |
-| id          | Yes      | STRING | Unique identifier for the feedback record  |
-| description | Yes      | STRING | The main feedback content                  |
-| created_at  | Yes      | STRING | When the feedback was created              |
-| updated_at  | Yes      | DATE   | When the feedback was last updated         |
-| source      | No       | STRING | The source of the feedback, e.g. "HUBSPOT" |
-| title       | No       | STRING | Optional title for the feedback            |
-| contact_id  | No       | STRING | Optional identifier linking to a contact   |
+| id          |   Yes    | STRING | Unique identifier for the feedback record  |
+| description |   Yes    | STRING | The main feedback content                  |
+| created_at  |   Yes    |  DATE  | When the feedback was created              |
+| updated_at  |   Yes    |  DATE  | When the feedback was last updated         |
+| source      |    No    | STRING | The source of the feedback, e.g. "HUBSPOT" |
+| title       |    No    | STRING | Optional title for the feedback            |
+| contact_id  |    No    | STRING | Optional identifier linking to a contact   |
 
 ### Conversation
 
 A conversation is a collection of conversational feedback messages. For example, a chat log between a support agent and a user.
 
-| Field Name | Required | Type   | Description                                |
+| Field Name | Required |  Type  | Description                                |
 | :--------- | :------: | :----: | :----------------------------------------- |
-| id         | Yes      | STRING | Unique identifier for the conversation     |
-| title      | No       | STRING | Optional title for the conversation        |
-| source     | No       | STRING | The source of the feedback, e.g. "HUBSPOT" |
-| created_at | Yes      | STRING | When the conversation was created          |
-| updated_at | No       | DATE   | When the conversation was last updated     |
+| id         |   Yes    | STRING | Unique identifier for the conversation     |
+| title      |    No    | STRING | Optional title for the conversation        |
+| source     |    No    | STRING | The source of the feedback, e.g. "HUBSPOT" |
+| created_at |   Yes    |  DATE  | When the conversation was created          |
+| updated_at |    No    |  DATE  | When the conversation was last updated     |
 
 ### Conversation Message
 
 These are the individual messages within a conversation, and should be linked to a conversation by the `conversation_id` field.
 
-| Field Name      | Required | Type    | Description                                      |
+| Field Name      | Required |  Type   | Description                                      |
 | :-------------- | :------: | :-----: | :----------------------------------------------- |
-| id              | Yes      | STRING  | Unique identifier for the message                |
-| created_at      | Yes      | DATE    | When the message was sent                        |
-| updated_at      | No       | DATE    | When the message was last updated                |
-| conversation_id | Yes      | STRING  | ID of the conversation this message belongs to   |
-| content         | Yes      | STRING  | The message content                              |
-| incoming        | Yes      | BOOLEAN | Whether the message was sent by an external user |
-| contact_id      | No       | STRING  | Optional identifier linking to a contact         |
+| id              |   Yes    | STRING  | Unique identifier for the message                |
+| created_at      |   Yes    |  DATE   | When the message was sent                        |
+| updated_at      |    No    |  DATE   | When the message was last updated                |
+| conversation_id |   Yes    | STRING  | ID of the conversation this message belongs to   |
+| content         |   Yes    | STRING  | The message content                              |
+| incoming        |   Yes    | BOOLEAN | Whether the message was sent by an external user |
+| contact_id      |    No    | STRING  | Optional identifier linking to a contact         |
 
 ### Contacts
 
 Contacts are the users of your product.
 
-| Field Name | Required | Type   | Description                        |
+| Field Name | Required |  Type  | Description                        |
 | :--------- | :------: | :----: | :--------------------------------- |
-| id         | Yes      | STRING | Unique identifier for the contact  |
-| name       | Yes      | STRING | The contact's full name            |
-| email      | Yes      | STRING | The contact's email address        |
-| account_id | Yes      | STRING | The account the contact belongs to |
-| created_at | Yes      | DATE   | When the contact was created       |
-| updated_at | Yes      | DATE   | When the contact was last updated  |
+| id         |   Yes    | STRING | Unique identifier for the contact  |
+| name       |   Yes    | STRING | The contact's full name            |
+| email      |   Yes    | STRING | The contact's email address        |
+| account_id |   Yes    | STRING | The account the contact belongs to |
+| created_at |   Yes    |  DATE  | When the contact was created       |
+| updated_at |   Yes    |  DATE  | When the contact was last updated  |
 
 ### Accounts
 
 Accounts are the companies that your contacts belong to.
 
-| Field Name     | Required | Type   | Description                       |
+| Field Name     | Required |  Type  | Description                       |
 | :------------- | :------: | :----: | :-------------------------------- |
-| id             | Yes      | STRING | Unique identifier for the account |
-| name           | Yes      | STRING | The account's name                |
-| domain         | Yes      | STRING | The account's domain              |
-| contract_value | No       | NUMBER | The account's contract value      |
-| created_at     | Yes      | DATE   | When the account was created      |
-| updated_at     | Yes      | DATE   | When the account was last updated |
+| id             |   Yes    | STRING | Unique identifier for the account |
+| name           |   Yes    | STRING | The account's name                |
+| domain         |   Yes    | STRING | The account's domain              |
+| contract_value |    No    | NUMBER | The account's contract value      |
+| created_at     |   Yes    |  DATE  | When the account was created      |
+| updated_at     |   Yes    |  DATE  | When the account was last updated |
 
 ### Custom Tables
+
+<Warning>
+  Custom tables require additional engineering work on our end, which will
+  extend your onboarding timeline as it requires planning and scheduling
+  resources. We encourage you to use the expected formats above to ensure the
+  fastest possible onboarding experience.
+</Warning>
 
 Sometimes, you may not be able to map your data to the existing schemas. In this case, you can share your own, existing tables. This will require custom engineering work on our end, so understand that time will be required to support this.
 
