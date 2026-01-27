@@ -20,9 +20,18 @@ When you want to show a research opportunity to a user, call the appropriate met
 
 You can get the share token for a survey or interview from its individual settings tab.
 
-## Notes
+## Targeting
 
-**Bring your own targeting:** The widget doesn't include built-in targeting logic yet. You control when to show research opportunities based on your user segmentation and business rules. An advanced targeting rule builder is planned.
+The widget supports targeting rules to control who sees your surveys and interviews. You can target users based on:
+
+- **Browser properties:** URL, page title, referrer, user agent, language, timezone
+- **User properties:** ID, email, and custom attributes you pass during initialization
+- **Time & date properties:** timestamp, time of day, day of week
+- **Contact properties:** Custom attributes from your CRM or user database
+
+For the full targeting documentation including display approaches (automatic polling, custom UI, one-time checks), available operators, and common use cases, see the [In-app research targeting settings](https://insights.reforge.com/w/default/settings/in-app-research?tab=targeting).
+
+## Notes
 
 **Availability rules:** Available research opportunities are determined by the widget at first available research opportunity that is:
 - Active (launched/live)
