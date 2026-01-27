@@ -159,15 +159,16 @@ We support several schemas and relationships between tables. With each of the sc
 
 Standalone feedback are singular items of feedback, such as a review or a single response to a question.
 
-| Field Name  | Required |  Type  | Description                                |
-| :---------- | :------: | :----: | :----------------------------------------- |
-| id          |   Yes    | STRING | Unique identifier for the feedback record  |
-| description |   Yes    | STRING | The main feedback content                  |
-| created_at  |   Yes    |  DATE  | When the feedback was created              |
-| updated_at  |   Yes    |  DATE  | When the feedback was last updated         |
-| source      |    No    | STRING | The source of the feedback, e.g. "HUBSPOT" |
-| title       |    No    | STRING | Optional title for the feedback            |
-| contact_id  |    No    | STRING | Optional identifier linking to a contact   |
+| Field Name  | Required |  Type  |                               Description                               |
+| :---------- | :------: | :----: | :---------------------------------------------------------------------: |
+| id          |   Yes    | STRING |                Unique identifier for the feedback record                |
+| description |   Yes    | STRING |                        The main feedback content                        |
+| created_at  |   Yes    |  DATE  |                      When the feedback was created                      |
+| updated_at  |   Yes    |  DATE  |                   When the feedback was last updated                    |
+| source      |    No    | STRING |               The source of the feedback, e.g. "HUBSPOT"                |
+| title       |    No    | STRING |                     Optional title for the feedback                     |
+| contact_id  |    No    | STRING |                Optional identifier linking to a contact                 |
+| rating      |    No    | NUMBER | Optional numeric rating associated with the feedback (e.g. NPS or CSAT) |
 
 ### Conversation
 
