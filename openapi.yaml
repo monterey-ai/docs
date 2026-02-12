@@ -500,6 +500,10 @@ paths:
                         type: object
                         description: Additional metadata properties (key-value pairs)
                         additionalProperties: true
+                      sourceUrl:
+                        type: string
+                        description: URL linking to the source of this message
+                        nullable: true
                 rating:
                   type: number
                   description: The numeric rating (integer)
