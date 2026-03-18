@@ -49,19 +49,22 @@ description: "Ingest targeted data from Snowflake, BigQuery and other data wareh
     44.240.0.247
     ```
 
-  </Accordion>
-  <Accordion title="BigQuery">
+</Accordion>
+<Accordion title="BigQuery">
     To connect with BigQuery:
 
     <Steps>
       <Step>
-        Add the service account email address to your Google Cloud IAM policy and grant it the `bigquery.jobUser` _(BigQuery
-        Job User)_ role. This will allow us to run queries on your behalf.
+        In **Google Cloud Console → IAM & Admin → IAM**, add the service account email address and grant it the `bigquery.jobUser` _(BigQuery Job User)_ role. This will allow us to run queries on your behalf.
       </Step>
       <Step>
-        Share the dataset containing tables, like those described below, with our service account email address and grant it the `bigquery.dataViewer` _(BigQuery Data Viewer)_ role. This will provide us with read-only access to the datasets you want to share.
+        In **BigQuery**, share the dataset containing tables, like those described below, with our service account email address and grant it the `bigquery.dataViewer` _(BigQuery Data Viewer)_ role. This will provide us with read-only access to the datasets you want to share.
       </Step>
     </Steps>
+
+    <Note>
+      These two steps are completed in different places — the Job User role is granted at the project level in Google Cloud IAM, while the Data Viewer role is granted at the dataset level inside BigQuery. This is a common source of confusion.
+    </Note>
 
   </Accordion>
 
