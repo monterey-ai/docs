@@ -1,22 +1,59 @@
 ---
 title: "Export"
-description: "Set up your feedback infrastructure"
+description: "Export snippets and feedback to CSV"
 ---
 
-## Export Feedback to CSV
+You can export snippets and feedback to CSV from a few places in Insights. Each export downloads a CSV file to your browser's downloads folder.
 
-Export feedback to take your data wherever you need
+## Export snippets
 
-### What's Included in the CSV
+1. Go to the [Snippets](https://insights.reforge.com/w/default/snippets) page.
+2. Apply any filters you want (source, date, category, tags, projects, and so on). The export includes every snippet that matches your current filters, not just the page you're viewing.
+3. Click the **download** icon in the footer at the bottom of the snippet list (the tooltip reads **Export to CSV**).
 
-- **Feedback ID**: Unique identifier for each piece of feedback.
-- **Source**: Where the feedback originated from.
-- **Date**: When the feedback was received.
-- **Snippet ID**: Distinct identifier for the associated snippet.
-- **Content**: The actual feedback content.
-- **Customer Details**: Name and either their email or unique ID for reference.
-- **Category**: Classification of the feedback type.
-- **Projects**: Related projects or products tied to the feedback.
-- **Status**: Current status of the feedback (e.g., pending, resolved).
+The file is named `reforge-<workspace>-snippets-<DD-MM-YYYY>.csv`.
 
-Simply initiate the export, and within moments, receive a comprehensive CSV file capturing every detail of your gathered feedback, making data accessibility and analysis even more flexible.
+<Note>
+  You can't export from the **Feedback** tab. To export feedback, use the Snippets export: each row includes the **Feedback ID** of the feedback the snippet came from.
+</Note>
+
+### CSV columns
+
+Each row is one snippet:
+
+| Column               | Description                                                     |
+| :------------------- | :-------------------------------------------------------------- |
+| **Feedback ID**      | Unique identifier of the feedback the snippet came from         |
+| **Source**           | Where the feedback came from (for example, `intercom`, `zendesk`) |
+| **Date**             | When the feedback was originally created at the source         |
+| **Snippet ID**       | Unique identifier of the snippet                                |
+| **Content**          | The snippet text                                                |
+| **Contact Name**     | Name of the contact who gave the feedback                      |
+| **Contact Email/ID** | The contact's email or unique ID                               |
+| **Category**         | The snippet's category (for example, Complaint or Request)     |
+| **Tags**             | Tags on the snippet, separated by commas                       |
+| **Projects**         | Projects linked to the snippet, separated by commas            |
+| **Status**           | Current status of the parent feedback                          |
+
+## Export feedback for a theme
+
+1. Open a themes report from **Themes** in the sidebar.
+2. On the theme you want, click the **⋯** menu and select **Export feedback**.
+
+The export includes all feedback linked to that theme, limited to the report's date range. Each row is one piece of feedback, with these columns: **ID**, **Title**, **Description**, **Contact Name**, **Contact Email/ID**, **Category**, **Tags**, **Date**, and **Source**.
+
+<Tip>
+  The **download** icon at the bottom of a themes report exports a summary of the themes (Theme, Count, and Percentage), not the underlying feedback. If you have filters applied, the summary only includes matching data. Only users who can edit reports can use this button.
+</Tip>
+
+## Export snippets from a custom report
+
+On a snippet list block in a [custom report](/custom-reports), open the block's menu and select **Export to CSV**. Each row is one snippet, with these columns: **Feedback ID**, **Source**, **Date**, **Snippet ID**, **Content**, **Contact Name**, **Contact Email/ID**, and **Category**.
+
+## Export an Ask Monty dataset
+
+In an Ask Monty conversation, click the **⋯** menu on a dataset card and select **Export CSV**. You can also click the **download** icon in the dataset's snippet drawer. The columns are the same as in the [Snippets export](#csv-columns). For more on datasets, see [Datasets](/monty/datasets#exporting-datasets).
+
+## Permissions
+
+Anyone who can view feedback in a workspace, including Admins and Members, can export snippets and feedback. See [Team roles](/security/team-roles).
