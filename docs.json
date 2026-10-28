@@ -1,0 +1,313 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Reforge Insights",
+  "banner": {
+    "content": "**Reforge Insights is shutting down on December 31, 2026.** Please [export your workspace data](/workspace-data-export) before then.",
+    "type": "critical",
+    "dismissible": false
+  },
+  "colors": {
+    "primary": "#434343",
+    "light": "#F8F8F8",
+    "dark": "#0F1116"
+  },
+  "favicon": "/images/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Home",
+            "pages": [
+              "welcome",
+              "quickstart",
+              "philosophy"
+            ]
+          },
+          {
+            "group": "Aggregation and Collection",
+            "pages": [
+              "overview",
+              "survey",
+              "widget",
+              "in-app-research",
+              "public-portal",
+              "chrome-extension",
+              "feedback-csv-upload",
+              "survey-csv-upload",
+              "contacts-csv-upload",
+              "accounts-csv-upload"
+            ]
+          },
+          {
+            "group": "Records",
+            "pages": [
+              "snippets",
+              "contacts",
+              "metadata",
+              "review-spam"
+            ]
+          },
+          {
+            "group": "Feedback insights",
+            "pages": [
+              "themes",
+              "custom-reports",
+              "alert"
+            ]
+          },
+          {
+            "group": "Ask Monty",
+            "pages": [
+              "monty/overview",
+              "monty/asking-questions",
+              "monty/understanding-responses",
+              "monty/datasets",
+              "monty/surveys-interviews",
+              "monty/external-integrations",
+              "monty/advanced-features"
+            ]
+          },
+          {
+            "group": "Knowledge Hub",
+            "pages": [
+              "knowledge-hub/labels",
+              "knowledge-hub/tags",
+              "knowledge-hub/mcp-server"
+            ]
+          },
+          {
+            "group": "Workflows",
+            "pages": [
+              "feedback-search",
+              "email-notifications",
+              "export",
+              "workspace-data-export",
+              "project-management"
+            ]
+          },
+          {
+            "group": "Security",
+            "pages": [
+              "security/security-overview",
+              "security/signin-with-token",
+              "security/team-roles",
+              "security/pii"
+            ]
+          },
+          {
+            "group": "SSO",
+            "pages": [
+              "sso/okta-oidc",
+              "sso/okta-saml"
+            ]
+          },
+          {
+            "group": "Pricing",
+            "pages": [
+              "pricing/volume-calculation"
+            ]
+          },
+          {
+            "group": "Open Source",
+            "pages": [
+              "open-source/attribution"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Integrations",
+        "groups": [
+          {
+            "group": "Social media mentions & reviews",
+            "pages": [
+              "integrations/apps",
+              "integrations/apple",
+              "integrations/google",
+              "integrations/reddit"
+            ]
+          },
+          {
+            "group": "Customer support & CRM",
+            "pages": [
+              "integrations/support",
+              "integrations/crm",
+              "integrations/chorus",
+              "integrations/discord",
+              "integrations/fanbook",
+              "integrations/fathom",
+              "integrations/freshdesk",
+              "integrations/front",
+              "integrations/github",
+              "integrations/gladly",
+              "integrations/gong",
+              "integrations/hubspot",
+              "integrations/intercom",
+              "integrations/jira-service-management",
+              "integrations/kustomer",
+              "integrations/salesforce",
+              "integrations/salesforce-service-cloud",
+              "integrations/slack",
+              "integrations/zendesk",
+              "integrations/google-meet",
+              "integrations/ring-central",
+              "integrations/zoom"
+            ]
+          },
+          {
+            "group": "Survey & feedback collection",
+            "pages": [
+              "integrations/delighted",
+              "integrations/survey-monkey",
+              "integrations/typeform",
+              "integrations/sprig"
+            ]
+          },
+          {
+            "group": "Task & project management",
+            "pages": [
+              "integrations/asana",
+              "integrations/jira",
+              "integrations/linear"
+            ]
+          },
+          {
+            "group": "Survey",
+            "pages": [
+              "integrations/qualtrics",
+              "integrations/typeform",
+              "integrations/survey-monkey"
+            ]
+          },
+          {
+            "group": "Other Integrations",
+            "pages": [
+              "integrations/data-warehouse",
+              "integrations/zapier",
+              "integrations/fathom",
+              "integrations/external-cohorts"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "API Reference",
+            "pages": [
+              {
+                "group": "Contacts",
+                "pages": [
+                  "api-reference/contacts/identify-contacts",
+                  "api-reference/contacts/purge"
+                ]
+              },
+              {
+                "group": "Accounts",
+                "pages": [
+                  "api-reference/accounts/identify-accounts"
+                ]
+              },
+              {
+                "group": "Feedback",
+                "pages": [
+                  "api-reference/feedback/create-a-feedback-record"
+                ]
+              },
+              {
+                "group": "Conversations",
+                "pages": [
+                  "api-reference/conversations/create-a-conversation"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "/logo/logotext-black.svg",
+    "dark": "/logo/logotext-white.svg"
+  },
+  "api": {
+    "openapi": "openapi.yaml"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Home",
+        "href": "https://www.reforge.com/insight-analytics"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Demo",
+      "href": "https://reforge.com/get-in-touch"
+    }
+  },
+  "footer": {
+    "socials": {
+      "twitter": "https://twitter.com/reforge",
+      "linkedin": "https://www.linkedin.com/company/reforge"
+    }
+  },
+  "redirects": [
+    {
+      "source": "/create-from-slack",
+      "destination": "/integrations/slack"
+    },
+    {
+      "source": "/ingest-from-discord",
+      "destination": "/integrations/discord"
+    },
+    {
+      "source": "/create-from-intercom",
+      "destination": "/integrations/intercom"
+    },
+    {
+      "source": "/ingest-from-apple",
+      "destination": "/integrations/apple"
+    },
+    {
+      "source": "/ingest-from-google",
+      "destination": "/integrations/google"
+    },
+    {
+      "source": "/ingest-from-twitter",
+      "destination": "/integrations"
+    },
+    {
+      "source": "/ingest-from-zapier",
+      "destination": "/integrations/zapier"
+    },
+    {
+      "source": "/ingest-email",
+      "destination": "/integrations/email"
+    },
+    {
+      "source": "/ingest-from-gong",
+      "destination": "/integrations/gong"
+    },
+    {
+      "source": "/ingest-from-front",
+      "destination": "/integrations/front"
+    },
+    {
+      "source": "/ingest-from-zoom",
+      "destination": "/integrations/zoom"
+    },
+    {
+      "source": "/ingest-from-google-meet",
+      "destination": "/integrations/google-meet"
+    },
+    {
+      "source": "/security/sso",
+      "destination": "/sso/okta-oidc"
+    }
+  ]
+}
