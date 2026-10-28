@@ -243,12 +243,7 @@
         "label": "Home",
         "href": "https://www.reforge.com/insight-analytics"
       }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Demo",
-      "href": "https://reforge.com/get-in-touch"
-    }
+    ]
   },
   "footer": {
     "socials": {
