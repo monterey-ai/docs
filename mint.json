@@ -84,6 +84,7 @@
         "feedback-search",
         "email-notifications",
         "export",
+        "workspace-data-export",
         "project-management"
       ]
     },

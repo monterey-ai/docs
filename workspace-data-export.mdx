@@ -1,0 +1,110 @@
+---
+title: "Workspace data export"
+description: "Download a complete copy of your workspace as a zip of CSV files"
+---
+
+Workspace admins can request a full export of a workspace's data from **Settings → Data export**. The export is prepared in the background and delivered as a single zip of CSV files covering feedback and snippets, contacts and accounts, labels, roadmap items and votes, surveys, interviews and transcripts, and reports.
+
+This is different from the per-page [CSV exports](/export), which download the snippets or feedback matching your current filters. A workspace data export includes everything in the workspace.
+
+## Request an export
+
+1. Go to [Settings → Data export](https://insights.reforge.com/w/default/settings/data-export).
+2. Click **Request export**.
+
+The export runs asynchronously. Depending on the size of your workspace it takes a few minutes to an hour. You can leave the page; the status in the **Exports** table updates automatically while an export is in progress.
+
+When the export finishes, you get:
+
+- An email with a link to the Data export page.
+- An in-app notification with a **Download** button.
+
+<Note>
+  Each workspace can request **one export per 24 hours**. The **Request export** button is disabled while an export is in progress or until the next export is available, and the page shows when that is. A failed export doesn't count toward the limit, so you can request again right away.
+</Note>
+
+## Download an export
+
+Completed exports appear in the **Exports** table on the Data export page with the time requested, who requested it, status, file size, and the date it is available until. Click **Download** on a row to get the zip file. Every admin in the workspace can see and download any export, not only the person who requested it.
+
+The file is named `<workspace>-data-export-<YYYY-MM-DD>.zip`.
+
+<Warning>
+  Exports are available for **7 days** after they complete. After that the file is deleted and the row's status changes to **Expired**. Request a new export if you need the data again.
+</Warning>
+
+### Export statuses
+
+| Status        | Meaning                                                                  |
+| :------------ | :----------------------------------------------------------------------- |
+| **Queued**    | The export has been requested and is waiting to start.                   |
+| **Preparing** | The export is running. The percentage shows how much data has been written. |
+| **Ready**     | The export is complete and can be downloaded.                            |
+| **Expired**   | More than 7 days have passed since the export completed. The file has been deleted. |
+| **Failed**    | The export could not be completed. You can request a new one immediately. |
+
+## What's in the export
+
+The zip contains a `README.md` describing each file and its row count, plus the CSV files below. All files are UTF-8 CSV with a header row. Dates are in `MM/DD/YYYY` format (UTC). IDs are stable across files, so you can join them (for example, `Feedback ID` in `snippets.csv` matches `ID` in `feedback.csv`).
+
+Large tables are split into numbered files of about 100,000 rows each (for example `snippets-001.csv`, `snippets-002.csv`). Each part has its own header row; together they make up the whole table.
+
+<Info>
+  Cells that start with `=`, `+`, `-`, or `@` are prefixed with `'` so spreadsheet apps don't run them as formulas.
+</Info>
+
+### Feedback and snippets
+
+| File            | Contents                                                                                                                                                                                 |
+| :-------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `feedback.csv`  | One row per piece of feedback: **ID**, **Title**, **Description**, **Contact Name**, **Contact Email/ID**, **Category**, **Tags**, **Projects**, **Date**, **Source**, **Custom Fields**. **Custom Fields** holds any custom data imported with the feedback as a JSON object. |
+| `snippets.csv`  | One row per snippet: **Feedback ID**, **Source**, **Date**, **Snippet ID**, **Content**, **Contact Name**, **Contact Email/ID**, **Category**, **Tags**, **Projects**, **Status**, **Custom Fields**. **Feedback ID** links to `feedback.csv`. **Custom Fields** repeats the parent feedback's custom data. |
+
+### Contacts and accounts
+
+| File            | Contents                                                                                                                                                                                              |
+| :-------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `customers.csv` | One row per contact: **ID**, **Name**, **Email/ID**, **External ID**, **External Source**, **Account ID**, **Account Name**, **Tags**, **Created At**. **Account ID** links to `accounts.csv`. Enabled custom contact fields (see [Metadata](/metadata)) appear as extra columns after **Created At**. |
+| `accounts.csv`  | One row per account: **ID**, **Name**, **Domain**, **Description**, **External ID**, **Contract Value**, **Created At**. Enabled custom account fields appear as extra columns after **Created At**.   |
+
+### Labels
+
+| File         | Contents                                                                                                                                                                                                                       |
+| :----------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `labels.csv` | Your label taxonomy: **ID**, **Name**, **Description**, **Type**, **Applies To**, **Group**, **Parent Group**, **Created At**. **Type** is one of Category, Tag, Project, Competitor, Persona, Contact Tag, or Roadmap. Snippet and feedback rows reference labels by name. |
+
+### Roadmap
+
+| File                | Contents                                                                                                                                                                                                                                                                                 |
+| :------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `roadmap.csv`       | One row per roadmap item, including items not published to your [portal](/public-portal): **ID**, **Title**, **Description**, **Status**, **Priority**, **Published to Portal**, **Published At**, **Portal Votes**, **Imported Votes**, **Linked Feedback**, **Created At**. AI-suggested items still awaiting review are not included. |
+| `roadmap_votes.csv` | One row per vote on a roadmap item: **Roadmap Item ID**, **Roadmap Item Title**, **Contact ID**, **Contact Name**, **Contact Email/ID**, **Source**. **Source** is `Portal` for votes cast in your portal and `Imported` for votes brought in by CSV import. **Contact ID** links to `customers.csv`. |
+
+### Surveys
+
+| File                     | Contents                                                                                                                                                                                                                                            |
+| :----------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `surveys/surveys.csv`    | One row per survey: **ID**, **Title**, **Description**, **Type**, **Status**, **Launched At**, **Ended At**, **Created At**, **Responses**.                                                                                                        |
+| `surveys/questions.csv`  | One row per survey question: **Question ID**, **Survey ID**, **Order**, **Type**, **Question**, **Required**, **Options**, **AI Summary**, **Deleted**. Questions removed after responses came in are included with **Deleted** = Yes.              |
+| `surveys/responses.csv`  | One row per survey response: **Response ID**, **Survey ID**, **Respondent Name**, **Respondent Email/ID**, **Started At**, **Completed At**, **AI Summary**. Responses received over the survey's quota are not included.                           |
+| `surveys/answers.csv`    | One row per answer: **Response ID**, **Survey ID**, **Question ID**, **Question**, **Answer**. Welcome and thank-you screens are not included.                                                                                                     |
+
+### Interviews
+
+| File                          | Contents                                                                                                                                                                                                                                               |
+| :---------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `interviews/interviews.csv`   | One row per AI interview: **ID**, **Title**, **Description**, **Type**, **Status**, **Launched At**, **Ended At**, **Created At**, **Responses**.                                                                                                     |
+| `interviews/goals.csv`        | One row per interview goal (a topic the interviewer covered): **Goal ID**, **Interview ID**, **Order**, **Type**, **Goal**, **Example Question**, **AI Summary**.                                                                                      |
+| `interviews/responses.csv`    | One row per interview participant: **Response ID**, **Interview ID**, **Respondent Name**, **Respondent Email/ID**, **Started At**, **Completed At**, **Sentiment**, **Language**, **AI Summary**.                                                   |
+| `interviews/transcripts.csv`  | One row per spoken or typed turn, in order: **Response ID**, **Interview ID**, **Recording ID**, **Turn**, **Speaker**, **Goal**, **Message**, **Timestamp**. **Speaker** is `Interviewer` or `Participant`. Tool calls and UI events are not included. |
+
+### Reports
+
+| File                           | Contents                                                                                                                                                                                                                                                                                                |
+| :----------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `reports/reports.csv`          | One row per [custom report](/custom-reports): **ID**, **Title**, **Type**, **Summary**, **Generated Content**, **Filters**, **Shared With Workspace**, **Created At**, **Completed At**. **Summary** and **Generated Content** are the AI-written parts of the report. **Filters** is the report's dataset definition as JSON. Charts are computed live in the product and are not included. |
+| `reports/report_snippets.csv`  | Which snippets each report covers as of the export date, one row per report and snippet: **Report ID**, **Snippet ID**. Reports without filters (covering all your data) are left out, since their snippets are already in `snippets.csv`.                                                             |
+
+## Permissions
+
+Only workspace **Admins** can request, view, and download workspace data exports. Members see a message that only admins can export workspace data. See [Team roles](/security/team-roles).
