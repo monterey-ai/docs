@@ -4,16 +4,16 @@ Reforge Insights (formerly Monterey AI) is the Copilot for Product Development. 
 
 ### 👩‍💻 Development
 
-Install the [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the documentation changes locally. To install, use the following command
+Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview the documentation changes locally. To install, use the following command
 
 ```
-npm i mintlify -g
+npm i -g mint
 ```
 
-Run the following command at the root of your documentation (where mint.json is)
+Run the following command at the root of your documentation (where docs.json is)
 
 ```
-mintlify dev
+mint dev
 ```
 You can provide a `--port` flag to run on a different port.
 
@@ -25,5 +25,5 @@ You can also preview changes using PRs, which generates a preview link of the do
 
 #### Troubleshooting
 
-- Mintlify dev isn't running - Run `mintlify install` it'll re-install dependencies.
-- Mintlify dev is updating really slowly - Run `mintlify clear` to clear the cache.
+- `mint dev` isn't running - Run `mint install` it'll re-install dependencies.
+- `mint dev` is updating really slowly - Run `mint clear` to clear the cache.
